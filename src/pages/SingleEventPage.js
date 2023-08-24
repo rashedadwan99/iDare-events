@@ -10,6 +10,7 @@ import EventOrganizers from "../components/EventOrganizers";
 import EventRooms from "../components/EventRooms";
 import "../styles/single-event-page.css";
 import { storageBaseURL } from "../services/httpService";
+import EventSponsors from "../components/EventSponsors";
 function SingleEventPage() {
   const { id } = useParams();
   const allEvents = useSelector((state) => state.events.allEvents);
@@ -48,6 +49,13 @@ function SingleEventPage() {
         <Col sm={12} lg={12}>
           <EventSectionContainer name="rooms">
             <EventRooms event={allEvents.find((e) => e.id === parseInt(id))} />
+          </EventSectionContainer>
+        </Col>
+        <Col sm={12} lg={12}>
+          <EventSectionContainer name="cooperation">
+            <EventSponsors
+              event={allEvents.find((e) => e.id === parseInt(id))}
+            />
           </EventSectionContainer>
         </Col>
       </Row>
