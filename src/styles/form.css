@@ -1,0 +1,104 @@
+.common-input,
+textarea {
+  color: var(--font-color) !important;
+  padding: 20px !important;
+
+  font-size: 14px !important;
+
+  border: 1px solid var(--light-gray) !important;
+}
+
+
+.common-input:focus,
+textarea:focus {
+  outline: 0 !important;
+  box-shadow: none !important;
+  border: 1px solid var(--light-gray) !important;
+}
+
+.no-auto-bg:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px var(--white) inset !important;
+}
+
+.no-auto-bg:-moz-autofill {
+  -moz-box-shadow: 0 0 0px 1000px var(--white) inset !important;
+}
+
+.no-auto-bg:-ms-autofill {
+  -ms-box-shadow: 0 0 0px 1000px var(--white) inset !important;
+}
+
+
+
+.input-group-text {
+  padding: 0 !important;
+  background-color: inherit !important;
+  border: 0 !important;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  text-align: center;
+  white-space: nowrap;
+  position: absolute;
+  z-index: 4;
+  left: 18px;
+  bottom: 0;
+  top: 0;
+
+}
+
+select.form-select {
+  padding: 10px !important;
+}
+
+
+
+.input-with-icon .form-control {
+  background-color: var(--light-gray);
+  border-radius: 50px !important;
+  width: 100%;
+  padding: 10px !important;
+  line-height: 22px;
+  border: none;
+}
+
+
+
+
+.input-with-icon svg {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.input-with-icon input {
+  color: var(--font-color) !important;
+  background-color: var(--light-gray) !important;
+
+}
+
+.input-with-icon {
+  box-shadow: none !important;
+  border-color: none !important;
+  border: 0 !important;
+}
+
+
+.date-label {
+  font-size: 13px !important;
+  margin-left: 5px;
+  color: var(--font-color) !important;
+}
+
+.toggle-forms-message {
+  font-size: 14px;
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  color: var(--primary-font-color);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.toggle-forms-message:hover {
+  color: var(--black);
+}

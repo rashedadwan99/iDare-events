@@ -1,0 +1,77 @@
+.select-menu {
+  font-size: 11px;
+  position: relative;
+  margin: 10px 0;
+  font-weight: bold;
+
+}
+
+.select-menu .select-menu__header span {
+  font-size: 11px;
+}
+
+.select-menu__header {
+  background-color: var(--light-gray);
+  border-radius: 50px;
+  width: 100%;
+  padding: 8px 19px;
+  line-height: 22px;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+
+}
+
+.select-menu .default-option::first-letter {
+  text-transform: capitalize;
+}
+
+.select-menu__options {
+  overflow: auto;
+  background-color: var(--light-gray);
+  border-radius: 10px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  z-index: 5;
+  position: absolute;
+  top: 110%;
+  width: 100%;
+
+}
+
+.select-menu__options.open {
+  overflow: auto;
+  max-height: 30vh;
+}
+
+.select-menu__options::-webkit-scrollbar {
+  width: 0;
+}
+
+
+
+
+
+
+.select-menu__option {
+  padding: 10px 20px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  text-align: end;
+
+}
+
+
+
+.select-menu__option:last-child {
+  margin-bottom: 0;
+}
+
+.auth-forms .select-menu__options {
+  position: absolute;
+  width: 100%;
+  z-index: 4;
+}

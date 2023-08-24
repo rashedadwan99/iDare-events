@@ -1,0 +1,140 @@
+.event-page.arabic .first-event-section,
+.event-page.arabic .organizer-container {
+  direction: rtl;
+  text-align: right;
+}
+
+
+
+.first-event-section {
+  height: 78.4vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-transform: uppercase;
+  align-items: center;
+
+  font-weight: bold;
+}
+
+.first-event-section h4,
+.second-event-section h3 {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.first-event-section span {
+  margin: 0 5px;
+}
+
+.second-event-section img {
+  width: 100%;
+
+}
+
+.event-room {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid var(--light-gray);
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+.event-room .event-room__name {
+  font-weight: bold;
+  text-align: center;
+}
+
+.event-room img {
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  margin: 10px 0;
+}
+
+.event-hover {
+  font-size: 14px;
+  font-weight: 300 !important;
+}
+
+.event-room .event-room__description {
+  background-color: var(--white);
+  opacity: 0;
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  right: 0;
+  transition: all 1s ease-in-out;
+  max-height: 0;
+  height: 0;
+
+
+  padding: 25px 10px;
+  overflow-y: auto;
+}
+
+
+
+.event-room:hover .event-room__description {
+  bottom: 0%;
+  opacity: 0.95;
+  max-height: 100%;
+  height: 100%;
+}
+
+.event-section-name {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.event-room__description-text {
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+
+}
+
+.event-section-name::after {
+  display: block;
+  content: "";
+  background-color: var(--background-color);
+  height: 5px;
+  width: 50%;
+  border-radius: 5px;
+  margin: 10px auto;
+}
+
+.organizer-container {
+  background-color: var(--white);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+
+
+.organizer-description {
+  font-size: 13px;
+}
+
+.organizer-name {
+  font-weight: bold;
+}
+
+
+
+@media (max-width:992px) {
+  .organizer-container img {
+    width: 80% !important;
+    margin: 0 auto;
+    display: block;
+  }
+
+
+  .organizer-name {
+    font-size: 15px;
+  }
+}

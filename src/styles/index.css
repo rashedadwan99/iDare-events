@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300&family=Estonia&family=Montagu+Slab:wght@500;700&family=Nunito:wght@200&family=Playfair+Display&family=Poppins:wght@200;300&family=Road+Rage&family=Roboto+Mono:wght@100&family=Roboto:wght@900&family=Rubik:wght@300&family=Tilt+Prism&family=Work+Sans:wght@500&display=swap');
+
+
+:root {
+  --background-color: #345fae;
+  --primary-font-color: #345fae;
+  --font-color: #212529;
+
+  --secondary-font-color: #7093d2;
+  --white: #ffffff;
+
+  --light-gray: #f7f7f7;
+  --black: #000000;
+  --box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 8px;
+
+  --text-direction: ltr;
+}
+
+
+/* Arabic */
+[dir='rtl'] {
+  --text-direction: rtl;
+}
+
+/* Apply direction to specific elements */
+.app-container {
+  direction: var(--text-direction);
+}
+
+* {
+  font-family: "Rubik", sans-serif !important;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}

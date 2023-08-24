@@ -1,0 +1,73 @@
+.common-button {
+  padding: 10px 30px !important;
+  font-weight: bold;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.common-button svg {
+  margin-left: 10px;
+}
+
+button.btn>div {
+  text-align: center !important;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.common-button:focus {
+  box-shadow: none !important;
+  outline: none !important;
+  color: var(--background-color) !important;
+}
+
+.common-button.btn-primary {
+  transition: all 0.5s;
+  color: var(--light-gray) !important;
+  background-color: var(--background-color) !important;
+  border-color: var(--light-gray) !important;
+}
+
+.common-button.btn-primary:hover {
+  color: var(--background-color) !important;
+  background-color: inherit !important;
+  border-color: var(--background-color) !important;
+  text-emphasis: center !important;
+
+}
+
+.common-button.btn-secondary {
+  transition: all 0.5s;
+  color: var(--background-color) !important;
+  background-color: inherit !important;
+  border-color: var(--background-color) !important;
+  text-emphasis: center !important;
+
+}
+
+.common-button.btn-secondary:hover {
+  color: var(--light-gray) !important;
+  background-color: var(--background-color) !important;
+  border-color: var(--light-gray) !important;
+}
+
+.common-button.btn-primary:visited {
+  color: initial;
+  background-color: var(--white);
+  border-color: var(--blue);
+}
+
+@media (max-width:992px) {
+  .common-button {
+    padding: 14px 28px !important;
+  }
+}
+
+@media (max-width:768px) {
+  .common-button {
+    padding: 12px 25px !important;
+    font-size: 12px !important;
+  }
+}
