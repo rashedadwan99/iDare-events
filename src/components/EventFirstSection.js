@@ -11,6 +11,7 @@ function EventFirstSection({ event, handleBackgroundStyle }) {
       className="justify-content-center first-event-section"
       style={handleBackgroundStyle(event.main_image)}
     >
+      <div className="first-event-section__blur-background" />
       <Col xs={11} sm={11} md={6}>
         <Row className="justify-content-start">
           <h4>{isArabic() ? event.slogan_ar : event.slogan}</h4>

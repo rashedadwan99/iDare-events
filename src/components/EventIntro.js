@@ -1,27 +1,54 @@
 import React from "react";
-import { Row, Col } from "react-bootstrap";
-import { useTranslation } from "react-i18next";
-import { language } from "../locales/language";
-import { storageBaseURL } from "../services/httpService";
+import { Row, Col, Image } from "react-bootstrap";
+import { isArabic } from "../locales/language";
 
-function EventSecondSection({ event }) {
+import DomParser from "./common/DomParser";
+import { getImageSrc } from "../services/imageServices";
+import Canvas from "./common/Canvas";
+import { useTranslation } from "react-i18next";
+import CommonButton from "./common/Button";
+
+function EventSecondSection({
+  event,
+  handlePrimaryButtonStyle,
+  handlePrimaryButtonStyleWhenHover,
+}) {
   const { t } = useTranslation();
   return (
-    <Row className="justify-content-center my-5 second-event-section">
-      <Col sm={12}>
-        <Row className="justify-content-center my-3">
-          <h3>{t("about-event")}</h3>
-        </Row>
-        <Row className="justify-content-center mb-5">
-          <Col xs={11} sm={6}>
-            <img src={storageBaseURL + event.about_image} alt="about" />
-          </Col>
-        </Row>
+    <Row className="justify-content-center mt-5 second-event-section">
+      <Col xs={11} sm={9} md={8}>
         <Row className="justify-content-center">
-          <Col xs={11} sm={11} md={9} lg={7}>
-            {language() === "ar"
-              ? event.long_description_ar
-              : event.long_description}
+          <Col xs={11} sm={9} md={8}>
+            <Image
+              src={getImageSrc(event.about_image)}
+              alt="about"
+              className="event__about-image"
+            />
+          </Col>
+
+          <Col xs={11} sm={9} md={8}>
+            <Row className="justify-content-center mt-4">
+              <Canvas
+                label={t("about-event")}
+                bodyComponent={
+                  <div className="about-event__description">
+                    <DomParser
+                      htmlResponse={
+                        isArabic()
+                          ? event.long_description_ar
+                          : event.long_description
+                      }
+                    />
+                  </div>
+                }
+              >
+                <CommonButton
+                  label={t("read-event")}
+                  primaryStyle={handlePrimaryButtonStyle}
+                  primaryStyleHover={handlePrimaryButtonStyleWhenHover}
+                />
+              </Canvas>
+            </Row>
           </Col>
         </Row>
       </Col>

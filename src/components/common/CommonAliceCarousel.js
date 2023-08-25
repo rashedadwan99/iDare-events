@@ -7,9 +7,13 @@ function CommonAliceCarousel({ items }) {
       mouseTracking
       autoPlay={true}
       animationDuration={1200}
+      autoPlayInterval={1200}
       infinite={true}
       items={items}
       disableButtonsControls={true}
+      animationEasingFunction="ease-in-out"
+      animationType="fadeout"
+      autoPlayStrategy="all"
     />
   );
 }

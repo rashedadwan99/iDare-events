@@ -5,14 +5,16 @@ import { GrClose } from "react-icons/gr";
 function CanvasHeader({ label, handleClick }) {
   return (
     <Row
-      className="justify-content-around py-4"
+      className="justify-content-around canvas-header py-4 px-2"
       style={{ alignItems: "center" }}
     >
       <Col xs={2} sm={2}>
-        <GrClose onClick={handleClick} />
+        <Row className="justify-content-start px-2">
+          <GrClose onClick={handleClick} />
+        </Row>
       </Col>
       <Col xs={9} sm={9}>
-        <span>{label}</span>
+        <Row className="justify-content-end px-3">{label}</Row>
       </Col>
     </Row>
   );

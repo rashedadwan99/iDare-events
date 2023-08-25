@@ -5,6 +5,14 @@
 }
 
 
+.event__about-image {
+  border-radius: 8px;
+}
+
+.about-event__description {
+  padding: 15px;
+}
+
 
 .first-event-section {
   height: 78.4vh;
@@ -12,8 +20,19 @@
   background-size: cover;
   text-transform: uppercase;
   align-items: center;
-
   font-weight: bold;
+  position: relative;
+  color: var(--white);
+}
+
+.first-event-section__blur-background {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: var(--black);
+  opacity: 0.6;
 }
 
 .first-event-section h4,

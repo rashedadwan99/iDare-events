@@ -2,9 +2,13 @@
   padding: 10px 30px !important;
   font-weight: bold;
   display: flex !important;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.common-button:focus {
+  box-shadow: none !important;
 }
 
 .common-button svg {
@@ -12,45 +16,45 @@
 }
 
 button.btn>div {
-  text-align: center !important;
+  text-align: center;
   font-size: 14px;
   font-weight: bold;
 }
 
 .common-button:focus {
-  box-shadow: none !important;
-  outline: none !important;
-  color: var(--background-color) !important;
+  box-shadow: none;
+  outline: none;
+  color: var(--background-color);
 }
 
 .common-button.btn-primary {
   transition: all 0.5s;
-  color: var(--light-gray) !important;
-  background-color: var(--background-color) !important;
-  border-color: var(--light-gray) !important;
+  color: var(--light-gray);
+  background-color: var(--background-color);
+  border-color: var(--light-gray);
 }
 
 .common-button.btn-primary:hover {
-  color: var(--background-color) !important;
-  background-color: inherit !important;
-  border-color: var(--background-color) !important;
-  text-emphasis: center !important;
+  color: var(--background-color);
+  background-color: inherit;
+  border-color: var(--background-color);
+  text-emphasis: center;
 
 }
 
 .common-button.btn-secondary {
   transition: all 0.5s;
-  color: var(--background-color) !important;
-  background-color: inherit !important;
-  border-color: var(--background-color) !important;
-  text-emphasis: center !important;
+  color: var(--background-color);
+  background-color: inherit;
+  border-color: var(--background-color);
+  text-emphasis: center;
 
 }
 
 .common-button.btn-secondary:hover {
-  color: var(--light-gray) !important;
-  background-color: var(--background-color) !important;
-  border-color: var(--light-gray) !important;
+  color: var(--light-gray);
+  background-color: var(--background-color);
+  border-color: var(--light-gray);
 }
 
 .common-button.btn-primary:visited {
@@ -61,13 +65,13 @@ button.btn>div {
 
 @media (max-width:992px) {
   .common-button {
-    padding: 14px 28px !important;
+    padding: 14px 28px;
   }
 }
 
 @media (max-width:768px) {
   .common-button {
-    padding: 12px 25px !important;
-    font-size: 12px !important;
+    padding: 12px 25px;
+    font-size: 12px;
   }
 }
