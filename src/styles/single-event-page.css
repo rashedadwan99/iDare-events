@@ -6,7 +6,7 @@
 
 
 .event__about-image {
-  border-radius: 8px;
+  border-radius: 0.25rem;
 }
 
 .about-event__description {
@@ -36,7 +36,7 @@
 }
 
 .first-event-section h4,
-.second-event-section h3 {
+.about-event-section h3 {
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -45,9 +45,13 @@
   margin: 0 5px;
 }
 
-.second-event-section img {
+.about-event-section img {
   width: 100%;
 
+}
+
+.about-event-section .clickoutside-container {
+  width: 100%;
 }
 
 .event-room {

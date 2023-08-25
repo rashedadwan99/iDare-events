@@ -32,6 +32,7 @@ function SingleEventPage() {
       backgroundColor: event.primary_button_background_color,
       color: event.primary_button_text_color,
       border: `1px solid ${event.primary_button_background_color}`,
+      window,
     };
   };
   const handlePrimaryButtonStyleWhenHover = () => {

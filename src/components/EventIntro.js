@@ -15,7 +15,7 @@ function EventSecondSection({
 }) {
   const { t } = useTranslation();
   return (
-    <Row className="justify-content-center mt-5 second-event-section">
+    <Row className="justify-content-center mt-5 about-event-section">
       <Col xs={11} sm={9} md={8}>
         <Row className="justify-content-center">
           <Col xs={11} sm={9} md={8}>
@@ -27,7 +27,7 @@ function EventSecondSection({
           </Col>
 
           <Col xs={11} sm={9} md={8}>
-            <Row className="justify-content-center mt-4">
+            <Row className="mt-4">
               <Canvas
                 label={t("about-event")}
                 bodyComponent={
@@ -42,11 +42,13 @@ function EventSecondSection({
                   </div>
                 }
               >
-                <CommonButton
-                  label={t("read-event")}
-                  primaryStyle={handlePrimaryButtonStyle}
-                  primaryStyleHover={handlePrimaryButtonStyleWhenHover}
-                />
+                <Col sm={12}>
+                  <CommonButton
+                    label={t("read-event")}
+                    primaryStyle={handlePrimaryButtonStyle}
+                    primaryStyleHover={handlePrimaryButtonStyleWhenHover}
+                  />
+                </Col>
               </Canvas>
             </Row>
           </Col>
