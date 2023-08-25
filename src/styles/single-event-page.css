@@ -122,6 +122,12 @@
   font-weight: bold;
 }
 
+.event-sponsors img {
+  height: 250px;
+  width: 250px;
+  margin: 10px auto;
+
+}
 
 
 @media (max-width:992px) {
@@ -134,5 +140,13 @@
 
   .organizer-name {
     font-size: 15px;
+  }
+}
+
+@media (max-width:600px) {
+  .event-sponsors img {
+    height: 150px;
+    width: 150px;
+
   }
 }

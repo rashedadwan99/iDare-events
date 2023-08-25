@@ -34,3 +34,15 @@
 *::-webkit-scrollbar {
   display: none;
 }
+
+@media (max-width:768px) {
+  * p {
+    font-size: 14px;
+  }
+
+
+
+  * h3 {
+    font-size: 1.6rem !important;
+  }
+}

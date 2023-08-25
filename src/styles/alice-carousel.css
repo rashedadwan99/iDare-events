@@ -1,0 +1,22 @@
+.alice-carousel__stage-item {
+  text-align: center;
+}
+
+.alice-carousel__dots-item:not(.__custom) {
+  width: 10px;
+  height: 10px;
+}
+
+@media (max-width:992px) {
+  .alice-carousel__dots-item:not(.__custom) {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+@media (max-width:600px) {
+  .alice-carousel__dots-item:not(.__custom) {
+    width: 6px;
+    height: 6px;
+  }
+}

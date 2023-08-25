@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom/dist";
 import { useSelector } from "react-redux/es";
 import EventFirstSection from "../components/EventFirstSection";
