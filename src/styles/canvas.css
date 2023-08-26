@@ -37,20 +37,22 @@
 
 .canvas-list {
   border-bottom: 1px solid var(--light-gray);
-  border-top: 1px solid var(--light-gray);
+  /* border-top: 0.5px solid var(--light-gray); */
   justify-content: center;
   align-items: center;
   display: flex;
+  border-collapse: collapse;
 }
 
 
 
 .canvas-list span {
   margin-left: 5px;
+  cursor: pointer;
 }
 
-.canvas-list:hover {
-  color: var(--black);
+.canvas-list span:hover {
+  color: var(--primary-font-color);
   cursor: pointer;
 }
 

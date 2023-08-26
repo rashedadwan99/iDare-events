@@ -12,7 +12,7 @@ import {
   handlePrimaryButtonStyleWhenHover,
 } from "../styles/eventStyles";
 
-function EventSecondSection({ event }) {
+function EventIntro({ event }) {
   const { t } = useTranslation();
   return (
     <Row className="justify-content-center mt-5 about-event-section">
@@ -60,4 +60,4 @@ function EventSecondSection({ event }) {
   );
 }
 
-export default EventSecondSection;
+export default EventIntro;

@@ -40,5 +40,12 @@
   "rooms": "rooms",
   "hover": "hover to read more",
   "read-event": "click to read about the event",
-  "cooperation": "In cooperation with"
+  "cooperation": "In cooperation with",
+  "gallery": "gallery",
+  "speakers": "speakers",
+  "my-events": "my events",
+  "session_title": "session title",
+  "time": "time",
+  "venue": "venue",
+  "event": "event"
 }

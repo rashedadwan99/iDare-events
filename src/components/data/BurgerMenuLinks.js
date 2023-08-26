@@ -1,27 +1,49 @@
-import { CiLogout } from "react-icons/ci";
-import { BiHome } from "react-icons/bi";
-import { homePageRoute, loginPageRoute } from "../../routes";
+import {
+  eventPageRoute,
+  homePageRoute,
+  loginPageRoute,
+  myEventPageRoute,
+} from "../../routes";
 
-export const getBurgerLinks = (handleLogout, t, isAuth) => {
+export const getBurgerLinks = (handleLogout, t, isAuth, eventId) => {
   let links = [
     {
       label: t("home"),
-      // icon: <BiHome />,
       path: homePageRoute,
     },
   ];
-  links = [
-    ...links,
-    isAuth
-      ? {
+
+  if (isAuth) {
+    links = [...links, ...[{ label: t("my-events"), path: myEventPageRoute }]];
+    if (eventId) {
+      links = [
+        ...links,
+        ...[
+          {
+            label: t("speakers"),
+            path: eventPageRoute + `/${eventId}` + "/speakers",
+          },
+          {
+            label: t("gallery"),
+            path: eventPageRoute + `/${eventId}` + "/gallery",
+          },
+        ],
+      ];
+    }
+
+    links = [
+      ...links,
+      ...[
+        {
           label: t("logout"),
-          icon: <CiLogout />,
           onClick: () => {
             handleLogout();
           },
-        }
-      : { label: t("login"), path: loginPageRoute },
-  ];
-
+        },
+      ],
+    ];
+  } else {
+    links = [...links, ...[{ label: t("login"), path: loginPageRoute }]];
+  }
   return links;
 };

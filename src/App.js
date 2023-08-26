@@ -28,6 +28,8 @@ import Footer from "./components/Footer";
 import { getUserToken } from "./services/userService";
 import { useSelector } from "react-redux";
 import { toggleIsAuth } from "./redux/actions/userActions";
+import Speakers from "./pages/Speakers";
+import Gallery from "./pages/Gallery";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -51,6 +53,7 @@ const App = () => {
       <Navigate to={loginPageRoute} replace />;
     }
   }, [isAuth]);
+  const isLoading = useSelector((state) => state.events.isLoading);
 
   return (
     <Container fluid>
@@ -71,7 +74,25 @@ const App = () => {
           element={
             <>
               <Header />
-              <SingleEventPage />
+              {!isLoading ? <SingleEventPage /> : "loading.."}
+            </>
+          }
+        />
+        <Route
+          path={eventPageRoute + "/:id/speakers"}
+          element={
+            <>
+              <Header />
+              {!isLoading ? <Speakers /> : "loading.."}
+            </>
+          }
+        />
+        <Route
+          path={eventPageRoute + "/:id/gallery"}
+          element={
+            <>
+              <Header />
+              {!isLoading ? <Gallery /> : "loading.."}
             </>
           }
         />

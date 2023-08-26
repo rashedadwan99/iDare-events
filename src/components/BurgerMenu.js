@@ -1,6 +1,6 @@
 import React from "react";
-import { Col } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { Col, Row } from "react-bootstrap";
+import { useNavigate, useParams } from "react-router-dom";
 import { getBurgerLinks } from "./data/BurgerMenuLinks";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,6 +9,7 @@ import { toggleIsAuth } from "../redux/actions/userActions";
 
 function BurgerMenu({ handleCloseCanvas }) {
   const navigate = useNavigate();
+  const { id: eventId } = useParams();
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const isAuth = useSelector((state) => state.user.isAuth);
@@ -16,7 +17,7 @@ function BurgerMenu({ handleCloseCanvas }) {
     logout();
     dispatch(toggleIsAuth(false));
   };
-  const burgerData = getBurgerLinks(handleLogout, t, isAuth);
+  const burgerData = getBurgerLinks(handleLogout, t, isAuth, eventId);
   const handleClick = (data) => {
     if (data.path) {
       navigate(data.path);
@@ -28,14 +29,8 @@ function BurgerMenu({ handleCloseCanvas }) {
   };
   return burgerData.map((b, i) => {
     return (
-      <Col
-        sm={12}
-        className="my-2 py-4 canvas-list"
-        key={i + b.label}
-        onClick={() => handleClick(b)}
-      >
-        <span>{b.label}</span>
-        <span>{b.icon}</span>
+      <Col sm={12} className="py-4 canvas-list" key={i + b.label}>
+        <span onClick={() => handleClick(b)}>{b.label}</span>
       </Col>
     );
   });
