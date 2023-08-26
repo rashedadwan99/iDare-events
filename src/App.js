@@ -1,6 +1,12 @@
 import React, { useEffect } from "react";
 import { Container } from "react-bootstrap";
-import { Navigate, Route, Routes } from "react-router-dom/dist";
+import {
+  Navigate,
+  Route,
+  Routes,
+  useMatch,
+  useParams,
+} from "react-router-dom/dist";
 import {
   authPageRoute,
   eventPageRoute,
@@ -45,19 +51,38 @@ const App = () => {
       <Navigate to={loginPageRoute} replace />;
     }
   }, [isAuth]);
+
   return (
     <Container fluid>
       <ToastContainer />
-      <Header />
 
       <Routes>
-        <Route path={homePageRoute} element={<HomePage />} />
-        <Route path={eventPageRoute + "/:id"} element={<SingleEventPage />} />
+        <Route
+          path={homePageRoute}
+          element={
+            <>
+              <Header />
+              <HomePage />
+            </>
+          }
+        />
+        <Route
+          path={eventPageRoute + "/:id"}
+          element={
+            <>
+              <Header />
+              <SingleEventPage />
+            </>
+          }
+        />
         <Route
           path={authPageRoute}
           element={
             !getUserToken() ? (
-              <AuthPage />
+              <>
+                <Header />
+                <AuthPage />
+              </>
             ) : (
               <Navigate to={homePageRoute} replace />
             )

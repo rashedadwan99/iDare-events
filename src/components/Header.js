@@ -8,20 +8,30 @@ import Canvas from "./common/Canvas";
 import BurgerMenu from "./BurgerMenu";
 import RightHeaderSide from "./RightHeaderSide";
 import "../styles/header.css";
+import LeftHeaderSide from "./LeftHeaderSide";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom/dist";
+import { headerEventStyle } from "../styles/eventStyles";
 function Header() {
+  const { id } = useParams();
+
+  const allEvents = useSelector((state) => state.events.allEvents);
+  const isLoading = useSelector((state) => state.events.isLoading);
+  const event = allEvents.find((e) => e.id === parseInt(id));
+  const handleStyle = () => {
+    if (id && event) return headerEventStyle(event);
+  };
   return (
-    <Row className="header py-3">
-      <Col xs={12} sm={12} md={12}>
-        <Row className="justify-content-around align-items-center">
-          <Col xs={6} sm={6} md={6}>
-            <Row className="justify-content-start px-2">
-              <Logo />
-            </Row>
-          </Col>
-          <RightHeaderSide />
-        </Row>
-      </Col>
-    </Row>
+    !isLoading && (
+      <Row className="header py-3" style={handleStyle()}>
+        <Col xs={12} sm={12} md={12}>
+          <Row className="justify-content-around align-items-center">
+            <LeftHeaderSide event={event} />
+            <RightHeaderSide event={event} />
+          </Row>
+        </Col>
+      </Row>
+    )
   );
 }
 

@@ -5,10 +5,10 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import Canvas from "./common/Canvas";
 import BurgerMenu from "./BurgerMenu";
 
-function RightHeaderSide() {
+function RightHeaderSide({ event }) {
   const [toggleOpenCanvas, setToggle] = useState(false);
   return (
-    <Col xs={6} sm={6} md={6}>
+    <Col xs={8} sm={6} md={6}>
       <Row className="justify-content-end px-2 align-items-center">
         <LanguageSwitcher />
         <Canvas
@@ -19,7 +19,7 @@ function RightHeaderSide() {
             />
           }
         >
-          <RxHamburgerMenu />
+          <RxHamburgerMenu style={{ fontSize: "20px" }} />
         </Canvas>
       </Row>
     </Col>

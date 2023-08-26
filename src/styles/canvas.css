@@ -11,6 +11,7 @@
   overflow-y: scroll;
   transition: all 0.3s ease-in-out;
   border-left: 1px solid var(--light-gray);
+  color: var(--black)
 }
 
 .canvas-header {

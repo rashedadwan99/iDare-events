@@ -4,12 +4,13 @@ import { GoLocation } from "react-icons/go";
 import { BiTimeFive } from "react-icons/bi";
 import { isArabic } from "../locales/language";
 import EventTime from "./EventTime";
+import { handleOrganizersBackgroundStyle } from "../styles/eventStyles";
 
-function EventFirstSection({ event, handleBackgroundStyle }) {
+function EventFirstSection({ event }) {
   return (
     <Row
       className="justify-content-center first-event-section"
-      style={handleBackgroundStyle(event.main_image)}
+      style={handleOrganizersBackgroundStyle(event.main_image)}
     >
       <div className="first-event-section__blur-background" />
       <Col xs={11} sm={11} md={6}>

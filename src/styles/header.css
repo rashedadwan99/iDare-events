@@ -2,6 +2,7 @@
   background-color: var(--light-gray);
   color: var(--primary-font-color);
   font-weight: bold;
+  min-height: 21.6vh;
   height: 21.6vh;
   align-items: center;
   position: sticky !important;
@@ -11,6 +12,10 @@
 
 .header .logo {
   width: 50%;
+}
+
+.event-logo {
+  width: 200px;
 }
 
 .header .select-menu .select-menu__header {
@@ -33,9 +38,14 @@
 .header svg:last-child {
   margin-right: 5px;
   cursor: pointer;
+  /* font-size: 20px; */
 }
 
 @media (max-width:600px) {
+  .event-logo {
+    width: 110px;
+  }
+
   .header .select-menu .select-menu__header span {
     font-size: 11px;
 

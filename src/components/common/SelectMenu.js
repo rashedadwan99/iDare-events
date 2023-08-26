@@ -4,6 +4,12 @@ import { useResolvedPath } from "react-router-dom";
 import ClickOutsideAlerter from "./ClickOutSideAlerter";
 import { en, language } from "../../locales/language";
 import "../../styles/selectmenu.css";
+import { useParams } from "react-router-dom/dist";
+import { useSelector } from "react-redux";
+import {
+  handleSelectEventMenu,
+  handleSelectHeaderMenu,
+} from "../../styles/eventStyles";
 const SelectMenu = ({
   defaultOption: title,
   options,
@@ -13,6 +19,10 @@ const SelectMenu = ({
   path,
 }) => {
   const [defaultOption, setDefaultOption] = useState();
+  const { id } = useParams();
+
+  const allEvents = useSelector((state) => state.events.allEvents);
+  const event = allEvents.find((e) => e.id === parseInt(id));
   useEffect(() => {
     setDefaultOption(title);
   }, [language()]);
@@ -27,13 +37,18 @@ const SelectMenu = ({
     setDefaultOption(option[path]);
     setData({ ...data, [name]: option.id });
   };
+  const handleSelectStyle = (header_style) => {
+    if (id && event && header_style) return handleSelectHeaderMenu(event);
+    if (id && event) return handleSelectEventMenu(event);
+  };
   return (
     <ClickOutsideAlerter onOutsideClick={() => setIsOpen(false)}>
-      <div
-        className="select-menu"
-        style={language() === en ? { direction: "rtl" } : { direction: "ltr" }}
-      >
-        <div className="select-menu__header" onClick={toggleMenu}>
+      <div className="select-menu">
+        <div
+          className="select-menu__header"
+          onClick={toggleMenu}
+          style={handleSelectStyle(true)}
+        >
           <span>
             <AiFillCaretDown
               style={isOpen ? { transform: "rotateX(180deg)" } : {}}
@@ -42,7 +57,10 @@ const SelectMenu = ({
           <span className="default-option">{defaultOption}</span>
         </div>
 
-        <div className={`select-menu__options ${isOpen ? "open" : ""}`}>
+        <div
+          className={`select-menu__options ${isOpen ? "open" : ""}`}
+          style={handleSelectStyle()}
+        >
           {options.map((o) => (
             <div
               className="select-menu__option"

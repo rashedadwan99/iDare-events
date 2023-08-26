@@ -1,16 +1,15 @@
 import React from "react";
-import { isArabic, language } from "../locales/language";
-import { storageBaseURL } from "../services/httpService";
+import { isArabic } from "../locales/language";
 import { Image, Row } from "react-bootstrap";
 import { Col } from "react-bootstrap/esm";
 import { getImageSrc } from "../services/imageServices";
+import { handleOrganizersBackgroundStyle } from "../styles/eventStyles";
 
-function EventOrganizers({ handleBackgroundStyle, event }) {
-
+function EventOrganizers({ event }) {
   return (
     <Row
       className="justify-content-center my-3 py-5"
-      style={handleBackgroundStyle(event.secondary_image)}
+      style={handleOrganizersBackgroundStyle(event.secondary_image)}
     >
       {event.organizers.map((o) => {
         return (

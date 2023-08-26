@@ -7,12 +7,12 @@ import { getImageSrc } from "../services/imageServices";
 import Canvas from "./common/Canvas";
 import { useTranslation } from "react-i18next";
 import CommonButton from "./common/Button";
-
-function EventSecondSection({
-  event,
+import {
   handlePrimaryButtonStyle,
   handlePrimaryButtonStyleWhenHover,
-}) {
+} from "../styles/eventStyles";
+
+function EventSecondSection({ event }) {
   const { t } = useTranslation();
   return (
     <Row className="justify-content-center mt-5 about-event-section">
@@ -45,8 +45,10 @@ function EventSecondSection({
                 <Col sm={12}>
                   <CommonButton
                     label={t("read-event")}
-                    primaryStyle={handlePrimaryButtonStyle}
-                    primaryStyleHover={handlePrimaryButtonStyleWhenHover}
+                    primaryStyle={() => handlePrimaryButtonStyle(event)}
+                    primaryStyleHover={() =>
+                      handlePrimaryButtonStyleWhenHover(event)
+                    }
                   />
                 </Col>
               </Canvas>

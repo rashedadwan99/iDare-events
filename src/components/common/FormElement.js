@@ -21,6 +21,7 @@ function FormElement({
   options,
   placeholderText,
   path,
+
   ...rest
 }) {
   const onChange = (e) => {
