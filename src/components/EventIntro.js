@@ -11,23 +11,26 @@ import {
   handlePrimaryButtonStyle,
   handlePrimaryButtonStyleWhenHover,
 } from "../styles/eventStyles";
+import EventSectionContainer from "./common/EventSectionContainer";
 
 function EventIntro({ event }) {
   const { t } = useTranslation();
   return (
-    <Row className="justify-content-center mt-5 about-event-section">
-      <Col xs={11} sm={9} md={8}>
-        <Row className="justify-content-center">
-          <Col xs={11} sm={9} md={8}>
-            <Image
-              src={getImageSrc(event.about_image)}
-              alt="about"
-              className="event__about-image"
-            />
-          </Col>
+    <EventSectionContainer name="about-event">
+      <Row className="justify-content-center about-event-section">
+        <Col xs={11} sm={9} md={8}>
+          <Row className="justify-content-center">
+            <Col xs={11} sm={9} md={8}>
+              <Row className="mb-3">
+                <Image
+                  src={getImageSrc(event.about_image)}
+                  alt="about"
+                  className="event__about-image"
+                />
+              </Row>
+            </Col>
 
-          <Col xs={11} sm={9} md={8}>
-            <Row className="mt-4">
+            <Col xs={11} sm={9} md={8} className="px-0">
               <Canvas
                 label={t("about-event")}
                 bodyComponent={
@@ -43,20 +46,22 @@ function EventIntro({ event }) {
                 }
               >
                 <Col sm={12}>
-                  <CommonButton
-                    label={t("read-event")}
-                    primaryStyle={() => handlePrimaryButtonStyle(event)}
-                    primaryStyleHover={() =>
-                      handlePrimaryButtonStyleWhenHover(event)
-                    }
-                  />
+                  <Row>
+                    <CommonButton
+                      label={t("read-event")}
+                      primaryStyle={() => handlePrimaryButtonStyle(event)}
+                      primaryStyleHover={() =>
+                        handlePrimaryButtonStyleWhenHover(event)
+                      }
+                    />
+                  </Row>
                 </Col>
               </Canvas>
-            </Row>
-          </Col>
-        </Row>
-      </Col>
-    </Row>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+    </EventSectionContainer>
   );
 }
 

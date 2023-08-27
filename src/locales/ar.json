@@ -50,8 +50,10 @@
   "my-events": "الأحداث المُسجل فيها",
   "session_title": "عنوان الجلسة",
   "time": "الوقت",
+  "event_time": "وقت الحداث",
   "venue": "المكان",
   "event": "الحدث",
   "user_exists": "البريد الإلكتروني أو رقم الهاتف موجود بالفعل",
-  "register-event": "التسجيل"
+  "register-event": "التسجيل",
+  "page-links": "روابط الصفحات"
 }

@@ -1,5 +1,6 @@
 .event-page.arabic .first-event-section,
-.event-page.arabic .organizer-container {
+.event-page.arabic .organizer-container,
+.event-page.arabic .event-footer {
   direction: rtl;
   text-align: right;
 }
@@ -152,6 +153,19 @@
 
 }
 
+.event-footer {
+  background-color: var(--light-gray);
+  min-height: 40vh;
+}
+
+.event-footer img {
+  width: 150px;
+}
+
+.event-footer span {
+  text-transform: capitalize;
+  font-weight: bold;
+}
 
 @media (max-width:992px) {
   .organizer-container img {

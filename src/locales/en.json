@@ -46,8 +46,10 @@
   "my-events": "my events",
   "session_title": "session title",
   "time": "time",
+  "event_time": "event time",
   "venue": "venue",
   "event": "event",
   "user_exists": "the email or phone number alreadey exists",
-  "register-event": "register"
+  "register-event": "register",
+  "page-links": "page links"
 }

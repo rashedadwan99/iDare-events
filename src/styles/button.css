@@ -5,6 +5,7 @@
   justify-content: center !important;
   align-items: center !important;
   width: 100% !important;
+  text-transform: capitalize;
 }
 
 .common-button:focus {

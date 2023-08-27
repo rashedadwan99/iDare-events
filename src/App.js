@@ -6,6 +6,7 @@ import {
   Routes,
   useMatch,
   useParams,
+  useResolvedPath,
 } from "react-router-dom/dist";
 import {
   authPageRoute,
@@ -33,10 +34,9 @@ import Gallery from "./pages/Gallery";
 
 const App = () => {
   const dispatch = useDispatch();
-
   const userToken = getUserToken();
   const isAuth = useSelector((state) => state.user.isAuth);
-
+  const { pathname } = useResolvedPath();
   useEffect(() => {
     document.documentElement.lang = language();
     dispatch(getAllEventsAction());
@@ -54,7 +54,8 @@ const App = () => {
     }
   }, [isAuth]);
   const isLoading = useSelector((state) => state.events.isLoading);
-
+  const isHomeOrAuthPage =
+    pathname === homePageRoute || pathname === authPageRoute;
   return (
     <Container fluid>
       <ToastContainer />
@@ -113,7 +114,7 @@ const App = () => {
           <Route path={registerPageRoute} element={<RegisterForm />} />
         </Route>
       </Routes>
-      <Footer />
+      {isHomeOrAuthPage && <Footer />}
     </Container>
   );
 };
