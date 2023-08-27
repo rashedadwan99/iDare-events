@@ -4,9 +4,19 @@ import { GoLocation } from "react-icons/go";
 import { BiTimeFive } from "react-icons/bi";
 import { isArabic } from "../locales/language";
 import HandleTimeComponent from "./HandleTimeComponent";
-import { handleOrganizersBackgroundStyle } from "../styles/eventStyles";
+import {
+  handleOrganizersBackgroundStyle,
+  handlePrimaryButtonStyle,
+  handlePrimaryButtonStyleWhenHover,
+} from "../styles/eventStyles";
+import CommonButton from "./common/Button";
+import { t } from "i18next";
+import { useDispatch } from "react-redux";
+import { toggleOpenModal } from "../redux/actions/modalAction";
+import CommonModal from "./common/CommonModal";
 
 function EventFirstSection({ event }) {
+  const dispatch = useDispatch();
   return (
     <Row
       className="justify-content-center first-event-section"
@@ -26,6 +36,21 @@ function EventFirstSection({ event }) {
           <span>
             <HandleTimeComponent data={event} />
           </span>
+        </Row>
+        <Row className="justify-content-start align-items-center mt-3">
+          <Col xs={11} sm={11} md={6} lg={4}>
+            <Row>
+              <CommonButton
+                primaryStyle={handlePrimaryButtonStyle(event)}
+                primaryStyleHover={handlePrimaryButtonStyleWhenHover(event)}
+                label={t("register-event")}
+                onClick={() => dispatch(toggleOpenModal())}
+              />
+              <CommonModal title={t("register-event")}>
+                <>p</>
+              </CommonModal>
+            </Row>
+          </Col>
         </Row>
       </Col>
     </Row>

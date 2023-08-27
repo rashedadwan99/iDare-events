@@ -15,10 +15,13 @@ function Speakers() {
   return (
     <Row className="my-5">
       <Col sm={12}>
+        <Row className="justify-content-center mb-5">
+          <h3 className="event-section-name">{t("speakers")}</h3>
+        </Row>
+      </Col>
+      <Col sm={12}>
         <Row>
-          {event.rooms && (
-            <Table cols={getSpeakersCols(t, event)} rows={event.speakers} />
-          )}
+          <Table cols={getSpeakersCols(t, event)} rows={event.speakers} />
         </Row>
       </Col>
     </Row>

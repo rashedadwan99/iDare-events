@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import SelectMenu from "./common/SelectMenu";
 import { getCountries } from "../services/countriesService";
-import { SUCCESS } from "../services/httpService";
+import { FAILED, SUCCESS } from "../services/httpService";
 import { Row } from "react-bootstrap";
 import { Col } from "react-bootstrap/esm";
 import FormElement from "./common/FormElement";
@@ -90,6 +90,11 @@ function RegisterForm() {
       Toast("success", t("account_created"));
       dispatch(toggleIsAuth(true));
       window.scrollTo(0, 0);
+    }
+    if (responseData.AZSVR === FAILED) {
+      setToken(responseData.api_token);
+
+      Toast("error", t("user_exists"));
     }
   };
   const handleToggleForms = () => {

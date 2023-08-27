@@ -122,7 +122,7 @@
 .event-section-name::after {
   display: block;
   content: "";
-  background-color: var(--background-color);
+  background-color: var(--black);
   height: 5px;
   width: 50%;
   border-radius: 5px;

@@ -47,5 +47,7 @@
   "session_title": "session title",
   "time": "time",
   "venue": "venue",
-  "event": "event"
+  "event": "event",
+  "user_exists": "the email or phone number alreadey exists",
+  "register-event": "register"
 }
