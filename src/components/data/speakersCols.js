@@ -1,7 +1,9 @@
 import { isArabic } from "../../locales/language";
-// getRoomName
-//getImageName
-export const getSpeakersCols = (t) => {
+const getRoomName = (roomId, data) => {
+  const room = data.rooms.find((r) => r.id === roomId);
+  return isArabic() ? room.name_ar : room.name;
+};
+export const getSpeakersCols = (t, event) => {
   return [
     {
       label: t("speakers"),
@@ -10,10 +12,18 @@ export const getSpeakersCols = (t) => {
       src: "image",
     },
     {
-      label: t("session_title"),
-      path: isArabic() ? "session_title" : "session_title_ar",
+      label: t("time"),
+
+      isTime: true,
     },
-    { label: t("venue"), path: "room_id" },
-    { label: t("event"), path: "event_id" },
+    {
+      label: t("session_title"),
+      path: isArabic() ? "session_title_ar" : "session_title",
+    },
+    {
+      label: t("venue"),
+      dataPath: "room_id",
+      getRowData: (roomId, data = event) => getRoomName(roomId, data),
+    },
   ];
 };

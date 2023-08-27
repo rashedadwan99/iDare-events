@@ -3,7 +3,7 @@ import { Row, Col } from "react-bootstrap";
 import { GoLocation } from "react-icons/go";
 import { BiTimeFive } from "react-icons/bi";
 import { isArabic } from "../locales/language";
-import EventTime from "./EventTime";
+import HandleTimeComponent from "./HandleTimeComponent";
 import { handleOrganizersBackgroundStyle } from "../styles/eventStyles";
 
 function EventFirstSection({ event }) {
@@ -24,7 +24,7 @@ function EventFirstSection({ event }) {
         <Row className="justify-content-start align-items-center">
           <BiTimeFive />
           <span>
-            <EventTime event={event} />
+            <HandleTimeComponent data={event} />
           </span>
         </Row>
       </Col>

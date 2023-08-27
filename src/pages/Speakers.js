@@ -1,9 +1,6 @@
 import React from "react";
 import Table from "../components/common/Table";
-import {
-  getSpeakersCols,
-  speakersTableHeader,
-} from "../components/data/speakersCols";
+import { getSpeakersCols } from "../components/data/speakersCols";
 import { Col, Row } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
@@ -19,7 +16,9 @@ function Speakers() {
     <Row className="my-5">
       <Col sm={12}>
         <Row>
-          <Table cols={getSpeakersCols(t)} rows={event.speakers} />
+          {event.rooms && (
+            <Table cols={getSpeakersCols(t, event)} rows={event.speakers} />
+          )}
         </Row>
       </Col>
     </Row>

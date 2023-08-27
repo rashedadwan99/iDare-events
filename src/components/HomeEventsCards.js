@@ -3,17 +3,17 @@ import { Col, Row } from "react-bootstrap";
 import { useSelector } from "react-redux/es";
 import { storageBaseURL } from "../services/httpService";
 import { isArabic, language } from "../locales/language";
-import EventTime from "./EventTime";
+import HandleTimeComponent from "./HandleTimeComponent";
 import { useNavigate } from "react-router-dom/dist";
 import { eventPageRoute } from "../routes";
 
 function HomeEventsCards() {
   const allEvents = useSelector((state) => state.events.allEvents);
   const navigate = useNavigate();
-  const infoStyle =
-    isArabic()? { textAlign: "right" } : { textAlign: "left" };
-  const containerStyle =
-    isArabic()? { direction: "rtl" } : { direction: "ltr" };
+  const infoStyle = isArabic() ? { textAlign: "right" } : { textAlign: "left" };
+  const containerStyle = isArabic()
+    ? { direction: "rtl" }
+    : { direction: "ltr" };
   const handleGoToEventPage = (id) => {
     navigate(eventPageRoute + `/${id}`);
     window.scrollTo(0, 0);
@@ -35,9 +35,7 @@ function HomeEventsCards() {
         <Col md={6}>
           <Row className="mt-4">
             <Col>
-              <h5 style={infoStyle}>
-                {isArabic()? e.name_ar : e.name}
-              </h5>
+              <h5 style={infoStyle}>{isArabic() ? e.name_ar : e.name}</h5>
             </Col>
           </Row>
           <Row>
@@ -54,7 +52,7 @@ function HomeEventsCards() {
               className="justify-content-start"
               style={{ fontWeight: "bold", fontSize: "14px" }}
             >
-              <EventTime event={e} />
+              <HandleTimeComponent data={e} />
             </Row>
           </Col>
         </Col>
