@@ -23,9 +23,8 @@ function SingleEventPage() {
       <Header event={event} style={headerEventStyle(event)} />
       <Row className={`event-page ${isArabic() ? "arabic" : ""}`}>
         <Outlet />
-        <Col sm={12} lg={12}>
-          <EventFooter />
-        </Col>
+
+        <EventFooter event={event} />
       </Row>
     </>
   ) : (

@@ -42,3 +42,9 @@ export const handleSelectHeaderMenu = (event) => {
     backgroundColor: event.header_background_color,
   };
 };
+export const handleFooterStyle = (event) => {
+  return {
+    backgroundColor: event.footer_background_color,
+    background: `linear-gradient(to bottom,${event.footer_background_color},${event.footer_background_color_2})`,
+  };
+};

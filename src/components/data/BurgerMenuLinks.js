@@ -16,9 +16,6 @@ export const getBurgerLinks = (handleLogout, t, isAuth, eventId, event) => {
 
   if (isAuth) {
     links = [...links, ...[{ label: t("my-events"), path: myEventPageRoute }]];
-    if (eventId) {
-      links = [...getEventPageLinks(eventId, event, t)];
-    }
 
     links = [
       ...links,
@@ -33,6 +30,9 @@ export const getBurgerLinks = (handleLogout, t, isAuth, eventId, event) => {
     ];
   } else {
     links = [...links, ...[{ label: t("login"), path: loginPageRoute }]];
+  }
+  if (eventId) {
+    links = [...links,...getEventPageLinks(eventId, event, t)];
   }
   return links;
 };
