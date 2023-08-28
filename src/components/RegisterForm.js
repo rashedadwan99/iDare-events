@@ -200,6 +200,8 @@ function RegisterForm() {
             path="name"
           />
         </Col>
+      </Row>
+      <Row className="justify-content-center">
         <Col>
           <SelectMenu
             name="is_disabled"

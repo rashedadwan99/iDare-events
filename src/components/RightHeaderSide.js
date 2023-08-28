@@ -5,7 +5,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import Canvas from "./common/Canvas";
 import BurgerMenu from "./BurgerMenu";
 
-function RightHeaderSide({ event }) {
+function RightHeaderSide() {
   const [toggleOpenCanvas, setToggle] = useState(false);
   return (
     <Col xs={8} sm={6} md={6}>
