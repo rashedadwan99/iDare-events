@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet, useParams } from "react-router-dom/dist";
 import { useSelector } from "react-redux/es";
-import {  Row } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 import { isArabic } from "../locales/language";
 import EventFooter from "../components/EventFooter";
 import Header from "../components/Header";
@@ -13,8 +13,6 @@ function SingleEventPage() {
   const allEvents = useSelector((state) => state.events.allEvents);
   const isLoading = useSelector((state) => state.events.isLoading);
   const event = allEvents.find((e) => e.id === parseInt(id));
-
-
 
   return !isLoading ? (
     <>

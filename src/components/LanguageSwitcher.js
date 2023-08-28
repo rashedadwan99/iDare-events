@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import FormElement from "./common/FormElement";
-import { language } from "../locales/language";
+import { isArabic, language } from "../locales/language";
 import { useDispatch } from "react-redux/es";
 import { toggleLanguageAction } from "../redux/actions/languageActions";
 
@@ -26,7 +26,7 @@ const LanguageSwitcher = () => {
     <div>
       <FormElement
         element="select"
-        defaultOption={language() === "ar" ? "العربية" : "english"}
+        defaultOption={isArabic() ? "العربية" : "english"}
         options={languages}
         name="id"
         path="label"

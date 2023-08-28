@@ -7,13 +7,9 @@ import "../styles/header.css";
 
 function Header({ event, style }) {
   return (
-    <Row className={`header py-3 ${event?"event-header":""}`} style={style}>
-      <Col xs={12} sm={12} md={12}>
-        <Row className="justify-content-around align-items-center">
-          <LeftHeaderSide event={event} />
-          <RightHeaderSide event={event} />
-        </Row>
-      </Col>
+    <Row className={`header py-3 ${event ? "event-header" : ""}`} style={style}>
+      <LeftHeaderSide event={event} />
+      <RightHeaderSide event={event} />
     </Row>
   );
 }

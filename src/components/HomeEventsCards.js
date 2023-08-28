@@ -29,7 +29,11 @@ function HomeEventsCards() {
           onClick={() => handleGoToEventPage(e.id)}
         >
           <Col md={6} className="align-items-center">
-            <img src={getImageSrc(e.events_list_image)} alt="event_list_img" />
+            <img
+              src={getImageSrc(e.events_list_image)}
+              alt="event_list_img"
+              className="event_list_img"
+            />
           </Col>
           <Col md={6}>
             <Row className="mt-4">
@@ -40,7 +44,7 @@ function HomeEventsCards() {
             <Row>
               <Col>
                 <p style={infoStyle}>
-                  {language() === "ar"
+                  {isArabic()
                     ? e.short_description_ar
                     : e.short_description}
                 </p>

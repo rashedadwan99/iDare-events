@@ -13,7 +13,7 @@ function HomeEvents() {
           <h3>{t("upcoming_events")}</h3>
         </Row>
         <Row className="justify-content-center my-5">
-          <Col xs={11} sm={11} md={9} lg={7}>
+          <Col xs={11} sm={11} md={10} lg={7}>
             <HomeEventsCards />
           </Col>
         </Row>

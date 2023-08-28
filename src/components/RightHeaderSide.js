@@ -8,7 +8,7 @@ import BurgerMenu from "./BurgerMenu";
 function RightHeaderSide() {
   const [toggleOpenCanvas, setToggle] = useState(false);
   return (
-    <Col xs={8} sm={6} md={6}>
+    <Col xs={6} sm={6} md={6}>
       <Row className="justify-content-end px-2 align-items-center">
         <LanguageSwitcher />
         <Canvas

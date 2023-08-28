@@ -14,13 +14,12 @@
   width: 40%;
 }
 
-.event-header img {
-  width: 150px;
-}
+
 
 
 .event-logo {
-  width: 200px;
+  max-width: 40%;
+  height: 114px;
 }
 
 .header .select-menu .select-menu__header {
@@ -43,14 +42,14 @@
 .header svg:last-child {
   margin-right: 5px;
   cursor: pointer;
-  /* font-size: 20px; */
 }
 
 
 
 @media (max-width:600px) {
   .event-logo {
-    width: 110px;
+    width: 80px;
+    height: 80px;
   }
 
   .header .select-menu .select-menu__header span {
@@ -67,6 +66,6 @@
   }
 
   .header .logo {
-    width: 90%;
+    width: 100%;
   }
 }
