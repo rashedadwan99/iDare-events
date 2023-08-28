@@ -12,7 +12,7 @@ export const getEventPageLinks = (eventId, event, t) => {
       ...[
         {
           label: t("gallery"),
-          path: eventPageRoute + `/${eventId}` + "/gallery",
+          path: `${eventPageRoute}/${eventId}/gallery`,
         },
       ],
     ];
@@ -23,7 +23,7 @@ export const getEventPageLinks = (eventId, event, t) => {
       ...[
         {
           label: t("speakers"),
-          path: eventPageRoute + `/${eventId}` + "/speakers",
+          path: `${eventPageRoute}/${eventId}/speakers`,
         },
       ],
     ];
