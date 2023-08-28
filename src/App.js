@@ -4,8 +4,6 @@ import {
   Navigate,
   Route,
   Routes,
-  useMatch,
-  useParams,
   useResolvedPath,
 } from "react-router-dom/dist";
 import {

@@ -14,6 +14,7 @@ import { t } from "i18next";
 import { useDispatch } from "react-redux";
 import { toggleOpenModal } from "../redux/actions/modalAction";
 import CommonModal from "./common/CommonModal";
+import EventTimeLocation from "./EventTimeLocation";
 
 function EventFirstSection({ event }) {
   const dispatch = useDispatch();
@@ -27,15 +28,8 @@ function EventFirstSection({ event }) {
         <Row className="justify-content-start">
           <h4>{isArabic() ? event.slogan_ar : event.slogan}</h4>
         </Row>
-        <Row className="justify-content-start align-items-center my-2">
-          <GoLocation />
-          <span>{event.location}</span>
-        </Row>
-        <Row className="justify-content-start align-items-center">
-          <BiTimeFive />
-          <span>
-            <HandleTimeComponent data={event} />
-          </span>
+        <Row>
+          <EventTimeLocation event={event} />
         </Row>
         <Row className="justify-content-start align-items-center mt-3">
           <Col xs={11} sm={11} md={6} lg={4}>

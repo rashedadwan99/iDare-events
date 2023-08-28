@@ -156,15 +156,35 @@
 .event-footer {
   background-color: var(--light-gray);
   min-height: 40vh;
+
+}
+
+.event-footer svg {
+  font-size: 16px;
 }
 
 .event-footer img {
   width: 150px;
 }
 
-.event-footer span {
+.event-footer h6 {
   text-transform: capitalize;
   font-weight: bold;
+  font-size: 17px;
+}
+
+.event-location,
+.event-time {
+  margin: 0 5px;
+}
+
+.event-page-link {
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.event-page-link:hover {
+  text-decoration: underline;
 }
 
 @media (max-width:992px) {
