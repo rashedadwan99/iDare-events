@@ -13,18 +13,20 @@ function Speakers() {
   const event = allEvents.find((e) => e.id === parseInt(id));
 
   return (
-    <Row className="my-5">
-      <Col sm={12}>
-        <Row className="justify-content-center mb-5">
-          <h3 className="event-section-name">{t("speakers")}</h3>
-        </Row>
-      </Col>
-      <Col sm={12}>
-        <Row>
-          <Table cols={getSpeakersCols(t, event)} rows={event.speakers} />
-        </Row>
-      </Col>
-    </Row>
+    <Col sm={12} lg={12}>
+      <Row className="my-5">
+        <Col sm={12}>
+          <Row className="justify-content-center mb-5">
+            <h3 className="event-section-name">{t("speakers")}</h3>
+          </Row>
+        </Col>
+        <Col sm={12}>
+          <Row>
+            <Table cols={getSpeakersCols(t, event)} rows={event.speakers} />
+          </Row>
+        </Col>
+      </Row>
+    </Col>
   );
 }
 

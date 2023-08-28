@@ -1,9 +1,6 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
-import { GoLocation } from "react-icons/go";
-import { BiTimeFive } from "react-icons/bi";
 import { isArabic } from "../locales/language";
-import HandleTimeComponent from "./HandleTimeComponent";
 import {
   handleOrganizersBackgroundStyle,
   handlePrimaryButtonStyle,

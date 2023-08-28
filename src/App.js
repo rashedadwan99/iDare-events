@@ -29,6 +29,7 @@ import { useSelector } from "react-redux";
 import { toggleIsAuth } from "./redux/actions/userActions";
 import Speakers from "./pages/Speakers";
 import Gallery from "./pages/Gallery";
+import EventHome from "./components/EventHome";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -53,56 +54,29 @@ const App = () => {
   }, [isAuth]);
   const isLoading = useSelector((state) => state.events.isLoading);
   const isHomeOrAuthPage =
-    pathname === homePageRoute || pathname === authPageRoute;
+    pathname === homePageRoute ||
+    pathname === authPageRoute ||
+    pathname === loginPageRoute ||
+    pathname === registerPageRoute;
   return (
     <Container fluid>
       <ToastContainer />
-
+      {isHomeOrAuthPage && <Header />}
       <Routes>
-        <Route
-          path={homePageRoute}
-          element={
-            <>
-              <Header />
-              <HomePage />
-            </>
-          }
-        />
-        <Route
-          path={eventPageRoute + "/:id"}
-          element={
-            <>
-              <Header />
-              {!isLoading ? <SingleEventPage /> : "loading.."}
-            </>
-          }
-        />
-        <Route
-          path={eventPageRoute + "/:id/speakers"}
-          element={
-            <>
-              <Header />
-              {!isLoading ? <Speakers /> : "loading.."}
-            </>
-          }
-        />
-        <Route
-          path={eventPageRoute + "/:id/gallery"}
-          element={
-            <>
-              <Header />
-              {!isLoading ? <Gallery /> : "loading.."}
-            </>
-          }
-        />
+        <Route path={homePageRoute} element={<HomePage />} />
+        <Route path={eventPageRoute + "/:id"} element={<SingleEventPage />}>
+          <Route path={eventPageRoute + "/:id"} element={<EventHome />} />
+          <Route
+            path={eventPageRoute + "/:id/speakers"}
+            element={<Speakers />}
+          />
+          <Route path={eventPageRoute + "/:id/gallery"} element={<Gallery />} />
+        </Route>
         <Route
           path={authPageRoute}
           element={
             !getUserToken() ? (
-              <>
-                <Header />
-                <AuthPage />
-              </>
+              <AuthPage />
             ) : (
               <Navigate to={homePageRoute} replace />
             )

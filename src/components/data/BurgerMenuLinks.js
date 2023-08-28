@@ -4,32 +4,7 @@ import {
   loginPageRoute,
   myEventPageRoute,
 } from "../../routes";
-
-const eventPageLinks = (links, eventId, event, t) => {
-  if (event.gallery_enabled) {
-    links = [
-      ...links,
-      ...[
-        {
-          label: t("gallery"),
-          path: eventPageRoute + `/${eventId}` + "/gallery",
-        },
-      ],
-    ];
-  }
-  if (event.speakers_enabled) {
-    links = [
-      ...links,
-      ...[
-        {
-          label: t("speakers"),
-          path: eventPageRoute + `/${eventId}` + "/speakers",
-        },
-      ],
-    ];
-  }
-  return links;
-};
+import { getEventPageLinks } from "./eventPageLinks";
 
 export const getBurgerLinks = (handleLogout, t, isAuth, eventId, event) => {
   let links = [
@@ -42,7 +17,7 @@ export const getBurgerLinks = (handleLogout, t, isAuth, eventId, event) => {
   if (isAuth) {
     links = [...links, ...[{ label: t("my-events"), path: myEventPageRoute }]];
     if (eventId) {
-      links = [...eventPageLinks(links, eventId, event, t)];
+      links = [...getEventPageLinks(eventId, event, t)];
     }
 
     links = [

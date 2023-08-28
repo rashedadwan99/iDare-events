@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { animateScroll as scroll } from "react-scroll";
-import { getEventPageLinks } from "./data/eventFooterLinks";
+import { getEventPageLinks } from "./data/eventPageLinks";
 import { Col, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 function EventPageLinks({ event }) {
