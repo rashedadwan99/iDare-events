@@ -4,14 +4,16 @@ import ClickOutsideAlerter from "./ClickOutSideAlerter";
 import CanvasHeader from "../CanvasHeader";
 import CanvasBody from "../CanvasBody";
 import "../../styles/canvas.css";
+import { useSelector } from "react-redux";
 function Canvas({ children, label, bodyComponent, toggleCanvas }) {
   const [isOpen, setIsOpen] = useState(false);
+  const isAuth = useSelector((state) => state.user.isAuth);
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
   useEffect(() => {
     setIsOpen(false);
-  }, [toggleCanvas]);
+  }, [toggleCanvas, isAuth]);
   return (
     <>
       <ClickOutsideAlerter onOutsideClick={() => setIsOpen(false)}>

@@ -54,15 +54,11 @@ const App = () => {
   }, [isAuth]);
   const isSwitched = useSelector((state) => state.language.isSwitched);
   useEffect(() => {}, [isSwitched]);
-  const isHomeOrAuthPage =
-    pathname === homePageRoute ||
-    pathname === authPageRoute ||
-    pathname === loginPageRoute ||
-    pathname === registerPageRoute;
+
   return (
     <Container fluid>
       <ToastContainer />
-      {isHomeOrAuthPage && <Header />}
+
       <Routes>
         <Route path={homePageRoute} element={<HomePage />} />
         <Route path={eventPageRoute + "/:id"} element={<SingleEventPage />}>
@@ -87,7 +83,6 @@ const App = () => {
           <Route path={registerPageRoute} element={<RegisterForm />} />
         </Route>
       </Routes>
-      {isHomeOrAuthPage && <Footer />}
     </Container>
   );
 };
