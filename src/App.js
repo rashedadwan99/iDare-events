@@ -52,7 +52,8 @@ const App = () => {
       <Navigate to={loginPageRoute} replace />;
     }
   }, [isAuth]);
-  const isLoading = useSelector((state) => state.events.isLoading);
+  const isSwitched = useSelector((state) => state.language.isSwitched);
+  useEffect(() => {}, [isSwitched]);
   const isHomeOrAuthPage =
     pathname === homePageRoute ||
     pathname === authPageRoute ||

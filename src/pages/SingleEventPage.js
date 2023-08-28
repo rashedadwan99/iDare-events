@@ -15,8 +15,8 @@ function SingleEventPage() {
   const isLoading = useSelector((state) => state.events.isLoading);
   const event = allEvents.find((e) => e.id === parseInt(id));
 
-  const isSwitched = useSelector((state) => state.language.isSwitched);
-  useEffect(() => {}, [isSwitched]);
+  // const isSwitched = useSelector((state) => state.language.isSwitched);
+  // useEffect(() => {}, [isSwitched]);
 
   return !isLoading ? (
     <>
