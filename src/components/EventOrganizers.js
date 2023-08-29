@@ -36,10 +36,12 @@ function EventOrganizers({ event, isInActiveSection }) {
                       </Row>
                     </Col>
                     <Col xs={12} sm={12} md={6} lg={8}>
-                      <Row className="p-3">
+                      <Row className="px-3">
                         <h5 className="organizer-name">
                           {isArabic() ? o.name_ar : o.name}
                         </h5>
+                      </Row>
+                      <Row className="px-3">
                         <span className="organizer-description">
                           {isArabic() ? o.description_ar : o.description}
                         </span>

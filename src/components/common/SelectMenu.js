@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import { AiFillCaretDown } from "react-icons/ai";
 import { useResolvedPath } from "react-router-dom";
 import ClickOutsideAlerter from "./ClickOutSideAlerter";
-import { en, language } from "../../locales/language";
-import "../../styles/selectmenu.css";
+import { language } from "../../locales/language";
 import { useParams } from "react-router-dom/dist";
 import { useSelector } from "react-redux";
 import {
   handleSelectEventMenu,
   handleSelectHeaderMenu,
 } from "../../styles/eventStyles";
+import "../../styles/selectmenu.css";
 const SelectMenu = ({
   defaultOption: title,
   options,

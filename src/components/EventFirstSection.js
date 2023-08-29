@@ -12,6 +12,7 @@ import { useDispatch } from "react-redux";
 import { toggleOpenModal } from "../redux/actions/modalAction";
 import CommonModal from "./common/CommonModal";
 import EventTimeLocation from "./EventTimeLocation";
+import EventForm from "./EventForm";
 
 function EventFirstSection({ event }) {
   const dispatch = useDispatch();
@@ -38,7 +39,7 @@ function EventFirstSection({ event }) {
                 onClick={() => dispatch(toggleOpenModal())}
               />
               <CommonModal title={t("register-event")}>
-                <>p</>
+                <EventForm event={event} />
               </CommonModal>
             </Row>
           </Col>

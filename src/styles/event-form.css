@@ -1,0 +1,30 @@
+.event-form button {
+  padding: 5px 5px !important;
+}
+
+.event-form .select-menu__header {
+  background-color: var(--disabled-color) !important;
+}
+
+.event-form .clickoutside-container {
+  width: 100%;
+}
+
+.event-form .select-menu__options {
+  background-color: var(--disabled-color) !important;
+}
+
+.event-form.ar .select-menu {
+  direction: ltr !important;
+}
+
+.event-form .select-menu__header,
+.event-form .select-menu__options {
+  border-radius: 0.2rem;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.event-form .select-menu__option {
+  color: var(--black);
+}

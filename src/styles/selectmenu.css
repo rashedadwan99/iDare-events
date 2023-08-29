@@ -6,9 +6,7 @@
 
 }
 
-.select-menu .select-menu__header span {
-  font-size: 11px;
-}
+
 
 .select-menu__header {
   background-color: var(--light-gray);
@@ -24,9 +22,6 @@
 
 }
 
-.select-menu .default-option::first-letter {
-  text-transform: capitalize;
-}
 
 .select-menu__options {
   overflow: auto;
@@ -39,7 +34,10 @@
   position: absolute;
   top: 110%;
   width: 100%;
+}
 
+.select-menu .default-option::first-letter {
+  text-transform: capitalize;
 }
 
 .select-menu__options.open {

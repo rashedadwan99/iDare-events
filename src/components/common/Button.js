@@ -7,6 +7,7 @@ function CommonButton({
   primaryStyle,
   primaryStyleHover,
   style,
+  isLoading,
   ...rest
 }) {
   const [customStyle, setCustomStyle] = useState(primaryStyle);
@@ -24,6 +25,7 @@ function CommonButton({
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
       style={customStyle}
+      disabled={isLoading}
     >
       <div>{label}</div>
       {icon}

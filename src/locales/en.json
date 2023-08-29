@@ -50,7 +50,8 @@
   "venue": "venue",
   "event": "event",
   "user_exists": "the email or phone number alreadey exists",
-  "register-event": "register",
+  "register-event": "register event",
   "page-links": "page links",
-  "event-home": "event home page"
+  "event-home": "event home page",
+  "ticket-type": "ticket type"
 }

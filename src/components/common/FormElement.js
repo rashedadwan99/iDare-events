@@ -6,7 +6,6 @@ import TextArea from "./TextArea";
 import { Button } from "react-bootstrap";
 import SelectMenu from "./SelectMenu";
 import "../../styles/form.css";
-import { language } from "../../locales/language";
 
 function FormElement({
   data,
@@ -19,7 +18,6 @@ function FormElement({
   label,
   defaultOption,
   options,
-  placeholderText,
   path,
 
   ...rest

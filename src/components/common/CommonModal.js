@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleOpenModal } from "../../redux/actions/modalAction";
 import { useTranslation } from "react-i18next";
 import { IoMdClose } from "react-icons/io";
-import "../../styles/modal.css";
 import { isArabic } from "../../locales/language";
+import "../../styles/modal.css";
 function CommonModal({ children, title, ...props }) {
   const { t } = useTranslation();
   const show = useSelector((state) => state.modal.showModal);
@@ -14,7 +14,7 @@ function CommonModal({ children, title, ...props }) {
     <>
       <Modal
         {...props}
-        size="lg"
+        size="md"
         aria-labelledby="contained-modal-title-vcenter"
         centered
         show={show}
