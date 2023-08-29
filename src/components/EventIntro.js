@@ -1,10 +1,6 @@
 import React from "react";
 import { Row, Col, Image } from "react-bootstrap";
-import { isArabic } from "../locales/language";
-
-import DomParser from "./common/DomParser";
 import { getImageSrc } from "../services/imageServices";
-import Canvas from "./common/Canvas";
 import { useTranslation } from "react-i18next";
 import CommonButton from "./common/Button";
 import {
@@ -12,9 +8,18 @@ import {
   handlePrimaryButtonStyleWhenHover,
 } from "../styles/eventStyles";
 import EventSectionContainer from "./common/EventSectionContainer";
+import { useDispatch } from "react-redux";
+import { toggleOpenCanvasAction } from "../redux/actions/canvasActions";
+import AboutEvent from "./AboutEvent";
 
 function EventIntro({ event }) {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const handleOpenCanvas = () => {
+    dispatch(
+      toggleOpenCanvasAction(<AboutEvent event={event} />, t("about-event"))
+    );
+  };
   return (
     <EventSectionContainer name="about-event">
       <Row className="justify-content-center about-event-section">
@@ -31,32 +36,18 @@ function EventIntro({ event }) {
             </Col>
 
             <Col xs={11} sm={9} md={8} className="px-0">
-              <Canvas
-                label={t("about-event")}
-                bodyComponent={
-                  <div className="about-event__description">
-                    <DomParser
-                      htmlResponse={
-                        isArabic()
-                          ? event.long_description_ar
-                          : event.long_description
-                      }
-                    />
-                  </div>
-                }
-              >
-                <Col sm={12}>
-                  <Row>
-                    <CommonButton
-                      label={t("read-event")}
-                      primaryStyle={() => handlePrimaryButtonStyle(event)}
-                      primaryStyleHover={() =>
-                        handlePrimaryButtonStyleWhenHover(event)
-                      }
-                    />
-                  </Row>
-                </Col>
-              </Canvas>
+              <Col sm={12}>
+                <Row>
+                  <CommonButton
+                    label={t("read-event")}
+                    primaryStyle={() => handlePrimaryButtonStyle(event)}
+                    primaryStyleHover={() =>
+                      handlePrimaryButtonStyleWhenHover(event)
+                    }
+                    onClick={handleOpenCanvas}
+                  />
+                </Row>
+              </Col>
             </Col>
           </Row>
         </Col>

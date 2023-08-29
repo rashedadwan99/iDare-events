@@ -1,26 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 import { Row, Col } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { RxHamburgerMenu } from "react-icons/rx";
-import Canvas from "./common/Canvas";
 import BurgerMenu from "./BurgerMenu";
+import { toggleOpenCanvasAction } from "../redux/actions/canvasActions";
 
 function RightHeaderSide() {
-  const [toggleOpenCanvas, setToggle] = useState(false);
+  const dispatch = useDispatch();
+
+  const handleOpenCanvas = () => {
+    dispatch(toggleOpenCanvasAction(<BurgerMenu />, ""));
+  };
   return (
     <Col xs={6} sm={6} md={6}>
       <Row className="justify-content-end px-2 align-items-center">
         <LanguageSwitcher />
-        <Canvas
-          toggleCanvas={toggleOpenCanvas}
-          bodyComponent={
-            <BurgerMenu
-              handleCloseCanvas={() => setToggle(!toggleOpenCanvas)}
-            />
-          }
-        >
-          <RxHamburgerMenu style={{ fontSize: "20px" }} />
-        </Canvas>
+
+        <RxHamburgerMenu
+          style={{ fontSize: "20px" }}
+          onClick={handleOpenCanvas}
+        />
       </Row>
     </Col>
   );

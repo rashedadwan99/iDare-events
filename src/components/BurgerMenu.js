@@ -6,8 +6,9 @@ import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../services/userService";
 import { toggleIsAuth } from "../redux/actions/userActions";
+import { closeCanvasAction } from "../redux/actions/canvasActions";
 
-function BurgerMenu({ handleCloseCanvas }) {
+function BurgerMenu() {
   const navigate = useNavigate();
   const { id: eventId } = useParams();
   const allEvents = useSelector((state) => state.events.allEvents);
@@ -23,10 +24,10 @@ function BurgerMenu({ handleCloseCanvas }) {
   const handleClick = (data) => {
     if (data.path) {
       navigate(data.path);
-      handleCloseCanvas();
     } else {
       data.onClick();
     }
+    dispatch(closeCanvasAction());
     window.scrollTo(0, 0);
   };
   return burgerData.map((b, i) => {

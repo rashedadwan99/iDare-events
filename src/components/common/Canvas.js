@@ -1,27 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Col, Row } from "react-bootstrap";
 import ClickOutsideAlerter from "./ClickOutSideAlerter";
 import CanvasHeader from "../CanvasHeader";
 import CanvasBody from "../CanvasBody";
+import { closeCanvasAction } from "../../redux/actions/canvasActions";
 import "../../styles/canvas.css";
-import { useSelector } from "react-redux";
-function Canvas({ children, label, bodyComponent, toggleCanvas }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const isAuth = useSelector((state) => state.user.isAuth);
-  const handleClick = () => {
-    setIsOpen(!isOpen);
-  };
-  useEffect(() => {
-    setIsOpen(false);
-  }, [toggleCanvas, isAuth]);
+function Canvas() {
+  const show = useSelector((state) => state.canvas.show);
+  const dispatch = useDispatch();
   return (
     <>
-      <ClickOutsideAlerter onOutsideClick={() => setIsOpen(false)}>
-        <div onClick={handleClick}>{children}</div>
-        <Row className={`off-canvas ${isOpen && "open"}`}>
+      <ClickOutsideAlerter
+        onOutsideClick={() => dispatch(() => closeCanvasAction())}
+      >
+        <Row className={`off-canvas ${show && "open"}`}>
           <Col sm={12}>
-            <CanvasHeader label={label} handleClick={handleClick} />
-            <CanvasBody Component={bodyComponent} />
+            <CanvasHeader />
+            <CanvasBody />
           </Col>
         </Row>
       </ClickOutsideAlerter>

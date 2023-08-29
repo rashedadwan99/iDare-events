@@ -15,10 +15,8 @@
 }
 
 
-
-
 .event-logo {
-  max-width: 40%;
+  max-width: 90%;
   height: 114px;
 }
 
@@ -48,7 +46,6 @@
 
 @media (max-width:600px) {
   .event-logo {
-    width: 80px;
     height: 80px;
   }
 

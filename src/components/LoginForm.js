@@ -27,7 +27,7 @@ function LoginForm() {
 
     const { data: responseData } = await getToken(data);
     if (responseData.AZSVR === SUCCESS) {
-      setToken(data.api_token);
+      setToken(responseData.api_token);
 
       navigate(homePageRoute, { replace: true });
       Toast("success", t("login-message"));

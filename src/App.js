@@ -19,7 +19,10 @@ import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
 import { ToastContainer } from "react-toastify";
 import { useDispatch } from "react-redux/es";
-import { getAllEventsAction } from "./redux/actions/eventActions";
+import {
+  getAllEventsAction,
+  getMyEventsAction,
+} from "./redux/actions/eventActions";
 import SingleEventPage from "./pages/SingleEventPage";
 import { language } from "./locales/language";
 import Header from "./components/Header";
@@ -30,12 +33,12 @@ import { toggleIsAuth } from "./redux/actions/userActions";
 import Speakers from "./pages/Speakers";
 import Gallery from "./pages/Gallery";
 import EventHome from "./components/EventHome";
+import Canvas from "./components/common/Canvas";
 
 const App = () => {
   const dispatch = useDispatch();
   const userToken = getUserToken();
   const isAuth = useSelector((state) => state.user.isAuth);
-  const { pathname } = useResolvedPath();
   useEffect(() => {
     document.documentElement.lang = language();
     dispatch(getAllEventsAction());
@@ -48,8 +51,13 @@ const App = () => {
   useEffect(() => {
     if (userToken) {
       <Navigate to={homePageRoute} replace />;
-    } else {
+    }
+
+    if (!userToken) {
       <Navigate to={loginPageRoute} replace />;
+    }
+    if (userToken && isAuth) {
+      dispatch(getMyEventsAction());
     }
   }, [isAuth]);
   const isSwitched = useSelector((state) => state.language.isSwitched);
@@ -57,6 +65,7 @@ const App = () => {
 
   return (
     <Container fluid>
+      <Canvas />
       <ToastContainer />
 
       <Routes>
