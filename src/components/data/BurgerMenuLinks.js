@@ -15,7 +15,7 @@ export const getBurgerLinks = (
       path: homePageRoute,
     },
   ];
-  if (eventId || myEvents.length) {
+  if (eventId) {
     links = [...links, ...getEventPageLinks(eventId, event, t)];
   }
   if (isAuth && myEvents.length) {

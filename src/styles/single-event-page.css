@@ -12,6 +12,9 @@
 
 .about-event__description {
   padding: 15px;
+  max-width: 100%;
+  white-space: normal;
+  word-wrap: break-word
 }
 
 

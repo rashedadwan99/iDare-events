@@ -9,15 +9,17 @@ function EventTimeLocation({ event }) {
       <Col xs={12} sm={12}>
         <Row className="align-items-center justify-content-start">
           <GoLocation />
-          <span className="event-location">{event.location}</span>
+
+          <Col className="event-location px-0">{event.location}</Col>
         </Row>
       </Col>
       <Col>
         <Row className="justify-content-start align-items-center mt-2">
           <BiTimeFive />
-          <span className="event-time">
+
+          <Col className="event-time px-0">
             <HandleTimeComponent data={event} />
-          </span>
+          </Col>
         </Row>
       </Col>
     </>

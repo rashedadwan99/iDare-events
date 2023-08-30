@@ -5,6 +5,7 @@ import HandleTimeComponent from "./HandleTimeComponent";
 import { useNavigate } from "react-router-dom/dist";
 import { eventPageRoute } from "../routes";
 import { getImageSrc } from "../services/imageServices";
+import EventTimeLocation from "./EventTimeLocation";
 
 function HomeEventsCards({ events }) {
   const navigate = useNavigate();
@@ -48,9 +49,9 @@ function HomeEventsCards({ events }) {
             <Col md={12}>
               <Row
                 className="justify-content-start"
-                style={{ fontWeight: "bold", fontSize: "14px" }}
+                style={{ fontWeight: "bold", fontSize: "12px" }}
               >
-                <HandleTimeComponent data={e} />
+                <EventTimeLocation event={e} />
               </Row>
             </Col>
           </Col>
