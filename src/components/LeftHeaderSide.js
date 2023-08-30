@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Row } from "react-bootstrap";
+import { Col, Image, Row } from "react-bootstrap";
 import Logo from "../images/Logo";
 import { getImageSrc } from "../services/imageServices";
 
@@ -8,7 +8,7 @@ function LeftHeaderSide({ event }) {
     <Col xs={6} sm={6} md={6}>
       <Row className="justify-content-start px-2">
         {event && (
-          <img
+          <Image
             src={getImageSrc(event.image)}
             alt="event-logo"
             className="event-logo"
