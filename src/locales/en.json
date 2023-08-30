@@ -53,5 +53,6 @@
   "register-event": "register event",
   "page-links": "page links",
   "event-home": "event home page",
-  "ticket-type": "ticket type"
+  "ticket-type": "ticket type",
+  "login_first": "please login first"
 }

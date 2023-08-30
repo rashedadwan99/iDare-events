@@ -57,5 +57,6 @@
   "register-event": "التسجيل في الحدث",
   "page-links": "روابط الصفحات",
   "event-home": "صفحة الحدث الرئيسية",
-  "ticket-type": "نوع التذكرة"
+  "ticket-type": "نوع التذكرة",
+  "login_first": "سجّل دخولك أولاً"
 }

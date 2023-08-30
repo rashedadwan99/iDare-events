@@ -5,9 +5,10 @@ export const getAllEvents = () => {
   return http.get("/events");
 };
 
-export const registerEvent = ({ event_id, ticket_type_id }) => {
+export const registerEvent = (data) => {
+  console.log(data);
   return http.get("/events/register", {
-    params: { event_id, ticket_type_id, api_token: getUserToken() },
+    params: { ...data, api_token: getUserToken() },
   });
 };
 

@@ -11,6 +11,8 @@ import {
 } from "../styles/eventStyles";
 import "../styles/event-form.css";
 import { Toast } from "./common/Toast";
+import { registerEvent } from "../services/eventsService";
+import { getUserToken } from "../services/userService";
 function EventForm({ event }) {
   const { t } = useTranslation();
   const [staticData, setStaticData] = useState({
@@ -28,10 +30,11 @@ function EventForm({ event }) {
   }, []);
   console.log(daynamicData);
 
-  const handleSubmit = () => {
-    // if (!staticData.ticket_type_id) {
-    //   return Toast("info", t("please fill all fields"));
-    // }
+  const handleSubmit = async () => {
+    if (!getUserToken()) return Toast("info", t("login_first"));
+    if (!staticData.ticket_type_id) {
+      return Toast("info", t("please fill all fields"));
+    }
     const allAdditionalRequired = event.additional_fields.filter(
       (a) => a.required === 1
     );
@@ -39,12 +42,13 @@ function EventForm({ event }) {
       for (const key in daynamicData) {
         const field = event.additional_fields.find((a) => a.name === key);
 
-        if (allAdditionalRequired.includes(field)) {
+        if (key === field.name && !daynamicData[key].length) {
           return Toast("info", t("please fill all fields"));
         }
       }
     }
     const allData = { ...staticData, ...daynamicData };
+    const { data } = await registerEvent(allData);
   };
 
   return (
