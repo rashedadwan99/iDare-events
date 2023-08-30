@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { AiFillCaretDown } from "react-icons/ai";
 import { useResolvedPath } from "react-router-dom";
 import ClickOutsideAlerter from "./ClickOutSideAlerter";
-import { language } from "../../locales/language";
+import { isArabic, language } from "../../locales/language";
 import { useParams } from "react-router-dom/dist";
 import { useSelector } from "react-redux";
 import {
@@ -35,7 +35,7 @@ const SelectMenu = ({
   const handleClickOption = (option) => {
     setIsOpen(false);
     setDefaultOption(option[path]);
-    setData({ ...data, [name]: option.id });
+    setData({ ...data, [name]: option.value ? option.value : option.id });
   };
   const handleSelectStyle = (header_style) => {
     if (id && event && header_style) return handleSelectHeaderMenu(event);
@@ -43,7 +43,10 @@ const SelectMenu = ({
   };
   return (
     <ClickOutsideAlerter onOutsideClick={() => setIsOpen(false)}>
-      <div className="select-menu">
+      <div
+        className="select-menu"
+        style={isArabic() ? { direction: "ltr" } : { direction: "rtl" }}
+      >
         <div
           className="select-menu__header"
           onClick={toggleMenu}

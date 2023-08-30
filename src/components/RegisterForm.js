@@ -106,7 +106,7 @@ function RegisterForm() {
       <Row className="justify-content-center mb-4">
         <h3>{t("register")}</h3>
       </Row>
-      <Row className="justify-content-center">
+      <Row className="justify-content-center mb-2">
         <Col>
           <FormElement
             data={data}
@@ -117,7 +117,7 @@ function RegisterForm() {
           />
         </Col>
       </Row>
-      <Row className="justify-content-center">
+      <Row className="justify-content-center mb-2">
         <Col>
           <FormElement
             data={data}
@@ -129,7 +129,7 @@ function RegisterForm() {
           />
         </Col>
       </Row>
-      <Row className="justify-content-center">
+      <Row className="justify-content-center mb-2">
         <Col>
           <FormElement
             data={data}
@@ -141,7 +141,7 @@ function RegisterForm() {
           />
         </Col>
       </Row>
-      <Row className="justify-content-center">
+      <Row className="justify-content-center mb-2">
         <Col>
           <FormElement
             data={data}
@@ -153,7 +153,7 @@ function RegisterForm() {
           />
         </Col>
       </Row>
-      <Row className="justify-content-center">
+      <Row className="justify-content-center mb-2">
         <Col>
           <FormElement
             data={data}
@@ -166,7 +166,7 @@ function RegisterForm() {
         </Col>
       </Row>
 
-      <Row className="justify-content-center">
+      <Row className="justify-content-center mb-2">
         <Col>
           <SelectMenu
             name="country_id"
@@ -189,7 +189,7 @@ function RegisterForm() {
         </Col>
       </Row>
 
-      <Row className="justify-content-center">
+      <Row className="justify-content-center mb-2">
         <Col>
           <SelectMenu
             name="is_refugee"
@@ -201,7 +201,7 @@ function RegisterForm() {
           />
         </Col>
       </Row>
-      <Row className="justify-content-center">
+      <Row className="justify-content-center mb-2">
         <Col>
           <SelectMenu
             name="is_disabled"

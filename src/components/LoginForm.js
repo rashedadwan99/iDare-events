@@ -46,7 +46,7 @@ function LoginForm() {
       <Row className="justify-content-center mb-4">
         <h3>{t("login")}</h3>
       </Row>
-      <Row className="justify-content-center">
+      <Row className="justify-content-center mb-2">
         <Col>
           <FormElement
             data={data}
@@ -58,7 +58,7 @@ function LoginForm() {
           />
         </Col>
       </Row>
-      <Row className="justify-content-center">
+      <Row className="justify-content-center mb-2">
         <Col>
           <FormElement
             data={data}

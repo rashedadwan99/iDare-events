@@ -1,53 +1,75 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { isArabic } from "../locales/language";
-import FormElement from "./common/FormElement";
 import CommonButton from "./common/Button";
-import "../styles/event-form.css";
+import StaticEventForm from "./StaticEventForm";
+import DaynamicEventForm from "./DaynamicEventForm";
 import {
   handlePrimaryButtonStyle,
   handlePrimaryButtonStyleWhenHover,
 } from "../styles/eventStyles";
+import "../styles/event-form.css";
+import { Toast } from "./common/Toast";
 function EventForm({ event }) {
   const { t } = useTranslation();
-  const [data, setData] = useState({
+  const [staticData, setStaticData] = useState({
     event_id: event.id,
     ticket_type_id: "",
   });
+  const [daynamicData, setDaynamicData] = useState({});
+  useEffect(() => {
+    let obj = {};
+    event.additional_fields.map((f) => {
+      const { name } = f;
+      obj = { ...obj, [name]: "" };
+    });
+    setDaynamicData(obj);
+  }, []);
+  console.log(daynamicData);
+
+  const handleSubmit = () => {
+    // if (!staticData.ticket_type_id) {
+    //   return Toast("info", t("please fill all fields"));
+    // }
+    const allAdditionalRequired = event.additional_fields.filter(
+      (a) => a.required === 1
+    );
+    if (allAdditionalRequired.length) {
+      for (const key in daynamicData) {
+        const field = event.additional_fields.find((a) => a.name === key);
+
+        if (allAdditionalRequired.includes(field)) {
+          return Toast("info", t("please fill all fields"));
+        }
+      }
+    }
+    const allData = { ...staticData, ...daynamicData };
+  };
+
   return (
     <Row
       className={`justify-content-center event-form ${isArabic() ? "ar" : ""}`}
     >
-      <Col xs={11} sm={11}>
-        <Row>
-          <FormElement
-            data={data}
-            setData={setData}
-            value={isArabic() ? event.name_ar : event.name}
-            disabled={true}
-          />
-        </Row>
-      </Col>
-      <Col xs={11} sm={11}>
-        <Row>
-          <FormElement
-            element="select"
-            data={data}
-            setData={setData}
-            defaultOption={t("ticket-type")}
-            options={event.ticket_types}
-            name="ticket_type_id"
-            path="name"
-          />
-        </Row>
-      </Col>
+      <StaticEventForm
+        event={event}
+        data={staticData}
+        setData={setStaticData}
+      />
+
+      <DaynamicEventForm
+        event={event}
+        setData={setDaynamicData}
+        data={daynamicData}
+      />
+
       <Col xs={11} sm={11}>
         <Row>
           <CommonButton
             primaryStyle={handlePrimaryButtonStyle(event)}
             primaryStyleHover={handlePrimaryButtonStyleWhenHover(event)}
             label={t("register-event")}
+            onClick={handleSubmit}
           />
         </Row>
       </Col>

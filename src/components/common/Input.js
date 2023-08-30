@@ -6,7 +6,7 @@ function Input({ label, icon, ...rest }) {
   return (
     <>
       {label && <Form.Label>{label}</Form.Label>}
-      <InputGroup size="sm" className={`mb-3 ${icon ? "input-with-icon" : ""}`}>
+      <InputGroup size="sm" className={`${icon ? "input-with-icon" : ""}`}>
         {icon && (
           <InputGroup.Text id="inputGroup-sizing-sm">{icon}</InputGroup.Text>
         )}
