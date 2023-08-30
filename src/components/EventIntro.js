@@ -23,10 +23,10 @@ function EventIntro({ event }) {
   return (
     <EventSectionContainer name="about-event">
       <Row className="justify-content-center about-event-section">
-        <Col xs={11} sm={9} md={8}>
+        <Col xs={11} sm={10} md={7} lg={5}>
           <Row className="justify-content-center">
-            <Col xs={11} sm={9} md={8}>
-              <Row className="mb-3">
+            <Col sm={12}>
+              <Row>
                 <Image
                   src={getImageSrc(event.about_image)}
                   alt="about"
@@ -35,19 +35,17 @@ function EventIntro({ event }) {
               </Row>
             </Col>
 
-            <Col xs={11} sm={9} md={8} className="px-0">
-              <Col sm={12}>
-                <Row>
-                  <CommonButton
-                    label={t("read-event")}
-                    primaryStyle={() => handlePrimaryButtonStyle(event)}
-                    primaryStyleHover={() =>
-                      handlePrimaryButtonStyleWhenHover(event)
-                    }
-                    onClick={handleOpenCanvas}
-                  />
-                </Row>
-              </Col>
+            <Col sm={12} className="mt-3">
+              <Row>
+                <CommonButton
+                  label={t("read-event")}
+                  primaryStyle={() => handlePrimaryButtonStyle(event)}
+                  primaryStyleHover={() =>
+                    handlePrimaryButtonStyleWhenHover(event)
+                  }
+                  onClick={handleOpenCanvas}
+                />
+              </Row>
             </Col>
           </Row>
         </Col>

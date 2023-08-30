@@ -1,23 +1,21 @@
 import React from "react";
-import HomeLandingPage from "../components/HomeLandingPage";
 import AllEvents from "../components/AllEvents";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import "../styles/home-page.css";
-function HomePage() {
+function MyEvents() {
   const { t } = useTranslation();
-  const allEvents = useSelector((state) => state.events.allEvents);
-
+  const myEvents = useSelector((state) => state.events.myEvents);
+  const events = myEvents.map((e) => e.event);
   return (
     <>
       <Header />
-      <HomeLandingPage />
-      <AllEvents title={t("upcoming_events")} events={allEvents} />
+      <AllEvents title={t("my-events")} events={events} />
       <Footer />
     </>
   );
 }
 
-export default HomePage;
+export default MyEvents;

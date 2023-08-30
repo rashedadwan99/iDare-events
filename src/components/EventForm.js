@@ -12,8 +12,12 @@ import {
 import "../styles/event-form.css";
 import { Toast } from "./common/Toast";
 import { registerEvent } from "../services/eventsService";
-import { getUserToken } from "../services/userService";
+import { SUCCESS } from "../services/httpService";
+import { useDispatch } from "react-redux";
+import { getMyEventsAction } from "../redux/actions/eventActions";
+import { toggleOpenModal } from "../redux/actions/modalAction";
 function EventForm({ event }) {
+  const dispatch = useDispatch();
   const { t } = useTranslation();
   const [staticData, setStaticData] = useState({
     event_id: event.id,
@@ -28,12 +32,10 @@ function EventForm({ event }) {
     });
     setDaynamicData(obj);
   }, []);
-  console.log(daynamicData);
 
   const handleSubmit = async () => {
-    if (!getUserToken()) return Toast("info", t("login_first"));
     if (!staticData.ticket_type_id) {
-      return Toast("info", t("please fill all fields"));
+      return Toast("info", t("please fill fields"));
     }
     const allAdditionalRequired = event.additional_fields.filter(
       (a) => a.required === 1
@@ -42,13 +44,22 @@ function EventForm({ event }) {
       for (const key in daynamicData) {
         const field = event.additional_fields.find((a) => a.name === key);
 
-        if (key === field.name && !daynamicData[key].length) {
-          return Toast("info", t("please fill all fields"));
+        if (
+          key === field.name &&
+          !daynamicData[key].length &&
+          allAdditionalRequired.includes(field)
+        ) {
+          return Toast("info", t("please fill fields"));
         }
       }
     }
     const allData = { ...staticData, ...daynamicData };
     const { data } = await registerEvent(allData);
+    if (data.AZSVR === SUCCESS) {
+      dispatch(getMyEventsAction());
+      dispatch(toggleOpenModal());
+      return Toast("info", t("event-register"));
+    }
   };
 
   return (

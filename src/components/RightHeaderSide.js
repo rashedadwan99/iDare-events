@@ -1,4 +1,6 @@
 import React from "react";
+import { useNavigate, useParams } from "react-router-dom";
+
 import { Row, Col } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -8,9 +10,10 @@ import { toggleOpenCanvasAction } from "../redux/actions/canvasActions";
 
 function RightHeaderSide() {
   const dispatch = useDispatch();
+  const { id } = useParams();
 
   const handleOpenCanvas = () => {
-    dispatch(toggleOpenCanvasAction(<BurgerMenu />, ""));
+    dispatch(toggleOpenCanvasAction(<BurgerMenu id={id} />, ""));
   };
   return (
     <Col xs={6} sm={6} md={6}>

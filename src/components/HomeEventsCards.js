@@ -1,15 +1,12 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import { useSelector } from "react-redux/es";
-import { storageBaseURL } from "../services/httpService";
-import { isArabic, language } from "../locales/language";
+import { isArabic } from "../locales/language";
 import HandleTimeComponent from "./HandleTimeComponent";
 import { useNavigate } from "react-router-dom/dist";
 import { eventPageRoute } from "../routes";
 import { getImageSrc } from "../services/imageServices";
 
-function HomeEventsCards() {
-  const allEvents = useSelector((state) => state.events.allEvents);
+function HomeEventsCards({ events }) {
   const navigate = useNavigate();
   const infoStyle = isArabic() ? { textAlign: "right" } : { textAlign: "left" };
   const containerStyle = isArabic()
@@ -19,7 +16,7 @@ function HomeEventsCards() {
     navigate(eventPageRoute + `/${id}`);
     window.scrollTo(0, 0);
   };
-  return allEvents.map((e) => {
+  return events.map((e) => {
     if (e.active)
       return (
         <Row
@@ -44,9 +41,7 @@ function HomeEventsCards() {
             <Row>
               <Col>
                 <p style={infoStyle}>
-                  {isArabic()
-                    ? e.short_description_ar
-                    : e.short_description}
+                  {isArabic() ? e.short_description_ar : e.short_description}
                 </p>
               </Col>
             </Row>

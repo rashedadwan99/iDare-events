@@ -1,16 +1,12 @@
 import React, { useEffect } from "react";
 import { Container } from "react-bootstrap";
-import {
-  Navigate,
-  Route,
-  Routes,
-  useResolvedPath,
-} from "react-router-dom/dist";
+import { Navigate, Route, Routes } from "react-router-dom/dist";
 import {
   authPageRoute,
   eventPageRoute,
   homePageRoute,
   loginPageRoute,
+  myEventPageRoute,
   registerPageRoute,
 } from "./routes";
 import HomePage from "./pages/HomePage";
@@ -34,6 +30,7 @@ import Speakers from "./pages/Speakers";
 import Gallery from "./pages/Gallery";
 import EventHome from "./components/EventHome";
 import Canvas from "./components/common/Canvas";
+import MyEvents from "./pages/MyEvents";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -49,13 +46,6 @@ const App = () => {
     }
   }, []);
   useEffect(() => {
-    if (userToken) {
-      <Navigate to={homePageRoute} replace />;
-    }
-
-    if (!userToken) {
-      <Navigate to={loginPageRoute} replace />;
-    }
     if (userToken && isAuth) {
       dispatch(getMyEventsAction());
     }
@@ -91,6 +81,16 @@ const App = () => {
           <Route path={loginPageRoute} element={<LoginForm />} />
           <Route path={registerPageRoute} element={<RegisterForm />} />
         </Route>
+        <Route
+          path={myEventPageRoute}
+          element={
+            getUserToken() ? (
+              <MyEvents />
+            ) : (
+              <Navigate to={homePageRoute} replace />
+            )
+          }
+        />
       </Routes>
     </Container>
   );

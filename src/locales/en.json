@@ -32,6 +32,7 @@
   "home": "home",
   "logout": "logout",
   "account_created": "the account is created successfully",
+  "event-register": "you registered in event successfully",
   "login-message": "you logged in successfully",
   "have-account": "do you have an account ? login",
   "dont-have-account": "don't you have an account ? register",
@@ -54,5 +55,7 @@
   "page-links": "page links",
   "event-home": "event home page",
   "ticket-type": "ticket type",
-  "login_first": "please login first"
+  "login_first": "please login first",
+  "please fill fields": "please fill all required fields",
+  "already_registered": "you already registered"
 }

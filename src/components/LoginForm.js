@@ -10,9 +10,10 @@ import { emailPattern } from "../patterns";
 import { homePageRoute, registerPageRoute } from "../routes";
 import { toggleIsAuth } from "../redux/actions/userActions";
 import { useNavigate } from "react-router-dom/dist";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 function LoginForm() {
+  const isAuth = useSelector((state) => state.user.isAuth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { t } = useTranslation();
@@ -28,10 +29,10 @@ function LoginForm() {
     const { data: responseData } = await getToken(data);
     if (responseData.AZSVR === SUCCESS) {
       setToken(responseData.api_token);
-
       navigate(homePageRoute, { replace: true });
+
       Toast("success", t("login-message"));
-      dispatch(toggleIsAuth(true));
+      dispatch(toggleIsAuth(!isAuth));
       window.scrollTo(0, 0);
     }
     if (responseData.AZSVR === FAILED)

@@ -25,14 +25,14 @@ function EventSponsors({ event }) {
     );
   }, []);
 
-  return (
-    event.sponsors.length && (
-      <EventSectionContainer name="cooperation">
-        <Row className="justify-content-center mb-5 mt-3 event-sponsors">
-          <CommonAliceCarousel items={images} />
-        </Row>
-      </EventSectionContainer>
-    )
+  return event.sponsors.length ? (
+    <EventSectionContainer name="cooperation">
+      <Row className="justify-content-center mb-5 mt-3 event-sponsors">
+        <CommonAliceCarousel items={images} />
+      </Row>
+    </EventSectionContainer>
+  ) : (
+    <></>
   );
 }
 

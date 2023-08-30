@@ -13,11 +13,12 @@ import { Toast } from "./common/Toast";
 import { emailPattern, isNumber } from "../patterns";
 import { language } from "../locales/language";
 import { useNavigate } from "react-router-dom/dist";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { homePageRoute, loginPageRoute } from "../routes";
 import { toggleIsAuth } from "../redux/actions/userActions";
 
 function RegisterForm() {
+  const isAuth = useSelector((state) => state.user.isAuth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { t } = useTranslation();
@@ -86,13 +87,15 @@ function RegisterForm() {
     if (responseData.AZSVR === SUCCESS) {
       setToken(responseData.api_token);
 
-      navigate(homePageRoute, { replace: true });
       Toast("success", t("account_created"));
-      dispatch(toggleIsAuth(true));
+      dispatch(toggleIsAuth(!isAuth));
+      navigate(homePageRoute, { replace: true });
+
       window.scrollTo(0, 0);
     }
     if (responseData.AZSVR === FAILED) {
       setToken(responseData.api_token);
+      window.scrollTo(0, 0);
 
       Toast("error", t("user_exists"));
     }
