@@ -3,20 +3,18 @@ import { Col, Row } from "react-bootstrap";
 import HandleTimeComponent from "./HandleTimeComponent";
 function EventTimeLocation({ event }) {
   return (
-    <>
-      <Col xs={12} sm={12}>
-        <Row className="align-items-center justify-content-start">
-          <Col className="event-location px-0">{event.location}</Col>
-        </Row>
-      </Col>
-      <Col>
-        <Row className="justify-content-start align-items-center mt-2">
-          <Col className="event-time px-0">
+    <Col sm={12}>
+      <Row className="align-items-center justify-content-center event-location">
+        <Col sm={12} className="mb-2">
+          <Row>{event.location}</Row>
+        </Col>
+        <Col sm={12}>
+          <Row className="align-items-center justify-content-center event-time">
             <HandleTimeComponent data={event} />
-          </Col>
-        </Row>
-      </Col>
-    </>
+          </Row>
+        </Col>
+      </Row>
+    </Col>
   );
 }
 

@@ -1,7 +1,10 @@
 import { format } from "date-fns";
 import React from "react";
+import { Col, Row } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 
 function HandleTimeComponent({ data }) {
+  const { t } = useTranslation();
   const handleDate = (date) => {
     return format(new Date(date), "MMMM d, yyyy");
   };
@@ -11,9 +14,17 @@ function HandleTimeComponent({ data }) {
   };
   return (
     <>
-      {handleDate(data.start_time)}- {handleDate(data.end_time)}
-      <br />
-      {handleHours(data.start_time)}-{handleHours(data.end_time)}
+      <Col xs={12} sm={12}>
+        <Row>
+          {handleDate(data.start_time)}- {handleDate(data.end_time)}
+        </Row>
+      </Col>
+      <Col xs={12} sm={12} className="my-2">
+        <Row>{`${t("start")} : ${handleHours(data.start_time)}`}</Row>
+      </Col>
+      <Col xs={12} sm={12}>
+        <Row> {`${t("end")} : ${handleHours(data.end_time)}`}</Row>
+      </Col>
     </>
   );
 }

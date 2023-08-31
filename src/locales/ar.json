@@ -61,5 +61,7 @@
   "login_first": "سجّل دخولك أولاً",
   "please fill fields": "الرجاء تعبئة جميع الحقول المطلوبة",
   "event-register": "تم التجسيل في الحدث بنجاح",
-  "already_registered": "أنت مُسجل بهذا الحدث"
+  "already_registered": "أنت مُسجل بهذا الحدث",
+  "start": "يبدأ",
+  "end": "ينتهي"
 }

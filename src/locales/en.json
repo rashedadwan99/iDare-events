@@ -57,5 +57,7 @@
   "ticket-type": "ticket type",
   "login_first": "please login first",
   "please fill fields": "please fill all required fields",
-  "already_registered": "you already registered"
+  "already_registered": "you already registered",
+  "start": "start",
+  "end": "end"
 }
