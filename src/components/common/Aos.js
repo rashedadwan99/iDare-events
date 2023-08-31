@@ -6,7 +6,10 @@ function AosContainer({ delay, children, style, ...rest }) {
   const [scrollDirection, setScrollDirection] = useState("down");
 
   useEffect(() => {
-    Aos.init();
+    Aos.init({
+      duration: 100,
+      delay: 100,
+    });
 
     const handleScroll = () => {
       const currentScroll = window.scrollY;
@@ -32,7 +35,6 @@ function AosContainer({ delay, children, style, ...rest }) {
       sm={12}
       xs={12}
       data-aos={scrollDirection === "down" ? "fade-up" : "fade-down"}
-      data-aos-delay={delay ?? "100"}
       style={style}
       {...rest}
     >

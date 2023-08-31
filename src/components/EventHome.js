@@ -23,16 +23,16 @@ function EventHome() {
       <Col sm={12} lg={12}>
         <EventFirstSection event={event} />
       </Col>
-      <AosContainer delay="200">
+      <AosContainer>
         <EventIntro event={event} />
       </AosContainer>
-      <AosContainer delay="300">
+      <AosContainer>
         <EventOrganizers event={event} isInActiveSection={isInActiveSection} />
       </AosContainer>
-      <AosContainer delay="400">
+      <AosContainer>
         <EventRooms event={event} isInActiveSection={isInActiveSection} />
       </AosContainer>
-      <AosContainer delay="500">
+      <AosContainer>
         <EventSponsors event={event} />
       </AosContainer>
     </>

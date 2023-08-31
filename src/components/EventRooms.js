@@ -8,7 +8,7 @@ import EventSectionContainer from "./common/EventSectionContainer";
 
 function EventRooms({ event, isInActiveSection }) {
   const { t } = useTranslation();
-  if (isInActiveSection(event.rooms))
+  if (!isInActiveSection(event.rooms))
     return (
       <EventSectionContainer name="rooms">
         <Row className="justify-content-center mb-3">
