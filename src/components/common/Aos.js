@@ -30,7 +30,7 @@ function AosContainer({ delay, children, style, ...rest }) {
   return (
     <Col
       sm={12}
-      xs={11}
+      xs={12}
       data-aos={scrollDirection === "down" ? "fade-up" : "fade-down"}
       data-aos-delay={delay ?? "100"}
       style={style}

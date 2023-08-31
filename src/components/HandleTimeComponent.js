@@ -12,11 +12,12 @@ function HandleTimeComponent({ data }) {
   const handleHours = (date) => {
     return format(new Date(date), "hh:mm a");
   };
+
   return (
     <>
       <Col xs={12} sm={12}>
         <Row>
-          {handleDate(data.start_time)}- {handleDate(data.end_time)}
+          {handleDate(data.start_time)} - {handleDate(data.end_time)}
         </Row>
       </Col>
       <Col xs={12} sm={12} className="my-2">

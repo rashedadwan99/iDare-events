@@ -15,7 +15,14 @@ function TableRows({ rows, cols }) {
                     {col.isImg && (
                       <img src={getImageSrc(row[col.src])} alt="" />
                     )}
-                    <div>{row[col.path]}</div>
+
+                    <div
+                      style={
+                        col.isImg ? { textAlign: "center", width: "40%" } : {}
+                      }
+                    >
+                      {row[col.path]}
+                    </div>
                   </td>
                 );
               if (col.isTime) {
