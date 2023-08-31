@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom/dist";
 import { loginPageRoute } from "../routes";
 import { getUserToken } from "../services/userService";
+import AosContainer from "./common/Aos";
 function HomeLandingPage() {
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ function HomeLandingPage() {
   };
   return (
     <Row className="justify-content-between landing-section">
-      <Col sm={12} md={12} style={{ margin: "auto 0" }}>
+      <AosContainer style={{ margin: "auto 0" }}>
         <Row className="justify-content-center my-3">
           <h3>{t("idare")}</h3>
         </Row>
@@ -33,7 +34,7 @@ function HomeLandingPage() {
             <h6 onClick={handleJoinUs}>{t("join_us")}</h6>
           </Row>
         )}
-      </Col>
+      </AosContainer>
     </Row>
   );
 }

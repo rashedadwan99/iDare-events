@@ -7,6 +7,7 @@ import EventRooms from "./EventRooms";
 import EventSponsors from "./EventSponsors";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+import AosContainer from "./common/Aos";
 
 function EventHome() {
   const { id } = useParams();
@@ -22,18 +23,18 @@ function EventHome() {
       <Col sm={12} lg={12}>
         <EventFirstSection event={event} />
       </Col>
-      <Col sm={12} lg={12}>
+      <AosContainer delay="200">
         <EventIntro event={event} />
-      </Col>
-      <Col sm={12} lg={12}>
+      </AosContainer>
+      <AosContainer delay="300">
         <EventOrganizers event={event} isInActiveSection={isInActiveSection} />
-      </Col>
-      <Col sm={12} lg={12}>
+      </AosContainer>
+      <AosContainer delay="400">
         <EventRooms event={event} isInActiveSection={isInActiveSection} />
-      </Col>
-      <Col sm={12} lg={12}>
+      </AosContainer>
+      <AosContainer delay="500">
         <EventSponsors event={event} />
-      </Col>
+      </AosContainer>
     </>
   );
 }

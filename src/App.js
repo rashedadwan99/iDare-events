@@ -21,8 +21,6 @@ import {
 } from "./redux/actions/eventActions";
 import SingleEventPage from "./pages/SingleEventPage";
 import { language } from "./locales/language";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
 import { getUserToken } from "./services/userService";
 import { useSelector } from "react-redux";
 import { toggleIsAuth } from "./redux/actions/userActions";
@@ -31,7 +29,6 @@ import Gallery from "./pages/Gallery";
 import EventHome from "./components/EventHome";
 import Canvas from "./components/common/Canvas";
 import MyEvents from "./pages/MyEvents";
-
 const App = () => {
   const dispatch = useDispatch();
   const userToken = getUserToken();
