@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../services/userService";
 import { toggleIsAuth } from "../redux/actions/userActions";
 import { closeCanvasAction } from "../redux/actions/canvasActions";
+import { homePageRoute, loginPageRoute } from "../routes";
 
 function BurgerMenu({ id }) {
   const navigate = useNavigate();
@@ -20,6 +21,7 @@ function BurgerMenu({ id }) {
   const handleLogout = () => {
     logout();
     dispatch(toggleIsAuth(!isAuth));
+    navigate(loginPageRoute, { replace: true });
   };
   const burgerData = getBurgerLinks(
     handleLogout,

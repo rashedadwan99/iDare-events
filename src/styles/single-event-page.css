@@ -205,7 +205,7 @@
 
 @media (max-width:992px) {
   .organizer-container img {
-    /* width: 80% !important; */
+
     margin: 0 auto;
     display: block;
   }
@@ -220,6 +220,15 @@
   .event-sponsors img {
     height: 150px;
     width: 150px;
+  }
 
+  .first-event-section h4,
+  .about-event-section h3 {
+    font-size: 20px;
+  }
+
+  .event-time,
+  .event-location {
+    font-size: 12px !important;
   }
 }

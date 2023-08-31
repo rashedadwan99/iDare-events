@@ -90,4 +90,17 @@
     font-size: 24px;
     height: 80.4vh;
   }
+
+  .landing-section span {
+    font-size: 18px;
+  }
+
+  .landing-section h3 {
+    font-size: 24px;
+  }
+
+  .landing-section svg {
+    font-size: 24px;
+  }
+
 }

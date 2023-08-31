@@ -54,6 +54,7 @@ function RegisterForm() {
       is_disabled: "",
     });
   }, [language()]);
+  const [isLoading, setIsLoading] = useState(false);
   const handleRegister = async () => {
     const {
       email,
@@ -83,9 +84,12 @@ function RegisterForm() {
     if (!emailPattern.test(email)) return Toast("info", t("email validation"));
     if (!isNumber.test(phone) || !isNumber.test(national_number))
       return Toast("info", t("number validation"));
+    setIsLoading(!isLoading);
+
     const { data: responseData } = await registerUser(data);
     if (responseData.AZSVR === SUCCESS) {
       setToken(responseData.api_token);
+      setIsLoading(!isLoading);
 
       Toast("success", t("account_created"));
       dispatch(toggleIsAuth(!isAuth));
@@ -94,8 +98,7 @@ function RegisterForm() {
       window.scrollTo(0, 0);
     }
     if (responseData.AZSVR === FAILED) {
-      setToken(responseData.api_token);
-      window.scrollTo(0, 0);
+      setIsLoading(!isLoading);
 
       Toast("error", t("user_exists"));
     }

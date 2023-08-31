@@ -39,11 +39,11 @@ function EventFirstSection({ event }) {
         <Row className="justify-content-start">
           <h4>{isArabic() ? event.slogan_ar : event.slogan}</h4>
         </Row>
-        <Row>
+        <Row className="mt-3">
           <EventTimeLocation event={event} />
         </Row>
         <Row className="justify-content-start align-items-center mt-3">
-          <Col xs={11} sm={6} md={6} lg={4}>
+          <Col xs={8} sm={4} md={4} lg={4}>
             <Row>
               <CommonButton
                 primaryStyle={handlePrimaryButtonStyle(event)}

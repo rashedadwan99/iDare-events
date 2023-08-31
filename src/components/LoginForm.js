@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 function LoginForm() {
   const isAuth = useSelector((state) => state.user.isAuth);
+  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { t } = useTranslation();
@@ -25,18 +26,24 @@ function LoginForm() {
     const { email, password } = data;
     if (!password || !email) return Toast("info", t("please fill all fields"));
     if (!emailPattern.test(email)) return Toast("info", t("email validation"));
+    setIsLoading(!isLoading);
 
     const { data: responseData } = await getToken(data);
     if (responseData.AZSVR === SUCCESS) {
       setToken(responseData.api_token);
+
+      setIsLoading(!isLoading);
       navigate(homePageRoute, { replace: true });
 
       Toast("success", t("login-message"));
       dispatch(toggleIsAuth(!isAuth));
       window.scrollTo(0, 0);
     }
-    if (responseData.AZSVR === FAILED)
+    if (responseData.AZSVR === FAILED) {
+      setIsLoading(!isLoading);
+
       return Toast("error", t("invalid email or password"));
+    }
   };
   const handleToggleForms = () => {
     navigate(registerPageRoute);
@@ -85,6 +92,7 @@ function LoginForm() {
             element="button"
             label={t("login")}
             onClick={handleLogin}
+            disabled={isLoading}
           />
         </Col>
       </Row>
