@@ -1,6 +1,7 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 import HandleTimeComponent from "./HandleTimeComponent";
+import EventFormBtn from "./common/EventFormBtn";
 function EventTimeLocation({ event }) {
   return (
     <Col sm={12}>

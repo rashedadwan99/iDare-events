@@ -5,6 +5,12 @@
 .alice-carousel__dots-item:not(.__custom) {
   width: 10px;
   height: 10px;
+  margin-top: 15px;
+}
+
+.alice-carousel__dots-item:not(.__custom).__active {
+
+  background-color: var(--black) !important;
 }
 
 @media (max-width:992px) {

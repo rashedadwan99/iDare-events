@@ -11,9 +11,19 @@ function CommonAliceCarousel({ items }) {
       infinite={true}
       items={items}
       disableButtonsControls={true}
+      keyboardNavigation
       animationEasingFunction="ease-in-out"
       animationType="fadeout"
       autoPlayStrategy="all"
+      autoPlayDirection="ltr"
+      responsive={{
+        0: {
+          items: 1,
+        },
+        768: {
+          items: 3,
+        },
+      }}
     />
   );
 }

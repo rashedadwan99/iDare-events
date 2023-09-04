@@ -1,14 +1,17 @@
 import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
-
+import { useParams } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { RxHamburgerMenu } from "react-icons/rx";
 import BurgerMenu from "./BurgerMenu";
 import { toggleOpenCanvasAction } from "../redux/actions/canvasActions";
+import EventFormBtn from "./common/EventFormBtn";
 
-function RightHeaderSide() {
+function RightHeaderSide({ event }) {
+  const myEvents = useSelector((state) => state.events.myEvents);
+  const isInMyEvents = myEvents.find((e) => e.event_id === event.id);
+
   const dispatch = useDispatch();
   const { id } = useParams();
 
@@ -16,8 +19,13 @@ function RightHeaderSide() {
     dispatch(toggleOpenCanvasAction(<BurgerMenu id={id} />, ""));
   };
   return (
-    <Col xs={6} sm={6} md={6}>
+    <Col xs={7} sm={9} md={9}>
       <Row className="justify-content-end px-2 align-items-center">
+        {event && !isInMyEvents && (
+          <div className="event-button">
+            <EventFormBtn event={event} />
+          </div>
+        )}
         <LanguageSwitcher />
 
         <RxHamburgerMenu

@@ -6,7 +6,6 @@ export const getAllEvents = () => {
 };
 
 export const registerEvent = (data) => {
-  console.log(data);
   return http.get("/events/register", {
     params: { ...data, api_token: getUserToken() },
   });

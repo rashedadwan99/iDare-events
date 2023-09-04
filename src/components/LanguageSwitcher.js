@@ -23,17 +23,15 @@ const LanguageSwitcher = () => {
     dispatch(toggleLanguageAction());
   }, [data.id]);
   return (
-    <div>
-      <FormElement
-        element="select"
-        defaultOption={isArabic() ? "العربية" : "english"}
-        options={languages}
-        name="id"
-        path="label"
-        data={data}
-        setData={setData}
-      />
-    </div>
+    <FormElement
+      element="select"
+      defaultOption={isArabic() ? "العربية" : "english"}
+      options={languages}
+      name="id"
+      path="label"
+      data={data}
+      setData={setData}
+    />
   );
 };
 

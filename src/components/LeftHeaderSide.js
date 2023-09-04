@@ -5,7 +5,7 @@ import { getImageSrc } from "../services/imageServices";
 
 function LeftHeaderSide({ event }) {
   return (
-    <Col xs={6} sm={6} md={6}>
+    <Col xs={5} sm={3} md={3}>
       <Row className="justify-content-start px-2">
         {event && (
           <Image

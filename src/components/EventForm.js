@@ -9,13 +9,13 @@ import {
   handlePrimaryButtonStyle,
   handlePrimaryButtonStyleWhenHover,
 } from "../styles/eventStyles";
-import "../styles/event-form.css";
 import { Toast } from "./common/Toast";
 import { registerEvent } from "../services/eventsService";
 import { SUCCESS } from "../services/httpService";
 import { useDispatch } from "react-redux";
 import { getMyEventsAction } from "../redux/actions/eventActions";
 import { toggleOpenModal } from "../redux/actions/modalAction";
+import "../styles/event-form.css";
 function EventForm({ event }) {
   const dispatch = useDispatch();
   const { t } = useTranslation();

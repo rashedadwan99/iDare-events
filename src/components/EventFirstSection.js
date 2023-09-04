@@ -1,34 +1,12 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
 import { isArabic } from "../locales/language";
-import {
-  handleOrganizersBackgroundStyle,
-  handlePrimaryButtonStyle,
-  handlePrimaryButtonStyleWhenHover,
-} from "../styles/eventStyles";
-import CommonButton from "./common/Button";
-import { t } from "i18next";
-import { useDispatch, useSelector } from "react-redux";
-import { toggleOpenModal } from "../redux/actions/modalAction";
-import CommonModal from "./common/CommonModal";
+import { handleOrganizersBackgroundStyle } from "../styles/eventStyles";
 import EventTimeLocation from "./EventTimeLocation";
-import EventForm from "./EventForm";
-import { getUserToken } from "../services/userService";
-import { Toast } from "./common/Toast";
-import { useTranslation } from "react-i18next";
-import { is } from "date-fns/esm/locale";
+
+import EventFormBtn from "./common/EventFormBtn";
 
 function EventFirstSection({ event }) {
-  const myEvents = useSelector((state) => state.events.myEvents);
-  const { t } = useTranslation();
-  const dispatch = useDispatch();
-  const isInMyEvents = myEvents.find((e) => e.event_id === event.id);
-  const handleOpenModal = () => {
-    if (!getUserToken()) return Toast("info", t("login_first"));
-    if (isInMyEvents) return;
-    dispatch(toggleOpenModal());
-  };
-
   return (
     <Row
       className="justify-content-center first-event-section"
@@ -45,21 +23,7 @@ function EventFirstSection({ event }) {
         <Row className="justify-content-start align-items-center mt-3">
           <Col xs={8} sm={4} md={4} lg={4}>
             <Row>
-              <CommonButton
-                primaryStyle={handlePrimaryButtonStyle(event)}
-                primaryStyleHover={handlePrimaryButtonStyleWhenHover(event)}
-                label={
-                  getUserToken()
-                    ? isInMyEvents
-                      ? t("already_registered")
-                      : t("register-event")
-                    : t("register-event")
-                }
-                onClick={handleOpenModal}
-              />
-              <CommonModal title={t("register-event")}>
-                <EventForm event={event} />
-              </CommonModal>
+              <EventFormBtn event={event} />
             </Row>
           </Col>
         </Row>

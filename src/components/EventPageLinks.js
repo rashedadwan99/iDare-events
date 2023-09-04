@@ -23,7 +23,7 @@ function EventPageLinks({ event }) {
           onClick={() => handleNavigate(l)}
           key={l.path}
         >
-          <span>{l.label}</span>
+          {l.label}
         </Row>
       </Col>
     );

@@ -3,7 +3,6 @@
   color: var(--primary-font-color);
   align-items: center;
   font-weight: bold;
-  min-height: 10rem;
   height: 21.6vh;
   min-height: 100px;
   position: sticky !important;
@@ -13,7 +12,7 @@
 
 .header img {
   max-width: 15rem;
-  min-height: 50px;
+  min-width: 5rem;
   max-height: 15rem;
 
 }
