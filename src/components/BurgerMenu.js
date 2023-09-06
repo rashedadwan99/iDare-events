@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { getBurgerLinks } from "./data/BurgerMenuLinks";
@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../services/userService";
 import { toggleIsAuth } from "../redux/actions/userActions";
 import { closeCanvasAction } from "../redux/actions/canvasActions";
-import { homePageRoute, loginPageRoute } from "../routes";
+import { loginPageRoute } from "../routes";
 
 function BurgerMenu({ id }) {
   const navigate = useNavigate();

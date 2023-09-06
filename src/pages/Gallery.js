@@ -1,10 +1,11 @@
 import React from "react";
-import { Col, Image, Row } from "react-bootstrap";
+import { Col, Container, Image, Row } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getImageSrc } from "../services/imageServices";
 import { sortData } from "../components/utils/sort";
+import "../styles/gallery.css";
 function Gallery() {
   const { t } = useTranslation();
   const { id } = useParams();
@@ -19,23 +20,18 @@ function Gallery() {
             <h3 className="event-section-name">{t("gallery")}</h3>
           </Row>
         </Col>
-        <Col xs={11} sm={10} md={10}>
-          <Row className="justify-content-start">
-            {sortedImages.map((g, i) => {
-              return (
-                <Col md={6} key={g.id}>
-                  <Row style={{ height: "100%" }}>
-                    <Image
-                      src={getImageSrc(g.image)}
-                      alt="gallery"
-                      style={{ width: "100%", height: "100%" }}
-                    />
-                  </Row>
-                </Col>
-              );
-            })}
-          </Row>
-        </Col>
+        <Container fluid id="#gallery">
+          {sortedImages.map((g, i) => {
+            return (
+              <Image
+                key={i}
+                src={getImageSrc(g.image)}
+                alt="gallery"
+                className="img-responsive"
+              />
+            );
+          })}
+        </Container>
       </Row>
     </Col>
   );

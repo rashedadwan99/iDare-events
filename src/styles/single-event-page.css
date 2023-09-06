@@ -1,8 +1,12 @@
 .event-page.arabic .first-event-section,
-.event-page.arabic .organizer-container,
+.event-page.arabic .organizer,
 .event-page.arabic .event-footer {
   direction: rtl;
   text-align: right;
+}
+
+.event-page.arabic .carousel .carousel-status {
+  direction: ltr !important;
 }
 
 
@@ -142,12 +146,13 @@
 
 
 .organizer-description {
-  font-size: 13px;
+  font-size: 14px;
   padding-bottom: 8px;
 }
 
 .organizer-name {
   font-weight: bold;
+  font-size: 16px;
 }
 
 .event-sponsors img {
@@ -222,6 +227,10 @@
 
 }
 
+/* 
+.organizer-container img {
+  width: 85% !important;
+} */
 
 @media (max-width:992px) {
   .organizer-container img {
@@ -231,9 +240,7 @@
   }
 
 
-  .organizer-name {
-    font-size: 15px;
-  }
+
 
 
 }

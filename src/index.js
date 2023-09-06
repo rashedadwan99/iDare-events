@@ -12,7 +12,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import "react-alice-carousel/lib/alice-carousel.css";
 import "aos/dist/aos.css";
-
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <I18nextProvider i18n={i18n}>

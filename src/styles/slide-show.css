@@ -1,0 +1,38 @@
+.carousel .slide {
+  text-align: inherit !important;
+}
+
+.carousel .control-dots .dot {
+  background: var(--black) !important;
+}
+
+.carousel .control-dots {
+  top: 0 !important;
+  bottom: initial !important;
+  margin: 0 !important;
+}
+
+.carousel .carousel-status {
+  color: var(--black) !important;
+  font-size: 11px !important;
+}
+
+.carousel.carousel-slider .control-arrow:hover {
+  background-color: initial !important;
+}
+
+.carousel .control-next.control-arrow:before {
+  border-left-color: var(--black) !important;
+}
+
+.carousel .control-prev.control-arrow:before {
+  border-right-color: var(--black) !important;
+}
+
+.carousel .control-prev.control-arrow {
+  left: -11px !important;
+}
+
+.carousel .control-next.control-arrow {
+  right: -11px !important;
+}

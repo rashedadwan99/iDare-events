@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+
 import { Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -10,10 +11,10 @@ import EventFormBtn from "./common/EventFormBtn";
 
 function RightHeaderSide({ event }) {
   const myEvents = useSelector((state) => state.events.myEvents);
-  const isInMyEvents = myEvents.find((e) => e.event_id === event.id);
+  const { id } = useParams();
+  const isInMyEvents = myEvents.find((e) => e.event_id === id);
 
   const dispatch = useDispatch();
-  const { id } = useParams();
 
   const handleOpenCanvas = () => {
     dispatch(toggleOpenCanvasAction(<BurgerMenu id={id} />, ""));
@@ -27,7 +28,6 @@ function RightHeaderSide({ event }) {
           </div>
         )}
         <LanguageSwitcher />
-
         <RxHamburgerMenu
           style={{ fontSize: "20px" }}
           onClick={handleOpenCanvas}

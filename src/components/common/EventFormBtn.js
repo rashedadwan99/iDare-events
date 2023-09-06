@@ -23,6 +23,7 @@ function EventFormBtn({ event }) {
     if (isInMyEvents) return;
     dispatch(toggleOpenModal());
   };
+
   return (
     <>
       <CommonButton
