@@ -1,16 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
 import "../../styles/floatingbutton.css";
+import { handlePrimaryButtonStyle } from "../../styles/eventStyles";
 
-const FloatingButton = () => {
+const FloatingButton = ({ event }) => {
+  const [isVisible, setIsVisible] = useState(false);
   const handleClick = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
-
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
-    <div className="floating-button" onClick={handleClick}>
-      <FaArrowUp />
-    </div>
+    isVisible && (
+      <div
+        className="floating-button"
+        onClick={handleClick}
+        style={handlePrimaryButtonStyle(event)}
+      >
+        <FaArrowUp />
+      </div>
+    )
   );
 };
 

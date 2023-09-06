@@ -262,7 +262,8 @@
   }
 
   .event-time,
-  .event-location {
+  .event-location,
+  .event-page-link {
     font-size: 12px !important;
   }
 }

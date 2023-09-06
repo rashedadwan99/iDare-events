@@ -21,7 +21,7 @@ function EventFirstSection({ event }) {
           <EventTimeLocation event={event} />
         </Row>
         <Row className="justify-content-start align-items-center mt-3">
-          <Col xs={8} sm={4} md={6} lg={4}>
+          <Col xs={7} sm={4} md={6} lg={4}>
             <Row>
               <EventFormBtn event={event} />
             </Row>
