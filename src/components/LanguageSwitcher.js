@@ -21,7 +21,7 @@ const LanguageSwitcher = () => {
     localStorage.setItem("lng", data.id);
     document.documentElement.lang = data.id;
     dispatch(toggleLanguageAction());
-  }, [data.id]);
+  }, [data.id, i18n, dispatch]);
   return (
     <FormElement
       element="select"

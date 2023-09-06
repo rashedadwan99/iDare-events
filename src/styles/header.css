@@ -3,8 +3,8 @@
   color: var(--primary-font-color);
   align-items: center;
   font-weight: bold;
-  min-height: 50px;
   height: 16.6vh;
+  min-height: 80px;
   min-height: 100px;
   position: sticky !important;
   top: 0;

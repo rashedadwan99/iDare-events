@@ -41,6 +41,7 @@ function EventRooms({ event, isInActiveSection }) {
                   </Row>
                 </Col>
               );
+            return <></>;
           })}
         </Row>
       </EventSectionContainer>

@@ -1,8 +1,9 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import Typed from "typed.js";
-import { language } from "../../locales/language";
 
 export default function Writer({ sentence }) {
+  const isSwitched = useSelector((state) => state.language.isSwitched);
   const el = React.useRef(null);
 
   React.useEffect(() => {
@@ -15,7 +16,7 @@ export default function Writer({ sentence }) {
     return () => {
       typed.destroy();
     };
-  }, [language()]);
+  }, [isSwitched, sentence]);
 
   return <span ref={el} />;
 }

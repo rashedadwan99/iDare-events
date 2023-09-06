@@ -7,7 +7,6 @@ import {
   handlePrimaryButtonStyle,
   handlePrimaryButtonStyleWhenHover,
 } from "../../styles/eventStyles";
-import CommonModal from "./CommonModal";
 import EventForm from "../EventForm";
 import { Toast } from "./Toast";
 import { toggleOpenModal } from "../../redux/actions/modalAction";
@@ -18,10 +17,10 @@ function EventFormBtn({ event }) {
   const dispatch = useDispatch();
   const isInMyEvents = myEvents.find((e) => e.event_id === event.id);
 
-  const handleOpenModal = () => {
+  const handleOpenModal = (event) => {
     if (!getUserToken()) return Toast("info", t("login_first"));
     if (isInMyEvents) return;
-    dispatch(toggleOpenModal());
+    dispatch(toggleOpenModal(<EventForm event={event} />, t("register-event")));
   };
 
   return (
@@ -36,11 +35,8 @@ function EventFormBtn({ event }) {
               : t("register-event")
             : t("register-event")
         }
-        onClick={handleOpenModal}
+        onClick={() => handleOpenModal(event)}
       />
-      <CommonModal title={t("register-event")}>
-        <EventForm event={event} />
-      </CommonModal>
     </>
   );
 }

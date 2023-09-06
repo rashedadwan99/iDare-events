@@ -1,7 +1,6 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { isArabic } from "../locales/language";
-import HandleTimeComponent from "./HandleTimeComponent";
 import { useNavigate } from "react-router-dom/dist";
 import { eventPageRoute } from "../routes";
 import { getImageSrc } from "../services/imageServices";
@@ -57,6 +56,7 @@ function HomeEventsCards({ events }) {
           </Col>
         </Row>
       );
+    return <></>;
   });
 }
 

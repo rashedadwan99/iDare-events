@@ -37,6 +37,7 @@ function TableRows({ rows, cols }) {
                   <td key={col.label}>{col.getRowData(row[col.dataPath])}</td>
                 );
               }
+              return <></>;
             })}
           </tr>
         );

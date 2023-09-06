@@ -1,6 +1,5 @@
 import React from "react";
 import { socialLinks } from "../data/socialLinks";
-import { Col } from "react-bootstrap";
 import { Row } from "react-bootstrap/esm";
 import "../../styles/social-media.css";
 function SocialMediaIcons() {

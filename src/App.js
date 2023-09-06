@@ -29,6 +29,7 @@ import Gallery from "./pages/Gallery";
 import EventHome from "./components/EventHome";
 import Canvas from "./components/common/Canvas";
 import MyEvents from "./pages/MyEvents";
+import CommonModal from "./components/common/CommonModal";
 const App = () => {
   const dispatch = useDispatch();
   const userToken = getUserToken();
@@ -41,17 +42,18 @@ const App = () => {
     } else {
       dispatch(toggleIsAuth(false));
     }
-  }, []);
+  }, [dispatch, userToken]);
   useEffect(() => {
     if (userToken && isAuth) {
       dispatch(getMyEventsAction());
     }
-  }, [isAuth]);
+  }, [userToken, dispatch, isAuth]);
   const isSwitched = useSelector((state) => state.language.isSwitched);
   useEffect(() => {}, [isSwitched]);
 
   return (
     <Container fluid>
+      <CommonModal />
       <Canvas />
       <ToastContainer />
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { AiFillCaretDown } from "react-icons/ai";
 import { useResolvedPath } from "react-router-dom";
 import ClickOutsideAlerter from "./ClickOutSideAlerter";
-import { isArabic, language } from "../../locales/language";
+import { isArabic } from "../../locales/language";
 import { useParams } from "react-router-dom/dist";
 import { useSelector } from "react-redux";
 import {
@@ -20,15 +20,16 @@ const SelectMenu = ({
 }) => {
   const [defaultOption, setDefaultOption] = useState();
   const { id } = useParams();
+  const isSwitched = useSelector((state) => state.language.isSwitched);
 
   const allEvents = useSelector((state) => state.events.allEvents);
   const event = allEvents.find((e) => e.id === parseInt(id));
   useEffect(() => {
     setDefaultOption(title);
-  }, [language()]);
+  }, [isSwitched, title]);
   const [isOpen, setIsOpen] = useState(false);
   const { pathname } = useResolvedPath();
-  useEffect(() => setDefaultOption(title), [pathname]);
+  useEffect(() => setDefaultOption(title), [pathname, title]);
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };

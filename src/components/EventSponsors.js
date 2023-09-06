@@ -23,7 +23,7 @@ function EventSponsors({ event }) {
         );
       })
     );
-  }, []);
+  }, [event.sponsors]);
 
   return event.sponsors.length ? (
     <EventSectionContainer name="cooperation">

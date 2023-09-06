@@ -28,10 +28,10 @@ function EventForm({ event }) {
     let obj = {};
     event.additional_fields.map((f) => {
       const { name } = f;
-      obj = { ...obj, [name]: "" };
+      return (obj = { ...obj, [name]: "" });
     });
     setDaynamicData(obj);
-  }, []);
+  }, [event.additional_fields]);
 
   const handleSubmit = async () => {
     if (!staticData.ticket_type_id) {

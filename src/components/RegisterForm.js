@@ -11,7 +11,6 @@ import { yesOrNo } from "./data/yesAndNoOptions";
 import { registerUser, setToken } from "../services/userService";
 import { Toast } from "./common/Toast";
 import { emailPattern, isNumber } from "../patterns";
-import { language } from "../locales/language";
 import { useNavigate } from "react-router-dom/dist";
 import { useDispatch, useSelector } from "react-redux";
 import { homePageRoute, loginPageRoute } from "../routes";
@@ -41,6 +40,8 @@ function RegisterForm() {
     };
     getCountriesHandler();
   }, []);
+  const isSwitched = useSelector((state) => state.language.isSwitched);
+
   useEffect(() => {
     setData({
       email: "",
@@ -53,7 +54,7 @@ function RegisterForm() {
       country_id: "",
       is_disabled: "",
     });
-  }, [language()]);
+  }, [isSwitched]);
   const [isLoading, setIsLoading] = useState(false);
   const handleRegister = async () => {
     const {

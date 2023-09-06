@@ -1,6 +1,5 @@
 import React from "react";
 import { Row } from "react-bootstrap";
-import { Col } from "react-bootstrap/esm";
 import SocialMediaIcons from "./common/SocialMediaIcons";
 import Writer from "./common/Writer";
 import { useTranslation } from "react-i18next";
