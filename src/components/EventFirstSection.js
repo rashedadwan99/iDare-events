@@ -13,7 +13,7 @@ function EventFirstSection({ event }) {
       style={handleOrganizersBackgroundStyle(event.main_image)}
     >
       <div className="first-event-section__blur-background" />
-      <Col xs={11} sm={11} md={6}>
+      <Col xs={11} sm={11} md={8} lg={6}>
         <Row className="justify-content-start">
           <h4>{isArabic() ? event.slogan_ar : event.slogan}</h4>
         </Row>
@@ -21,7 +21,7 @@ function EventFirstSection({ event }) {
           <EventTimeLocation event={event} />
         </Row>
         <Row className="justify-content-start align-items-center mt-3">
-          <Col xs={8} sm={4} md={4} lg={4}>
+          <Col xs={8} sm={4} md={6} lg={4}>
             <Row>
               <EventFormBtn event={event} />
             </Row>

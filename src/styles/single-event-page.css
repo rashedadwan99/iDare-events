@@ -55,7 +55,7 @@
 
 .about-event-section img {
   width: 100%;
-
+  max-height: 37rem;
 }
 
 .about-event-section .clickoutside-container {
@@ -242,15 +242,18 @@
 
 }
 
+@media (max-width:768px) {
+  .event-button {
+    display: none;
+  }
+}
+
 @media (max-width:600px) {
   .event-sponsors img {
     height: 150px;
     width: 150px;
   }
 
-  .event-button {
-    display: none;
-  }
 
 
   .first-event-section h4,

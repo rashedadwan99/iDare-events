@@ -14,7 +14,7 @@ function EventHome() {
   const allEvents = useSelector((state) => state.events.allEvents);
   const event = allEvents.find((e) => e.id === parseInt(id));
   const isInActiveSection = (dataSection) => {
-    const inActiveArray = dataSection.filter((o) => o.active === "0");
+    const inActiveArray = dataSection.filter((o) => o.active === 0);
     const isAllinActivated = dataSection.length === inActiveArray.length;
     return isAllinActivated;
   };

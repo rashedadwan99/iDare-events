@@ -8,6 +8,7 @@ import Header from "../components/Header";
 import { headerEventStyle } from "../styles/eventStyles";
 import CircleSpinner from "../components/common/CircleSpinner";
 import "../styles/single-event-page.css";
+import FloatingButton from "../components/common/FloatingButton";
 function SingleEventPage() {
   const { id } = useParams();
   const allEvents = useSelector((state) => state.events.allEvents);
@@ -19,7 +20,7 @@ function SingleEventPage() {
       <Header event={event} style={headerEventStyle(event)} />
       <Row className={`event-page ${isArabic() ? "arabic" : ""}`}>
         <Outlet />
-
+        <FloatingButton />
         <EventFooter event={event} />
       </Row>
     </>
