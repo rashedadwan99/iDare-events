@@ -20,7 +20,7 @@ function RightHeaderSide({ event }) {
     dispatch(toggleOpenCanvasAction(<BurgerMenu id={id} />, ""));
   };
   return (
-    <Col xs={7} sm={9} md={9}>
+    <Col xs={6} sm={9} md={9}>
       <Row className="justify-content-end px-2 align-items-center">
         {event && !isInMyEvents && (
           <div className="event-button">

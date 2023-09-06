@@ -210,7 +210,7 @@
 
 .event-header img {
   max-height: 80px !important;
-  max-width: 100% !important;
+  max-width: 85% !important;
 }
 
 .event-header {
@@ -227,10 +227,7 @@
 
 }
 
-/* 
-.organizer-container img {
-  width: 85% !important;
-} */
+
 
 @media (max-width:992px) {
   .organizer-container img {
