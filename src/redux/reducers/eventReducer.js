@@ -1,6 +1,7 @@
 import {
   GET_ALL_EVENTS,
   GET_MY_EVENTS,
+  RESET_MY_EVENTS,
   TOGGLE_LOADING,
 } from "../actions/eventActions";
 
@@ -18,6 +19,8 @@ export const eventsReducer = (state = initialState, action) => {
         ...state,
         isLoading: true,
       };
+    case RESET_MY_EVENTS:
+      return { ...state, myEvents: [] };
     default:
       return state;
   }

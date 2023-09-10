@@ -23,9 +23,9 @@ function EventHome() {
       <Col sm={12} lg={12}>
         <EventFirstSection event={event} />
       </Col>
-      <AosContainer>
+      {/* <AosContainer>
         <EventIntro event={event} />
-      </AosContainer>
+      </AosContainer> */}
       <AosContainer>
         <EventOrganizers event={event} isInActiveSection={isInActiveSection} />
       </AosContainer>

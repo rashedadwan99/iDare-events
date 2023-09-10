@@ -11,9 +11,7 @@ function Canvas() {
   const dispatch = useDispatch();
   return (
     <>
-      <ClickOutsideAlerter
-        onOutsideClick={() => dispatch(() => closeCanvasAction())}
-      >
+      <ClickOutsideAlerter onOutsideClick={() => dispatch(closeCanvasAction())}>
         <Row className={`off-canvas ${show && "open"}`}>
           <Col sm={12}>
             <CanvasHeader />

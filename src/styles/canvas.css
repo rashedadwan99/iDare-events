@@ -14,6 +14,12 @@
   color: var(--black),
 }
 
+.off-canvas.open {
+  opacity: 1;
+  right: 0%;
+  left: 75%;
+}
+
 .canvas-header {
   font-weight: bold;
   text-transform: uppercase;
@@ -24,11 +30,7 @@
   cursor: pointer;
 }
 
-.off-canvas.open {
-  opacity: 1;
-  right: 0%;
-  left: 0;
-}
+
 
 .off-canvas svg {
   font-size: 16px !important;
@@ -37,7 +39,6 @@
 
 .canvas-list {
   border-bottom: 1px solid var(--light-gray);
-  /* border-top: 0.5px solid var(--light-gray); */
   justify-content: center;
   align-items: center;
   display: flex;
@@ -68,8 +69,16 @@
 
 
 
-@media (max-width:768px) {
+@media (max-width:992px) {
+  .off-canvas.open {
+    left: 60%;
+  }
+}
 
+@media (max-width:768px) {
+  .off-canvas.open {
+    left: 0;
+  }
 
   .off-canvas span {
     font-size: 14px !important;

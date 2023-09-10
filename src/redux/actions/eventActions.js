@@ -3,6 +3,7 @@ import { FAILED, SUCCESS } from "../../services/httpService";
 
 export const GET_ALL_EVENTS = "GET_ALL_EVENTS";
 export const GET_MY_EVENTS = "GET_MY_EVENTS";
+export const RESET_MY_EVENTS = "RESET_MY_EVENTS";
 export const TOGGLE_LOADING = "TOGGLE_LOADING";
 export const getAllEventsAction = () => {
   return async (dispatch) => {
@@ -19,4 +20,8 @@ export const getMyEventsAction = () => {
       dispatch({ type: GET_MY_EVENTS, payload: data.EventRegisters });
     else if (data.AZSVR === FAILED) return;
   };
+};
+
+export const resetEvents = () => {
+  return { type: RESET_MY_EVENTS };
 };

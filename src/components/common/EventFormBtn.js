@@ -24,20 +24,14 @@ function EventFormBtn({ event }) {
   };
 
   return (
-    <>
+    !isInMyEvents && (
       <CommonButton
         primaryStyle={handlePrimaryButtonStyle(event)}
         primaryStyleHover={handlePrimaryButtonStyleWhenHover(event)}
-        label={
-          getUserToken()
-            ? isInMyEvents
-              ? t("already_registered")
-              : t("register-event")
-            : t("register-event")
-        }
+        label={t("register-event")}
         onClick={() => handleOpenModal(event)}
       />
-    </>
+    )
   );
 }
 

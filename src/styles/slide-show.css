@@ -36,3 +36,11 @@
 .carousel .control-next.control-arrow {
   right: -11px !important;
 }
+
+.carousel .slide.selected.previous {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
