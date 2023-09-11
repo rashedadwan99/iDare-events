@@ -7,6 +7,7 @@ import EventTimeLocation from "./EventTimeLocation";
 import EventPageLinks from "./EventPageLinks";
 import { handleFooterStyle } from "../styles/eventStyles";
 import EventFormBtn from "./common/EventFormBtn";
+import Logo from "../images/Logo";
 
 function EventFooter({ event }) {
   return (
@@ -15,7 +16,12 @@ function EventFooter({ event }) {
         <EventFooterSection title={isArabic() ? event.name_ar : event.name}>
           <Col xs={12} sm={12}>
             <Row className="align-items-center justify-content-start">
-              <img src={getImageSrc(event.image)} alt="event-logo" />
+              <Logo
+                src={getImageSrc(event.image)}
+                alt="event-logo"
+                className="event-logo"
+                event={event}
+              />
             </Row>
           </Col>
         </EventFooterSection>

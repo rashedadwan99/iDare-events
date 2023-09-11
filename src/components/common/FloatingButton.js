@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
-import "../../styles/floatingbutton.css";
 import { handlePrimaryButtonStyle } from "../../styles/eventStyles";
+import "../../styles/floatingbutton.css";
 
 const FloatingButton = ({ event }) => {
   const [isVisible, setIsVisible] = useState(false);

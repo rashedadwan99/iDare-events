@@ -5,7 +5,7 @@ function SlideShow({ children }) {
     <Carousel
       showThumbs={false}
       showArrows={true}
-      autoPlay={true}
+      // autoPlay={true}
       infiniteLoop={true}
       interval={10000}
       stopOnHover={true}

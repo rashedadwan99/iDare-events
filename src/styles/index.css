@@ -13,6 +13,14 @@
   --box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 8px;
 
   --text-direction: ltr;
+  --header_background_color: #F1F1F1;
+  --header_text_color: #292929;
+  --footer_background_color: #222023;
+  --footer_background_color_2: #1e2c47;
+  --footer_text_color: #fff;
+  --primary_button_background_color: #ed1b24;
+  --primary_button_background_color_2: #1c376c;
+  --primary_button_text_color: #fff;
 }
 
 
@@ -38,8 +46,5 @@
   h6 {
     font-size: 15px !important;
   }
-
-
-
 
 }

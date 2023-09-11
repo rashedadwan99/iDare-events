@@ -4,6 +4,7 @@ import { contactus } from "./data/ContactUs";
 import { useTranslation } from "react-i18next";
 import { Col } from "react-bootstrap/esm";
 import Logo from "../images/Logo";
+import logo from "../images/logo.jpg";
 import SocialMediaIcons from "./common/SocialMediaIcons";
 import "../styles/footer.css";
 function Footer() {
@@ -27,7 +28,7 @@ function Footer() {
       </Col>
       <Col sm={12}>
         <Row className="justify-content-center my-3">
-          <Logo />
+          <Logo src={logo} alt="logo" className="logo" />
         </Row>
       </Col>
     </Row>

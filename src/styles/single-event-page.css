@@ -172,7 +172,9 @@
 }
 
 .event-footer img {
-  width: 150px;
+  max-width: 60%;
+  max-height: 18vh;
+  cursor: pointer;
 }
 
 .event-footer h6 {

@@ -1,5 +1,7 @@
 .carousel .slide {
   text-align: inherit !important;
+  display: flex;
+  align-items: center;
 }
 
 .carousel .control-dots .dot {
