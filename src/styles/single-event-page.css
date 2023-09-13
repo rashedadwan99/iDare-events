@@ -10,6 +10,7 @@
 }
 
 
+
 .event__about-image {
   border-radius: 0.25rem;
 }
@@ -155,6 +156,10 @@
   font-size: 16px;
 }
 
+.organizer-name-description {
+  margin-right: 5px;
+}
+
 .event-sponsors img {
   height: 180px;
   width: 180px;
@@ -217,7 +222,7 @@
 
 .event-header {
   height: 16.6vh;
-  min-height: 80px;
+  min-height: 90px;
 }
 
 .event-header button.btn {

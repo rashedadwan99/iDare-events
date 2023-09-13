@@ -1,7 +1,11 @@
 .carousel .slide {
+
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: 2rem 0 !important;
+  width: 100%;
   text-align: inherit !important;
-  display: flex;
-  align-items: center;
 }
 
 .carousel .control-dots .dot {
@@ -37,12 +41,4 @@
 
 .carousel .control-next.control-arrow {
   right: -11px !important;
-}
-
-.carousel .slide.selected.previous {
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 2rem 0;
 }

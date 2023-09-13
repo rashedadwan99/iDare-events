@@ -13,7 +13,7 @@ function EventOrganizers({ event, isInActiveSection }) {
     !isInActiveSection(event.organizers) && (
       <EventSectionContainer name="organizers">
         <Row
-          className="justify-content-center my-3 py-5 organizers-section"
+          className="justify-content-center align-items-center my-3 py-5"
           style={handleOrganizersBackgroundStyle(event.secondary_image)}
         >
           <Col
@@ -29,24 +29,18 @@ function EventOrganizers({ event, isInActiveSection }) {
                   <Col xs={11} sm={12} key={o.id} className="mx-0 py-1">
                     <Row className="align-items-center justify-content-center organizer">
                       <Col xs={12} sm={12} md={5} lg={4}>
-                        <Row className="justify-content-center">
-                          <Image
-                            src={getImageSrc(o.image)}
-                            alt="organizer logo"
-                          />
-                        </Row>
+                        <Image
+                          src={getImageSrc(o.image)}
+                          alt="organizer logo"
+                        />
                       </Col>
                       <Col xs={12} sm={12} md={6} lg={8}>
-                        <Row className="px-3 mt-1">
-                          <p className="organizer-name">
-                            {isArabic() ? o.name_ar : o.name}
-                          </p>
-                        </Row>
-                        <Row className="px-3">
-                          <span className="organizer-description">
-                            {isArabic() ? o.description_ar : o.description}
-                          </span>
-                        </Row>
+                        <p className="organizer-name">
+                          {isArabic() ? o.name_ar : o.name}
+                        </p>
+                        <span className="organizer-description">
+                          {isArabic() ? o.description_ar : o.description}
+                        </span>
                       </Col>
                     </Row>
                   </Col>

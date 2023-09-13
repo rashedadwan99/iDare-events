@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../services/userService";
 import { toggleIsAuth } from "../redux/actions/userActions";
 import { closeCanvasAction } from "../redux/actions/canvasActions";
-import { loginPageRoute } from "../routes";
+import { homePageRoute, loginPageRoute } from "../routes";
 import { resetEvents } from "../redux/actions/eventActions";
 
 function BurgerMenu({ id }) {
@@ -24,7 +24,7 @@ function BurgerMenu({ id }) {
     dispatch(toggleIsAuth(!isAuth));
     dispatch(resetEvents());
 
-    navigate(loginPageRoute, { replace: true });
+    navigate(homePageRoute, { replace: true });
   };
   const burgerData = getBurgerLinks(
     handleLogout,

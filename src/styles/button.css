@@ -1,6 +1,6 @@
 .common-button {
 
-  font-weight: bold;
+  font-weight: bold !important;
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
