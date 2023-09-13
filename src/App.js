@@ -19,7 +19,7 @@ import {
   getAllEventsAction,
   getMyEventsAction,
 } from "./redux/actions/eventActions";
-import SingleEventPage from "./pages/SingleEventPage";
+import EventPage from "./pages/EventPage";
 import { language } from "./locales/language";
 import { getUserToken } from "./services/userService";
 import { useSelector } from "react-redux";
@@ -52,14 +52,20 @@ const App = () => {
   useEffect(() => {}, [isSwitched]);
 
   return (
-    <Container fluid>
+    <Container
+      fluid
+      style={{
+        fontFamily: "Cairo, sans-serif",
+      }}
+      id="container"
+    >
       <CommonModal />
       <Canvas />
       <ToastContainer />
 
       <Routes>
         <Route path={homePageRoute} element={<HomePage />} />
-        <Route path={eventPageRoute + "/:id"} element={<SingleEventPage />}>
+        <Route path={eventPageRoute + "/:id"} element={<EventPage />}>
           <Route path={eventPageRoute + "/:id"} element={<EventHome />} />
           <Route
             path={eventPageRoute + "/:id/speakers"}

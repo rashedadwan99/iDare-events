@@ -1,11 +1,5 @@
 import { storageBaseURL } from "../services/httpService";
 
-export const fontFamily = (event) => {
-  // google_fonts_link;
-  return {
-    fontFamily: event.google_fonts_code,
-  };
-};
 export const headerEventStyle = (event) => {
   return {
     backgroundColor:

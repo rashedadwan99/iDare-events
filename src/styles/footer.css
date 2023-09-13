@@ -20,6 +20,8 @@
   color: var(--primary-font-color);
 }
 
+
+
 @media (max-width:992px) {
   .footer .logo {
     width: 35%;

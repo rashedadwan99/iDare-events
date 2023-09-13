@@ -1,15 +1,14 @@
 import React from "react";
-import { Outlet, useParams } from "react-router-dom/dist";
+import { useParams } from "react-router-dom/dist";
 import { useSelector } from "react-redux/es";
-import { Row } from "react-bootstrap";
-import { isArabic } from "../locales/language";
-import EventFooter from "../components/EventFooter";
+import { Col } from "react-bootstrap";
 import Header from "../components/Header";
-import { fontFamily, headerEventStyle } from "../styles/eventStyles";
+import { headerEventStyle } from "../styles/eventStyles";
 import CircleSpinner from "../components/common/CircleSpinner";
 import FloatingButton from "../components/common/FloatingButton";
 import "../styles/single-event-page.css";
-function SingleEventPage() {
+import EventBodyFooter from "../components/EventBodyFooter";
+function EventPage() {
   const { id } = useParams();
   const allEvents = useSelector((state) => state.events.allEvents);
   const isLoading = useSelector((state) => state.events.isLoading);
@@ -18,14 +17,8 @@ function SingleEventPage() {
   return !isLoading ? (
     <>
       <Header event={event} style={headerEventStyle(event)} />
-      <Row
-        className={`event-page ${isArabic() ? "arabic" : ""}`}
-        style={fontFamily(event)}
-      >
-        <Outlet />
-        <FloatingButton event={event} />
-        <EventFooter event={event} />
-      </Row>
+      <EventBodyFooter event={event} />
+      <FloatingButton event={event} />
     </>
   ) : (
     <div className="event-spinner">
@@ -34,4 +27,4 @@ function SingleEventPage() {
   );
 }
 
-export default SingleEventPage;
+export default EventPage;

@@ -229,7 +229,10 @@
 
 }
 
+.event-footer-section button.common-button {
+  padding: 5px 3px;
 
+}
 
 @media (max-width:992px) {
   .organizer-container img {

@@ -20,7 +20,7 @@ function HomeEventsCards({ events }) {
     if (e.active)
       return (
         <Row
-          className="justify-content-between event-card p-3 my-4"
+          className="justify-content-between event-card py-3 my-4"
           style={containerStyle}
           key={e.id}
           onClick={() => handleGoToEventPage(e.id)}
