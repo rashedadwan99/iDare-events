@@ -24,7 +24,7 @@ function LoginForm() {
   });
   const handleLogin = async () => {
     const { email, password } = data;
-    if (!password || !email) return Toast("info", t("please fill all fields"));
+    if (!password || !email) return Toast("info", t("fill_all"));
     if (!emailPattern.test(email)) return Toast("info", t("email validation"));
     setIsLoading(!isLoading);
 

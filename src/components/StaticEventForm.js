@@ -2,7 +2,6 @@ import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import FormElement from "./common/FormElement";
-import { isArabic } from "../locales/language";
 import { useSelector } from "react-redux";
 
 function StaticEventForm({ event, data, setData }) {

@@ -34,7 +34,7 @@ function EventForm({ event }) {
 
   const handleSubmit = async () => {
     if (!staticData.ticket_type_id) {
-      return Toast("info", t("please fill fields"));
+      return Toast("info", t("fill_required"));
     }
     const allAdditionalRequired = event.additional_fields.filter(
       (a) => a.required === 1
@@ -48,7 +48,7 @@ function EventForm({ event }) {
           !daynamicData[key].length &&
           allAdditionalRequired.includes(field)
         ) {
-          return Toast("info", t("please fill fields"));
+          return Toast("info", t("fill_required"));
         }
       }
     }

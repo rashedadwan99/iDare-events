@@ -79,7 +79,7 @@ function RegisterForm() {
       !is_disabled ||
       !email
     )
-      return Toast("info", t("please fill all fields"));
+      return Toast("info", t("fill_all"));
 
     if (password.length < 8) return Toast("info", t("password length"));
     if (!emailPattern.test(email)) return Toast("info", t("email validation"));
@@ -168,7 +168,7 @@ function RegisterForm() {
             value={data.national_number}
             name="national_number"
             type="tel"
-            placeholder={t("national number")}
+            placeholder={t("national_number")}
           />
         </Col>
       </Row>
