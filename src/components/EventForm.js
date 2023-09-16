@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
-import { isArabic } from "../locales/language";
 import CommonButton from "./common/Button";
 import StaticEventForm from "./StaticEventForm";
 import DaynamicEventForm from "./DaynamicEventForm";
@@ -12,7 +11,7 @@ import {
 import { Toast } from "./common/Toast";
 import { registerEvent } from "../services/eventsService";
 import { SUCCESS } from "../services/httpService";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getMyEventsAction } from "../redux/actions/eventActions";
 import { toggleOpenModal } from "../redux/actions/modalAction";
 import "../styles/event-form.css";
@@ -61,10 +60,10 @@ function EventForm({ event }) {
       return Toast("info", t("event-register"));
     }
   };
-
+  const isArabic = useSelector((state) => state.language.isArabic);
   return (
     <Row
-      className={`justify-content-center event-form ${isArabic() ? "ar" : ""}`}
+      className={`justify-content-center event-form ${isArabic ? "ar" : ""}`}
     >
       <StaticEventForm
         event={event}

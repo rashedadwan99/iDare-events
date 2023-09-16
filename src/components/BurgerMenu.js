@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../services/userService";
 import { toggleIsAuth } from "../redux/actions/userActions";
 import { closeCanvasAction } from "../redux/actions/canvasActions";
-import { homePageRoute, loginPageRoute } from "../routes";
+import { homePageRoute } from "../routes";
 import { resetEvents } from "../redux/actions/eventActions";
 
 function BurgerMenu({ id }) {

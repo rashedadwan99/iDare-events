@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { Row } from "react-bootstrap";
 import { Outlet } from "react-router-dom";
-import { isArabic } from "../locales/language";
+
 import EventFooter from "./EventFooter";
+import { useSelector } from "react-redux";
 
 function EventBodyFooter({ event }) {
   useEffect(() => {
@@ -24,8 +25,10 @@ function EventBodyFooter({ event }) {
       App.style.fontFamily = "Cairo, sans-serif";
     };
   }, []);
+  const isArabic = useSelector((state) => state.language.isArabic);
+
   return (
-    <Row className={`event-page ${isArabic() ? "arabic" : ""}`}>
+    <Row className={`event-page ${isArabic ? "arabic" : ""}`}>
       <Outlet />
       <EventFooter event={event} />
     </Row>

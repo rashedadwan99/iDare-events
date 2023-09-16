@@ -7,15 +7,15 @@ import AboutEvent from "./AboutEvent";
 function EventIntro({ event }) {
   return (
     <EventSectionContainer name="about-event">
-      <Row className="justify-content-center about-event-section mt-4">
-        <Col xs={11} sm={11}>
-          <Row className="justify-content-center">
+      <Row className="justify-content-center about-event-section">
+        <Col xs={12} sm={11}>
+          <Row className="justify-content-center align-items-start">
             <Col sm={12}>
-              {/* <Image
+              <Image
                 src={getImageSrc(event.about_image)}
                 alt="about"
-                className="event__about-image"
-              /> */}
+                className="event__about-image float-left"
+              />
               <AboutEvent event={event} />
             </Col>
           </Row>

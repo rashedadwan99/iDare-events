@@ -3,9 +3,11 @@ import { Col, Row } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import FormElement from "./common/FormElement";
 import { isArabic } from "../locales/language";
+import { useSelector } from "react-redux";
 
 function StaticEventForm({ event, data, setData }) {
   const { t } = useTranslation();
+  const isArabic = useSelector((state) => state.language.isArabic);
 
   return (
     <>
@@ -14,7 +16,7 @@ function StaticEventForm({ event, data, setData }) {
           <FormElement
             data={data}
             setData={setData}
-            value={isArabic() ? event.name_ar : event.name}
+            value={isArabic ? event.name_ar : event.name}
             disabled={true}
           />
         </Row>

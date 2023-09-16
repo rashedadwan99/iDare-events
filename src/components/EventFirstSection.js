@@ -1,12 +1,15 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
-import { isArabic } from "../locales/language";
+// import { isArabic } from "../locales/language";
 import { handleOrganizersBackgroundStyle } from "../styles/eventStyles";
 import EventTimeLocation from "./EventTimeLocation";
 
 import EventFormBtn from "./common/EventFormBtn";
+import { useSelector } from "react-redux";
 
 function EventFirstSection({ event }) {
+  const isArabic = useSelector((state) => state.language.isArabic);
+
   return (
     <Row
       className="justify-content-center first-event-section"
@@ -15,7 +18,7 @@ function EventFirstSection({ event }) {
       <div className="first-event-section__blur-background" />
       <Col xs={11} sm={11} md={8} lg={6}>
         <Row className="justify-content-start">
-          <h4>{isArabic() ? event.slogan_ar : event.slogan}</h4>
+          <h4>{isArabic ? event.slogan_ar : event.slogan}</h4>
         </Row>
         <Row className="mt-3">
           <EventTimeLocation event={event} />

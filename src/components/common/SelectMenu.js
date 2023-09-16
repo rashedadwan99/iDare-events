@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { AiFillCaretDown } from "react-icons/ai";
 import { useResolvedPath } from "react-router-dom";
 import ClickOutsideAlerter from "./ClickOutSideAlerter";
-import { isArabic } from "../../locales/language";
 import { useParams } from "react-router-dom/dist";
 import { useSelector } from "react-redux";
 import {
@@ -18,6 +17,7 @@ const SelectMenu = ({
   name,
   path,
 }) => {
+  const isArabic = useSelector((state) => state.language.isArabic);
   const [defaultOption, setDefaultOption] = useState();
   const { id } = useParams();
   const isSwitched = useSelector((state) => state.language.isSwitched);
@@ -46,7 +46,7 @@ const SelectMenu = ({
     <ClickOutsideAlerter onOutsideClick={() => setIsOpen(false)}>
       <div
         className="select-menu"
-        style={isArabic() ? { direction: "ltr" } : { direction: "rtl" }}
+        style={isArabic ? { direction: "ltr" } : { direction: "rtl" }}
       >
         <div
           className="select-menu__header"

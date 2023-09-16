@@ -12,7 +12,10 @@
 
 
 .event__about-image {
-  border-radius: 0.25rem;
+  width: 35%;
+  margin: 5px 0;
+  margin-right: 20px;
+  border-radius: 5px;
 }
 
 .about-event__description {
@@ -44,6 +47,10 @@
   opacity: 0.6;
 }
 
+.orgnizers {
+  height: 100vh;
+}
+
 .first-event-section h4,
 .about-event-section h3 {
   font-weight: bold;
@@ -54,10 +61,7 @@
   margin: 0 5px;
 }
 
-.about-event-section img {
-  width: 100%;
-  max-height: 37rem;
-}
+
 
 .about-event-section .clickoutside-container {
   width: 100%;
@@ -252,9 +256,22 @@
 
 }
 
+@media (max-width:992px) {
+
+
+  .event__about-image {
+    width: 50%;
+  }
+}
+
 @media (max-width:768px) {
   .event-button {
     display: none;
+  }
+
+  .event__about-image {
+    width: 100%;
+    margin: 5px 0;
   }
 }
 

@@ -2,12 +2,14 @@ import React from "react";
 import { Col, Image, Row } from "react-bootstrap";
 import { getImageSrc } from "../services/imageServices";
 import { useTranslation } from "react-i18next";
-import { isArabic } from "../locales/language";
+// import { isArabic } from "../locales/language";
 import RoomDescription from "./RoomDescription";
 import EventSectionContainer from "./common/EventSectionContainer";
+import { useSelector } from "react-redux";
 
 function EventRooms({ event, isInActiveSection }) {
   const { t } = useTranslation();
+  const isArabic = useSelector((state) => state.language.isArabic);
   if (!isInActiveSection(event.rooms))
     return (
       <EventSectionContainer name="rooms">
@@ -33,7 +35,7 @@ function EventRooms({ event, isInActiveSection }) {
                     >
                       <Image src={getImageSrc(r.image)} alt="" fluid />
                       <Row className="event-room__name mt-2">
-                        {isArabic() ? r.name_ar : r.name}
+                        {isArabic ? r.name_ar : r.name}
                       </Row>
                       <Row className="event-hover my-3">{t("hover")}</Row>
                       <RoomDescription r={r} />

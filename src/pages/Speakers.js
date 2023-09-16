@@ -11,6 +11,7 @@ function Speakers() {
   const { id } = useParams();
   const allEvents = useSelector((state) => state.events.allEvents);
   const event = allEvents.find((e) => e.id === parseInt(id));
+  const isArabic = useSelector((state) => state.language.isArabic);
 
   return (
     <Col sm={12} lg={12}>
@@ -22,7 +23,10 @@ function Speakers() {
         </Col>
         <Col sm={12}>
           <Row>
-            <Table cols={getSpeakersCols(t, event)} rows={event.speakers} />
+            <Table
+              cols={getSpeakersCols(t, event, isArabic)}
+              rows={event.speakers}
+            />
           </Row>
         </Col>
       </Row>

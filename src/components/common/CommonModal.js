@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleOpenModal } from "../../redux/actions/modalAction";
 import { useTranslation } from "react-i18next";
 import { IoMdClose } from "react-icons/io";
-import { isArabic } from "../../locales/language";
 import "../../styles/modal.css";
 function CommonModal({ ...props }) {
   const { t } = useTranslation();
@@ -13,6 +12,7 @@ function CommonModal({ ...props }) {
   const Children = useSelector((state) => state.modal.Children);
   const customStyle = useSelector((state) => state.modal.customStyle);
   const dispatch = useDispatch();
+  const isArabic = useSelector((state) => state.language.isArabic);
   return (
     <>
       <Modal
@@ -22,7 +22,7 @@ function CommonModal({ ...props }) {
         centered
         show={show}
         onHide={() => dispatch(toggleOpenModal(Children, title, customStyle))}
-        style={isArabic() ? { direction: "rtl" } : {}}
+        style={isArabic ? { direction: "rtl" } : {}}
       >
         {title && (
           <Modal.Header>

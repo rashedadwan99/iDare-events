@@ -1,8 +1,9 @@
 import React from "react";
 import { Form, InputGroup } from "react-bootstrap";
-import { en, language } from "../../locales/language";
+import { useSelector } from "react-redux";
 
 function Input({ label, icon, ...rest }) {
+  const isArabic = useSelector((state) => state.language.isArabic);
   return (
     <>
       {label && <Form.Label>{label}</Form.Label>}
@@ -13,9 +14,7 @@ function Input({ label, icon, ...rest }) {
         <Form.Control
           {...rest}
           className="common-input no-auto-bg"
-          style={
-            language() === en ? { direction: "ltr" } : { direction: "rtl" }
-          }
+          style={!isArabic ? { direction: "ltr" } : { direction: "rtl" }}
         />
       </InputGroup>
     </>

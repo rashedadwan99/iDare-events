@@ -1,13 +1,12 @@
 import React from "react";
 import { useParams } from "react-router-dom/dist";
 import { useSelector } from "react-redux/es";
-import { Col } from "react-bootstrap";
 import Header from "../components/Header";
 import { headerEventStyle } from "../styles/eventStyles";
 import CircleSpinner from "../components/common/CircleSpinner";
 import FloatingButton from "../components/common/FloatingButton";
-import "../styles/single-event-page.css";
 import EventBodyFooter from "../components/EventBodyFooter";
+import "../styles/event-page.css";
 function EventPage() {
   const { id } = useParams();
   const allEvents = useSelector((state) => state.events.allEvents);

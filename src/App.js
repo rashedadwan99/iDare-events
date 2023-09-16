@@ -36,7 +36,6 @@ const App = () => {
   const isAuth = useSelector((state) => state.user.isAuth);
   useEffect(() => {
     document.documentElement.lang = language();
-    dispatch(getAllEventsAction());
     if (userToken) {
       dispatch(toggleIsAuth(true));
     } else {
@@ -44,13 +43,13 @@ const App = () => {
     }
   }, [dispatch, userToken]);
   useEffect(() => {
-    if (userToken && isAuth) {
+    if (userToken) {
       dispatch(getMyEventsAction());
     }
+    dispatch(getAllEventsAction());
   }, [userToken, dispatch, isAuth]);
   const isSwitched = useSelector((state) => state.language.isSwitched);
-  useEffect(() => {}, [isSwitched]);
-
+  // useEffect(() => {}, [isSwitched]);
   return (
     <Container
       fluid

@@ -10,7 +10,7 @@ function EventSectionContainer({ name, children }) {
         <Row className="justify-content-center">
           <h3 className="event-section-name">{t(name)}</h3>
         </Row>
-        <Row className="justify-content-center my-2">
+        <Row className="justify-content-center my-3">
           <Col>{children}</Col>
         </Row>
       </Col>
