@@ -1,8 +1,9 @@
+import { language } from "../../locales/language";
 import { TOGGLE_LANGUAGE } from "../actions/languageActions";
 
 const initialState = {
   isSwitched: false,
-  isArabic: localStorage.getItem("lng") === "ar",
+  isArabic: language() === "ar",
 };
 
 export const languageReducer = (state = initialState, action) => {
@@ -11,7 +12,7 @@ export const languageReducer = (state = initialState, action) => {
       return {
         ...state,
         isSwitched: !state.isSwitched,
-        isArabic: localStorage.getItem("lng") === "ar",
+        isArabic: language() === "ar",
       };
     default:
       return state;
