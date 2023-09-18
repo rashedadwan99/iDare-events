@@ -23,7 +23,7 @@
 .animated-icons__close svg {
   bottom: 30%;
   left: 10%;
-  animation: rotate-x 3s linear infinite;
+  animation: rotate-x 5s linear infinite;
   font-size: 20px;
   opacity: 0.4;
 }
@@ -72,8 +72,19 @@
     bottom: 25%;
 
   }
+
+  .animated-icons__close svg {
+    bottom: 20%;
+
+  }
 }
 
-@media (max-width:768px) {}
+@media (max-width:768px) {
+  .animated-icons__close svg {
+    bottom: 10%;
+    left: 40%;
+
+  }
+}
 
 @media (max-width:600px) {}
