@@ -15,14 +15,19 @@
 
 
 .landing-section {
-  background-color: var(--background-color);
+
+  background-color: var(--light-gray);
   position: relative;
   height: 83.4vh;
-  color: var(--white);
+  color: var(--primary-font-color);
   font-size: 35px;
   text-transform: uppercase;
   text-align: center;
   overflow: hidden;
+}
+
+.landing-section svg {
+  color: var(--primary-font-color);
 }
 
 .landing-section img {
