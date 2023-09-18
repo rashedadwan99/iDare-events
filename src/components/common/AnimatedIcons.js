@@ -14,6 +14,7 @@ function AnimatedIcons() {
       <div className="animated-icons__close position">
         <AiOutlineClose />
       </div>
+      <div className="animated-icons__gray-bar position" />
     </>
   );
 }

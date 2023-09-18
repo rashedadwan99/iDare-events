@@ -4,6 +4,7 @@
 
 }
 
+
 .animated-icons__square svg {
   font-size: 200px;
   left: -10%;
@@ -77,6 +78,20 @@
     bottom: 20%;
 
   }
+}
+
+.animated-icons__gray-bar {
+  position: absolute;
+  background-color: var(--light-gray);
+  height: 150px;
+  width: 25%;
+  top: 50px;
+  right: -10px;
+  top: -10px;
+  transform: rotate(-20deg);
+  border-bottom-left-radius: 100px;
+  border-top-left-radius: 100px;
+  opacity: 0.4;
 }
 
 @media (max-width:768px) {
