@@ -1,0 +1,79 @@
+.position svg {
+  position: absolute;
+  color: var(--light-gray);
+
+}
+
+.animated-icons__square svg {
+  font-size: 200px;
+  left: -10%;
+  bottom: -10%;
+  z-index: 3 !important;
+  opacity: 0.4;
+  animation: rotate 10s linear infinite;
+}
+
+.animated-icons__circle svg {
+  left: 5%;
+  bottom: 40%;
+  font-size: 20px;
+  animation: opacity 1s alternate infinite;
+}
+
+.animated-icons__close svg {
+  bottom: 30%;
+  left: 10%;
+  animation: rotate-x 3s linear infinite;
+  font-size: 20px;
+  opacity: 0.4;
+}
+
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes rotate-x {
+
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  40%,
+  60% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width:992px) {
+  .animated-icons__square svg {
+    font-size: 150px;
+
+  }
+
+  .animated-icons__circle svg {
+    bottom: 25%;
+
+  }
+}
+
+@media (max-width:768px) {}
+
+@media (max-width:600px) {}

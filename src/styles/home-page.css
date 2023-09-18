@@ -16,12 +16,13 @@
 
 .landing-section {
   background-color: var(--background-color);
+  position: relative;
   height: 83.4vh;
   color: var(--white);
   font-size: 35px;
   text-transform: uppercase;
   text-align: center;
-
+  overflow: hidden;
 }
 
 .landing-section img {
@@ -91,7 +92,6 @@
 
   .landing-section {
     font-size: 24px;
-    height: 80.4vh;
   }
 
   .landing-section span {
@@ -102,7 +102,7 @@
     font-size: 24px;
   }
 
-  .landing-section svg {
+  .landing-section .social-media-links {
     font-size: 24px;
   }
 

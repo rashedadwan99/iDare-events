@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom/dist";
 import { loginPageRoute } from "../routes";
 import { getUserToken } from "../services/userService";
 import AosContainer from "./common/Aos";
+import AnimatedIcons from "./common/AnimatedIcons";
 function HomeLandingPage() {
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -16,15 +17,12 @@ function HomeLandingPage() {
   };
   return (
     <Row className="justify-content-between landing-section">
+      <AnimatedIcons />
       <AosContainer style={{ margin: "auto 0" }}>
-        <Row className="justify-content-center my-3">
-          <h3>{t("idare")}</h3>
-        </Row>
-        <Row className="justify-content-center my-3">
-          <h5>
-            <Writer sentence={t("purpose")} />
-          </h5>
-        </Row>
+        <h3>{t("idare")}</h3>
+        <h5>
+          <Writer sentence={t("purpose")} />
+        </h5>
         <Row className="justify-content-center my-3">
           <SocialMediaIcons />
         </Row>

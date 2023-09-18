@@ -13,6 +13,7 @@ function HomePage() {
   return (
     <>
       <Header />
+
       <HomeLandingPage />
       <AllEvents title={t("upcoming_events")} events={allEvents} />
       <Footer />
