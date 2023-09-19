@@ -11,7 +11,7 @@ function LeftHeaderSide({ event }) {
     alt: event ? "event-logo" : "logo",
   };
   return (
-    <Col xs={6} sm={3} md={3}>
+    <Col xs={6} sm={3} md={2}>
       <Row className="justify-content-start px-2">
         <Logo
           src={image.src}

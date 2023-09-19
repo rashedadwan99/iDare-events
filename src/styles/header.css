@@ -49,31 +49,24 @@
 
 
 
-@media (max-width:992px) {
-  /* .header img {
-    max-width: 13rem;
 
-  } */
 
-}
+@media (max-width:992px) {}
 
 @media (max-width:768px) {
 
-  /* .header img {
-    max-width: 12rem;
 
-  } */
   .burger-icon {
-    display: none;
+    display: block;
   }
 
+  .nav-links {
+    display: none !important;
+  }
 }
 
 @media (max-width:600px) {
-  /* .header img {
-    max-width: 11rem;
 
-  } */
 
   .header .select-menu .select-menu__header span {
     font-size: 11px;
