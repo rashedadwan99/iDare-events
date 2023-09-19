@@ -14,11 +14,14 @@ table img {
 thead {
   border-radius: 10px !important;
   width: 100%;
+  border-bottom: 3px solid var(--light-gray);
 }
 
 
 
-
+td .row {
+  justify-content: center !important;
+}
 
 
 
@@ -27,12 +30,12 @@ thead {
 
 td,
 th {
-  border: 0 !important;
-  text-align: start !important;
+  text-align: center !important;
   vertical-align: middle !important;
   padding: 13px 5px !important;
 
 }
+
 
 tbody tr {
   border-bottom: 3px solid var(--light-gray);

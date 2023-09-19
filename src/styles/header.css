@@ -20,6 +20,9 @@
 }
 
 
+.burger-icon {
+  display: none;
+}
 
 .header .select-menu .select-menu__header {
   border: 1px solid var(--primary-font-color);
@@ -55,10 +58,14 @@
 }
 
 @media (max-width:768px) {
+
   /* .header img {
     max-width: 12rem;
 
   } */
+  .burger-icon {
+    display: none;
+  }
 
 }
 

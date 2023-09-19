@@ -27,10 +27,12 @@ function RightHeaderSide({ event }) {
             <EventFormBtn event={event} />
           </div>
         )}
+
         <LanguageSwitcher />
         <RxHamburgerMenu
           style={{ fontSize: "20px" }}
           onClick={handleOpenCanvas}
+          className="burger-icon"
         />
       </Row>
     </Col>
