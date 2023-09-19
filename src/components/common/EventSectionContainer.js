@@ -6,13 +6,16 @@ import AosContainer from "./Aos";
 function EventSectionContainer({ name, children }) {
   const { t } = useTranslation();
   return (
-    <AosContainer>
-      <Row className="justify-content-center mt-4 pt-5">
+    <AosContainer
+      animation_name_scroll_down="fade-up"
+      animation_name_scroll_up="fade-down"
+    >
+      <Row className="justify-content-center mt-5 pt-1">
         <Col sm={12}>
           <Row className="justify-content-center">
             <h3 className="event-section-name">{t(name)}</h3>
           </Row>
-          <Row className="justify-content-center my-3">
+          <Row className="justify-content-center mb-3">
             <Col>{children}</Col>
           </Row>
         </Col>

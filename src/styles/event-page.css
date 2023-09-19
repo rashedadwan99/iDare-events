@@ -90,16 +90,12 @@
 
 .about-event-section {
   position: relative;
-
-  padding: 50px 0;
 }
-
-
 
 .event__about-image {
   margin: 5px 0;
   border-radius: 5px;
-  width: 60%;
+  width: 99%;
 }
 
 .first-event-section h4,

@@ -10,7 +10,10 @@ function AllEvents({ title, events }) {
 
   return (
     <Row className="justify-content-center home-events my-5">
-      <AosContainer>
+      <AosContainer
+        animation_name_scroll_down="fade-up"
+        animation_name_scroll_up="fade-down"
+      >
         <Row className="justify-content-center">
           <h3>{t(title)}</h3>
         </Row>

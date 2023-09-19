@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { Col } from "react-bootstrap";
 import Aos from "aos";
-
-function AosContainer({ delay, children, style, ...rest }) {
+import "../../styles/aos.css";
+function AosContainer({
+  delay,
+  children,
+  style,
+  animation_name_scroll_down,
+  animation_name_scroll_up,
+  ...rest
+}) {
   const [scrollDirection, setScrollDirection] = useState("down");
 
   useEffect(() => {
     Aos.init({
-      duration: 100,
-      delay: 100,
+      duration: 300,
+      easing: "ease-in-out",
     });
 
     const handleScroll = () => {
@@ -34,7 +41,11 @@ function AosContainer({ delay, children, style, ...rest }) {
     <Col
       sm={12}
       xs={12}
-      data-aos={scrollDirection === "down" ? "fade-up" : "fade-down"}
+      data-aos={
+        scrollDirection === "down"
+          ? animation_name_scroll_down
+          : animation_name_scroll_up
+      }
       style={style}
       {...rest}
     >
