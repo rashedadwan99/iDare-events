@@ -13,11 +13,13 @@ import "react-toastify/dist/ReactToastify.css";
 import "react-alice-carousel/lib/alice-carousel.css";
 import "aos/dist/aos.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import ReactHelmet from "./ReactHelmet";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <I18nextProvider i18n={i18n}>
     <Router>
       <Provider store={store}>
+        <ReactHelmet />
         <App />
       </Provider>
     </Router>
