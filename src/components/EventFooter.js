@@ -36,16 +36,7 @@ function EventFooter({ event }) {
         </EventFooterSection>
 
         <EventFooterSection title="event_info" lg={4}>
-          {/* <Col xs={12} sm={12} lg={6}>
-            <EventInfo
-              event={event}
-              style={{
-                color: event.footer_text_color ?? "var(--footer_text_color)",
-                borderColor:
-                  event.footer_text_color ?? "var(--footer_text_color)",
-              }}
-            />
-          </Col> */}
+         
           <HandleTimeComponent data={event} />
           <Col className="mt-3" xs={5} sm={8}>
             <Row>

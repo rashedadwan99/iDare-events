@@ -15,20 +15,20 @@ function EventOrganizers({ event, isInActiveSection }) {
     !isInActiveSection(event.organizers) && (
       <EventSectionContainer name="organizers">
         <Row
-          className="justify-content-center align-items-center my-3 py-5 orgnizers"
+          className="justify-content-center align-items-center my-3  orgnaizers"
           style={handleBackgroundStyle(event.secondary_image)}
         >
           <Col
             xs={11}
             sm={11}
             md={10}
-            lg={9}
+            lg={10}
             className="m-3 py-1 px-3 organizer-container"
           >
             <SlideShow>
               {activeOrganizers.map((o) => {
                 return (
-                  <Col xs={12} sm={12} key={o.id} className="mx-0 py-1 px-1">
+                  <Col xs={11} sm={11} key={o.id} className="mx-0 py-1 px-1">
                     <Row className="align-items-center justify-content-center organizer">
                       <Col xs={12} sm={12} md={5} lg={4}>
                         <Image
@@ -36,10 +36,10 @@ function EventOrganizers({ event, isInActiveSection }) {
                           alt="organizer logo"
                         />
                       </Col>
-                      <Col xs={12} sm={12} md={6} lg={8} className="mt-1">
-                        <p className="organizer-name">
+                      <Col xs={11} sm={11} md={6} lg={7} className="mt-4">
+                        <h3 className="organizer-name">
                           {isArabic ? o.name_ar : o.name}
-                        </p>
+                        </h3>
                         <span className="organizer-description">
                           {isArabic ? o.description_ar : o.description}
                         </span>

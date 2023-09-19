@@ -23,18 +23,10 @@ function EventHome() {
       <Col sm={12} lg={12}>
         <EventFirstSection event={event} />
       </Col>
-      <AosContainer>
-        <EventIntro event={event} />
-      </AosContainer>
-      <AosContainer>
-        <EventOrganizers event={event} isInActiveSection={isInActiveSection} />
-      </AosContainer>
-      <AosContainer>
-        <EventRooms event={event} isInActiveSection={isInActiveSection} />
-      </AosContainer>
-      <AosContainer>
-        <EventSponsors event={event} />
-      </AosContainer>
+      <EventIntro event={event} />
+      <EventOrganizers event={event} isInActiveSection={isInActiveSection} />
+      <EventRooms event={event} isInActiveSection={isInActiveSection} />
+      <EventSponsors event={event} />
     </>
   );
 }
