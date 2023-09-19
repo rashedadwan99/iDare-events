@@ -2,7 +2,7 @@ import React from "react";
 import { Image, Row } from "react-bootstrap";
 import { Col } from "react-bootstrap/esm";
 import { getImageSrc } from "../services/imageServices";
-import { handleOrganizersBackgroundStyle } from "../styles/eventStyles";
+import { handleBackgroundStyle } from "../styles/eventStyles";
 import EventSectionContainer from "./common/EventSectionContainer";
 import SlideShow from "./common/SlideShow";
 import { useSelector } from "react-redux";
@@ -16,7 +16,7 @@ function EventOrganizers({ event, isInActiveSection }) {
       <EventSectionContainer name="organizers">
         <Row
           className="justify-content-center align-items-center my-3 py-5 orgnizers"
-          style={handleOrganizersBackgroundStyle(event.secondary_image)}
+          style={handleBackgroundStyle(event.secondary_image)}
         >
           <Col
             xs={11}

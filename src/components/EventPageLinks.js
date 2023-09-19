@@ -18,12 +18,13 @@ function EventPageLinks({ event }) {
   return links.map((l) => {
     return (
       <Col key={l.path} sm={12}>
-        <Row
-          className="event-page-link mb-3"
-          onClick={() => handleNavigate(l)}
-          key={l.path}
-        >
-          {l.label}
+        <Row key={l.path}>
+          <span
+            className="event-page-link mb-3"
+            onClick={() => handleNavigate(l)}
+          >
+            {l.label}
+          </span>
         </Row>
       </Col>
     );

@@ -7,7 +7,7 @@ export const headerEventStyle = (event) => {
     color: event.header_text_color ?? "var(--header_text_color)",
   };
 };
-export const handleOrganizersBackgroundStyle = (image) => {
+export const handleBackgroundStyle = (image) => {
   return {
     backgroundImage: `url(${storageBaseURL + image})`,
     bacgroundRepeat: "no-repeat",

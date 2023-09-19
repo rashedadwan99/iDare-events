@@ -2,15 +2,15 @@ import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 
-function EventFooterSection({ title, children }) {
+function EventFooterSection({ title, children, ...rest }) {
   const { t } = useTranslation();
 
   return (
-    <Col xs={11} sm={11} md={4} lg={3} className="event-footer-section my-4">
+    <Col xs={12} sm={11} md={4} {...rest} className="event-footer-section my-4">
       {title && (
         <Col sm={12} className="mb-3">
           <Row className="align-items-center">
-            <h6>{t(title)}</h6>
+            <span className="event-footer_title">{t(title)}</span>
           </Row>
         </Col>
       )}
