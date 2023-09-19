@@ -82,6 +82,10 @@
   opacity: 0.6;
 }
 
+.event-page {
+  overflow-x: hidden;
+}
+
 .orgnaizers {
   display: flex;
   align-items: center;

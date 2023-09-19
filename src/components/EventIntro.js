@@ -16,11 +16,13 @@ function EventIntro({ event }) {
                 animation_name_scroll_down="zoom-in"
                 animation_name_scroll_up="zoom-out"
               >
-                <Image
-                  src={getImageSrc(event.about_image)}
-                  alt="about"
-                  className="event__about-image"
-                />
+                <Row>
+                  <Image
+                    src={getImageSrc(event.about_image)}
+                    alt="about"
+                    className="event__about-image"
+                  />
+                </Row>
               </AosContainer>
             </Col>
             <Col xs={12} sm={12} md={6}>
@@ -28,7 +30,9 @@ function EventIntro({ event }) {
                 animation_name_scroll_down="zoom-in"
                 animation_name_scroll_up="zoom-out"
               >
-                <AboutEvent event={event} />
+                <Row>
+                  <AboutEvent event={event} />
+                </Row>
               </AosContainer>
             </Col>
           </Row>
