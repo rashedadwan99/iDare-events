@@ -41,7 +41,6 @@ function AosContainer({
     <Col
       sm={12}
       xs={12}
-      className="px-0"
       data-aos={
         scrollDirection === "down"
           ? animation_name_scroll_down

@@ -20,7 +20,7 @@ function EventHome() {
   };
   return (
     <>
-      <Col sm={12} lg={12}>
+      <Col xs={12} sm={12}>
         <EventFirstSection event={event} />
       </Col>
       <EventIntro event={event} />

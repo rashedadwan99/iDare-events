@@ -11,7 +11,7 @@ function EventSectionContainer({ name, children }) {
       animation_name_scroll_up="fade-down"
     >
       <Row className="justify-content-center mt-5 pt-1">
-        <Col sm={12}>
+        <Col xs={12} sm={12}>
           <Row className="justify-content-center">
             <h3 className="event-section-name">{t(name)}</h3>
           </Row>

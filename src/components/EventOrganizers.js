@@ -31,7 +31,7 @@ function EventOrganizers({ event, isInActiveSection }) {
                 return (
                   <Col xs={11} sm={11} key={o.id} className="mx-0 py-1 px-1">
                     <Row className="align-items-center justify-content-center organizer">
-                      <Col xs={12} sm={12} md={5} lg={4}>
+                      <Col xs={12} sm={12} md={5} lg={4} className="px-0">
                         <AosContainer
                           animation_name_scroll_down="zoom-in"
                           animation_name_scroll_up="zoom-out"
@@ -42,7 +42,7 @@ function EventOrganizers({ event, isInActiveSection }) {
                           />
                         </AosContainer>
                       </Col>
-                      <Col xs={12} sm={12} md={6} lg={7} className="mt-4">
+                      <Col xs={12} sm={12} md={6} lg={7} className="mt-4 px-0">
                         <AosContainer
                           animation_name_scroll_down="flip-down"
                           animation_name_scroll_up="flip-up"
