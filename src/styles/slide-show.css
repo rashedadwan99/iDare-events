@@ -1,7 +1,6 @@
 .carousel .slide {
 
   display: flex !important;
-  justify-content: center !important;
   align-items: center !important;
   margin: 2rem 0 !important;
   width: 100%;

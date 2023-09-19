@@ -42,7 +42,7 @@ function EventOrganizers({ event, isInActiveSection }) {
                           />
                         </AosContainer>
                       </Col>
-                      <Col xs={11} sm={11} md={6} lg={7} className="mt-4">
+                      <Col xs={12} sm={12} md={6} lg={7} className="mt-4">
                         <AosContainer
                           animation_name_scroll_down="flip-down"
                           animation_name_scroll_up="flip-up"
