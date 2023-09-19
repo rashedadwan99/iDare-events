@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
-import {
-  handlePrimaryButtonStyle,
-  handlePrimaryButtonStyleWhenHover,
-} from "../../styles/eventStyles";
+import { handlePrimaryButtonStyleWhenHover } from "../../styles/eventStyles";
 import "../../styles/floatingbutton.css";
 
 const FloatingButton = ({ event }) => {

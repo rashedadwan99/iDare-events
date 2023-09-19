@@ -24,7 +24,7 @@ function EventBodyFooter({ event }) {
       document.head.removeChild(linkElement);
       App.style.fontFamily = "Cairo, sans-serif";
     };
-  }, []);
+  }, [event.google_fonts_link, event.google_fonts_code]);
   const isArabic = useSelector((state) => state.language.isArabic);
 
   return (

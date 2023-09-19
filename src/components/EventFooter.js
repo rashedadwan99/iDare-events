@@ -2,13 +2,11 @@ import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { getImageSrc } from "../services/imageServices";
 import EventFooterSection from "./EventFooterSection";
-import EventTimeLocation from "./EventTimeLocation";
 import EventPageLinks from "./EventPageLinks";
 import { handleFooterStyle } from "../styles/eventStyles";
 import EventFormBtn from "./common/EventFormBtn";
 import Logo from "../images/Logo";
 import { useSelector } from "react-redux";
-import EventInfo from "./EventInfo";
 import HandleTimeComponent from "./HandleTimeComponent";
 
 function EventFooter({ event }) {
@@ -36,7 +34,6 @@ function EventFooter({ event }) {
         </EventFooterSection>
 
         <EventFooterSection title="event_info" lg={4}>
-         
           <HandleTimeComponent data={event} />
           <Col className="mt-3" xs={5} sm={8}>
             <Row>

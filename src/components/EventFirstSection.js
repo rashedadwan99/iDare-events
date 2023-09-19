@@ -1,9 +1,6 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
-// import { isArabic } from "../locales/language";
 import { handleBackgroundStyle } from "../styles/eventStyles";
-import EventTimeLocation from "./EventTimeLocation";
-
 import EventFormBtn from "./common/EventFormBtn";
 import { useSelector } from "react-redux";
 import EventInfo from "./EventInfo";
@@ -17,12 +14,12 @@ function EventFirstSection({ event }) {
       style={handleBackgroundStyle(event.main_image)}
     >
       <div className="first-event-section__blur-background" />
-      <Col xs={11} sm={11} md={8} lg={7}>
+      <Col xs={11} sm={11} md={9} lg={10}>
         <Row className="justify-content-start">
           <h4>{isArabic ? event.slogan_ar : event.slogan}</h4>
         </Row>
         <Row className="mt-3">
-          <Col xs={12} sm={10} md={8} lg={5}>
+          <Col xs={12} sm={10} md={8} lg={4}>
             <EventInfo event={event} />
           </Col>
         </Row>

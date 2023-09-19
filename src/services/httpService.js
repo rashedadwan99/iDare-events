@@ -1,8 +1,8 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "https://idare.bitsblend.org/api/v1";
+axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
 
-export const storageBaseURL = "https://idare.bitsblend.org/storage/";
+export const storageBaseURL = process.env.REACT_APP_STORAGE_BASE_URL;
 
 export const FAILED = "FAILED";
 export const SUCCESS = "SUCCESS";

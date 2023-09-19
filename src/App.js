@@ -50,8 +50,6 @@ const App = () => {
     }
     dispatch(getAllEventsAction());
   }, [userToken, dispatch, isAuth]);
-  const isSwitched = useSelector((state) => state.language.isSwitched);
-  // useEffect(() => {}, [isSwitched]);
   return (
     <Container
       fluid

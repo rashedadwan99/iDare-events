@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-import { Row, Col, Navbar, NavLink } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { RxHamburgerMenu } from "react-icons/rx";

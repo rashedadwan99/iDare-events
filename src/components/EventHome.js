@@ -7,7 +7,6 @@ import EventRooms from "./EventRooms";
 import EventSponsors from "./EventSponsors";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import AosContainer from "./common/Aos";
 
 function EventHome() {
   const { id } = useParams();
