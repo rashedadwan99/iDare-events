@@ -1,4 +1,5 @@
 export const homePageRoute = "/";
+export const notfoundPageRoute = "/*";
 export const authPageRoute = "/auth";
 export const eventPageRoute = "/events";
 

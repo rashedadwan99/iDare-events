@@ -59,5 +59,6 @@
   "login_first": "Please login first",
   "already_registered": "You're already registered",
   "start": "Start",
-  "end": "End"
+  "end": "End",
+  "not-found": "Not Found - 404"
 }

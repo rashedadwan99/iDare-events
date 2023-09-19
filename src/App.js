@@ -7,6 +7,7 @@ import {
   homePageRoute,
   loginPageRoute,
   myEventPageRoute,
+  notfoundPageRoute,
   registerPageRoute,
 } from "./routes";
 import HomePage from "./pages/HomePage";
@@ -30,6 +31,7 @@ import EventHome from "./components/EventHome";
 import Canvas from "./components/common/Canvas";
 import MyEvents from "./pages/MyEvents";
 import CommonModal from "./components/common/CommonModal";
+import NotFound from "./pages/NotFound";
 const App = () => {
   const dispatch = useDispatch();
   const userToken = getUserToken();
@@ -95,6 +97,7 @@ const App = () => {
             )
           }
         />
+        <Route path={notfoundPageRoute} element={<NotFound />} />
       </Routes>
     </Container>
   );
