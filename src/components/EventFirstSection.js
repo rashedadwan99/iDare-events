@@ -22,7 +22,7 @@ function EventFirstSection({ event }) {
           <h4>{isArabic ? event.slogan_ar : event.slogan}</h4>
         </Row>
         <Row className="mt-3">
-          <Col xs={10} sm={10} md={8} lg={5}>
+          <Col xs={12} sm={10} md={8} lg={5}>
             <EventInfo event={event} />
           </Col>
         </Row>
