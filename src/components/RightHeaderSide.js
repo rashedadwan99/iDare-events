@@ -57,7 +57,7 @@ function RightHeaderSide({ event }) {
     );
   };
   return (
-    <Col xs={6} sm={6} md={10}>
+    <Col xs={6} sm={9} md={10}>
       <Row className="justify-content-end align-items-center">
         <LargeScreenNavbar
           navLinks={navLinks}
