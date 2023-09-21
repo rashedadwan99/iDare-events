@@ -49,7 +49,7 @@ const App = () => {
       dispatch(getMyEventsAction());
     }
     dispatch(getAllEventsAction());
-  }, [userToken, dispatch, isAuth]);
+  }, [userToken, dispatch]);
   return (
     <Container
       fluid

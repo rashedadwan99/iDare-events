@@ -8,7 +8,7 @@ function Input({ label, icon, ...rest }) {
     direction: !isArabic ? "ltr" : "rtl",
   };
   return (
-    <Form>
+    <Form noValidate>
       {label && <Form.Label>{label}</Form.Label>}
       <InputGroup size="sm" className={`${icon ? "input-with-icon" : ""}`}>
         {icon && (
