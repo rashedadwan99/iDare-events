@@ -22,6 +22,7 @@ function EventForm({ event }) {
     event_id: event.id,
     ticket_type_id: "",
   });
+  const [isSendingRequest, setIsSendingRequest] = useState(false);
   const [daynamicData, setDaynamicData] = useState({});
   useEffect(() => {
     let obj = {};
@@ -53,11 +54,17 @@ function EventForm({ event }) {
       }
     }
     const allData = { ...staticData, ...daynamicData };
+    setIsSendingRequest(true);
     const { data } = await registerEvent(allData);
     if (data.AZSVR === SUCCESS) {
       dispatch(getMyEventsAction());
       dispatch(toggleOpenModal());
+      setIsSendingRequest(false);
+
       return Toast("info", t("event-register"));
+    } else {
+      setIsSendingRequest(false);
+      return Toast("error", t("event-register-failed"));
     }
   };
   const isArabic = useSelector((state) => state.language.isArabic);
@@ -84,6 +91,7 @@ function EventForm({ event }) {
             primaryStyleHover={handlePrimaryButtonStyleWhenHover(event)}
             label={t("register-event")}
             onClick={handleSubmit}
+            disabled={isSendingRequest}
           />
         </Row>
       </Col>

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import SelectMenu from "./common/SelectMenu";
 import { getCountries } from "../services/countriesService";
 import { FAILED, SUCCESS } from "../services/httpService";
 import { Row } from "react-bootstrap";
@@ -15,6 +14,7 @@ import { useNavigate } from "react-router-dom/dist";
 import { useDispatch, useSelector } from "react-redux";
 import { homePageRoute, loginPageRoute } from "../routes";
 import { toggleIsAuth } from "../redux/actions/userActions";
+import CommonButton from "./common/Button";
 
 function RegisterForm() {
   const isAuth = useSelector((state) => state.user.isAuth);
@@ -49,7 +49,6 @@ function RegisterForm() {
       phone: "",
       password: "",
       gender_id: "",
-      is_refugee: "",
       national_number: "",
       country_id: "",
       is_disabled: "",
@@ -63,7 +62,6 @@ function RegisterForm() {
       phone,
       password,
       gender_id,
-      is_refugee,
       national_number,
       country_id,
       is_disabled,
@@ -73,7 +71,6 @@ function RegisterForm() {
       !phone ||
       !password ||
       !gender_id ||
-      !is_refugee ||
       !national_number ||
       !country_id ||
       !is_disabled ||
@@ -90,17 +87,14 @@ function RegisterForm() {
     const { data: responseData } = await registerUser(data);
     if (responseData.AZSVR === SUCCESS) {
       setToken(responseData.api_token);
-      setIsLoading(!isLoading);
-
+      setIsLoading(true);
       Toast("success", t("account_created"));
       dispatch(toggleIsAuth(!isAuth));
       navigate(homePageRoute, { replace: true });
-
       window.scrollTo(0, 0);
     }
     if (responseData.AZSVR === FAILED) {
-      setIsLoading(!isLoading);
-
+      setIsLoading(false);
       Toast("error", t("user_exists"));
     }
   };
@@ -172,54 +166,66 @@ function RegisterForm() {
           />
         </Col>
       </Row>
+      <Row className="justify-content-center mb-2">
+        <Col>
+          <FormElement
+            name="dsfd"
+            placeholder={t("Medical_allergy")}
+            data={data}
+            setData={setData}
+          />
+        </Col>
+      </Row>
+      <Row className="justify-content-center mb-2">
+        <Col>
+          <FormElement
+            name="dsadsa"
+            placeholder={t("sepcial_needs")}
+            data={data}
+            setData={setData}
+          />
+        </Col>
+      </Row>
 
       <Row className="justify-content-center mb-2">
         <Col>
-          <SelectMenu
+          <FormElement
             name="country_id"
-            defaultOption={() => t("Country")}
+            defaultOption={t("Country")}
             options={options}
             data={data}
             setData={setData}
             path="name"
+            element="select"
           />
         </Col>
         <Col>
-          <SelectMenu
+          <FormElement
             name="gender_id"
-            defaultOption={() => t("gender")}
+            defaultOption={t("gender")}
             options={genderOptions(t)}
             data={data}
             setData={setData}
             path="name"
+            element="select"
           />
         </Col>
       </Row>
 
       <Row className="justify-content-center mb-2">
         <Col>
-          <SelectMenu
-            name="is_refugee"
-            defaultOption={() => t("are you a refugee")}
-            options={yesOrNo(t)}
-            data={data}
-            setData={setData}
-            path="name"
-          />
-        </Col>
-      </Row>
-      <Row className="justify-content-center mb-2">
-        <Col>
-          <SelectMenu
+          <FormElement
             name="is_disabled"
-            defaultOption={() => t("do you have a disability")}
+            defaultOption={t("do you have a disability")}
             options={yesOrNo(t)}
             data={data}
             setData={setData}
             path="name"
+            element="select"
           />
         </Col>
       </Row>
+
       <Row className="justify-content-center mt-3">
         <Col>
           <span onClick={handleToggleForms} className="toggle-forms-message">
@@ -229,10 +235,11 @@ function RegisterForm() {
       </Row>
       <Row className="justify-content-center mt-3">
         <Col>
-          <FormElement
+          <CommonButton
             element="button"
             label={t("register")}
             onClick={handleRegister}
+            disabled={isLoading}
           />
         </Col>
       </Row>

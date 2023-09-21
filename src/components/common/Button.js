@@ -25,7 +25,6 @@ function CommonButton({
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
       style={customStyle}
-      disabled={isLoading}
     >
       <div>{label}</div>
       {icon}

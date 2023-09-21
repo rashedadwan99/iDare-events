@@ -4,8 +4,11 @@ import { useSelector } from "react-redux";
 
 function Input({ label, icon, ...rest }) {
   const isArabic = useSelector((state) => state.language.isArabic);
+  const style = {
+    direction: !isArabic ? "ltr" : "rtl",
+  };
   return (
-    <>
+    <Form>
       {label && <Form.Label>{label}</Form.Label>}
       <InputGroup size="sm" className={`${icon ? "input-with-icon" : ""}`}>
         {icon && (
@@ -14,10 +17,11 @@ function Input({ label, icon, ...rest }) {
         <Form.Control
           {...rest}
           className="common-input no-auto-bg"
-          style={!isArabic ? { direction: "ltr" } : { direction: "rtl" }}
+          autoComplete="true"
+          style={style}
         />
       </InputGroup>
-    </>
+    </Form>
   );
 }
 

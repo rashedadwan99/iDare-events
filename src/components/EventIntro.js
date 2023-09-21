@@ -11,21 +11,23 @@ function EventIntro({ event }) {
       <Row className="justify-content-center about-event-section">
         <Col xs={12} sm={11}>
           <Row className="justify-content-center align-items-start mt-3">
-            <Col xs={12} sm={12} md={6}>
-              <AosContainer
-                animation_name_scroll_down="zoom-in"
-                animation_name_scroll_up="zoom-out"
-              >
-                <Row>
-                  <Image
-                    src={getImageSrc(event.about_image)}
-                    alt="about"
-                    className="event__about-image"
-                  />
-                </Row>
-              </AosContainer>
-            </Col>
-            <Col xs={12} sm={12} md={6}>
+            {event.about_image && (
+              <Col xs={12} sm={12} md={6}>
+                <AosContainer
+                  animation_name_scroll_down="zoom-in"
+                  animation_name_scroll_up="zoom-out"
+                >
+                  <Row>
+                    <Image
+                      src={getImageSrc(event.about_image)}
+                      alt="about"
+                      className="event__about-image"
+                    />
+                  </Row>
+                </AosContainer>
+              </Col>
+            )}
+            <Col xs={12} sm={12} md={event.about_image ? 6 : 12}>
               <AosContainer
                 animation_name_scroll_down="zoom-in"
                 animation_name_scroll_up="zoom-out"

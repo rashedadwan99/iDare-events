@@ -18,15 +18,12 @@ const SelectMenu = ({
   path,
 }) => {
   const isArabic = useSelector((state) => state.language.isArabic);
-  const [defaultOption, setDefaultOption] = useState();
+  const [defaultOption, setDefaultOption] = useState(title);
   const { id } = useParams();
-  const isSwitched = useSelector((state) => state.language.isSwitched);
 
   const allEvents = useSelector((state) => state.events.allEvents);
   const event = allEvents.find((e) => e.id === parseInt(id));
-  useEffect(() => {
-    setDefaultOption(title);
-  }, [isSwitched, title]);
+
   const [isOpen, setIsOpen] = useState(false);
   const { pathname } = useResolvedPath();
   useEffect(() => setDefaultOption(title), [pathname, title]);
@@ -42,6 +39,7 @@ const SelectMenu = ({
     if (id && event && header_style) return handleSelectHeaderMenu(event);
     if (id && event) return handleSelectEventMenu(event);
   };
+
   return (
     <ClickOutsideAlerter onOutsideClick={() => setIsOpen(false)}>
       <div

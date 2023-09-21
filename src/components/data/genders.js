@@ -8,9 +8,5 @@ export const genderOptions = (t) => {
       name: t("female"),
       id: "2",
     },
-    {
-      name: t("prefer_not_to_say"),
-      id: "3",
-    },
   ];
 };

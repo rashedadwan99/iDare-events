@@ -11,6 +11,7 @@ import { homePageRoute, registerPageRoute } from "../routes";
 import { toggleIsAuth } from "../redux/actions/userActions";
 import { useNavigate } from "react-router-dom/dist";
 import { useDispatch, useSelector } from "react-redux";
+import CommonButton from "./common/Button";
 
 function LoginForm() {
   const isAuth = useSelector((state) => state.user.isAuth);
@@ -32,7 +33,7 @@ function LoginForm() {
     if (responseData.AZSVR === SUCCESS) {
       setToken(responseData.api_token);
 
-      setIsLoading(!isLoading);
+      setIsLoading(true);
       navigate(homePageRoute, { replace: true });
 
       Toast("success", t("login-message"));
@@ -40,9 +41,9 @@ function LoginForm() {
       window.scrollTo(0, 0);
     }
     if (responseData.AZSVR === FAILED) {
-      setIsLoading(!isLoading);
+      setIsLoading(false);
 
-      return Toast("error", t("invalid email or password"));
+      return Toast("error", t("invalid_email_password"));
     }
   };
   const handleToggleForms = () => {
@@ -88,7 +89,7 @@ function LoginForm() {
 
       <Row className="justify-content-center mt-3">
         <Col>
-          <FormElement
+          <CommonButton
             element="button"
             label={t("login")}
             onClick={handleLogin}

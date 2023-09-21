@@ -7,7 +7,6 @@
   "password": "كلمة السر",
   "gender": "الجنس",
   "male": "ذكر",
-  "prefer_not_to_say": "أفضّل عدم القول",
   "female": "أنثى",
   "national_number": "الرقم الوطني",
   "are you a refugee": "هل أنت لاجئ ؟",
@@ -21,7 +20,7 @@
   "password length": "كلمة السر يجب أن تتكون أقل شيء من 8 خانات",
   "email validation": "يجب إدخال بريد إلكتروني صالح",
   "number validation": "يجب إدخال رقم هاتف و رقم وطني صالح",
-  "invalid email or password": "خطأ في البريد الإلكتروني أو كلمة السر",
+  "invalid_email_password": "خطأ في البريد الإلكتروني أو كلمة السر",
   "language": "اللغة",
   "idare": "أنا أتجرأ للتنمية المستدامة",
   "purpose": "منظمة غير هادفة للربح",
@@ -63,5 +62,8 @@
   "already_registered": "أنت مُسجل بهذا الحدث",
   "start": "يبدأ",
   "end": "ينتهي",
-  "not-found": "الصفحة غير موجودة - 404"
+  "not-found": "الصفحة غير موجودة - 404",
+  "Medical_allergy": "اذكر الحساسيات الطبية التي تعاني منها (إختياري)",
+  "sepcial_needs": "اذكر أية احتياجات خاصة (إختياري)",
+  "event-register-failed": "فشل عملية التسجيل في الحدث"
 }
