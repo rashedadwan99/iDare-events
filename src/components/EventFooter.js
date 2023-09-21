@@ -8,6 +8,7 @@ import EventFormBtn from "./common/EventFormBtn";
 import Logo from "../images/Logo";
 import { useSelector } from "react-redux";
 import HandleTimeComponent from "./HandleTimeComponent";
+import EventTimeLocation from "./EventTimeLocation";
 
 function EventFooter({ event }) {
   const isArabic = useSelector((state) => state.language.isArabic);
@@ -34,7 +35,7 @@ function EventFooter({ event }) {
         </EventFooterSection>
 
         <EventFooterSection title="event_info" lg={4}>
-          <HandleTimeComponent data={event} />
+          <EventTimeLocation event={event} />
           <Col className="mt-3" xs={5} sm={8}>
             <Row>
               <EventFormBtn event={event} />
