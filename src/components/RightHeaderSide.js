@@ -21,6 +21,9 @@ import { resetEvents } from "../redux/actions/eventActions";
 
 function RightHeaderSide({ event }) {
   const myEvents = useSelector((state) => state.events.myEvents);
+  const recommendedEvents = useSelector(
+    (state) => state.events.recommendedEvents
+  );
   const { id } = useParams();
   const { t } = useTranslation();
   const isInMyEvents = myEvents.find((e) => e.event_id === id);
@@ -34,7 +37,15 @@ function RightHeaderSide({ event }) {
 
     navigate(homePageRoute, { replace: true });
   };
-  const navLinks = getBurgerLinks(handleLogout, t, isAuth, id, event, myEvents);
+  const navLinks = getBurgerLinks(
+    handleLogout,
+    t,
+    isAuth,
+    id,
+    event,
+    myEvents,
+    recommendedEvents
+  );
   const handleClick = (data) => {
     if (data.path) {
       navigate(data.path);

@@ -65,5 +65,8 @@
   "not-found": "الصفحة غير موجودة - 404",
   "Medical_allergy": "اذكر الحساسيات الطبية التي تعاني منها (إختياري)",
   "sepcial_needs": "اذكر أية احتياجات خاصة (إختياري)",
-  "event-register-failed": "فشل عملية التسجيل في الحدث"
+  "event-register-failed": "فشل عملية التسجيل في الحدث",
+  "City": "المحافظة الحالية",
+  "error_occoured": "حدث خطأ",
+  "recommended-events": "الأحداث الموصى بها"
 }

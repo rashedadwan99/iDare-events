@@ -1,4 +1,9 @@
-import { homePageRoute, loginPageRoute, myEventPageRoute } from "../../routes";
+import {
+  homePageRoute,
+  loginPageRoute,
+  myEventPageRoute,
+  recommendedEventPageRoute,
+} from "../../routes";
 import { getEventPageLinks } from "./eventPageLinks";
 
 export const getBurgerLinks = (
@@ -7,7 +12,8 @@ export const getBurgerLinks = (
   isAuth,
   eventId,
   event,
-  myEvents
+  myEvents,
+  recommendedEvents
 ) => {
   let links = [
     {
@@ -18,10 +24,24 @@ export const getBurgerLinks = (
   if (eventId) {
     links = [...links, ...getEventPageLinks(eventId, event, t)];
   }
-  if (isAuth && myEvents.length) {
-    links = [...links, ...[{ label: t("my-events"), path: myEventPageRoute }]];
-  }
   if (isAuth) {
+    if (myEvents.length) {
+      links = [
+        ...links,
+        ...[{ label: t("my-events"), path: myEventPageRoute }],
+      ];
+    }
+    if (recommendedEvents.length) {
+      links = [
+        ...links,
+        ...[
+          {
+            label: t("recommended-events"),
+            path: recommendedEventPageRoute,
+          },
+        ],
+      ];
+    }
     links = [
       ...links,
       ...[

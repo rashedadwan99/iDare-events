@@ -8,6 +8,7 @@ import {
   loginPageRoute,
   myEventPageRoute,
   notfoundPageRoute,
+  recommendedEventPageRoute,
   registerPageRoute,
 } from "./routes";
 import HomePage from "./pages/HomePage";
@@ -19,6 +20,7 @@ import { useDispatch } from "react-redux/es";
 import {
   getAllEventsAction,
   getMyEventsAction,
+  getRecommendedEventAction,
 } from "./redux/actions/eventActions";
 import EventPage from "./pages/EventPage";
 import { language } from "./locales/language";
@@ -32,6 +34,7 @@ import Canvas from "./components/common/Canvas";
 import MyEvents from "./pages/MyEvents";
 import CommonModal from "./components/common/CommonModal";
 import NotFound from "./pages/NotFound";
+import RecommendedEvents from "./pages/RecommendedEvents";
 const App = () => {
   const dispatch = useDispatch();
   const userToken = getUserToken();
@@ -47,6 +50,7 @@ const App = () => {
   useEffect(() => {
     if (userToken) {
       dispatch(getMyEventsAction());
+      dispatch(getRecommendedEventAction());
     }
     dispatch(getAllEventsAction());
   }, [userToken, dispatch]);
@@ -90,6 +94,16 @@ const App = () => {
           element={
             getUserToken() ? (
               <MyEvents />
+            ) : (
+              <Navigate to={homePageRoute} replace />
+            )
+          }
+        />
+        <Route
+          path={recommendedEventPageRoute}
+          element={
+            getUserToken() ? (
+              <RecommendedEvents />
             ) : (
               <Navigate to={homePageRoute} replace />
             )

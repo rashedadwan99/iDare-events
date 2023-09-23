@@ -9,6 +9,8 @@ export const registerUser = async (data) => {
     national_number,
     country_id,
     is_disabled,
+    allergies,
+    disability,
   } = data;
   return http.get("/user/register", {
     params: {
@@ -20,6 +22,8 @@ export const registerUser = async (data) => {
       country_id,
       national_number,
       is_disabled,
+      allergies,
+      disability,
     },
   });
 };

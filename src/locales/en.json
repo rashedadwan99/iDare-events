@@ -60,5 +60,8 @@
   "not-found": "The Page is Not Found - 404",
   "Medical_allergy": "Mention Any Medical Allergies You Have (Optional)",
   "sepcial_needs": "Mention Any Special Needs (Optional)",
-  "event-register-failed": "The Registration In The Event is Failed"
+  "event-register-failed": "The Registration In The Event is Failed",
+  "City": "Current City",
+  "error_occoured": "an error has occoured",
+  "recommended-events": "Recommended Events"
 }

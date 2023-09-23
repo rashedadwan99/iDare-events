@@ -62,7 +62,6 @@ function LoginForm() {
             setData={setData}
             value={data.email}
             name="email"
-            type="email"
             placeholder={t("email")}
           />
         </Col>

@@ -15,30 +15,40 @@ import { useDispatch, useSelector } from "react-redux";
 import { homePageRoute, loginPageRoute } from "../routes";
 import { toggleIsAuth } from "../redux/actions/userActions";
 import CommonButton from "./common/Button";
+import { getCities } from "../services/citiesService";
 
 function RegisterForm() {
   const isAuth = useSelector((state) => state.user.isAuth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const [options, setOptions] = useState([]);
+  const [Countries, setCountries] = useState([]);
+  const [cities, setCities] = useState([]);
   const [data, setData] = useState({
     email: "",
     name: "",
     phone: "",
     password: "",
     gender_id: "",
-    is_refugee: "",
     national_number: "",
     country_id: "",
     is_disabled: "",
   });
+  const isArabic = useSelector((state) => state.language.isArabic);
   useEffect(() => {
-    const getCountriesHandler = async () => {
-      const { data } = await getCountries();
-      if (data.AZSVR === SUCCESS) setOptions(data.Countries);
+    const getCountriesAndCitiesHandler = async () => {
+      const { data: countiesData } = await getCountries();
+      if (countiesData.AZSVR === SUCCESS) setCountries(countiesData.Countries);
+      else {
+        Toast("error", t("error_occoured"));
+      }
+      const { data: citiesData } = await getCities();
+      if (citiesData.AZSVR === SUCCESS) setCities(citiesData.Cities);
+      else {
+        Toast("error", t("error_occoured"));
+      }
     };
-    getCountriesHandler();
+    getCountriesAndCitiesHandler();
   }, []);
   const isSwitched = useSelector((state) => state.language.isSwitched);
 
@@ -51,7 +61,11 @@ function RegisterForm() {
       gender_id: "",
       national_number: "",
       country_id: "",
+      allergies: "",
+      disability: "",
       is_disabled: "",
+      allergies: "",
+      disability: "",
     });
   }, [isSwitched]);
   const [isLoading, setIsLoading] = useState(false);
@@ -65,6 +79,7 @@ function RegisterForm() {
       national_number,
       country_id,
       is_disabled,
+      city_id,
     } = data;
     if (
       !name ||
@@ -125,7 +140,6 @@ function RegisterForm() {
             setData={setData}
             value={data.email}
             name="email"
-            type="email"
             placeholder={t("email")}
           />
         </Col>
@@ -169,7 +183,8 @@ function RegisterForm() {
       <Row className="justify-content-center mb-2">
         <Col>
           <FormElement
-            name="dsfd"
+            name="allergies"
+            value={data.allergies}
             placeholder={t("Medical_allergy")}
             data={data}
             setData={setData}
@@ -179,7 +194,8 @@ function RegisterForm() {
       <Row className="justify-content-center mb-2">
         <Col>
           <FormElement
-            name="dsadsa"
+            name="disability"
+            value={data.disability}
             placeholder={t("sepcial_needs")}
             data={data}
             setData={setData}
@@ -192,7 +208,7 @@ function RegisterForm() {
           <FormElement
             name="country_id"
             defaultOption={t("Country")}
-            options={options}
+            options={Countries}
             data={data}
             setData={setData}
             path="name"
@@ -201,12 +217,12 @@ function RegisterForm() {
         </Col>
         <Col>
           <FormElement
-            name="gender_id"
-            defaultOption={t("gender")}
-            options={genderOptions(t)}
+            name="city_id"
+            defaultOption={t("City")}
+            options={cities}
             data={data}
             setData={setData}
-            path="name"
+            path={isArabic ? "name_ar" : "name"}
             element="select"
           />
         </Col>
@@ -218,6 +234,17 @@ function RegisterForm() {
             name="is_disabled"
             defaultOption={t("do you have a disability")}
             options={yesOrNo(t)}
+            data={data}
+            setData={setData}
+            path="name"
+            element="select"
+          />
+        </Col>
+        <Col>
+          <FormElement
+            name="gender_id"
+            defaultOption={t("gender")}
+            options={genderOptions(t)}
             data={data}
             setData={setData}
             path="name"

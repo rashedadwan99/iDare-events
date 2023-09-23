@@ -18,3 +18,10 @@ export const getMyEvents = () => {
     },
   });
 };
+export const getRecommendedEvents = () => {
+  return http.get("/events/getRecommendedEvents", {
+    params: {
+      api_token: getUserToken(),
+    },
+  });
+};
