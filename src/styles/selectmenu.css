@@ -10,10 +10,10 @@
 
 .select-menu__header {
   background-color: var(--light-gray);
-  border-radius: 50px;
   width: 100%;
   padding: 8px 19px;
   line-height: 22px;
+  border-radius: 50px;
   border: none;
   display: flex;
   justify-content: space-between;
