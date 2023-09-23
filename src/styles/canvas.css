@@ -30,6 +30,10 @@
   cursor: pointer;
 }
 
+.canvas-body {
+  overflow: scroll;
+
+}
 
 
 .off-canvas svg {
