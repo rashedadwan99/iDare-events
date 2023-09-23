@@ -48,11 +48,11 @@ const App = () => {
     }
   }, [dispatch, userToken]);
   useEffect(() => {
+    dispatch(getAllEventsAction());
     if (userToken) {
       dispatch(getMyEventsAction());
       dispatch(getRecommendedEventAction());
     }
-    dispatch(getAllEventsAction());
   }, [userToken, dispatch]);
   return (
     <Container

@@ -63,5 +63,6 @@
   "event-register-failed": "The Registration In The Event is Failed",
   "City": "Current City",
   "error_occoured": "an error has occoured",
-  "recommended-events": "Recommended Events"
+  "recommended-events": "Recommended Events",
+  "premium": "premium"
 }

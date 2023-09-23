@@ -6,7 +6,7 @@ import { eventPageRoute } from "../routes";
 import { getImageSrc } from "../services/imageServices";
 import EventTimeLocation from "./EventTimeLocation";
 import { useSelector } from "react-redux";
-
+import Premium from "./Premium";
 function HomeEventsCards({ events }) {
   const navigate = useNavigate();
   const isArabic = useSelector((state) => state.language.isArabic);
@@ -21,12 +21,12 @@ function HomeEventsCards({ events }) {
     if (e.active)
       return (
         <Row
-          className="justify-content-between event-card py-3 my-4"
+          className="justify-content-between align-items-center event-card py-3 my-4"
           style={containerStyle}
           key={e.id}
           onClick={() => handleGoToEventPage(e.id)}
         >
-          <Col md={6} className="align-items-center">
+          <Col md={6}>
             <img
               src={getImageSrc(e.events_list_image)}
               alt="event_list_img"
@@ -34,18 +34,22 @@ function HomeEventsCards({ events }) {
             />
           </Col>
           <Col md={6}>
-            <Row className="mt-4">
-              <Col>
+            <Row className="justify-content-between align-items-center event-name mb-3">
+              <Col xs={8} sm={8}>
                 <h5 style={infoStyle}>{isArabic ? e.name_ar : e.name}</h5>
+              </Col>
+              <Col xs={4} sm={4}>
+                {e.is_premium ? <Premium event={e} /> : <></>}
               </Col>
             </Row>
             <Row>
               <Col>
-                <p style={infoStyle}>
+                <p style={infoStyle} className="event_desc">
                   {isArabic ? e.short_description_ar : e.short_description}
                 </p>
               </Col>
             </Row>
+
             <Col md={12}>
               <Row
                 className="justify-content-start"
