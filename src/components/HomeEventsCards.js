@@ -34,15 +34,15 @@ function HomeEventsCards({ events }) {
             />
           </Col>
           <Col md={6}>
-            <Row className="justify-content-between align-items-center event-name mb-3">
+            <Row className="justify-content-between align-items-center event-name mb-4">
               <Col xs={8} sm={8}>
-                <h5 style={infoStyle}>{isArabic ? e.name_ar : e.name}</h5>
+                <h6 style={infoStyle}>{isArabic ? e.name_ar : e.name}</h6>
               </Col>
               <Col xs={4} sm={4}>
                 {e.is_premium ? <Premium event={e} /> : <></>}
               </Col>
             </Row>
-            <Row>
+            <Row className="mb-3">
               <Col>
                 <p style={infoStyle} className="event_desc">
                   {isArabic ? e.short_description_ar : e.short_description}

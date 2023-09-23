@@ -55,6 +55,7 @@
 
 .event_desc {
   margin-bottom: 1px;
+  font-weight: 14px !important;
 }
 
 .event-info__icon {
@@ -255,8 +256,9 @@
 
 }
 
-.event-card h5 {
+.event-card h6 {
   margin-bottom: 0;
+  font-weight: bold;
 }
 
 .event-footer svg {
