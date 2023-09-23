@@ -2,7 +2,6 @@ import React from "react";
 import { Col, Image, Row } from "react-bootstrap";
 import { getImageSrc } from "../services/imageServices";
 import { useTranslation } from "react-i18next";
-// import { isArabic } from "../locales/language";
 import RoomDescription from "./RoomDescription";
 import EventSectionContainer from "./common/EventSectionContainer";
 import { useSelector } from "react-redux";
