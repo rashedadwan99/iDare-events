@@ -29,6 +29,7 @@ function StaticEventForm({ event, data, setData }) {
             defaultOption={t("ticket-type")}
             options={event.ticket_types}
             name="ticket_type_id"
+            path2={event.is_premium ? "price" : null}
             path="name"
           />
         </Row>

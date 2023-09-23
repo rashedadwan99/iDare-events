@@ -19,6 +19,7 @@ function FormElement({
   defaultOption,
   options,
   path,
+  path2,
 
   ...rest
 }) {
@@ -42,6 +43,7 @@ function FormElement({
         setData={setData}
         data={data}
         name={name}
+        path2={path2}
         path={path}
       />
     );

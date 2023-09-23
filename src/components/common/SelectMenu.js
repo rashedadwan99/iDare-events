@@ -16,6 +16,7 @@ const SelectMenu = ({
   data,
   name,
   path,
+  path2,
 }) => {
   const isArabic = useSelector((state) => state.language.isArabic);
   const [defaultOption, setDefaultOption] = useState(title);
@@ -69,7 +70,10 @@ const SelectMenu = ({
               key={o[path]}
               onClick={() => handleClickOption(o)}
             >
-              {o[path]}
+              <span>{o[path]}</span>
+              <span className="option_2">
+                {o[path2]} {o[path2] >= 0 && "JOD"}
+              </span>
             </div>
           ))}
         </div>
