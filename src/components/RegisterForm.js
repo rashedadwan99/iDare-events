@@ -49,7 +49,7 @@ function RegisterForm() {
       }
     };
     getCountriesAndCitiesHandler();
-  }, []);
+  }, [t]);
   const isSwitched = useSelector((state) => state.language.isSwitched);
 
   useEffect(() => {
@@ -64,8 +64,6 @@ function RegisterForm() {
       allergies: "",
       disability: "",
       is_disabled: "",
-      allergies: "",
-      disability: "",
     });
   }, [isSwitched]);
   const [isLoading, setIsLoading] = useState(false);
@@ -89,7 +87,8 @@ function RegisterForm() {
       !national_number ||
       !country_id ||
       !is_disabled ||
-      !email
+      !email ||
+      !city_id
     )
       return Toast("info", t("fill_all"));
 
@@ -123,84 +122,70 @@ function RegisterForm() {
         <h3>{t("register")}</h3>
       </Row>
       <Row className="justify-content-center mb-2">
-        <Col>
-          <FormElement
-            data={data}
-            setData={setData}
-            value={data.name}
-            name="name"
-            placeholder={t("name")}
-          />
-        </Col>
+        <FormElement
+          data={data}
+          setData={setData}
+          value={data.name}
+          name="name"
+          placeholder={t("name")}
+        />
       </Row>
       <Row className="justify-content-center mb-2">
-        <Col>
-          <FormElement
-            data={data}
-            setData={setData}
-            value={data.email}
-            name="email"
-            placeholder={t("email")}
-          />
-        </Col>
+        <FormElement
+          data={data}
+          setData={setData}
+          value={data.email}
+          name="email"
+          placeholder={t("email")}
+        />
       </Row>
       <Row className="justify-content-center mb-2">
-        <Col>
-          <FormElement
-            data={data}
-            setData={setData}
-            value={data.password}
-            name="password"
-            type="password"
-            placeholder={t("password")}
-          />
-        </Col>
+        <FormElement
+          data={data}
+          setData={setData}
+          value={data.password}
+          name="password"
+          type="password"
+          placeholder={t("password")}
+        />
       </Row>
       <Row className="justify-content-center mb-2">
-        <Col>
-          <FormElement
-            data={data}
-            setData={setData}
-            value={data.phone}
-            name="phone"
-            type="tel"
-            placeholder={t("phone")}
-          />
-        </Col>
+        <FormElement
+          data={data}
+          setData={setData}
+          value={data.phone}
+          name="phone"
+          type="tel"
+          placeholder={t("phone")}
+        />
       </Row>
       <Row className="justify-content-center mb-2">
-        <Col>
-          <FormElement
-            data={data}
-            setData={setData}
-            value={data.national_number}
-            name="national_number"
-            type="tel"
-            placeholder={t("national_number")}
-          />
-        </Col>
+        <FormElement
+          data={data}
+          setData={setData}
+          value={data.national_number}
+          name="national_number"
+          type="tel"
+          placeholder={t("national_number")}
+        />
       </Row>
       <Row className="justify-content-center mb-2">
-        <Col>
-          <FormElement
-            name="allergies"
-            value={data.allergies}
-            placeholder={t("Medical_allergy")}
-            data={data}
-            setData={setData}
-          />
-        </Col>
+        <FormElement
+          name="allergies"
+          value={data.allergies}
+          placeholder={t("Medical_allergy")}
+          data={data}
+          setData={setData}
+        />
       </Row>
       <Row className="justify-content-center mb-2">
-        <Col>
-          <FormElement
-            name="disability"
-            value={data.disability}
-            placeholder={t("sepcial_needs")}
-            data={data}
-            setData={setData}
-          />
-        </Col>
+        <FormElement
+          name="disability"
+          value={data.disability}
+          placeholder={t("sepcial_needs")}
+          data={data}
+          setData={setData}
+        />
       </Row>
 
       <Row className="justify-content-center mb-2">

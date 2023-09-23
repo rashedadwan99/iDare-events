@@ -25,7 +25,6 @@ import {
 import EventPage from "./pages/EventPage";
 import { language } from "./locales/language";
 import { getUserToken } from "./services/userService";
-import { useSelector } from "react-redux";
 import { toggleIsAuth } from "./redux/actions/userActions";
 import Speakers from "./pages/Speakers";
 import Gallery from "./pages/Gallery";
@@ -39,7 +38,6 @@ import EventExtraPage from "./pages/EventExtraPage";
 const App = () => {
   const dispatch = useDispatch();
   const userToken = getUserToken();
-  const isAuth = useSelector((state) => state.user.isAuth);
   useEffect(() => {
     document.documentElement.lang = language();
     if (userToken) {
