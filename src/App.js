@@ -35,6 +35,7 @@ import MyEvents from "./pages/MyEvents";
 import CommonModal from "./components/common/CommonModal";
 import NotFound from "./pages/NotFound";
 import RecommendedEvents from "./pages/RecommendedEvents";
+import EventExtraPage from "./pages/EventExtraPage";
 const App = () => {
   const dispatch = useDispatch();
   const userToken = getUserToken();
@@ -75,6 +76,10 @@ const App = () => {
             element={<Speakers />}
           />
           <Route path={eventPageRoute + "/:id/gallery"} element={<Gallery />} />
+          <Route
+            path={eventPageRoute + "/:id/extra-page/:page_id"}
+            element={<EventExtraPage />}
+          />
         </Route>
         <Route
           path={authPageRoute}

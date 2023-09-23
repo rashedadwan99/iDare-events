@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink, Navbar } from "react-bootstrap";
+import NavDropDown from "./NavDropDown";
 
 function LargeScreenNavbar({ navLinks, handleClick, event }) {
   const style = event
@@ -12,15 +13,14 @@ function LargeScreenNavbar({ navLinks, handleClick, event }) {
   return (
     <Navbar className="nav-links">
       {navLinks.map((nav, i) => {
-        return (
-          <NavLink
-            onClick={() => handleClick(nav)}
-            key={i + nav.label}
-            style={style}
-          >
-            <span>{nav.label}</span>
-          </NavLink>
-        );
+        if (!nav.isDropDown) {
+          return (
+            <NavLink onClick={() => handleClick(nav)} key={i} style={style}>
+              <span>{nav.label}</span>
+            </NavLink>
+          );
+        } else
+          return <NavDropDown nav={nav} key={i} handleClick={handleClick} />;
       })}
     </Navbar>
   );

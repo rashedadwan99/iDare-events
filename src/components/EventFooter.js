@@ -7,7 +7,6 @@ import { handleFooterStyle } from "../styles/eventStyles";
 import EventFormBtn from "./common/EventFormBtn";
 import Logo from "../images/Logo";
 import { useSelector } from "react-redux";
-import HandleTimeComponent from "./HandleTimeComponent";
 import EventTimeLocation from "./EventTimeLocation";
 
 function EventFooter({ event }) {

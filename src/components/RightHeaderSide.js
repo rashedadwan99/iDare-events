@@ -62,6 +62,7 @@ function RightHeaderSide({ event }) {
           id={id}
           handleClick={(data) => handleClick(data)}
           burgerData={navLinks}
+          event={event}
         />,
         ""
       )

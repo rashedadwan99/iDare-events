@@ -15,20 +15,22 @@ function EventPageLinks({ event }) {
     });
     navigate(l.path);
   };
-  return links.map((l) => {
-    return (
-      <Col key={l.path} sm={12}>
-        <Row key={l.path}>
-          <span
-            className="event-page-link mb-3"
-            onClick={() => handleNavigate(l)}
-          >
-            {l.label}
-          </span>
-        </Row>
-      </Col>
-    );
-  });
+  return links
+    .filter((l) => !l.isDropDown)
+    .map((l) => {
+      return (
+        <Col key={l.path} sm={12}>
+          <Row key={l.path}>
+            <span
+              className="event-page-link mb-3"
+              onClick={() => handleNavigate(l)}
+            >
+              {l.label}
+            </span>
+          </Row>
+        </Col>
+      );
+    });
 }
 
 export default EventPageLinks;

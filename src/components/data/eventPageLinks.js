@@ -1,4 +1,5 @@
 import { eventPageRoute } from "../../routes";
+import { sortData } from "../utils/sort";
 export const getEventPageLinks = (eventId, event, t) => {
   let links = [
     {
@@ -26,6 +27,27 @@ export const getEventPageLinks = (eventId, event, t) => {
           path: eventPageRoute + `/${eventId}/speakers`,
         },
       ],
+    ];
+  }
+  if (event.extra_pages.length) {
+    const activeExtraPages = sortData(
+      event.extra_pages.filter((eb) => eb.active),
+      "sort",
+      "asc"
+    );
+    const dropDownList = activeExtraPages.map((p) => {
+      return {
+        label: p.title,
+        path: `/events/${eventId}/extra-page/${p.id}`,
+      };
+    });
+    links = [
+      ...links,
+      {
+        label: t("more"),
+        isDropDown: true,
+        dropDownList,
+      },
     ];
   }
   return links;
