@@ -84,7 +84,7 @@ function RightHeaderSide({ event }) {
 
         <LanguageSwitcher />
         <RxHamburgerMenu
-          style={{ fontSize: "20px" }}
+          style={{ fontSize: "22px", marginRight: "10px" }}
           onClick={handleOpenCanvas}
           className="burger-icon"
         />
