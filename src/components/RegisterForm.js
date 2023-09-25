@@ -192,7 +192,6 @@ function RegisterForm() {
             setData={setData}
           />
         </Row>
-
         <Row className="justify-content-center mb-2">
           <Col>
             <FormElement
@@ -205,6 +204,9 @@ function RegisterForm() {
               element="select"
             />
           </Col>
+        </Row>
+
+        <Row className="justify-content-center mb-2">
           <Col>
             <FormElement
               name="city_id"
@@ -216,6 +218,17 @@ function RegisterForm() {
               element="select"
             />
           </Col>
+          <Col>
+            <FormElement
+              name="gender_id"
+              defaultOption={t("gender")}
+              options={genderOptions(t)}
+              data={data}
+              setData={setData}
+              path="name"
+              element="select"
+            />
+          </Col>
         </Row>
 
         <Row className="justify-content-center mb-2">
@@ -224,17 +237,6 @@ function RegisterForm() {
               name="is_disabled"
               defaultOption={t("do you have a disability")}
               options={yesOrNo(t)}
-              data={data}
-              setData={setData}
-              path="name"
-              element="select"
-            />
-          </Col>
-          <Col>
-            <FormElement
-              name="gender_id"
-              defaultOption={t("gender")}
-              options={genderOptions(t)}
               data={data}
               setData={setData}
               path="name"
