@@ -42,7 +42,7 @@
 
 .select-menu__options.open {
   overflow: auto;
-  max-height: 30vh;
+  max-height: 500%;
 }
 
 .select-menu__options::-webkit-scrollbar {
@@ -55,7 +55,7 @@
 
 
 .select-menu__option {
-  padding: 10px 20px;
+  padding: 10px;
   margin-bottom: 5px;
   cursor: pointer;
   text-align: end;

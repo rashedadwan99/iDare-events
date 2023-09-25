@@ -39,9 +39,6 @@ export const getNavLinks = (
         ],
       ];
     }
-    if (eventId) {
-      links = [...links, ...getEventPageLinks(eventId, event, t)];
-    }
 
     links = [
       ...links,
@@ -57,6 +54,8 @@ export const getNavLinks = (
   } else {
     links = [...links, ...[{ label: t("login"), path: loginPageRoute }]];
   }
-
+  if (eventId) {
+    links = [...links, ...getEventPageLinks(eventId, event, t)];
+  }
   return links;
 };
