@@ -16,7 +16,7 @@ import { logout } from "../services/userService";
 import { toggleIsAuth } from "../redux/actions/userActions";
 import { homePageRoute } from "../routes";
 import { useTranslation } from "react-i18next";
-import { getBurgerLinks } from "./data/BurgerMenuLinks";
+import { getNavLinks } from "./data/BurgerMenuLinks";
 import { resetEvents } from "../redux/actions/eventActions";
 
 function RightHeaderSide({ event }) {
@@ -37,7 +37,7 @@ function RightHeaderSide({ event }) {
 
     navigate(homePageRoute, { replace: true });
   };
-  const navLinks = getBurgerLinks(
+  const navLinks = getNavLinks(
     handleLogout,
     t,
     isAuth,

@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 function NavDropDown({ nav, handleClick }) {
   const { t } = useTranslation();
   return (
-    <NavDropdown title={t("more")}>
+    <NavDropdown title={t("more")} renderMenuOnMount>
       {nav.dropDownList.map((n) => {
         return (
           <NavDropdown.Item onClick={() => handleClick(n)} key={n.label}>

@@ -6,7 +6,7 @@ import {
 } from "../../routes";
 import { getEventPageLinks } from "./eventPageLinks";
 
-export const getBurgerLinks = (
+export const getNavLinks = (
   handleLogout,
   t,
   isAuth,

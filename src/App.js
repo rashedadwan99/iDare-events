@@ -75,7 +75,7 @@ const App = () => {
           />
           <Route path={eventPageRoute + "/:id/gallery"} element={<Gallery />} />
           <Route
-            path={eventPageRoute + "/:id/extra-page/:page_id"}
+            path={eventPageRoute + "/:id/:page_title/:page_id"}
             element={<EventExtraPage />}
           />
         </Route>

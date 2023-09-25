@@ -36,9 +36,10 @@ export const getEventPageLinks = (eventId, event, t) => {
       "asc"
     );
     const dropDownList = activeExtraPages.map((p) => {
+      const pageTitleInPath = p.title.split(" ").join("-");
       return {
         label: p.title,
-        path: `/events/${eventId}/extra-page/${p.id}`,
+        path: `/events/${eventId}/${pageTitleInPath}/${p.id}`,
       };
     });
     links = [
