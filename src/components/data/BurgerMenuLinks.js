@@ -21,6 +21,9 @@ export const getNavLinks = (
       path: homePageRoute,
     },
   ];
+  if (eventId) {
+    links = [...links, ...getEventPageLinks(eventId, event, t)];
+  }
   if (isAuth) {
     if (myEvents.length) {
       links = [
@@ -54,8 +57,6 @@ export const getNavLinks = (
   } else {
     links = [...links, ...[{ label: t("login"), path: loginPageRoute }]];
   }
-  if (eventId) {
-    links = [...links, ...getEventPageLinks(eventId, event, t)];
-  }
+
   return links;
 };

@@ -86,6 +86,10 @@
 
 }
 
+.nav-item.show .dropdown-toggle::after {
+  transform: rotateX(180deg) !important;
+}
+
 .dropdown-item:active {
   color: inherit !important;
 }
@@ -94,6 +98,7 @@
   background-color: inherit !important;
   font-weight: bold;
 }
+
 
 @media (max-width:1150px) {
   .burger-icon {
@@ -115,12 +120,11 @@
   .dropdown-menu {
     left: 0% !important;
     right: 0% !important;
+    top: 80% !important;
     transform: none !important;
   }
 
-  .dropdown-menu.show {
-    top: 100% !important;
-  }
+
 
   .dropdown-toggle.nav-link {
     font-size: 14px !important;
