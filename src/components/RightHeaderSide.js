@@ -16,7 +16,7 @@ import { logout } from "../services/userService";
 import { toggleIsAuth } from "../redux/actions/userActions";
 import { homePageRoute } from "../routes";
 import { useTranslation } from "react-i18next";
-import { getNavLinks } from "./data/BurgerMenuLinks";
+import { getNavLinks } from "./data/NavLinks";
 import { resetEvents } from "../redux/actions/eventActions";
 
 function RightHeaderSide({ event }) {

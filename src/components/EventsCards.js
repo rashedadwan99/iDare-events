@@ -7,7 +7,7 @@ import { getImageSrc } from "../services/imageServices";
 import EventTimeLocation from "./EventTimeLocation";
 import { useSelector } from "react-redux";
 import Premium from "./Premium";
-function HomeEventsCards({ events }) {
+function EventsCard({ events }) {
   const navigate = useNavigate();
   const isArabic = useSelector((state) => state.language.isArabic);
   const infoStyle = isArabic ? { textAlign: "right" } : { textAlign: "left" };
@@ -21,7 +21,7 @@ function HomeEventsCards({ events }) {
     if (e.active)
       return (
         <Row
-          className="justify-content-between align-items-center event-card py-3 my-4"
+          className="justify-content-between event-card py-3 my-4"
           style={containerStyle}
           key={e.id}
           onClick={() => handleGoToEventPage(e.id)}
@@ -34,7 +34,7 @@ function HomeEventsCards({ events }) {
             />
           </Col>
           <Col md={6}>
-            <Row className="justify-content-between align-items-center event-name mb-4">
+            <Row className="justify-content-between align-items-center event-name mt-2 mb-2">
               <Col xs={8} sm={8}>
                 <h6 style={infoStyle}>{isArabic ? e.name_ar : e.name}</h6>
               </Col>
@@ -65,4 +65,4 @@ function HomeEventsCards({ events }) {
   });
 }
 
-export default HomeEventsCards;
+export default EventsCard;

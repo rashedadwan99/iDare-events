@@ -47,16 +47,12 @@
 }
 
 .event_list_img {
-  max-height: 18rem;
-  height: 15rem;
+  max-height: 17rem;
+  height: 17rem;
 }
 
 
 
-.event_desc {
-  margin-bottom: 1px;
-  font-weight: 14px !important;
-}
 
 .event-info__icon {
   border-top-right-radius: 10px;
