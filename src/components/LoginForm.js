@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Col } from "react-bootstrap";
+import { Col, Form } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import FormElement from "./common/FormElement";
 import { Row } from "react-bootstrap/esm";
@@ -55,47 +55,49 @@ function LoginForm() {
       <Row className="justify-content-center mb-4">
         <h3>{t("login")}</h3>
       </Row>
-      <Row className="justify-content-center mb-2">
-        <Col>
-          <FormElement
-            data={data}
-            setData={setData}
-            value={data.email}
-            name="email"
-            placeholder={t("email")}
-          />
-        </Col>
-      </Row>
-      <Row className="justify-content-center mb-2">
-        <Col>
-          <FormElement
-            data={data}
-            setData={setData}
-            value={data.password}
-            name="password"
-            type="password"
-            placeholder={t("password")}
-          />
-        </Col>
-      </Row>
-      <Row className="justify-content-center mt-3">
-        <Col>
-          <span onClick={handleToggleForms} className="toggle-forms-message">
-            {t("dont-have-account")}
-          </span>
-        </Col>
-      </Row>
+      <Form>
+        <Row className="justify-content-center mb-2">
+          <Col>
+            <FormElement
+              data={data}
+              setData={setData}
+              value={data.email}
+              name="email"
+              placeholder={t("email")}
+            />
+          </Col>
+        </Row>
+        <Row className="justify-content-center mb-2">
+          <Col>
+            <FormElement
+              data={data}
+              setData={setData}
+              value={data.password}
+              name="password"
+              type="password"
+              placeholder={t("password")}
+            />
+          </Col>
+        </Row>
+        <Row className="justify-content-center mt-3">
+          <Col>
+            <span onClick={handleToggleForms} className="toggle-forms-message">
+              {t("dont-have-account")}
+            </span>
+          </Col>
+        </Row>
 
-      <Row className="justify-content-center mt-3">
-        <Col>
-          <CommonButton
-            element="button"
-            label={t("login")}
-            onClick={handleLogin}
-            disabled={isLoading}
-          />
-        </Col>
-      </Row>
+        <Row className="justify-content-center mt-3">
+          <Col>
+            <CommonButton
+              element="button"
+              label={t("login")}
+              onClick={handleLogin}
+              disabled={isLoading}
+            />
+          </Col>
+        </Row>
+      </Form>
     </>
   );
 }

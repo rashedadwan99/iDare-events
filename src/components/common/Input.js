@@ -8,7 +8,7 @@ function Input({ label, icon, ...rest }) {
     direction: !isArabic ? "ltr" : "rtl",
   };
   return (
-    <Form noValidate>
+    <>
       {label && <Form.Label>{label}</Form.Label>}
       <InputGroup size="sm" className={`${icon ? "input-with-icon" : ""}`}>
         {icon && (
@@ -21,7 +21,7 @@ function Input({ label, icon, ...rest }) {
           style={style}
         />
       </InputGroup>
-    </Form>
+    </>
   );
 }
 

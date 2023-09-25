@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { getCountries } from "../services/countriesService";
 import { FAILED, SUCCESS } from "../services/httpService";
-import { Row } from "react-bootstrap";
+import { Form, Row } from "react-bootstrap";
 import { Col } from "react-bootstrap/esm";
 import FormElement from "./common/FormElement";
 import { genderOptions } from "./data/genders";
@@ -32,6 +32,9 @@ function RegisterForm() {
     gender_id: "",
     national_number: "",
     country_id: "",
+    city_id: "",
+    allergies: "",
+    disability: "",
     is_disabled: "",
   });
   const isArabic = useSelector((state) => state.language.isArabic);
@@ -61,6 +64,7 @@ function RegisterForm() {
       gender_id: "",
       national_number: "",
       country_id: "",
+      city_id: "",
       allergies: "",
       disability: "",
       is_disabled: "",
@@ -121,140 +125,142 @@ function RegisterForm() {
       <Row className="justify-content-center mb-4">
         <h3>{t("register")}</h3>
       </Row>
-      <Row className="justify-content-center mb-2">
-        <FormElement
-          data={data}
-          setData={setData}
-          value={data.name}
-          name="name"
-          placeholder={t("name")}
-        />
-      </Row>
-      <Row className="justify-content-center mb-2">
-        <FormElement
-          data={data}
-          setData={setData}
-          value={data.email}
-          name="email"
-          placeholder={t("email")}
-        />
-      </Row>
-      <Row className="justify-content-center mb-2">
-        <FormElement
-          data={data}
-          setData={setData}
-          value={data.password}
-          name="password"
-          type="password"
-          placeholder={t("password")}
-        />
-      </Row>
-      <Row className="justify-content-center mb-2">
-        <FormElement
-          data={data}
-          setData={setData}
-          value={data.phone}
-          name="phone"
-          type="tel"
-          placeholder={t("phone")}
-        />
-      </Row>
-      <Row className="justify-content-center mb-2">
-        <FormElement
-          data={data}
-          setData={setData}
-          value={data.national_number}
-          name="national_number"
-          type="tel"
-          placeholder={t("national_number")}
-        />
-      </Row>
-      <Row className="justify-content-center mb-2">
-        <FormElement
-          name="allergies"
-          value={data.allergies}
-          placeholder={t("Medical_allergy")}
-          data={data}
-          setData={setData}
-        />
-      </Row>
-      <Row className="justify-content-center mb-2">
-        <FormElement
-          name="disability"
-          value={data.disability}
-          placeholder={t("sepcial_needs")}
-          data={data}
-          setData={setData}
-        />
-      </Row>
+      <Form>
+        <Row className="justify-content-center mb-2">
+          <FormElement
+            data={data}
+            setData={setData}
+            value={data.name}
+            name="name"
+            placeholder={t("name")}
+          />
+        </Row>
+        <Row className="justify-content-center mb-2">
+          <FormElement
+            data={data}
+            setData={setData}
+            value={data.email}
+            name="email"
+            placeholder={t("email")}
+          />
+        </Row>
+        <Row className="justify-content-center mb-2">
+          <FormElement
+            data={data}
+            setData={setData}
+            value={data.password}
+            name="password"
+            type="password"
+            placeholder={t("password")}
+          />
+        </Row>
+        <Row className="justify-content-center mb-2">
+          <FormElement
+            data={data}
+            setData={setData}
+            value={data.phone}
+            name="phone"
+            type="tel"
+            placeholder={t("phone")}
+          />
+        </Row>
+        <Row className="justify-content-center mb-2">
+          <FormElement
+            data={data}
+            setData={setData}
+            value={data.national_number}
+            name="national_number"
+            type="tel"
+            placeholder={t("national_number")}
+          />
+        </Row>
+        <Row className="justify-content-center mb-2">
+          <FormElement
+            name="allergies"
+            value={data.allergies}
+            placeholder={t("Medical_allergy")}
+            data={data}
+            setData={setData}
+          />
+        </Row>
+        <Row className="justify-content-center mb-2">
+          <FormElement
+            name="disability"
+            value={data.disability}
+            placeholder={t("sepcial_needs")}
+            data={data}
+            setData={setData}
+          />
+        </Row>
 
-      <Row className="justify-content-center mb-2">
-        <Col>
-          <FormElement
-            name="country_id"
-            defaultOption={t("Country")}
-            options={Countries}
-            data={data}
-            setData={setData}
-            path="name"
-            element="select"
-          />
-        </Col>
-        <Col>
-          <FormElement
-            name="city_id"
-            defaultOption={t("City")}
-            options={cities}
-            data={data}
-            setData={setData}
-            path={isArabic ? "name_ar" : "name"}
-            element="select"
-          />
-        </Col>
-      </Row>
+        <Row className="justify-content-center mb-2">
+          <Col>
+            <FormElement
+              name="country_id"
+              defaultOption={t("Country")}
+              options={Countries}
+              data={data}
+              setData={setData}
+              path="name"
+              element="select"
+            />
+          </Col>
+          <Col>
+            <FormElement
+              name="city_id"
+              defaultOption={t("City")}
+              options={cities}
+              data={data}
+              setData={setData}
+              path={isArabic ? "name_ar" : "name"}
+              element="select"
+            />
+          </Col>
+        </Row>
 
-      <Row className="justify-content-center mb-2">
-        <Col>
-          <FormElement
-            name="is_disabled"
-            defaultOption={t("do you have a disability")}
-            options={yesOrNo(t)}
-            data={data}
-            setData={setData}
-            path="name"
-            element="select"
-          />
-        </Col>
-        <Col>
-          <FormElement
-            name="gender_id"
-            defaultOption={t("gender")}
-            options={genderOptions(t)}
-            data={data}
-            setData={setData}
-            path="name"
-            element="select"
-          />
-        </Col>
-      </Row>
+        <Row className="justify-content-center mb-2">
+          <Col>
+            <FormElement
+              name="is_disabled"
+              defaultOption={t("do you have a disability")}
+              options={yesOrNo(t)}
+              data={data}
+              setData={setData}
+              path="name"
+              element="select"
+            />
+          </Col>
+          <Col>
+            <FormElement
+              name="gender_id"
+              defaultOption={t("gender")}
+              options={genderOptions(t)}
+              data={data}
+              setData={setData}
+              path="name"
+              element="select"
+            />
+          </Col>
+        </Row>
 
-      <Row className="justify-content-center mt-3">
-        <Col>
-          <span onClick={handleToggleForms} className="toggle-forms-message">
-            {t("have-account")}
-          </span>
-        </Col>
-      </Row>
-      <Row className="justify-content-center mt-3">
-        <Col>
-          <CommonButton
-            element="button"
-            label={t("register")}
-            onClick={handleRegister}
-            disabled={isLoading}
-          />
-        </Col>
-      </Row>
+        <Row className="justify-content-center mt-3">
+          <Col>
+            <span onClick={handleToggleForms} className="toggle-forms-message">
+              {t("have-account")}
+            </span>
+          </Col>
+        </Row>
+        <Row className="justify-content-center mt-3">
+          <Col>
+            <CommonButton
+              element="button"
+              label={t("register")}
+              onClick={handleRegister}
+              disabled={isLoading}
+            />
+          </Col>
+        </Row>
+      </Form>
     </Col>
   );
 }
