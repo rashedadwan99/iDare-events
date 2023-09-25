@@ -18,7 +18,7 @@ function AllEvents({ title, events }) {
           <h3>{t(title)}</h3>
         </Row>
         <Row className="justify-content-center my-2">
-          <Col xs={11} sm={11} md={11} lg={8}>
+          <Col xs={11} sm={11} md={11} lg={9}>
             <EventsCard title={title} events={events} />
           </Col>
         </Row>

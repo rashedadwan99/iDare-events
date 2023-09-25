@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Row } from "react-bootstrap";
+import { Col, Image, Row } from "react-bootstrap";
 
 import { useNavigate } from "react-router-dom/dist";
 import { eventPageRoute } from "../routes";
@@ -27,7 +27,8 @@ function EventsCard({ events }) {
           onClick={() => handleGoToEventPage(e.id)}
         >
           <Col md={6}>
-            <img
+            <Image
+              fluid
               src={getImageSrc(e.events_list_image)}
               alt="event_list_img"
               className="event_list_img"
