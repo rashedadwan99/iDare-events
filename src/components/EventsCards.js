@@ -27,7 +27,7 @@ function EventsCard({ events }) {
           key={e.id}
           onClick={() => handleGoToEventPage(e.id)}
         >
-          <Col md={6}>
+          <Col md={6} className="px-0">
             <AosContainer
               animation_name_scroll_down="zoom_in"
               animation_name_scroll_up="zoom-out"
