@@ -16,7 +16,11 @@ function EventExtraPage() {
   if (!extraPage || !extraPage.active)
     return <Navigate to={notfoundPageRoute} />;
   return (
-    <Col xs={12} sm={12} className={`extra-page my-5 ${isArabic ? "ar" : ""}`}>
+    <Col
+      xs={12}
+      sm={12}
+      className={`extra-page px-4 my-5 ${isArabic ? "ar" : ""}`}
+    >
       <DomParser
         htmlResponse={isArabic ? extraPage.content_ar : extraPage.content}
       />
