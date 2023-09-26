@@ -1,7 +1,7 @@
 import React from "react";
 import { Navigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { Col, Row } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 import DomParser from "../components/common/DomParser";
 import { notfoundPageRoute } from "../routes";
 import { sortData } from "../components/utils/sort";
@@ -17,11 +17,9 @@ function EventExtraPage() {
     return <Navigate to={notfoundPageRoute} />;
   return (
     <Col xs={12} sm={12} className={`extra-page my-5 ${isArabic ? "ar" : ""}`}>
-      <Row className="justify-content-center">
-        <DomParser
-          htmlResponse={isArabic ? extraPage.content_ar : extraPage.content}
-        />
-      </Row>
+      <DomParser
+        htmlResponse={isArabic ? extraPage.content_ar : extraPage.content}
+      />
     </Col>
   );
 }
