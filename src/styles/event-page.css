@@ -63,11 +63,12 @@
   color: var(--black);
 }
 
-.event-info__icon.arabic-border {
+.event-info__icon.arabic-event-info {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
+  direction: ltr;
 }
 
 .event-info__data {

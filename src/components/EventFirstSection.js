@@ -1,9 +1,9 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
-import { handleBackgroundStyle } from "../styles/eventStyles";
-import EventFormBtn from "./common/EventFormBtn";
 import { useSelector } from "react-redux";
+import EventFormBtn from "./common/EventFormBtn";
 import EventInfo from "./EventInfo";
+import { handleBackgroundStyle } from "../styles/eventStyles";
 
 function EventFirstSection({ event }) {
   const isArabic = useSelector((state) => state.language.isArabic);

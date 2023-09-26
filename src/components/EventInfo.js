@@ -13,7 +13,7 @@ function EventInfo({ event, style }) {
         <Col
           xs={2}
           sm={2}
-          className={`event-info__icon ${isArabic ? "arabic-border" : ""}`}
+          className={`event-info__icon ${isArabic ? "arabic-event-info" : ""}`}
           style={
             style ? { backgroundColor: "initial" } : headerEventStyle(event)
           }
