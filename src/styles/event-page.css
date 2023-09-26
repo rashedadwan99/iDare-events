@@ -68,6 +68,9 @@
   border-bottom-right-radius: 0;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
+}
+
+.event-info__data {
   direction: ltr;
 }
 
