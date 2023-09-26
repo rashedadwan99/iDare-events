@@ -18,11 +18,6 @@ function EventExtraPage() {
   return (
     <Col xs={12} sm={12} className={`extra-page my-5 ${isArabic ? "ar" : ""}`}>
       <Row className="justify-content-center">
-        <h3 className="event-section-name">
-          {isArabic ? extraPage.title_ar : extraPage.title}
-        </h3>
-      </Row>
-      <Row className="justify-content-center">
         <DomParser
           htmlResponse={isArabic ? extraPage.content_ar : extraPage.content}
         />
