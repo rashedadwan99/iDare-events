@@ -13,8 +13,10 @@ function Canvas() {
   useEffect(() => {
     if (show) {
       const handleBackButton = (e) => {
-        e.preventDefault();
-        dispatch(closeCanvasAction());
+        if (e.type === "popstate") {
+          e.preventDefault();
+          dispatch(closeCanvasAction());
+        }
       };
 
       const handleEscapeKey = (e) => {
