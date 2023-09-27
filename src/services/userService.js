@@ -15,7 +15,7 @@ export const registerUser = async (data) => {
   return http.get("/user/register", {
     params: {
       email,
-      name: name.trim(),
+      name,
       phone,
       password,
       gender_id,
