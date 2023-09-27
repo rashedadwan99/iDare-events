@@ -6,15 +6,19 @@ import CanvasHeader from "../CanvasHeader";
 import CanvasBody from "../CanvasBody";
 import { closeCanvasAction } from "../../redux/actions/canvasActions";
 import "../../styles/canvas.css";
+import { useLocation, useNavigate } from "react-router-dom";
 function Canvas() {
   const show = useSelector((state) => state.canvas.show);
-
+  const navigate = useNavigate();
+  const location = useLocation();
   const dispatch = useDispatch();
   useEffect(() => {
     if (show) {
       const handleBackButton = (e) => {
         if (e.type === "popstate") {
           e.preventDefault();
+          navigate(location.pathname, { replace });
+
           dispatch(closeCanvasAction());
         }
       };
