@@ -6,19 +6,11 @@ import CanvasHeader from "../CanvasHeader";
 import CanvasBody from "../CanvasBody";
 import { closeCanvasAction } from "../../redux/actions/canvasActions";
 import "../../styles/canvas.css";
-import { useLocation, useNavigate } from "react-router-dom";
 function Canvas() {
   const show = useSelector((state) => state.canvas.show);
-  const navigate = useNavigate();
-  const location = useLocation();
   const dispatch = useDispatch();
   useEffect(() => {
     if (show) {
-      const handleBackButton = () => {
-        dispatch(closeCanvasAction());
-        navigate(location.pathname, { replace: true });
-      };
-
       const handleEscapeKey = (e) => {
         if (e.key === "Escape") {
           dispatch(closeCanvasAction());
@@ -31,16 +23,14 @@ function Canvas() {
       };
 
       window.addEventListener("resize", handleResize);
-      window.addEventListener("popstate", handleBackButton);
       window.addEventListener("keydown", handleEscapeKey);
 
       return () => {
-        window.removeEventListener("popstate", handleBackButton);
         window.removeEventListener("keydown", handleEscapeKey);
         window.removeEventListener("resize", handleResize);
       };
     }
-  }, [show]);
+  }, [show, dispatch]);
   return (
     <>
       <ClickOutsideAlerter onOutsideClick={() => dispatch(closeCanvasAction())}>
