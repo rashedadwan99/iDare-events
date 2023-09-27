@@ -1,6 +1,7 @@
+import { getUserToken } from "../../services/userService";
 import { TOGGLE_AUTH } from "../actions/userActions";
 
-const initialState = { isAuth: false };
+const initialState = { isAuth: getUserToken() };
 
 export const userReducer = (state = initialState, action) => {
   switch (action.type) {

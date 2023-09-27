@@ -18,13 +18,13 @@ function EventsCard({ events }) {
     window.scrollTo(0, 0);
   };
 
-  return events.map((e) => {
+  return events.map((e, i) => {
     if (e.active)
       return (
         <Row
           className="justify-content-between event-card py-3 my-4"
           style={containerStyle}
-          key={e.id}
+          key={i}
           onClick={() => handleGoToEventPage(e.id)}
         >
           <Col md={6}>

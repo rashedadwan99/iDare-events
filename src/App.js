@@ -16,7 +16,7 @@ import AuthPage from "./pages/AuthPage";
 import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
 import { ToastContainer } from "react-toastify";
-import { useDispatch } from "react-redux/es";
+import { useDispatch, useSelector } from "react-redux/es";
 import {
   getAllEventsAction,
   getMyEventsAction,
@@ -38,6 +38,7 @@ import EventExtraPage from "./pages/EventExtraPage";
 const App = () => {
   const dispatch = useDispatch();
   const userToken = getUserToken();
+  const isAuth = useSelector((state) => state.user.isAuth);
   useEffect(() => {
     document.documentElement.lang = language();
     if (userToken) {
@@ -82,11 +83,7 @@ const App = () => {
         <Route
           path={authPageRoute}
           element={
-            !getUserToken() ? (
-              <AuthPage />
-            ) : (
-              <Navigate to={homePageRoute} replace />
-            )
+            !isAuth ? <AuthPage /> : <Navigate to={homePageRoute} replace />
           }
         >
           <Route path={loginPageRoute} element={<LoginForm />} />
@@ -95,17 +92,13 @@ const App = () => {
         <Route
           path={myEventPageRoute}
           element={
-            getUserToken() ? (
-              <MyEvents />
-            ) : (
-              <Navigate to={homePageRoute} replace />
-            )
+            isAuth ? <MyEvents /> : <Navigate to={homePageRoute} replace />
           }
         />
         <Route
           path={recommendedEventPageRoute}
           element={
-            getUserToken() ? (
+            isAuth ? (
               <RecommendedEvents />
             ) : (
               <Navigate to={homePageRoute} replace />
