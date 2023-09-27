@@ -14,8 +14,6 @@ function Canvas() {
   const dispatch = useDispatch();
   useEffect(() => {
     if (show) {
-      if (window.innerWidth >= 1150) {
-      }
       const handleBackButton = (e) => {
         navigate(location.pathname);
         dispatch(closeCanvasAction());
@@ -42,7 +40,7 @@ function Canvas() {
         window.removeEventListener("resize", handleResize);
       };
     }
-  }, [show, window.innerWidth]);
+  }, [show]);
   return (
     <>
       <ClickOutsideAlerter onOutsideClick={() => dispatch(closeCanvasAction())}>
