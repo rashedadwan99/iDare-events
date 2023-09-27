@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useLocation, useNavigate } from "react-router-dom";
 import { Col, Row } from "react-bootstrap";
 import ClickOutsideAlerter from "./ClickOutSideAlerter";
 import CanvasHeader from "../CanvasHeader";
@@ -9,13 +8,12 @@ import { closeCanvasAction } from "../../redux/actions/canvasActions";
 import "../../styles/canvas.css";
 function Canvas() {
   const show = useSelector((state) => state.canvas.show);
-  const location = useLocation();
-  const navigate = useNavigate();
+
   const dispatch = useDispatch();
   useEffect(() => {
     if (show) {
-      const handleBackButton = () => {
-        navigate(location.pathname);
+      const handleBackButton = (e) => {
+        e.preventDefault();
         dispatch(closeCanvasAction());
       };
 
