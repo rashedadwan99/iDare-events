@@ -17,7 +17,7 @@ function Canvas() {
       const handleBackButton = (e) => {
         if (e.type === "popstate") {
           e.preventDefault();
-          navigate(location.pathname, { replace });
+          navigate(location.pathname, { replace: true });
 
           dispatch(closeCanvasAction());
         }
