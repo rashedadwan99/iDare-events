@@ -14,7 +14,7 @@ function Canvas() {
   const dispatch = useDispatch();
   useEffect(() => {
     if (show) {
-      const handleBackButton = (e) => {
+      const handleBackButton = () => {
         navigate(location.pathname);
         dispatch(closeCanvasAction());
       };
