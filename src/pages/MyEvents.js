@@ -9,7 +9,6 @@ function MyEvents() {
   const { t } = useTranslation();
   const myEvents = useSelector((state) => state.events.myEvents);
   const events = myEvents.map((e) => e.event);
-  console.log("adsfdgfh");
   return (
     <>
       <Header />

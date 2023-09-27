@@ -28,7 +28,7 @@ function EventBodyFooter({ event }) {
   const isArabic = useSelector((state) => state.language.isArabic);
 
   return (
-    <Row className={`event-page ${isArabic ? "arabic" : ""}`}>
+    <Row className={`event-page  ${isArabic ? "arabic" : ""}`}>
       <Outlet />
       <EventFooter event={event} />
     </Row>
