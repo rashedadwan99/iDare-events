@@ -14,12 +14,9 @@ function Canvas() {
   const dispatch = useDispatch();
   useEffect(() => {
     if (show) {
-      const handleBackButton = (e) => {
-        if (e.type === "popstate") {
-          dispatch(closeCanvasAction());
-          e.preventDefault();
-          navigate(location.pathname, { replace: true });
-        }
+      const handleBackButton = () => {
+        dispatch(closeCanvasAction());
+        navigate(location.pathname, { replace: true });
       };
 
       const handleEscapeKey = (e) => {
