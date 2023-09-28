@@ -8,7 +8,7 @@ import EventTimeLocation from "./EventTimeLocation";
 import { useSelector } from "react-redux";
 import Premium from "./Premium";
 import AosContainer from "./common/Aos";
-function EventsCard({ events }) {
+function EventsCards({ events }) {
   const navigate = useNavigate();
   const isArabic = useSelector((state) => state.language.isArabic);
   const infoStyle = isArabic ? { textAlign: "right" } : { textAlign: "left" };
@@ -72,4 +72,4 @@ function EventsCard({ events }) {
   });
 }
 
-export default EventsCard;
+export default EventsCards;

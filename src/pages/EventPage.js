@@ -11,12 +11,14 @@ import { notfoundPageRoute } from "../routes";
 function EventPage() {
   const { id } = useParams();
   const allEvents = useSelector((state) => state.events.allEvents);
+  const myEvents = useSelector((state) => state.events.myEvents);
   const isLoading = useSelector((state) => state.events.isLoading);
-  const event = allEvents.find((e) => e.id === parseInt(id));
+  const isInAlllEvents = allEvents.find((e) => e.id === parseInt(id));
+  const isInMyEvents = myEvents.find((e) => e.id === parseInt(id));
 
   return !isLoading ? (
     <>
-      {!event ? (
+      {!isInAlllEvents || !isInMyEvents ? (
         <Navigate to={notfoundPageRoute} />
       ) : (
         <>

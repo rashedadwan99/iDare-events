@@ -2,7 +2,7 @@ import React from "react";
 import { Col } from "react-bootstrap";
 import { Row } from "react-bootstrap/esm";
 import { useTranslation } from "react-i18next";
-import EventsCard from "./EventsCards";
+import EventsCards from "./EventsCards";
 import AosContainer from "./common/Aos";
 
 function AllEvents({ title, events }) {
@@ -19,7 +19,7 @@ function AllEvents({ title, events }) {
         </Row>
         <Row className="justify-content-center my-2">
           <Col xs={11} sm={11} md={11} lg={9}>
-            <EventsCard title={title} events={events} />
+            <EventsCards title={title} events={events} />
           </Col>
         </Row>
       </AosContainer>
