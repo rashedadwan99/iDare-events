@@ -7,50 +7,52 @@ export const getEventPageLinks = (eventId, event, t) => {
       path: eventPageRoute + `/${eventId}`,
     },
   ];
-  if (event.gallery_enabled) {
-    links = [
-      ...links,
-      ...[
+  if (event) {
+    if (event.gallery_enabled) {
+      links = [
+        ...links,
+        ...[
+          {
+            label: t("gallery"),
+            path: eventPageRoute + `/${eventId}/gallery`,
+          },
+        ],
+      ];
+    }
+    if (event.speakers_enabled) {
+      links = [
+        ...links,
+        ...[
+          {
+            label: t("speakers"),
+            path: eventPageRoute + `/${eventId}/speakers`,
+          },
+        ],
+      ];
+    }
+    if (event.extra_pages.length) {
+      const activeExtraPages = sortData(
+        event.extra_pages.filter((eb) => eb.active),
+        "sort",
+        "asc"
+      );
+      const dropDownList = activeExtraPages.map((p) => {
+        const pageTitleInPath = p.title.split(" ").join("-");
+        return {
+          label: p.title,
+          label_ar: p.title_ar,
+          path: `/events/${eventId}/${pageTitleInPath}/${p.id}`,
+        };
+      });
+      links = [
+        ...links,
         {
-          label: t("gallery"),
-          path: eventPageRoute + `/${eventId}/gallery`,
+          label: t("more"),
+          isDropDown: true,
+          dropDownList,
         },
-      ],
-    ];
-  }
-  if (event.speakers_enabled) {
-    links = [
-      ...links,
-      ...[
-        {
-          label: t("speakers"),
-          path: eventPageRoute + `/${eventId}/speakers`,
-        },
-      ],
-    ];
-  }
-  if (event.extra_pages.length) {
-    const activeExtraPages = sortData(
-      event.extra_pages.filter((eb) => eb.active),
-      "sort",
-      "asc"
-    );
-    const dropDownList = activeExtraPages.map((p) => {
-      const pageTitleInPath = p.title.split(" ").join("-");
-      return {
-        label: p.title,
-        label_ar: p.title_ar,
-        path: `/events/${eventId}/${pageTitleInPath}/${p.id}`,
-      };
-    });
-    links = [
-      ...links,
-      {
-        label: t("more"),
-        isDropDown: true,
-        dropDownList,
-      },
-    ];
+      ];
+    }
   }
   return links;
 };

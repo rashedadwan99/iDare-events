@@ -19,12 +19,14 @@ import { useTranslation } from "react-i18next";
 import { getNavLinks } from "./data/NavLinks";
 import { resetEvents } from "../redux/actions/eventActions";
 
-function RightHeaderSide({ event }) {
+function RightHeaderSide() {
   const myEvents = useSelector((state) => state.events.myEvents);
+  const allEvents = useSelector((state) => state.events.allEvents);
+  const { id } = useParams();
+  const event = allEvents.find((e) => e.id === parseInt(id));
   const recommendedEvents = useSelector(
     (state) => state.events.recommendedEvents
   );
-  const { id } = useParams();
   const { t } = useTranslation();
   const isInMyEvents = myEvents.find((e) => e.event_id === id);
   const isAuth = useSelector((state) => state.user.isAuth);
