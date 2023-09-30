@@ -4,9 +4,11 @@ import { animateScroll as scroll } from "react-scroll";
 import { getEventPageLinks } from "./data/eventPageLinks";
 import { Col, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 function EventPageLinks({ event }) {
+  const isArabic = useSelector((state) => state.language.isArabic);
   const { t } = useTranslation();
-  const links = getEventPageLinks(event.id, event, t);
+  const links = getEventPageLinks(event.id, event, t, isArabic);
   const navigate = useNavigate();
   const handleNavigate = (l) => {
     scroll.scrollToTop({

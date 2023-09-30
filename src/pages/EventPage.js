@@ -15,10 +15,11 @@ function EventPage() {
   const isLoading = useSelector((state) => state.events.isLoading);
   const isInAlllEvents = allEvents.find((e) => e.id === parseInt(id));
   const isInMyEvents = myEvents.find((e) => e.id === parseInt(id));
+  const event = allEvents.find((e) => e.id === parseInt(id));
 
   return !isLoading ? (
     <>
-      {!isInAlllEvents || !isInMyEvents ? (
+      {!isInAlllEvents || isInMyEvents ? (
         <Navigate to={notfoundPageRoute} />
       ) : (
         <>
