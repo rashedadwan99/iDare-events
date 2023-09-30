@@ -12,7 +12,7 @@ function EventIntro({ event }) {
         <Col xs={12} sm={11}>
           <Row className="justify-content-center align-items-start mt-3">
             {event.about_image && (
-              <Col xs={12} sm={12} md={6}>
+              <Col xs={12} sm={12} lg={6}>
                 <AosContainer
                   animation_name_scroll_down="zoom-in"
                   animation_name_scroll_up="zoom-out"
@@ -27,7 +27,7 @@ function EventIntro({ event }) {
                 </AosContainer>
               </Col>
             )}
-            <Col xs={12} sm={12} md={event.about_image ? 6 : 12}>
+            <Col xs={12} sm={12} lg={event.about_image ? 6 : 12}>
               <AosContainer
                 animation_name_scroll_down="zoom-in"
                 animation_name_scroll_up="zoom-out"
