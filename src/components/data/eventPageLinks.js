@@ -1,6 +1,6 @@
 import { eventPageRoute } from "../../routes";
 import { sortData } from "../utils/sort";
-export const getEventPageLinks = (eventId, event, t, isArabic) => {
+export const getEventPageLinks = (eventId, event, t) => {
   let links = [
     {
       label: t("event-home"),
@@ -38,7 +38,8 @@ export const getEventPageLinks = (eventId, event, t, isArabic) => {
     const dropDownList = activeExtraPages.map((p) => {
       const pageTitleInPath = p.title.split(" ").join("-");
       return {
-        label: isArabic ? p.title_ar : p.title,
+        label: p.title,
+        label_ar: p.title_ar,
         path: `/events/${eventId}/${pageTitleInPath}/${p.id}`,
       };
     });

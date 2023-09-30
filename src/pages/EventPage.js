@@ -1,13 +1,11 @@
 import React from "react";
 import { Navigate, useParams } from "react-router-dom/dist";
 import { useSelector } from "react-redux/es";
-import Header from "../components/Header";
-import { headerEventStyle } from "../styles/eventStyles";
 import CircleSpinner from "../components/common/CircleSpinner";
 import FloatingButton from "../components/common/FloatingButton";
-import EventBodyFooter from "../components/EventBodyFooter";
-import "../styles/event-page.css";
+import EventBody from "../components/EventBody";
 import { notfoundPageRoute } from "../routes";
+import "../styles/event-page.css";
 function EventPage() {
   const { id } = useParams();
   const allEvents = useSelector((state) => state.events.allEvents);
@@ -23,8 +21,7 @@ function EventPage() {
         <Navigate to={notfoundPageRoute} />
       ) : (
         <>
-          <Header event={event} style={headerEventStyle(event)} />
-          <EventBodyFooter event={event} />
+          <EventBody event={event} />
           <FloatingButton event={event} />
         </>
       )}

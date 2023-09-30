@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 import EventFooter from "./EventFooter";
 import { useSelector } from "react-redux";
 
-function EventBodyFooter({ event }) {
+function EventBody({ event }) {
   useEffect(() => {
     const App = document.getElementById("container");
     const container = document.createElement("div");
@@ -35,4 +35,4 @@ function EventBodyFooter({ event }) {
   );
 }
 
-export default EventBodyFooter;
+export default EventBody;

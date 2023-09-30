@@ -1,21 +1,14 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { NavDropdown } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
+import NavDropDownList from "./NavDropDownList";
 
 function NavDropDown({ nav, handleClick }) {
   const { t } = useTranslation();
-  const isArabic = useSelector((state) => state.language.isArabic);
-  useEffect(function () {}, [isArabic]);
+
   return (
     <NavDropdown title={t("more")} renderMenuOnMount>
-      {nav.dropDownList.map((n) => {
-        return (
-          <NavDropdown.Item onClick={() => handleClick(n)} key={n.label}>
-            {n.label}
-          </NavDropdown.Item>
-        );
-      })}
+      <NavDropDownList {...{ nav, handleClick }} />
     </NavDropdown>
   );
 }

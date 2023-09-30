@@ -13,10 +13,8 @@ export const getNavLinks = (
   eventId,
   event,
   myEvents,
-  recommendedEvents,
-  isArabic
+  recommendedEvents
 ) => {
-  console.log(isArabic);
   let links = [
     {
       label: t("home"),
@@ -24,7 +22,7 @@ export const getNavLinks = (
     },
   ];
   if (eventId) {
-    links = [...links, ...getEventPageLinks(eventId, event, t, isArabic)];
+    links = [...links, ...getEventPageLinks(eventId, event, t)];
   }
   if (isAuth) {
     if (myEvents.length) {

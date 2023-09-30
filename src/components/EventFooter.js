@@ -12,7 +12,7 @@ import EventTimeLocation from "./EventTimeLocation";
 function EventFooter({ event }) {
   const isArabic = useSelector((state) => state.language.isArabic);
   return (
-    <Col sm={12} style={handleFooterStyle(event)}>
+    <Col xs={12} sm={12} style={handleFooterStyle(event)}>
       <Row className="justify-content-center align-items-start py-5 event-footer">
         <EventFooterSection
           title={isArabic ? event.name_ar : event.name}

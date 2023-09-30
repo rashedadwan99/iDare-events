@@ -35,6 +35,7 @@ import CommonModal from "./components/common/CommonModal";
 import NotFound from "./pages/NotFound";
 import RecommendedEvents from "./pages/RecommendedEvents";
 import EventExtraPage from "./pages/EventExtraPage";
+import PagesContainer from "./pages/PagesContainer";
 const App = () => {
   const dispatch = useDispatch();
   const userToken = getUserToken();
@@ -67,45 +68,50 @@ const App = () => {
       <ToastContainer />
 
       <Routes>
-        <Route path={homePageRoute} element={<HomePage />} />
-        <Route path={eventPageRoute + "/:id"} element={<EventPage />}>
-          <Route path={eventPageRoute + "/:id"} element={<EventHome />} />
+        <Route path={homePageRoute} element={<PagesContainer />}>
+          <Route path={homePageRoute} element={<HomePage />} />
+          <Route path={eventPageRoute + "/:id"} element={<EventPage />}>
+            <Route path={eventPageRoute + "/:id"} element={<EventHome />} />
+            <Route
+              path={eventPageRoute + "/:id/speakers"}
+              element={<Speakers />}
+            />
+            <Route
+              path={eventPageRoute + "/:id/gallery"}
+              element={<Gallery />}
+            />
+            <Route
+              path={eventPageRoute + "/:id/:page_title/:page_id"}
+              element={<EventExtraPage />}
+            />
+          </Route>
           <Route
-            path={eventPageRoute + "/:id/speakers"}
-            element={<Speakers />}
-          />
-          <Route path={eventPageRoute + "/:id/gallery"} element={<Gallery />} />
+            path={authPageRoute}
+            element={
+              !isAuth ? <AuthPage /> : <Navigate to={homePageRoute} replace />
+            }
+          >
+            <Route path={loginPageRoute} element={<LoginForm />} />
+            <Route path={registerPageRoute} element={<RegisterForm />} />
+          </Route>
           <Route
-            path={eventPageRoute + "/:id/:page_title/:page_id"}
-            element={<EventExtraPage />}
+            path={myEventPageRoute}
+            element={
+              isAuth ? <MyEvents /> : <Navigate to={homePageRoute} replace />
+            }
           />
+          <Route
+            path={recommendedEventPageRoute}
+            element={
+              isAuth ? (
+                <RecommendedEvents />
+              ) : (
+                <Navigate to={homePageRoute} replace />
+              )
+            }
+          />
+          <Route path={notfoundPageRoute} element={<NotFound />} />
         </Route>
-        <Route
-          path={authPageRoute}
-          element={
-            !isAuth ? <AuthPage /> : <Navigate to={homePageRoute} replace />
-          }
-        >
-          <Route path={loginPageRoute} element={<LoginForm />} />
-          <Route path={registerPageRoute} element={<RegisterForm />} />
-        </Route>
-        <Route
-          path={myEventPageRoute}
-          element={
-            isAuth ? <MyEvents /> : <Navigate to={homePageRoute} replace />
-          }
-        />
-        <Route
-          path={recommendedEventPageRoute}
-          element={
-            isAuth ? (
-              <RecommendedEvents />
-            ) : (
-              <Navigate to={homePageRoute} replace />
-            )
-          }
-        />
-        <Route path={notfoundPageRoute} element={<NotFound />} />
       </Routes>
     </Container>
   );
