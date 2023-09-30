@@ -9,21 +9,21 @@ import { notfoundPageRoute } from "../routes";
 function PagesContainer() {
   const { id } = useParams();
   const allEvents = useSelector((state) => state.events.allEvents);
-
   const event = allEvents.find((e) => e.id === parseInt(id));
   const isLoading = useSelector((state) => state.events.isLoading);
   const params = useParams();
-  if (!event && id) {
-    return <Navigate to={notfoundPageRoute} />;
-  }
   return (
     <>
       {!isLoading ? (
-        <>
-          <Header />
-          <Outlet />
-          {!params.id ? <Footer /> : <></>}
-        </>
+        !event && id ? (
+          <Navigate to={notfoundPageRoute} />
+        ) : (
+          <>
+            <Header />
+            <Outlet />
+            {!params.id ? <Footer /> : <></>}
+          </>
+        )
       ) : (
         <div className="event-spinner">
           <CircleSpinner />

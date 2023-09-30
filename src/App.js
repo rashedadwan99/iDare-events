@@ -49,11 +49,11 @@ const App = () => {
     }
   }, [dispatch, userToken]);
   useEffect(() => {
-    dispatch(getUpcomingEventsAction());
     if (userToken) {
       dispatch(getMyEventsAction());
       dispatch(getRecommendedEventAction());
     }
+    dispatch(getUpcomingEventsAction());
   }, [userToken, dispatch]);
   return (
     <Container
