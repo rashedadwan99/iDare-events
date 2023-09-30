@@ -12,6 +12,7 @@ import { toggleIsAuth } from "../redux/actions/userActions";
 import { useNavigate } from "react-router-dom/dist";
 import { useDispatch, useSelector } from "react-redux";
 import CommonButton from "./common/Button";
+import { scrollToTop } from "./utils/scrollToTop";
 
 function LoginForm() {
   const isAuth = useSelector((state) => state.user.isAuth);
@@ -35,10 +36,9 @@ function LoginForm() {
 
       setIsLoading(true);
       navigate(homePageRoute, { replace: true });
-
+      scrollToTop();
       Toast("success", t("login-message"));
       dispatch(toggleIsAuth(!isAuth));
-      window.scrollTo(0, 0);
     }
     if (responseData.AZSVR === FAILED) {
       setIsLoading(false);
@@ -48,7 +48,7 @@ function LoginForm() {
   };
   const handleToggleForms = () => {
     navigate(registerPageRoute);
-    window.scrollTo(0, 0);
+    scrollToTop();
   };
   return (
     <>

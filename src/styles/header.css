@@ -5,7 +5,6 @@
   font-weight: bold;
   height: 13.6vh;
   min-height: 80px;
-  min-height: 80px;
   position: sticky !important;
   top: 0;
   z-index: 10;
@@ -15,7 +14,7 @@
 
 .header img {
   max-width: 100%;
-  max-height: 12vh;
+  max-height: 70px;
   cursor: pointer;
 
 }

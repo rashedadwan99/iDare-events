@@ -8,12 +8,13 @@ import { loginPageRoute } from "../routes";
 import { getUserToken } from "../services/userService";
 import AosContainer from "./common/Aos";
 import AnimatedIcons from "./common/AnimatedIcons";
+import { scrollToTop } from "./utils/scrollToTop";
 function HomeLandingPage() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const handleJoinUs = () => {
     navigate(loginPageRoute);
-    window.scrollTo(0, 0);
+    scrollToTop();
   };
   return (
     <Row className="justify-content-between landing-section">

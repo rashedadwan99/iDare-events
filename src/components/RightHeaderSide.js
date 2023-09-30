@@ -18,11 +18,12 @@ import { homePageRoute } from "../routes";
 import { useTranslation } from "react-i18next";
 import { getNavLinks } from "./data/NavLinks";
 import { resetEvents } from "../redux/actions/eventActions";
+import { scrollToTop } from "./utils/scrollToTop";
 
 function RightHeaderSide() {
+  const { id } = useParams();
   const myEvents = useSelector((state) => state.events.myEvents);
   const allEvents = useSelector((state) => state.events.allEvents);
-  const { id } = useParams();
   const event = allEvents.find((e) => e.id === parseInt(id));
   const recommendedEvents = useSelector(
     (state) => state.events.recommendedEvents
@@ -38,6 +39,7 @@ function RightHeaderSide() {
     dispatch(resetEvents());
 
     navigate(homePageRoute, { replace: true });
+    scrollToTop();
   };
   const navLinks = getNavLinks(
     handleLogout,
@@ -51,11 +53,11 @@ function RightHeaderSide() {
   const handleClick = (data) => {
     if (data.path) {
       navigate(data.path);
+      scrollToTop();
     } else {
       data.onClick();
     }
     dispatch(closeCanvasAction());
-    window.scrollTo(0, 0);
   };
   const handleOpenCanvas = () => {
     dispatch(
@@ -78,7 +80,7 @@ function RightHeaderSide() {
           handleClick={(data) => handleClick(data)}
           event={event}
         />
-        {event && !isInMyEvents && (
+        {id && !isInMyEvents && (
           <div className="event-button">
             <EventFormBtn event={event} />
           </div>

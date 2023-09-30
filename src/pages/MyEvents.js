@@ -6,8 +6,8 @@ import "../styles/home-page.css";
 function MyEvents() {
   const { t } = useTranslation();
   const myEvents = useSelector((state) => state.events.myEvents);
-  const events = myEvents.map((e) => e.event);
-  return <AllEvents title={t("my-events")} events={events} />;
+
+  return <AllEvents title={t("my-events")} events={myEvents} />;
 }
 
 export default MyEvents;

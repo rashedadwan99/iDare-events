@@ -2,12 +2,13 @@ import React from "react";
 import { Image } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { eventPageRoute, homePageRoute } from "../routes";
+import { smoothScrolling } from "../components/utils/smoothScrolling";
 
 function Logo({ event, ...rest }) {
   const navigate = useNavigate();
   const handleNavigate = () => {
     navigate(event ? eventPageRoute + `/${event.id}` : homePageRoute);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    smoothScrolling();
   };
   return (
     <Image {...rest} onClick={handleNavigate} style={{ cursor: "pointer" }} />

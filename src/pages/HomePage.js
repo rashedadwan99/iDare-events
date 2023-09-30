@@ -6,12 +6,12 @@ import AllEvents from "../components/AllEvents";
 import "../styles/home-page.css";
 function HomePage() {
   const { t } = useTranslation();
-  const allEvents = useSelector((state) => state.events.allEvents);
+  const upcomingEvents = useSelector((state) => state.events.upcomingEvents);
 
   return (
     <>
       <HomeLandingPage />
-      <AllEvents title={t("upcoming_events")} events={allEvents} />
+      <AllEvents title={t("upcoming_events")} events={upcomingEvents} />
     </>
   );
 }

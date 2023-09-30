@@ -18,7 +18,7 @@ import RegisterForm from "./components/RegisterForm";
 import { ToastContainer } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux/es";
 import {
-  getAllEventsAction,
+  getUpcomingEventsAction,
   getMyEventsAction,
   getRecommendedEventAction,
 } from "./redux/actions/eventActions";
@@ -49,7 +49,7 @@ const App = () => {
     }
   }, [dispatch, userToken]);
   useEffect(() => {
-    dispatch(getAllEventsAction());
+    dispatch(getUpcomingEventsAction());
     if (userToken) {
       dispatch(getMyEventsAction());
       dispatch(getRecommendedEventAction());
@@ -61,7 +61,8 @@ const App = () => {
       style={{
         fontFamily: "Cairo, sans-serif",
       }}
-      id="container"
+      id="App"
+      className="App"
     >
       <CommonModal />
       <Canvas />

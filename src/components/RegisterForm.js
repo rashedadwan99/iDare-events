@@ -16,6 +16,7 @@ import { homePageRoute, loginPageRoute } from "../routes";
 import { toggleIsAuth } from "../redux/actions/userActions";
 import CommonButton from "./common/Button";
 import { getCities } from "../services/citiesService";
+import { scrollToTop } from "./utils/scrollToTop";
 
 function RegisterForm() {
   const isAuth = useSelector((state) => state.user.isAuth);
@@ -109,7 +110,7 @@ function RegisterForm() {
       Toast("success", t("account_created"));
       dispatch(toggleIsAuth(!isAuth));
       navigate(homePageRoute, { replace: true });
-      window.scrollTo(0, 0);
+      scrollToTop();
     }
     if (responseData.AZSVR === FAILED) {
       setIsLoading(false);
@@ -118,7 +119,7 @@ function RegisterForm() {
   };
   const handleToggleForms = () => {
     navigate(loginPageRoute);
-    window.scrollTo(0, 0);
+    scrollToTop();
   };
   return (
     <Col>

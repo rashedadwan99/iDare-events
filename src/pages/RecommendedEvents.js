@@ -8,9 +8,10 @@ function RecommendedEvents() {
   const recommendedEvents = useSelector(
     (state) => state.events.recommendedEvents
   );
-  const events = recommendedEvents.map((e) => e.event);
 
-  return <AllEvents title={t("recommended-events")} events={events} />;
+  return (
+    <AllEvents title={t("recommended-events")} events={recommendedEvents} />
+  );
 }
 
 export default RecommendedEvents;

@@ -1,7 +1,7 @@
 import { http } from "./httpService";
 import { getUserToken } from "./userService";
 
-export const getAllEvents = () => {
+export const getUpcomingEvents = () => {
   return http.get("/events");
 };
 

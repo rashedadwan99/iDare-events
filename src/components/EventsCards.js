@@ -8,6 +8,7 @@ import EventTimeLocation from "./EventTimeLocation";
 import { useSelector } from "react-redux";
 import Premium from "./Premium";
 import AosContainer from "./common/Aos";
+import { scrollToTop } from "./utils/scrollToTop";
 function EventsCards({ events }) {
   const navigate = useNavigate();
   const isArabic = useSelector((state) => state.language.isArabic);
@@ -15,7 +16,7 @@ function EventsCards({ events }) {
   const containerStyle = isArabic ? { direction: "rtl" } : { direction: "ltr" };
   const handleGoToEventPage = (id) => {
     navigate(eventPageRoute + `/${id}`);
-    window.scrollTo(0, 0);
+    scrollToTop();
   };
 
   return events.map((e, i) => {
