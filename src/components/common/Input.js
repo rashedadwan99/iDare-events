@@ -1,8 +1,9 @@
 import React from "react";
-import { Form, InputGroup } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import { memo } from "react";
+import { Form, InputGroup } from "react-bootstrap";
 
-function Input({ label, icon, ...rest }) {
+const Input = memo(function ({ label, icon, ...rest }) {
   const isArabic = useSelector((state) => state.language.isArabic);
   const style = {
     direction: !isArabic ? "ltr" : "rtl",
@@ -23,6 +24,6 @@ function Input({ label, icon, ...rest }) {
       </InputGroup>
     </>
   );
-}
+});
 
 export default Input;

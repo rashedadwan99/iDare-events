@@ -1,11 +1,12 @@
 import React from "react";
+import { memo } from "react";
 import { Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleOpenModal } from "../../redux/actions/modalAction";
 import { useTranslation } from "react-i18next";
 import { IoMdClose } from "react-icons/io";
 import "../../styles/modal.css";
-function CommonModal({ ...props }) {
+const CommonModal = memo(function ({ ...props }) {
   const { t } = useTranslation();
   const show = useSelector((state) => state.modal.showModal);
   const title = useSelector((state) => state.modal.title);
@@ -41,6 +42,5 @@ function CommonModal({ ...props }) {
       </Modal>
     </>
   );
-}
-
+});
 export default CommonModal;

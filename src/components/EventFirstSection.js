@@ -1,11 +1,12 @@
 import React from "react";
+import { memo } from "react";
 import { Row, Col } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import EventFormBtn from "./common/EventFormBtn";
 import EventInfo from "./EventInfo";
 import { handleBackgroundStyle } from "../styles/eventStyles";
 
-function EventFirstSection({ event }) {
+const EventFirstSection = memo(function ({ event }) {
   const isArabic = useSelector((state) => state.language.isArabic);
 
   return (
@@ -33,6 +34,5 @@ function EventFirstSection({ event }) {
       </Col>
     </Row>
   );
-}
-
+});
 export default EventFirstSection;

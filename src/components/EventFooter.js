@@ -1,4 +1,5 @@
 import React from "react";
+import { memo } from "react";
 import { Col, Row } from "react-bootstrap";
 import { getImageSrc } from "../services/imageServices";
 import EventFooterSection from "./EventFooterSection";
@@ -9,7 +10,7 @@ import Logo from "../images/Logo";
 import { useSelector } from "react-redux";
 import EventTimeLocation from "./EventTimeLocation";
 
-function EventFooter({ event }) {
+const EventFooter = memo(function ({ event }) {
   const isArabic = useSelector((state) => state.language.isArabic);
   return (
     <Col xs={12} sm={12} style={handleFooterStyle(event)}>
@@ -39,6 +40,5 @@ function EventFooter({ event }) {
       </Row>
     </Col>
   );
-}
-
+});
 export default EventFooter;

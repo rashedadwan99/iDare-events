@@ -1,4 +1,6 @@
 import React from "react";
+import { useCallback } from "react";
+import { memo } from "react";
 import PropTypes, { element } from "prop-types";
 import Input from "./Input";
 import CommonButton from "./Button";
@@ -7,7 +9,7 @@ import { Button } from "react-bootstrap";
 import SelectMenu from "./SelectMenu";
 import "../../styles/form.css";
 
-function FormElement({
+const FormElement = memo(function ({
   data,
   setData,
   value,
@@ -23,15 +25,18 @@ function FormElement({
 
   ...rest
 }) {
-  const onChange = (e) => {
-    const { name, value } = e.target;
+  const onChange = useCallback(
+    (e) => {
+      const { name, value } = e.target;
 
-    if (typeof data !== "object") return setData(value.trimLeft());
-    setData({
-      ...data,
-      [name]: value.trimLeft(),
-    });
-  };
+      if (typeof data !== "object") return setData(value.trimLeft());
+      setData({
+        ...data,
+        [name]: value.trimLeft(),
+      });
+    },
+    [data, setData]
+  );
   if (element === "button") return <CommonButton {...rest} label={label} />;
   else if (element === "textarea")
     return <TextArea {...rest} onChange={onChange} name={name} />;
@@ -59,7 +64,7 @@ function FormElement({
       name={name}
     />
   );
-}
+});
 if (element !== Button)
   FormElement.propTypes = {
     name: PropTypes.string,

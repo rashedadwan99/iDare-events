@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { memo } from "react";
 import { Col, Form } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import FormElement from "./common/FormElement";
@@ -14,7 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import CommonButton from "./common/Button";
 import { scrollToTop } from "./utils/scrollToTop";
 
-function LoginForm() {
+const LoginForm = memo(function () {
   const isAuth = useSelector((state) => state.user.isAuth);
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
@@ -100,6 +101,5 @@ function LoginForm() {
       </Form>
     </>
   );
-}
-
+});
 export default LoginForm;

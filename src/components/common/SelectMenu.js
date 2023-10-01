@@ -9,7 +9,8 @@ import {
   handleSelectHeaderMenu,
 } from "../../styles/eventStyles";
 import "../../styles/selectmenu.css";
-const SelectMenu = ({
+import { memo } from "react";
+const SelectMenu = memo(function ({
   defaultOption: title,
   options,
   setData,
@@ -17,7 +18,7 @@ const SelectMenu = ({
   name,
   path,
   path2,
-}) => {
+}) {
   const isArabic = useSelector((state) => state.language.isArabic);
   const [defaultOption, setDefaultOption] = useState(title);
   const { id } = useParams();
@@ -80,6 +81,5 @@ const SelectMenu = ({
       </div>
     </ClickOutsideAlerter>
   );
-};
-
+});
 export default SelectMenu;

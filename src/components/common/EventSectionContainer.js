@@ -1,9 +1,9 @@
-import React from "react";
+import React, { memo } from "react";
 import { Col, Row } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import AosContainer from "./Aos";
 
-function EventSectionContainer({ name, children }) {
+const EventSectionContainer = memo(function ({ name, children }) {
   const { t } = useTranslation();
   return (
     <AosContainer
@@ -22,6 +22,6 @@ function EventSectionContainer({ name, children }) {
       </Row>
     </AosContainer>
   );
-}
+});
 
 export default EventSectionContainer;

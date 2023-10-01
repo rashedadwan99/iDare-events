@@ -1,10 +1,11 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { memo } from "react";
 import { Col, Row } from "react-bootstrap";
 import FormElement from "./common/FormElement";
 import { sortData } from "./utils/sort";
-import { useSelector } from "react-redux";
 
-function DaynamicEventForm({ event, data, setData }) {
+const DaynamicEventForm = memo(function ({ event, data, setData }) {
   const additionalFields = sortData(event.additional_fields, "sort", "asc");
   const isArabic = useSelector((state) => state.language.isArabic);
 
@@ -36,6 +37,5 @@ function DaynamicEventForm({ event, data, setData }) {
       </Col>
     );
   });
-}
-
+});
 export default DaynamicEventForm;

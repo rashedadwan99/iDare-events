@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { memo } from "react";
 import { Col, Row } from "react-bootstrap";
 import ClickOutsideAlerter from "./ClickOutSideAlerter";
 import CanvasHeader from "../CanvasHeader";
 import CanvasBody from "../CanvasBody";
 import { closeCanvasAction } from "../../redux/actions/canvasActions";
 import "../../styles/canvas.css";
-function Canvas() {
+const Canvas = memo(function () {
   const show = useSelector((state) => state.canvas.show);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -43,6 +44,5 @@ function Canvas() {
       </ClickOutsideAlerter>
     </>
   );
-}
-
+});
 export default Canvas;

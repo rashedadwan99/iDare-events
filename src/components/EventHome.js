@@ -1,4 +1,5 @@
 import React from "react";
+import { memo } from "react";
 import { Col } from "react-bootstrap";
 import EventFirstSection from "./EventFirstSection";
 import EventIntro from "./EventIntro";
@@ -8,7 +9,7 @@ import EventSponsors from "./EventSponsors";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-function EventHome() {
+const EventHome = memo(function () {
   const { id } = useParams();
   const allEvents = useSelector((state) => state.events.allEvents);
   const event = allEvents.find((e) => e.id === parseInt(id));
@@ -28,6 +29,5 @@ function EventHome() {
       <EventSponsors event={event} />
     </>
   );
-}
-
+});
 export default EventHome;

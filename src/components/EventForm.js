@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
+import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import CommonButton from "./common/Button";
 import StaticEventForm from "./StaticEventForm";
@@ -15,7 +16,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getMyEventsAction } from "../redux/actions/eventActions";
 import { toggleOpenModal } from "../redux/actions/modalAction";
 import "../styles/event-form.css";
-function EventForm({ event }) {
+const EventForm = memo(function ({ event }) {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const [staticData, setStaticData] = useState({
@@ -97,6 +98,5 @@ function EventForm({ event }) {
       </Col>
     </Row>
   );
-}
-
+});
 export default EventForm;

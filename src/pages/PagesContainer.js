@@ -1,4 +1,5 @@
 import React from "react";
+import { memo } from "react";
 import { Navigate, Outlet, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Header from "../components/Header";
@@ -6,7 +7,7 @@ import Footer from "../components/Footer";
 import CircleSpinner from "../components/common/CircleSpinner";
 import { notfoundPageRoute } from "../routes";
 
-function PagesContainer() {
+const PagesContainer = memo(function () {
   const { id } = useParams();
   const allEvents = useSelector((state) => state.events.allEvents);
   const event = allEvents.find((e) => e.id === parseInt(id));
@@ -31,6 +32,5 @@ function PagesContainer() {
       )}
     </>
   );
-}
-
+});
 export default PagesContainer;

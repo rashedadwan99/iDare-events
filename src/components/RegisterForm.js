@@ -11,6 +11,7 @@ import { registerUser, setToken } from "../services/userService";
 import { Toast } from "./common/Toast";
 import { emailPattern, isNumber } from "../patterns";
 import { useNavigate } from "react-router-dom/dist";
+import { memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { homePageRoute, loginPageRoute } from "../routes";
 import { toggleIsAuth } from "../redux/actions/userActions";
@@ -18,7 +19,7 @@ import CommonButton from "./common/Button";
 import { getCities } from "../services/citiesService";
 import { scrollToTop } from "./utils/scrollToTop";
 
-function RegisterForm() {
+const RegisterForm = memo(function () {
   const isAuth = useSelector((state) => state.user.isAuth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -266,6 +267,5 @@ function RegisterForm() {
       </Form>
     </Col>
   );
-}
-
+});
 export default RegisterForm;

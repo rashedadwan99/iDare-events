@@ -1,8 +1,9 @@
 import React from "react";
+import { memo } from "react";
 import { Row, Col } from "react-bootstrap";
 import { Outlet } from "react-router-dom/dist";
 import "../styles/authpage.css";
-function AuthPage() {
+const AuthPage = memo(function () {
   return (
     <>
       <Row className="justify-content-center my-5 ">
@@ -12,6 +13,6 @@ function AuthPage() {
       </Row>
     </>
   );
-}
+});
 
 export default AuthPage;

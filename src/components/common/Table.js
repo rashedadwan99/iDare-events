@@ -1,9 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { memo } from "react";
 import TableHead from "../TableHead";
 import TableRows from "../TableRows";
 import "../../styles/table.css";
-import { useSelector } from "react-redux";
-function Table({ cols, rows }) {
+const Table = memo(function ({ cols, rows }) {
   const isArabic = useSelector((state) => state.language.isArabic);
   return (
     <table style={isArabic ? { direction: "rtl" } : {}}>
@@ -11,6 +12,6 @@ function Table({ cols, rows }) {
       <TableRows {...{ cols, rows }} />
     </table>
   );
-}
+});
 
 export default Table;

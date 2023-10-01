@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { Row, Col } from "react-bootstrap";
@@ -50,17 +50,20 @@ function RightHeaderSide() {
     myEvents,
     recommendedEvents
   );
-  const handleClick = (data) => {
-    dispatch(closeCanvasAction());
+  const handleClick = useCallback(
+    (data) => {
+      dispatch(closeCanvasAction());
 
-    if (data.path) {
-      navigate(data.path);
-      scrollToTop();
-    } else {
-      data.onClick();
-    }
-  };
-  const handleOpenCanvas = () => {
+      if (data.path) {
+        navigate(data.path);
+        scrollToTop();
+      } else {
+        data.onClick();
+      }
+    },
+    [dispatch, navigate]
+  );
+  const handleOpenCanvas = useCallback(() => {
     dispatch(
       toggleOpenCanvasAction(
         <BurgerMenu
@@ -72,7 +75,7 @@ function RightHeaderSide() {
         ""
       )
     );
-  };
+  }, [dispatch, event, id, navLinks, handleClick]);
   return (
     <Col xs={6} sm={9} md={10}>
       <Row className="justify-content-end align-items-center">
