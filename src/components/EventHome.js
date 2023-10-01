@@ -8,6 +8,7 @@ import EventRooms from "./EventRooms";
 import EventSponsors from "./EventSponsors";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { eventPageRoute } from "../routes";
 
 const EventHome = memo(function () {
   const { id } = useParams();
@@ -24,7 +25,9 @@ const EventHome = memo(function () {
         <EventFirstSection event={event} />
       </Col>
       <EventIntro event={event} />
-      <EventOrganizers event={event} isInActiveSection={isInActiveSection} />
+      {eventPageRoute + "/:id" && (
+        <EventOrganizers event={event} isInActiveSection={isInActiveSection} />
+      )}
       <EventRooms event={event} isInActiveSection={isInActiveSection} />
       <EventSponsors event={event} />
     </>

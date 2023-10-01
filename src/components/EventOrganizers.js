@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Image, Row } from "react-bootstrap";
 import { Col } from "react-bootstrap/esm";
 import { getImageSrc } from "../services/imageServices";
@@ -7,11 +7,11 @@ import EventSectionContainer from "./common/EventSectionContainer";
 import SlideShow from "./common/SlideShow";
 import { useSelector } from "react-redux";
 import AosContainer from "./common/Aos";
+import { eventPageRoute } from "../routes";
 
 function EventOrganizers({ event, isInActiveSection }) {
   const activeOrganizers = event.organizers.filter((o) => o.active !== 0);
   const isArabic = useSelector((state) => state.language.isArabic);
-
   return (
     !isInActiveSection(event.organizers) && (
       <EventSectionContainer name="organizers">

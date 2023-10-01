@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Col } from "react-bootstrap";
 import Aos from "aos";
 import "../../styles/aos.css";
@@ -11,6 +11,19 @@ function AosContainer({
   ...rest
 }) {
   const [scrollDirection, setScrollDirection] = useState("down");
+  const handleScroll = useCallback(() => {
+    let lastScroll = window.scrollY;
+
+    const currentScroll = window.scrollY;
+
+    if (currentScroll > lastScroll) {
+      setScrollDirection("down");
+    } else {
+      setScrollDirection("up");
+    }
+
+    lastScroll = currentScroll;
+  }, []);
 
   useEffect(() => {
     Aos.init({
@@ -18,25 +31,12 @@ function AosContainer({
       easing: "ease-in-out",
     });
 
-    const handleScroll = () => {
-      const currentScroll = window.scrollY;
-
-      if (currentScroll > lastScroll) {
-        setScrollDirection("down");
-      } else {
-        setScrollDirection("up");
-      }
-
-      lastScroll = currentScroll;
-    };
-
-    let lastScroll = window.scrollY;
     window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [handleScroll]);
   return (
     <Col
       sm={12}
