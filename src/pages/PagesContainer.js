@@ -8,23 +8,16 @@ import CircleSpinner from "../components/common/CircleSpinner";
 import { notfoundPageRoute } from "../routes";
 
 const PagesContainer = memo(function () {
-  const { id } = useParams();
-  const allEvents = useSelector((state) => state.events.allEvents);
-  const event = allEvents.find((e) => e.id === parseInt(id));
   const isLoading = useSelector((state) => state.events.isLoading);
   const params = useParams();
   return (
     <>
       {!isLoading ? (
-        !event && id ? (
-          <Navigate to={notfoundPageRoute} />
-        ) : (
-          <>
-            <Header />
-            <Outlet />
-            {!params.id ? <Footer /> : <></>}
-          </>
-        )
+        <>
+          <Header />
+          <Outlet />
+          {!params.id ? <Footer /> : <></>}
+        </>
       ) : (
         <div className="event-spinner">
           <CircleSpinner />

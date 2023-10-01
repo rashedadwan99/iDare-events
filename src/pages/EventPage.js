@@ -29,12 +29,13 @@ const EventPage = memo(function () {
     };
   }, [event.google_fonts_link, event.google_fonts_code]);
 
-  return (
-    <>
-      <EventBody event={event} />
-      <FloatingButton event={event} />
-    </>
-  );
+  if (event.id)
+    return (
+      <>
+        <EventBody event={event} />
+        <FloatingButton event={event} />
+      </>
+    );
 });
 
 export default EventPage;

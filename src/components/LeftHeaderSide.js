@@ -15,7 +15,7 @@ const LeftHeaderSide = memo(function () {
     <Col xs={6} sm={3} md={2}>
       <Row className="justify-content-start px-2">
         <Logo
-          src={id ? getImageSrc(event.image) : logo}
+          src={id ? getImageSrc(event && event.image) : logo}
           alt="logo"
           event={event}
         />
