@@ -7,7 +7,8 @@ import { getImageSrc } from "../services/imageServices";
 import { sortData } from "../components/utils/sort";
 import { toggleOpenModal } from "../redux/actions/modalAction";
 import "../styles/gallery.css";
-function Gallery() {
+import { memo } from "react";
+const Gallery = memo(function () {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const { id } = useParams();
@@ -45,6 +46,5 @@ function Gallery() {
       </Row>
     </Col>
   );
-}
-
+});
 export default Gallery;

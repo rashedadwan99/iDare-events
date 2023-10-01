@@ -5,8 +5,9 @@ import { Col, Row } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { memo } from "react";
 
-function Speakers() {
+const Speakers = memo(function () {
   const { t } = useTranslation();
   const { id } = useParams();
   const allEvents = useSelector((state) => state.events.allEvents);
@@ -32,6 +33,5 @@ function Speakers() {
       </Row>
     </Col>
   );
-}
-
+});
 export default Speakers;

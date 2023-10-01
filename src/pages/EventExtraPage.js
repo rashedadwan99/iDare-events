@@ -6,7 +6,8 @@ import DomParser from "../components/common/DomParser";
 import { notfoundPageRoute } from "../routes";
 import { sortData } from "../components/utils/sort";
 import "../styles/extra-page.css";
-function EventExtraPage() {
+import { memo } from "react";
+const EventExtraPage = memo(function () {
   const { id, page_id } = useParams();
   const isArabic = useSelector((state) => state.language.isArabic);
   const allEvents = useSelector((state) => state.events.allEvents);
@@ -26,6 +27,6 @@ function EventExtraPage() {
       />
     </Col>
   );
-}
+});
 
 export default EventExtraPage;

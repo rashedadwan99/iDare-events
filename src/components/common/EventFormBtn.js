@@ -16,7 +16,6 @@ function EventFormBtn({ event }) {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const isInMyEvents = myEvents.find((e) => e.id === event.id);
-  console.log(isInMyEvents);
   const handleOpenModal = (event) => {
     if (!getUserToken()) return Toast("info", t("login_first"));
     if (isInMyEvents) return;

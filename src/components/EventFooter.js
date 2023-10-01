@@ -20,12 +20,7 @@ function EventFooter({ event }) {
         >
           <Col xs={12} sm={12}>
             <Row className="align-items-center justify-content-start">
-              <Logo
-                src={getImageSrc(event.image)}
-                alt="event-logo"
-                className="event-logo"
-                event={event}
-              />
+              <Logo src={getImageSrc(event.image)} alt="logo" event={event} />
             </Row>
           </Col>
         </EventFooterSection>

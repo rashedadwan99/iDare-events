@@ -51,13 +51,14 @@ function RightHeaderSide() {
     recommendedEvents
   );
   const handleClick = (data) => {
+    dispatch(closeCanvasAction());
+
     if (data.path) {
       navigate(data.path);
       scrollToTop();
     } else {
       data.onClick();
     }
-    dispatch(closeCanvasAction());
   };
   const handleOpenCanvas = () => {
     dispatch(

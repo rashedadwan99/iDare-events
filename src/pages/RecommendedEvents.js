@@ -3,7 +3,8 @@ import AllEvents from "../components/AllEvents";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import "../styles/home-page.css";
-function RecommendedEvents() {
+import { memo } from "react";
+const RecommendedEvents = memo(function () {
   const { t } = useTranslation();
   const recommendedEvents = useSelector(
     (state) => state.events.recommendedEvents
@@ -12,6 +13,6 @@ function RecommendedEvents() {
   return (
     <AllEvents title={t("recommended-events")} events={recommendedEvents} />
   );
-}
+});
 
 export default RecommendedEvents;
