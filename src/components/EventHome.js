@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Col } from "react-bootstrap";
@@ -17,15 +17,27 @@ const EventHome = memo(function () {
     const isAllinActivated = dataSection.length === inActiveArray.length;
     return isAllinActivated;
   };
+  const [showSections, setShowSections] = useState(false);
+  useEffect(() => {
+    setShowSections(true);
+    return () => setShowSections(false);
+  }, []);
   return (
     <>
       <Col xs={12} sm={12}>
         <EventFirstSection event={event} />
       </Col>
-      <EventIntro event={event} />
-      <EventOrganizers event={event} isInActiveSection={isInActiveSection} />
-      <EventRooms event={event} isInActiveSection={isInActiveSection} />
-      <EventSponsors event={event} />
+      {showSections && (
+        <>
+          <EventIntro event={event} />
+          <EventOrganizers
+            event={event}
+            isInActiveSection={isInActiveSection}
+          />
+          <EventRooms event={event} isInActiveSection={isInActiveSection} />
+          <EventSponsors event={event} />
+        </>
+      )}
     </>
   );
 });

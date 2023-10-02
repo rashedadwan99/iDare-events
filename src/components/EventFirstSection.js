@@ -20,7 +20,7 @@ const EventFirstSection = memo(function ({ event }) {
           <h4>{isArabic ? event.slogan_ar : event.slogan}</h4>
         </Row>
         <Row className="mt-3">
-          <Col xs={12} sm={10} md={8} lg={4}>
+          <Col xs={12} sm={10} md={8} lg={4} className="px-0">
             <EventInfo event={event} />
           </Col>
         </Row>

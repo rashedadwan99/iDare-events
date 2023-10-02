@@ -56,17 +56,11 @@ function EventsCards({ events }) {
                   </p>
                 </Col>
               </Row>
-
-              <Col md={12}>
-                <Row
-                  className="justify-content-start"
-                  style={{ fontWeight: "bold", fontSize: "12px" }}
-                >
-                  <Col>
-                    <EventTimeLocation event={e} />
-                  </Col>
-                </Row>
-              </Col>
+              <Row>
+                <Col md={12}>
+                  <EventTimeLocation event={e} />
+                </Col>
+              </Row>
             </AosContainer>
           </Col>
         </Row>

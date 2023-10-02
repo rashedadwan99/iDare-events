@@ -15,7 +15,7 @@ const Header = memo(function () {
       className={`header py-2 ${event ? "event-header" : ""}`}
       style={event && headerEventStyle(event)}
     >
-      <LeftHeaderSide />
+      <LeftHeaderSide event={event} />
       <RightHeaderSide />
     </Row>
   );

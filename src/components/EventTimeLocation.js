@@ -10,12 +10,15 @@ function EventTimeLocation({ event }) {
     ? { direction: "ltr", marginRight: "6px" }
     : { direction: "rll", marginLeft: "6px" };
   return (
-    <Row className="align-items-center  event-location">
+    <Row
+      className="align-items-center  event-location"
+      style={{ fontWeight: "bold", fontSize: "12px" }}
+    >
       <Col sm={12} className="mb-2">
         <Row>{event.location}</Row>
       </Col>
       <Col sm={12}>
-        <Row className="align-items-center justify-content-center event-time">
+        <Row className="align-items-center justify-content-start event-time">
           <HandleTimeComponent data={event} />
         </Row>
       </Col>

@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Container } from "react-bootstrap";
 import { Navigate, Route, Routes } from "react-router-dom/dist";
 import {
@@ -36,9 +36,8 @@ import NotFound from "./pages/NotFound";
 import RecommendedEvents from "./pages/RecommendedEvents";
 import EventExtraPage from "./pages/EventExtraPage";
 import PagesContainer from "./pages/PagesContainer";
+import EventPage from "./pages/EventPage";
 const App = () => {
-  const EventPage = lazy(() => import("./pages/EventPage"));
-
   const dispatch = useDispatch();
   const userToken = getUserToken();
   const isAuth = useSelector((state) => state.user.isAuth);
@@ -73,14 +72,7 @@ const App = () => {
       <Routes>
         <Route path={homePageRoute} element={<PagesContainer />}>
           <Route path={homePageRoute} element={<HomePage />} />
-          <Route
-            path={eventPageRoute + "/:id"}
-            element={
-              <Suspense fallback={<div>Loading...</div>}>
-                <EventPage />
-              </Suspense>
-            }
-          >
+          <Route path={eventPageRoute + "/:id"} element={<EventPage />}>
             <Route path={eventPageRoute + "/:id"} element={<EventHome />} />
             <Route
               path={eventPageRoute + "/:id/speakers"}
