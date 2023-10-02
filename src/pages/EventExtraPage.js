@@ -1,12 +1,10 @@
-import React from "react";
+import React, { memo } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Col } from "react-bootstrap";
 import DomParser from "../components/common/DomParser";
 import { notfoundPageRoute } from "../routes";
 import { sortData } from "../components/utils/sort";
-import "../styles/extra-page.css";
-import { memo } from "react";
 const EventExtraPage = memo(function () {
   const { id, page_id } = useParams();
   const isArabic = useSelector((state) => state.language.isArabic);

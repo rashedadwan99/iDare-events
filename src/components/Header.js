@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 import RightHeaderSide from "./RightHeaderSide";
 import LeftHeaderSide from "./LeftHeaderSide";
 import { headerEventStyle } from "../styles/eventStyles";
-import "../styles/header.css";
 
 const Header = memo(function () {
   const allEvents = useSelector((state) => state.events.allEvents);

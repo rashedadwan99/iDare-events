@@ -15,7 +15,6 @@ import { SUCCESS } from "../services/httpService";
 import { useDispatch, useSelector } from "react-redux";
 import { getMyEventsAction } from "../redux/actions/eventActions";
 import { toggleOpenModal } from "../redux/actions/modalAction";
-import "../styles/event-form.css";
 const EventForm = memo(function ({ event }) {
   const dispatch = useDispatch();
   const { t } = useTranslation();

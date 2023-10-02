@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
-import "../../styles/button.css";
 function CommonButton({
   label,
   icon,

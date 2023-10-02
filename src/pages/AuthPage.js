@@ -2,7 +2,6 @@ import React from "react";
 import { memo } from "react";
 import { Row, Col } from "react-bootstrap";
 import { Outlet } from "react-router-dom/dist";
-import "../styles/authpage.css";
 const AuthPage = memo(function () {
   return (
     <>

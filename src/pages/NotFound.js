@@ -2,7 +2,6 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Image, Row } from "react-bootstrap";
 import NotFoundImage from "../images/notfound.svg";
-import "../styles/not-found-page.css";
 function NotFound() {
   const { t } = useTranslation();
   return (

@@ -8,7 +8,7 @@ import {
   handleSelectEventMenu,
   handleSelectHeaderMenu,
 } from "../../styles/eventStyles";
-import "../../styles/selectmenu.css";
+// import "../../styles/selectmenu.css";
 import { memo } from "react";
 const SelectMenu = memo(function ({
   defaultOption: title,

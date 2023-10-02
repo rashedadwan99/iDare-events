@@ -1,7 +1,7 @@
 .position svg {
   position: absolute;
   color: var(--light-gray);
-
+  color: var(--primary-font-color);
 }
 
 

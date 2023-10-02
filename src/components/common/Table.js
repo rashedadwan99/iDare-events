@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { memo } from "react";
 import TableHead from "../TableHead";
 import TableRows from "../TableRows";
-import "../../styles/table.css";
 const Table = memo(function ({ cols, rows }) {
   const isArabic = useSelector((state) => state.language.isArabic);
   return (

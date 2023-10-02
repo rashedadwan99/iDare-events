@@ -1,7 +1,6 @@
 import React from "react";
 import { Nav, NavLink } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import "../../styles/header.css";
 import { scrollToTop } from "../utils/scrollToTop";
 function NavItems({ links }) {
   const navigate = useNavigate();

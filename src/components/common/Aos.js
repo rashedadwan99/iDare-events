@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Col } from "react-bootstrap";
 import Aos from "aos";
-import "../../styles/aos.css";
 function AosContainer({
   delay,
   children,

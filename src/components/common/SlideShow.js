@@ -1,6 +1,5 @@
 import { memo } from "react";
 import { Carousel } from "react-responsive-carousel";
-import "../../styles/slide-show.css";
 const SlideShow = memo(function ({ children }) {
   return (
     <Carousel

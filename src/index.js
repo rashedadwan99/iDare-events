@@ -7,13 +7,9 @@ import App from "./App";
 
 import i18n from "./i18n";
 import { I18nextProvider } from "react-i18next";
-import "./styles/index.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "react-toastify/dist/ReactToastify.css";
-import "react-alice-carousel/lib/alice-carousel.css";
-import "aos/dist/aos.css";
 
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+import "./styles/merged-styles.css";
+
 import ReactHelmet from "./ReactHelmet";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

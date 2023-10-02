@@ -7,7 +7,6 @@ import CommonButton from "./Button";
 import TextArea from "./TextArea";
 import { Button } from "react-bootstrap";
 import SelectMenu from "./SelectMenu";
-import "../../styles/form.css";
 
 const FormElement = memo(function ({
   data,

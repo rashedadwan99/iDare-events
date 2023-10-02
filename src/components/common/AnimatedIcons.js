@@ -1,7 +1,6 @@
 import React from "react";
 import { BsSquare } from "react-icons/bs";
 import { AiOutlineClose } from "react-icons/ai";
-import "../../styles/animated-icons.css";
 function AnimatedIcons() {
   return (
     <>

@@ -6,7 +6,6 @@ import { Col } from "react-bootstrap/esm";
 import Logo from "../images/Logo";
 import logo from "../images/logo.jpg";
 import SocialMediaIcons from "./common/SocialMediaIcons";
-import "../styles/footer.css";
 function Footer() {
   const { t } = useTranslation();
   return (
