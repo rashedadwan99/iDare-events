@@ -10,26 +10,24 @@ function EventTimeLocation({ event }) {
     ? { direction: "ltr", marginRight: "6px" }
     : { direction: "rll", marginLeft: "6px" };
   return (
-    <Col sm={12}>
-      <Row className="align-items-center justify-content-center event-location">
-        <Col sm={12} className="mb-2">
-          <Row>{event.location}</Row>
-        </Col>
-        <Col sm={12}>
-          <Row className="align-items-center justify-content-center event-time">
-            <HandleTimeComponent data={event} />
+    <Row className="align-items-center  event-location">
+      <Col sm={12} className="mb-2">
+        <Row>{event.location}</Row>
+      </Col>
+      <Col sm={12}>
+        <Row className="align-items-center justify-content-center event-time">
+          <HandleTimeComponent data={event} />
+        </Row>
+      </Col>
+      {event.contact && (
+        <Col sm={12} className="mt-2">
+          <Row className="align-items-center">
+            {t("phone") + " : "}
+            <span style={contactStyle}>{event.contact}</span>
           </Row>
         </Col>
-        {event.contact && (
-          <Col sm={12} className="mt-2">
-            <Row className="align-items-center">
-              {t("phone") + " : "}
-              <span style={contactStyle}>{event.contact}</span>
-            </Row>
-          </Col>
-        )}
-      </Row>
-    </Col>
+      )}
+    </Row>
   );
 }
 

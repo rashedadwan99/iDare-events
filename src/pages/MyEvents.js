@@ -1,9 +1,7 @@
-import React from "react";
-import AllEvents from "../components/AllEvents";
-import { useTranslation } from "react-i18next";
+import React, { memo } from "react";
 import { useSelector } from "react-redux";
-import "../styles/home-page.css";
-import { memo } from "react";
+import { useTranslation } from "react-i18next";
+import AllEvents from "../components/AllEvents";
 const MyEvents = memo(function () {
   const { t } = useTranslation();
   const myEvents = useSelector((state) => state.events.myEvents);

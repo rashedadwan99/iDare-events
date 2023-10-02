@@ -5,10 +5,10 @@ import { useSelector } from "react-redux";
 
 function TableHead({ cols }) {
   const { id } = useParams();
-  const upcomingEvents = useSelector((state) => state.events.upcomingEvents);
-  const event = upcomingEvents.find((e) => e.id === parseInt(id));
+  const allEvents = useSelector((state) => state.events.allEvents);
+  const event = allEvents.find((e) => e.id === parseInt(id));
   return (
-    <thead style={headerEventStyle(event)}>
+    <thead style={event && headerEventStyle(event)}>
       <tr>
         {cols.map((col) => (
           <th key={col.label}>

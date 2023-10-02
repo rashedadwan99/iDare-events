@@ -1,6 +1,6 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, memo } from "react";
 
-const ClickOutsideAlerter = ({ children, onOutsideClick }) => {
+const ClickOutsideAlerter = memo(function ({ children, onOutsideClick }) {
   const wrapperRef = useRef(null);
 
   useEffect(() => {
@@ -22,6 +22,6 @@ const ClickOutsideAlerter = ({ children, onOutsideClick }) => {
       {children}
     </div>
   );
-};
+});
 
 export default ClickOutsideAlerter;

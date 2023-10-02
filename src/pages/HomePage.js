@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import HomeLandingPage from "../components/HomeLandingPage";
 import AllEvents from "../components/AllEvents";
-import "../styles/home-page.css";
 const HomePage = memo(function () {
   const { t } = useTranslation();
   const upcomingEvents = useSelector((state) => state.events.upcomingEvents);

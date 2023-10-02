@@ -11,7 +11,12 @@ function Logo({ event, ...rest }) {
     smoothScrolling();
   };
   return (
-    <Image {...rest} onClick={handleNavigate} style={{ cursor: "pointer" }} />
+    <Image
+      fluid
+      {...rest}
+      onClick={handleNavigate}
+      style={{ cursor: "pointer" }}
+    />
   );
 }
 

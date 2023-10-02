@@ -12,6 +12,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import "react-alice-carousel/lib/alice-carousel.css";
 import "aos/dist/aos.css";
+
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import ReactHelmet from "./ReactHelmet";
 const root = ReactDOM.createRoot(document.getElementById("root"));

@@ -18,6 +18,7 @@ function EventSponsors({ event }) {
             }}
             key={s.id}
             role="presentation"
+            fluid
             style={{ cursor: "pointer" }}
           />
         );

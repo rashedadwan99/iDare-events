@@ -16,6 +16,7 @@ function NotFound() {
           src={NotFoundImage}
           alt="not-found"
           className="not-found_image"
+          fluid
         />
       </Row>
     </>

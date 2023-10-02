@@ -29,6 +29,19 @@
   display: none;
 }
 
+.event-spinner {
+  background-color: var(--light-gray);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (max-width:768px) {
   h3 {
     font-size: 22px !important;
