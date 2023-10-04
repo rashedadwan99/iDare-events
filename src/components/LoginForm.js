@@ -10,13 +10,15 @@ import { Toast } from "./common/Toast";
 import { emailPattern } from "../patterns";
 import { homePageRoute, registerPageRoute } from "../routes";
 import { toggleIsAuth } from "../redux/actions/userActions";
-import { useNavigate } from "react-router-dom/dist";
+import { useLocation, useNavigate } from "react-router-dom/dist";
 import { useDispatch, useSelector } from "react-redux";
 import CommonButton from "./common/Button";
 import { scrollToTop } from "./utils/scrollToTop";
 
 const LoginForm = memo(function () {
   const isAuth = useSelector((state) => state.user.isAuth);
+  const location = useLocation();
+
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -36,10 +38,10 @@ const LoginForm = memo(function () {
       setToken(responseData.api_token);
 
       setIsLoading(true);
-      navigate(homePageRoute, { replace: true });
+      dispatch(toggleIsAuth(!isAuth));
+
       scrollToTop();
       Toast("success", t("login-message"));
-      dispatch(toggleIsAuth(!isAuth));
     }
     if (responseData.AZSVR === FAILED) {
       setIsLoading(false);
@@ -48,7 +50,7 @@ const LoginForm = memo(function () {
     }
   };
   const handleToggleForms = () => {
-    navigate(registerPageRoute);
+    navigate(registerPageRoute, { state: location.state });
     scrollToTop();
   };
   return (

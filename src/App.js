@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Container } from "react-bootstrap";
-import { Navigate, Route, Routes } from "react-router-dom/dist";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom/dist";
 import {
   authPageRoute,
   eventPageRoute,
@@ -55,7 +55,8 @@ const App = () => {
       dispatch(getRecommendedEventAction());
     }
     dispatch(getUpcomingEventsAction());
-  }, [userToken, dispatch]);
+  }, [userToken, dispatch, isAuth]);
+  const location = useLocation();
   return (
     <Container
       fluid
@@ -90,7 +91,13 @@ const App = () => {
           <Route
             path={authPageRoute}
             element={
-              !isAuth ? <AuthPage /> : <Navigate to={homePageRoute} replace />
+              !isAuth ? (
+                <AuthPage />
+              ) : location.state ? (
+                <Navigate to={location.state} replace />
+              ) : (
+                <Navigate to={homePageRoute} replace />
+              )
             }
           >
             <Route path={loginPageRoute} element={<LoginForm />} />

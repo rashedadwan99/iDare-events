@@ -14,8 +14,9 @@ function EventRooms({ event, isInActiveSection }) {
     return (
       <EventSectionContainer name="rooms">
         <Row className="justify-content-center mb-3">
-          {[...event.rooms].map((r) => {
-            if (r.active)
+          {event.rooms
+            .filter((ro) => ro.active)
+            .map((r) => {
               return (
                 <Col
                   xs={11}
@@ -23,7 +24,7 @@ function EventRooms({ event, isInActiveSection }) {
                   md={5}
                   lg={4}
                   className="m-3 py-1"
-                  key={r.id}
+                  key={r.id + r.description}
                 >
                   <AosContainer
                     animation_name_scroll_down="zoom-in"
@@ -53,8 +54,7 @@ function EventRooms({ event, isInActiveSection }) {
                   </AosContainer>
                 </Col>
               );
-            return <></>;
-          })}
+            })}
         </Row>
       </EventSectionContainer>
     );

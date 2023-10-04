@@ -10,7 +10,7 @@ import { yesOrNo } from "./data/yesAndNoOptions";
 import { registerUser, setToken } from "../services/userService";
 import { Toast } from "./common/Toast";
 import { emailPattern, isNumber } from "../patterns";
-import { useNavigate } from "react-router-dom/dist";
+import { useLocation, useNavigate } from "react-router-dom/dist";
 import { memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { homePageRoute, loginPageRoute } from "../routes";
@@ -56,7 +56,7 @@ const RegisterForm = memo(function () {
     getCountriesAndCitiesHandler();
   }, [t]);
   const isSwitched = useSelector((state) => state.language.isSwitched);
-
+  const location = useLocation();
   useEffect(() => {
     setData({
       email: "",
@@ -69,10 +69,10 @@ const RegisterForm = memo(function () {
       city_id: "",
       allergies: "",
       disability: "",
-      is_disabled: "",
     });
   }, [isSwitched]);
   const [isLoading, setIsLoading] = useState(false);
+
   const handleRegister = async () => {
     const {
       email,
@@ -82,7 +82,6 @@ const RegisterForm = memo(function () {
       gender_id,
       national_number,
       country_id,
-      is_disabled,
       city_id,
     } = data;
     if (
@@ -92,7 +91,6 @@ const RegisterForm = memo(function () {
       !gender_id ||
       !national_number ||
       !country_id ||
-      !is_disabled ||
       !email ||
       !city_id
     )
@@ -110,7 +108,6 @@ const RegisterForm = memo(function () {
       setIsLoading(true);
       Toast("success", t("account_created"));
       dispatch(toggleIsAuth(!isAuth));
-      navigate(homePageRoute, { replace: true });
       scrollToTop();
     }
     if (responseData.AZSVR === FAILED) {
@@ -119,9 +116,10 @@ const RegisterForm = memo(function () {
     }
   };
   const handleToggleForms = () => {
-    navigate(loginPageRoute);
+    navigate(loginPageRoute, { state: location.state });
     scrollToTop();
   };
+
   return (
     <Col>
       <Row className="justify-content-center mb-4">
@@ -225,20 +223,6 @@ const RegisterForm = memo(function () {
               name="gender_id"
               defaultOption={t("gender")}
               options={genderOptions(t)}
-              data={data}
-              setData={setData}
-              path="name"
-              element="select"
-            />
-          </Col>
-        </Row>
-
-        <Row className="justify-content-center mb-2">
-          <Col>
-            <FormElement
-              name="is_disabled"
-              defaultOption={t("do you have a disability")}
-              options={yesOrNo(t)}
               data={data}
               setData={setData}
               path="name"
