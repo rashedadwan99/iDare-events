@@ -2,6 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Image, Row } from "react-bootstrap";
 import NotFoundImage from "../images/notfound.svg";
+import Footer from "../components/Footer";
 function NotFound() {
   const { t } = useTranslation();
   return (
@@ -19,6 +20,7 @@ function NotFound() {
           loading="lazy"
         />
       </Row>
+      <Footer />
     </>
   );
 }

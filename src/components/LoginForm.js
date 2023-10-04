@@ -8,7 +8,7 @@ import { getToken, setToken } from "../services/userService";
 import { FAILED, SUCCESS } from "../services/httpService";
 import { Toast } from "./common/Toast";
 import { emailPattern } from "../patterns";
-import { homePageRoute, registerPageRoute } from "../routes";
+import { registerPageRoute } from "../routes";
 import { toggleIsAuth } from "../redux/actions/userActions";
 import { useLocation, useNavigate } from "react-router-dom/dist";
 import { useDispatch, useSelector } from "react-redux";
