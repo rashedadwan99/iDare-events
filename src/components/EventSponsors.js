@@ -20,6 +20,7 @@ function EventSponsors({ event }) {
             role="presentation"
             fluid
             style={{ cursor: "pointer" }}
+            loading="lazy"
           />
         );
       })

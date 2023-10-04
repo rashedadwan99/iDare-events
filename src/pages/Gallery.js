@@ -30,10 +30,16 @@ const Gallery = memo(function () {
           {sortedImages.map((g, i) => {
             return (
               <Image
+                loading="lazy"
                 fluid
                 onClick={() =>
                   handleShowImage(
-                    <Image src={getImageSrc(g.image)} alt="gallery" fluid />
+                    <Image
+                      src={getImageSrc(g.image)}
+                      alt="gallery"
+                      fluid
+                      loading="lazy"
+                    />
                   )
                 }
                 key={i}

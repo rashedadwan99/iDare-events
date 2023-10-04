@@ -16,6 +16,7 @@ function NotFound() {
           alt="not-found"
           className="not-found_image"
           fluid
+          loading="lazy"
         />
       </Row>
     </>

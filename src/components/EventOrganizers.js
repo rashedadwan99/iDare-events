@@ -40,6 +40,7 @@ const EventOrganizers = memo(function ({ event, isInActiveSection }) {
                               src={getImageSrc(o.image)}
                               alt="organizer logo"
                               fluid
+                              loading="lazy"
                             />
                           </AosContainer>
                         </Col>

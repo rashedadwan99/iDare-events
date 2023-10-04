@@ -37,7 +37,12 @@ function EventRooms({ event, isInActiveSection }) {
                         lg={10}
                         className="event-room p-5"
                       >
-                        <Image src={getImageSrc(r.image)} alt="" fluid />
+                        <Image
+                          src={getImageSrc(r.image)}
+                          alt=""
+                          fluid
+                          loading="lazy"
+                        />
                         <Row className="event-room__name mt-2">
                           {isArabic ? r.name_ar : r.name}
                         </Row>

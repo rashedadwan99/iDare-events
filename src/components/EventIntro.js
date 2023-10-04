@@ -25,6 +25,7 @@ function EventIntro({ event }) {
                         src={getImageSrc(event.about_image)}
                         alt="about"
                         className="event__about-image"
+                        loading="lazy"
                       />
                     </Row>
                   </AosContainer>

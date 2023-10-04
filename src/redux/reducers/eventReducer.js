@@ -20,20 +20,20 @@ export const eventsReducer = (state = initialState, action) => {
     case GET_UPCOMING_EVENTS:
       return {
         ...state,
-        allEvents: _.union(state.allEvents, [...action.payload]),
+        allEvents: _.unionBy(state.allEvents, [...action.payload], "id"),
         upcomingEvents: [...action.payload],
         isLoading: false,
       };
     case GET_MY_EVENTS:
       return {
         ...state,
-        allEvents: _.union(state.allEvents, [...action.payload]),
+        allEvents: _.unionBy(state.allEvents, [...action.payload], "id"),
         myEvents: [...action.payload],
       };
     case GET_RECOMMENDED_EVENTS:
       return {
         ...state,
-        allEvents: _.union(state.allEvents, [...action.payload]),
+        allEvents: _.unionBy(state.allEvents, [...action.payload], "id"),
         recommendedEvents: [...action.payload],
       };
 
@@ -43,7 +43,7 @@ export const eventsReducer = (state = initialState, action) => {
         isLoading: true,
       };
     case RESET_MY_EVENTS:
-      return { ...state, myEvents: [] };
+      return { ...state, myEvents: [], recommendedEvents: [] };
     default:
       return state;
   }
