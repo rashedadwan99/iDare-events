@@ -198,7 +198,7 @@ const RegisterForm = memo(function () {
               options={Countries}
               data={data}
               setData={setData}
-              path="name"
+              path={isArabic ? "name_ar" : "name"}
               element="select"
             />
           </Col>
