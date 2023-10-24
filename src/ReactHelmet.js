@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 function ReactHelmet() {
   return (
     <Helmet>
-      <title>iDareMAE</title>
+      <title>iDare</title>
       <meta
         name="description"
         content="idare for showing upcoming events events"
