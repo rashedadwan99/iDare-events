@@ -1,3 +1,5 @@
+import i18next from "i18next";
+
 export const language = () => {
-  return localStorage.getItem("lng");
+  return i18next.language;
 };

@@ -3,7 +3,8 @@ import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-http-backend";
 import ar from "./locales/ar.json";
 import en from "./locales/en.json";
-import { language } from "./locales/language";
+const availableLanguages = ["en", "ar"];
+
 const resources = {
   ar: {
     translation: ar,
@@ -17,12 +18,14 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    fallbackLng: language() ?? "en",
+    fallbackLng: "en",
 
     detection: {
       order: ["path", "cookie", "htmlTag", "localStorage", "subdomain"],
       caches: ["cookie"],
     },
+    whitelist: availableLanguages,
+
     interpolation: {
       escapeValue: false,
     },

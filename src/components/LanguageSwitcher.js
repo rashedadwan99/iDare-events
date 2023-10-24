@@ -18,7 +18,6 @@ const LanguageSwitcher = () => {
   ];
   useEffect(() => {
     i18n.changeLanguage(data.id);
-    localStorage.setItem("lng", data.id);
     document.documentElement.lang = data.id;
     dispatch(toggleLanguageAction());
   }, [data.id, i18n, dispatch]);

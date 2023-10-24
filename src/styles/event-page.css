@@ -126,7 +126,6 @@
 }
 
 .event__about-image {
-  margin: 5px 0;
   border-radius: 5px;
   width: 99%;
 }
@@ -360,9 +359,7 @@
     display: none;
   }
 
-  .event__about-image {
-    margin: 5px 0;
-  }
+
 
 
 
