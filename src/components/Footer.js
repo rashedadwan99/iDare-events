@@ -9,7 +9,7 @@ import SocialMediaIcons from "./common/SocialMediaIcons";
 function Footer() {
   const { t } = useTranslation();
   return (
-    <Row className="justify-content-center pt-5 pb-4 footer">
+    <Row className="justify-content-center pt-5 pb-4 mt-5 footer">
       <Col sm={12}>
         <h3>{t("contact-us")}</h3>
         <h6>{t(contactus.location)}</h6>
