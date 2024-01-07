@@ -84,7 +84,7 @@ function RightHeaderSide() {
           handleClick={(data) => handleClick(data)}
           event={event}
         />
-        {id && !isInMyEvents && (
+        {event && id && !isInMyEvents && (
           <div className="event-button">
             <EventFormBtn event={event} />
           </div>

@@ -1,13 +1,14 @@
 import { eventPageRoute } from "../../routes";
 import { sortData } from "../utils/sort";
 export const getEventPageLinks = (eventId, event, t) => {
-  let links = [
-    {
-      label: t("event-home"),
-      path: eventPageRoute + `/${eventId}`,
-    },
-  ];
+  let links = [];
   if (event) {
+    links = [
+      {
+        label: t("event-home"),
+        path: eventPageRoute + `/${eventId}`,
+      },
+    ];
     if (event.gallery_enabled) {
       links = [
         ...links,

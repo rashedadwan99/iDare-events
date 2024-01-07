@@ -22,8 +22,7 @@ export const handlePrimaryButtonStyle = (event) => {
     color:
       event.primary_button_text_color ?? "var(--primary_button_text_color)",
     border: `1px solid ${
-      event.primary_button_background_color ??
-      "var(--primary_button_background_color)"
+      event.primary_button_text_color ?? "var(--primary_button_text_color)"
     }`,
   };
 };
