@@ -8,6 +8,7 @@ import { sortData } from "../components/utils/sort";
 import { toggleOpenModal } from "../redux/actions/modalAction";
 import "../styles/gallery.css";
 import { memo } from "react";
+import Header from "../components/Header";
 const Gallery = memo(function () {
   const dispatch = useDispatch();
   const { t } = useTranslation();
@@ -19,39 +20,41 @@ const Gallery = memo(function () {
     dispatch(toggleOpenModal(Children, null, { padding: "0" }));
   };
   return (
-    <Col sm={12} lg={12}>
-      <Row className="justify-content-center my-5 px-1">
-        <Col sm={12}>
-          <Row className="justify-content-center mb-5">
-            <h3 className="event-section-name">{t("gallery")}</h3>
-          </Row>
-        </Col>
-        <Container fluid id="gallery">
-          {sortedImages.map((g, i) => {
-            return (
-              <Image
-                loading="lazy"
-                fluid
-                onClick={() =>
-                  handleShowImage(
-                    <Image
-                      src={getImageSrc(g.image)}
-                      alt="gallery"
-                      fluid
-                      loading="lazy"
-                    />
-                  )
-                }
-                key={i}
-                src={getImageSrc(g.image)}
-                alt="gallery"
-                className="img-responsive"
-              />
-            );
-          })}
-        </Container>
-      </Row>
-    </Col>
+    <>
+      <Col sm={12} lg={12}>
+        <Row className="justify-content-center my-5 px-1">
+          <Col sm={12}>
+            <Row className="justify-content-center mb-5">
+              <h3 className="event-section-name">{t("gallery")}</h3>
+            </Row>
+          </Col>
+          <Container fluid id="gallery">
+            {sortedImages.map((g, i) => {
+              return (
+                <Image
+                  loading="lazy"
+                  fluid
+                  onClick={() =>
+                    handleShowImage(
+                      <Image
+                        src={getImageSrc(g.image)}
+                        alt="gallery"
+                        fluid
+                        loading="lazy"
+                      />
+                    )
+                  }
+                  key={i}
+                  src={getImageSrc(g.image)}
+                  alt="gallery"
+                  className="img-responsive"
+                />
+              );
+            })}
+          </Container>
+        </Row>
+      </Col>
+    </>
   );
 });
 export default Gallery;

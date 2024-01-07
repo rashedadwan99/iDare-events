@@ -10,10 +10,7 @@ const PagesContainer = memo(function () {
   return (
     <>
       {!isLoading ? (
-        <>
-          <Header />
-          <Outlet />
-        </>
+        <Outlet />
       ) : (
         <div className="event-spinner">
           <CircleSpinner />

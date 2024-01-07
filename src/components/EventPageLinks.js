@@ -9,7 +9,7 @@ import { memo } from "react";
 const EventPageLinks = memo(function ({ event }) {
   const isArabic = useSelector((state) => state.language.isArabic);
   const { t } = useTranslation();
-  const links = getEventPageLinks(event.id, event, t, isArabic);
+  const links = getEventPageLinks(event.id, event, t);
   const navigate = useNavigate();
   const handleNavigate = (l) => {
     navigate(l.path);

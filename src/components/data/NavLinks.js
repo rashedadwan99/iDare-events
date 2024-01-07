@@ -15,6 +15,7 @@ export const getNavLinks = (
   myEvents,
   recommendedEvents
 ) => {
+  console.log(event);
   let links = [
     {
       label: t("home"),

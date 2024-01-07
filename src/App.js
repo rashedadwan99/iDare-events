@@ -55,7 +55,7 @@ const App = () => {
       dispatch(getRecommendedEventAction());
     }
     dispatch(getUpcomingEventsAction());
-  }, [userToken, dispatch, isAuth]);
+  }, [userToken, dispatch]);
   const location = useLocation();
   return (
     <Container

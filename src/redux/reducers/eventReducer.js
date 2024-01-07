@@ -20,7 +20,7 @@ export const eventsReducer = (state = initialState, action) => {
     case GET_UPCOMING_EVENTS:
       return {
         ...state,
-        allEvents: _.unionBy(state.allEvents, [...action.payload], "id"),
+        allEvents: [...action.payload],
         upcomingEvents: [...action.payload],
         isLoading: false,
       };

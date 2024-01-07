@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom/dist";
 import { useSelector } from "react-redux/es";
 import FloatingButton from "../components/common/FloatingButton";
 import EventBody from "../components/EventBody";
+import Header from "../components/Header";
 const EventPage = memo(function () {
   const { id } = useParams();
   const linkRef = useRef(null);
@@ -35,6 +36,8 @@ const EventPage = memo(function () {
   if (event.id)
     return (
       <>
+        <Header />
+
         <EventBody event={event} />
         <FloatingButton event={event} />
       </>

@@ -5,6 +5,7 @@ import { Col } from "react-bootstrap";
 import DomParser from "../components/common/DomParser";
 import { notfoundPageRoute } from "../routes";
 import { sortData } from "../components/utils/sort";
+import Header from "../components/Header";
 const EventExtraPage = memo(function () {
   const { id, page_id } = useParams();
   const isArabic = useSelector((state) => state.language.isArabic);
@@ -15,15 +16,18 @@ const EventExtraPage = memo(function () {
   if (!extraPage || !extraPage.active)
     return <Navigate to={notfoundPageRoute} />;
   return (
-    <Col
-      xs={12}
-      sm={12}
-      className={`extra-page px-4 my-5 ${isArabic ? "ar" : ""}`}
-    >
-      <DomParser
-        htmlResponse={isArabic ? extraPage.content_ar : extraPage.content}
-      />
-    </Col>
+    <>
+      <Header />
+      <Col
+        xs={12}
+        sm={12}
+        className={`extra-page px-4 my-5 ${isArabic ? "ar" : ""}`}
+      >
+        <DomParser
+          htmlResponse={isArabic ? extraPage.content_ar : extraPage.content}
+        />
+      </Col>
+    </>
   );
 });
 
