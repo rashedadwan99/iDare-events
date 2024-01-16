@@ -8,7 +8,7 @@ import { getToken, setToken } from "../services/userService";
 import { FAILED, SUCCESS } from "../services/httpService";
 import { Toast } from "./common/Toast";
 import { emailPattern } from "../patterns";
-import { registerPageRoute } from "../routes";
+import { forgetPasswordFormRoute, registerPageRoute } from "../routes";
 import { toggleIsAuth } from "../redux/actions/userActions";
 import { useLocation, useNavigate } from "react-router-dom/dist";
 import { useDispatch, useSelector } from "react-redux";
@@ -49,8 +49,9 @@ const LoginForm = memo(function () {
       return Toast("error", t("invalid_email_password"));
     }
   };
-  const handleToggleForms = () => {
-    navigate(registerPageRoute, { state: location.state });
+  const handleToggleForms = (forgetForm = false) => {
+    if (forgetForm) navigate(forgetPasswordFormRoute);
+    else navigate(registerPageRoute, { state: location.state });
     scrollToTop();
   };
   return (
@@ -86,6 +87,16 @@ const LoginForm = memo(function () {
           <Col>
             <span onClick={handleToggleForms} className="toggle-forms-message">
               {t("dont-have-account")}
+            </span>
+          </Col>
+        </Row>
+        <Row className="justify-content-center mt-3">
+          <Col>
+            <span
+              onClick={() => handleToggleForms(true)}
+              className="toggle-forms-message"
+            >
+              {t("forget password ?")}
             </span>
           </Col>
         </Row>

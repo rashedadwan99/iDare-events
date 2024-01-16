@@ -4,6 +4,7 @@ import { Navigate, Route, Routes, useLocation } from "react-router-dom/dist";
 import {
   authPageRoute,
   eventPageRoute,
+  forgetPasswordFormRoute,
   homePageRoute,
   loginPageRoute,
   myEventPageRoute,
@@ -37,6 +38,7 @@ import RecommendedEvents from "./pages/RecommendedEvents";
 import EventExtraPage from "./pages/EventExtraPage";
 import PagesContainer from "./pages/PagesContainer";
 import EventPage from "./pages/EventPage";
+import ForgetPasswordForm from "./components/ForgetPasswordForm";
 const App = () => {
   const dispatch = useDispatch();
   const userToken = getUserToken();
@@ -101,6 +103,10 @@ const App = () => {
             }
           >
             <Route path={loginPageRoute} element={<LoginForm />} />
+            <Route
+              path={forgetPasswordFormRoute}
+              element={<ForgetPasswordForm />}
+            />
             <Route path={registerPageRoute} element={<RegisterForm />} />
           </Route>
           <Route
