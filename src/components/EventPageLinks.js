@@ -3,11 +3,9 @@ import { useTranslation } from "react-i18next";
 import { getEventPageLinks } from "./data/eventPageLinks";
 import { Col, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
 import { smoothScrolling } from "./utils/smoothScrolling";
 import { memo } from "react";
 const EventPageLinks = memo(function ({ event }) {
-  const isArabic = useSelector((state) => state.language.isArabic);
   const { t } = useTranslation();
   const links = getEventPageLinks(event.id, event, t);
   const navigate = useNavigate();

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,9 +6,6 @@ import { useParams } from "react-router-dom";
 import { getImageSrc } from "../services/imageServices";
 import { sortData } from "../components/utils/sort";
 import { toggleOpenModal } from "../redux/actions/modalAction";
-import "../styles/gallery.css";
-import { memo } from "react";
-import Header from "../components/Header";
 const Gallery = memo(function () {
   const dispatch = useDispatch();
   const { t } = useTranslation();

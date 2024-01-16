@@ -2,7 +2,6 @@ import React from "react";
 import { memo } from "react";
 import { useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
-import Header from "../components/Header";
 import CircleSpinner from "../components/common/CircleSpinner";
 
 const PagesContainer = memo(function () {

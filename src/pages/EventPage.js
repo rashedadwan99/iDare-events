@@ -34,7 +34,7 @@ const EventPage = memo(function () {
         }
       };
     }
-  }, []);
+  }, [event]);
 
   if (event && event.id)
     return (

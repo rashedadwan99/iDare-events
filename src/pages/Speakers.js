@@ -6,7 +6,6 @@ import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { memo } from "react";
-import Header from "../components/Header";
 
 const Speakers = memo(function () {
   const { t } = useTranslation();

@@ -60,14 +60,7 @@ const App = () => {
   }, [userToken, dispatch]);
   const location = useLocation();
   return (
-    <Container
-      fluid
-      style={{
-        fontFamily: "Cairo, sans-serif",
-      }}
-      id="App"
-      className="App"
-    >
+    <Container fluid id="App" className="App">
       <CommonModal />
       <Canvas />
       <ToastContainer />
