@@ -5,6 +5,7 @@ import FloatingButton from "../components/common/FloatingButton";
 import EventBody from "../components/EventBody";
 import Header from "../components/Header";
 import NotFound from "./NotFound";
+import { fontCode, fontLink } from "../styles/eventStyles";
 const EventPage = memo(function () {
   const { id } = useParams();
   const linkRef = useRef(null);
@@ -14,23 +15,23 @@ const EventPage = memo(function () {
   useEffect(() => {
     if (event) {
       const style = document.createElement("style");
-      style.innerHTML = `.event-page, .event-header{ ${event.google_fonts_code} }`;
+      const eventFontLink = event.google_fonts_link ?? fontLink;
+      style.innerHTML = `.event-page, .event-header{ ${
+        event.google_font_code ?? fontCode
+      } }`;
 
       const container = document.createElement("div");
-      container.innerHTML = event.google_fonts_link;
-      const linkElement = container.querySelector("link");
-      linkRef.current = event.google_fonts_link;
+      container.innerHTML = eventFontLink;
 
-      if (linkElement) {
-        document.head.appendChild(linkElement);
+      if (eventFontLink) {
+        document.head.appendChild(container);
         document.head.appendChild(style);
       }
 
       return () => {
         container.innerHTML = "";
-        if (linkElement) {
-          document.head.removeChild(linkElement);
-          document.head.removeChild(style);
+        if (eventFontLink) {
+          document.head.removeChild(container);
         }
       };
     }
