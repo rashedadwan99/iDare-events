@@ -15,7 +15,7 @@ function EventTimeLocation({ event }) {
       style={{ fontWeight: "bold", fontSize: "12px" }}
     >
       <Col sm={12} className="mb-2">
-        <Row>{event.location}</Row>
+        <Row>{isArabic ? event.location_ar : event.location}</Row>
       </Col>
       <Col sm={12}>
         <Row className="align-items-center justify-content-start event-time">

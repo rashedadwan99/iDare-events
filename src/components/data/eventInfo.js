@@ -1,16 +1,16 @@
+import { format } from "date-fns-tz";
+
 import { IoLocationSharp } from "react-icons/io5";
 import {
   BsFillCalendarFill,
   BsFillClockFill,
   BsFillTelephoneFill,
 } from "react-icons/bs";
-import { format } from "date-fns";
+import { handleTimeZone } from "../utils/TimeZone";
 const handleDate = (date) => {
   return format(new Date(date), "MMMM d, yyyy");
 };
-const handleHours = (date) => {
-  return format(new Date(date), "hh:mm a");
-};
+
 export const getEventInfo = (event) => {
   let eventInfo = [
     { icon: <IoLocationSharp />, data: event.location },
@@ -20,7 +20,9 @@ export const getEventInfo = (event) => {
     },
     {
       icon: <BsFillClockFill />,
-      data: `${handleHours(event.start_time)} - ${handleHours(event.end_time)}`,
+      data: `${handleTimeZone(event.start_time)} - ${handleTimeZone(
+        event.end_time
+      )}`,
     },
   ];
   if (event.contact) {
