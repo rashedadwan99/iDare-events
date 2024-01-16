@@ -15,7 +15,7 @@ const resources = {
   },
 };
 
-const savedLanguage = localStorage.getItem(localStorageKey);
+export const savedLanguage = localStorage.getItem(localStorageKey);
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)

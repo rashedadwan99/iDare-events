@@ -38,12 +38,16 @@ function EventsCards({ events }) {
           </Col>
           <Col md={6}>
             <Row className="justify-content-between align-items-center event-name mt-2 mb-2">
-              <Col xs={8} sm={8}>
+              <Col xs={e.is_premium ? 8 : 12} sm={e.is_premium ? 8 : 12}>
                 <h6 style={infoStyle}>{isArabic ? e.name_ar : e.name}</h6>
               </Col>
-              <Col xs={4} sm={4}>
-                {e.is_premium ? <Premium event={e} /> : <></>}
-              </Col>
+              {e.is_premium ? (
+                <Col xs={4} sm={4}>
+                  <Premium event={e} />
+                </Col>
+              ) : (
+                <></>
+              )}
             </Row>
             <Row className="mb-3">
               <Col>

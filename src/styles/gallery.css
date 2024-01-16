@@ -8,6 +8,7 @@
   column-gap: 20px;
 }
 
+/* .gallery-navs  */
 @media (max-width:1200px) {
   #gallery {
     -webkit-column-count: 3;

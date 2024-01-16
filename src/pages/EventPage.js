@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, memo } from "react";
+import React, { useEffect, memo } from "react";
 import { useParams } from "react-router-dom/dist";
 import { useSelector } from "react-redux/es";
 import FloatingButton from "../components/common/FloatingButton";
@@ -8,7 +8,6 @@ import NotFound from "./NotFound";
 import { fontCode, fontLink } from "../styles/eventStyles";
 const EventPage = memo(function () {
   const { id } = useParams();
-  const linkRef = useRef(null);
   const allEvents = useSelector((state) => state.events.allEvents);
 
   const event = allEvents.find((e) => e.id === parseInt(id));

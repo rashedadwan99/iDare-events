@@ -5,7 +5,6 @@ import { Col } from "react-bootstrap";
 import DomParser from "../components/common/DomParser";
 import { notfoundPageRoute } from "../routes";
 import { sortData } from "../components/utils/sort";
-import Header from "../components/Header";
 const EventExtraPage = memo(function () {
   const { id, page_id } = useParams();
   const isArabic = useSelector((state) => state.language.isArabic);
@@ -17,7 +16,6 @@ const EventExtraPage = memo(function () {
     return <Navigate to={notfoundPageRoute} />;
   return (
     <>
-      <Header />
       <Col
         xs={12}
         sm={12}

@@ -1,10 +1,19 @@
-import { format, utcToZonedTime } from "date-fns-tz";
-
-export const handleTimeZone = (date) => {
+import moment from "moment-timezone";
+import "moment/locale/ar";
+import { useSelector } from "react-redux";
+export const HandleTimeZone = (date) => {
+  const isArabic = useSelector((state) => state.language.isArabic);
+  moment.locale(isArabic ? "ar" : "en");
   const timeZone = "UTC";
-  const utcTime = new Date(date);
+  const utcTime = moment.utc(date);
 
-  const zonedTime = utcToZonedTime(utcTime, timeZone);
+  const zonedTime = moment.tz(utcTime, timeZone).format();
 
-  return format(zonedTime, "hh:mm a", { timeZone });
+  return moment(zonedTime).format("hh:mm a");
+};
+export const HandleDate = (date) => {
+  const isArabic = useSelector((state) => state.language.isArabic);
+  moment.locale(isArabic ? "ar" : "en");
+
+  return moment(date).format("MMMM D, YYYY");
 };

@@ -5,6 +5,9 @@ import {
   authPageRoute,
   eventPageRoute,
   forgetPasswordFormRoute,
+  gallery,
+  galleryImages,
+  galleryVideos,
   homePageRoute,
   loginPageRoute,
   myEventPageRoute,
@@ -39,6 +42,8 @@ import EventExtraPage from "./pages/EventExtraPage";
 import PagesContainer from "./pages/PagesContainer";
 import EventPage from "./pages/EventPage";
 import ForgetPasswordForm from "./components/ForgetPasswordForm";
+import GalleryImages from "./components/GalleryImages";
+import GalleryVideos from "./components/GalleryVideos";
 const App = () => {
   const dispatch = useDispatch();
   const userToken = getUserToken();
@@ -74,10 +79,10 @@ const App = () => {
               path={eventPageRoute + "/:id/speakers"}
               element={<Speakers />}
             />
-            <Route
-              path={eventPageRoute + "/:id/gallery"}
-              element={<Gallery />}
-            />
+            <Route path={gallery} element={<Gallery />}>
+              <Route path={galleryImages} element={<GalleryImages />} />
+              <Route path={galleryVideos} element={<GalleryVideos />} />
+            </Route>
             <Route
               path={eventPageRoute + "/:id/:page_title/:page_id"}
               element={<EventExtraPage />}

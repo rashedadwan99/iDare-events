@@ -20,6 +20,7 @@ function Logo({ ...rest }) {
       fluid
       {...rest}
       alt="logo"
+      loading="lazy"
       src={event ? getImageSrc(event && event.image) : logo}
       onClick={handleNavigate}
       style={{ cursor: "pointer" }}
