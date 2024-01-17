@@ -97,7 +97,6 @@ select.form-select {
   font-size: 14px;
   text-align: center;
   display: inline-block;
-  width: 100%;
   color: var(--primary-font-color);
   font-weight: bold;
   cursor: pointer;

@@ -49,7 +49,7 @@ const LoginForm = memo(function () {
       return Toast("error", t("invalid_email_password"));
     }
   };
-  const handleToggleForms = (forgetForm = false) => {
+  const handleToggleForms = (forgetForm) => {
     if (forgetForm) navigate(forgetPasswordFormRoute);
     else navigate(registerPageRoute, { state: location.state });
     scrollToTop();
@@ -84,21 +84,20 @@ const LoginForm = memo(function () {
           </Col>
         </Row>
         <Row className="justify-content-center mt-3">
-          <Col>
-            <span onClick={handleToggleForms} className="toggle-forms-message">
-              {t("dont-have-account")}
-            </span>
-          </Col>
+          <span
+            onClick={() => handleToggleForms(false)}
+            className="toggle-forms-message"
+          >
+            {t("dont-have-account")}
+          </span>
         </Row>
         <Row className="justify-content-center mt-3">
-          <Col>
-            <span
-              onClick={() => handleToggleForms(true)}
-              className="toggle-forms-message"
-            >
-              {t("forget password ?")}
-            </span>
-          </Col>
+          <span
+            onClick={() => handleToggleForms(true)}
+            className="toggle-forms-message"
+          >
+            {t("forget password ?")}
+          </span>
         </Row>
 
         <Row className="justify-content-center mt-3">

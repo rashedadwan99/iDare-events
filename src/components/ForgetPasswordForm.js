@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { memo } from "react";
+import { useNavigate } from "react-router-dom";
+import { loginPageRoute } from "../routes";
 import { Col, Form } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import FormElement from "./common/FormElement";
 import { Row } from "react-bootstrap/esm";
 import CommonButton from "./common/Button";
 import { Toast } from "./common/Toast";
-
 const ForgetPasswordForm = memo(function () {
   const [isLoading, setIsLoading] = useState(false);
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [data, setData] = useState({
     phone: "",
     national_number: "",
@@ -47,8 +49,15 @@ const ForgetPasswordForm = memo(function () {
             />
           </Col>
         </Row>
-        <Row className="justify-content-center mt-3">
-          <Col></Col>
+        <Row className="justify-content-center align-items-center mt-3">
+          <Col xs={12} sm={6} md={6}>
+            <span className="back-btn" onClick={() => navigate(loginPageRoute)}>
+              {t("back")}
+            </span>
+          </Col>
+          <Col xs={12} sm={6} md={6}>
+            <CommonButton label={t("check")} />
+          </Col>
         </Row>
       </Form>
     </>
