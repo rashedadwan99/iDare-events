@@ -8,7 +8,10 @@
   column-gap: 20px;
 }
 
-/* .gallery-navs  */
+iframe {
+  max-width: 100% !important;
+}
+
 @media (max-width:1200px) {
   #gallery {
     -webkit-column-count: 3;
