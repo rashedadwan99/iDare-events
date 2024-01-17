@@ -5,7 +5,6 @@ import FloatingButton from "../components/common/FloatingButton";
 import EventBody from "../components/EventBody";
 import Header from "../components/Header";
 import NotFound from "./NotFound";
-import { fontCode, fontLink } from "../styles/eventStyles";
 import { useDispatch } from "react-redux";
 import { GetEventMedia } from "../redux/actions/eventActions";
 import { sortData } from "../components/utils/sort";
@@ -19,38 +18,38 @@ const EventPage = memo(function () {
   const sortedImages = sortData(event.gallery_images, "sort", "asc");
   const dispatch = useDispatch();
   useEffect(() => {
+    dispatch(
+      GetEventMedia({
+        images: sortedImages,
+        videos: sortedVideos.map((v) => {
+          return (
+            <Col key={v.id} xs={11} sm={11} md={8} lg={5}>
+              <DomParser htmlResponse={v.embed_code} />
+            </Col>
+          );
+        }),
+      })
+    );
     if (event) {
-      const style = document.createElement("style");
-      const eventFontLink = event.google_fonts_link ?? fontLink;
-
-      dispatch(
-        GetEventMedia({
-          images: sortedImages,
-          videos: sortedVideos.map((v) => {
-            return (
-              <Col key={v.id} xs={11} sm={11} md={8} lg={5}>
-                <DomParser htmlResponse={v.embed_code} />
-              </Col>
-            );
-          }),
-        })
-      );
-
+      const eventFontLink = event.google_fonts_link;
+      const eventFontCode = event.google_fonts_code;
       const container = document.createElement("div");
-      container.innerHTML = eventFontLink;
-
-      if (eventFontLink) {
+      const style = document.createElement("style");
+      if (eventFontLink && eventFontCode) {
+        container.innerHTML = eventFontLink;
+        style.innerHTML = `.App{
+          ${eventFontCode}
+        }`;
         document.head.appendChild(container);
         document.head.appendChild(style);
-        window.removeEventListener("touchstart", {
-          passive: true,
-        });
       }
 
       return () => {
         container.innerHTML = "";
-        if (eventFontLink) {
+        style.innerHTML = "";
+        if (eventFontLink && eventFontCode) {
           document.head.removeChild(container);
+          document.head.removeChild(style);
         }
         dispatch(
           GetEventMedia({

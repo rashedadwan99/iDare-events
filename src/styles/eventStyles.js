@@ -7,10 +7,7 @@ const primaryBtnTextColor = "var(--primary_button_text_color)";
 const footerBgColor = "var(--footer_background_color)";
 const footerBgColor2 = "var(--footer_background_color_2)";
 const footerTextColor = "var(--footer_text_color)";
-export const fontLink = `<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">`;
-export const fontCode = `font-family: 'Amiri', serif;`;
+
 export const headerEventStyle = (event) => {
   return {
     backgroundColor: event.header_background_color ?? headerBackgroundColor,
