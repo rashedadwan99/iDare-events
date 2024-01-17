@@ -11,6 +11,10 @@ export const GET_RECOMMENDED_EVENTS = "GET_RECOMMENDED_EVENTS";
 export const RESET_MY_EVENTS = "RESET_MY_EVENTS";
 export const TOGGLE_LOADING = "TOGGLE_LOADING";
 export const GET_ALL_EVENTS = "GET_ALL_EVENTS";
+export const GET_EVENT_MEDIA = "GET_EVENT_MEDIA";
+export const GetEventMedia = (media) => {
+  return { type: GET_EVENT_MEDIA, payload: media };
+};
 export const getUpcomingEventsAction = () => {
   return async (dispatch) => {
     const { data } = await getUpcomingEvents();

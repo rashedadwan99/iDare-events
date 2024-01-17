@@ -5,6 +5,7 @@ import {
   GET_RECOMMENDED_EVENTS,
   RESET_MY_EVENTS,
   TOGGLE_LOADING,
+  GET_EVENT_MEDIA,
 } from "../actions/eventActions";
 import { sortData } from "../../components/utils/sort";
 
@@ -13,11 +14,17 @@ const initialState = {
   myEvents: [],
   recommendedEvents: [],
   allEvents: [],
+  eventMedia: {
+    images: [],
+    videos: [],
+  },
   isLoading: true,
 };
 
 export const eventsReducer = (state = initialState, action) => {
   switch (action.type) {
+    case GET_EVENT_MEDIA:
+      return { ...state, eventMedia: action.payload };
     case GET_UPCOMING_EVENTS:
       return {
         ...state,

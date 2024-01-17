@@ -6,11 +6,16 @@ import EventBody from "../components/EventBody";
 import Header from "../components/Header";
 import NotFound from "./NotFound";
 import { fontCode, fontLink } from "../styles/eventStyles";
+import { useDispatch } from "react-redux";
+import { GetEventMedia } from "../redux/actions/eventActions";
+import { sortData } from "../components/utils/sort";
 const EventPage = memo(function () {
   const { id } = useParams();
   const allEvents = useSelector((state) => state.events.allEvents);
-
   const event = allEvents.find((e) => e.id === parseInt(id));
+  const sortedVideos = sortData(event.you_tube_videos, "id", "desc");
+  const sortedImages = sortData(event.gallery_images, "sort", "asc");
+  const dispatch = useDispatch();
   useEffect(() => {
     if (event) {
       const style = document.createElement("style");
@@ -18,6 +23,12 @@ const EventPage = memo(function () {
       style.innerHTML = `.event-page, .event-header{ ${
         event.google_font_code ?? fontCode
       } }`;
+      dispatch(
+        GetEventMedia({
+          images: sortedImages,
+          videos: sortedVideos,
+        })
+      );
 
       const container = document.createElement("div");
       container.innerHTML = eventFontLink;
@@ -32,6 +43,12 @@ const EventPage = memo(function () {
         if (eventFontLink) {
           document.head.removeChild(container);
         }
+        dispatch(
+          GetEventMedia({
+            images: [],
+            videos: [],
+          })
+        );
       };
     }
   }, [event]);
