@@ -83,22 +83,6 @@ const LoginForm = memo(function () {
             />
           </Col>
         </Row>
-        <Row className="justify-content-center mt-3">
-          <span
-            onClick={() => handleToggleForms(false)}
-            className="toggle-forms-message"
-          >
-            {t("dont-have-account")}
-          </span>
-        </Row>
-        <Row className="justify-content-center mt-3">
-          <span
-            onClick={() => handleToggleForms(true)}
-            className="toggle-forms-message"
-          >
-            {t("forget password ?")}
-          </span>
-        </Row>
 
         <Row className="justify-content-center mt-3">
           <Col>
@@ -109,6 +93,22 @@ const LoginForm = memo(function () {
               disabled={isLoading}
             />
           </Col>
+        </Row>
+        <Row className="justify-content-center mt-3">
+          <span
+            onClick={() => handleToggleForms(false)}
+            className="toggle-forms-message"
+          >
+            {t("dont-have-account")}
+          </span>
+        </Row>
+        <Row className="justify-content-center mt-2">
+          <span
+            onClick={() => handleToggleForms(true)}
+            className="toggle-forms-message"
+          >
+            {t("forget password ?")}
+          </span>
         </Row>
       </Form>
     </>

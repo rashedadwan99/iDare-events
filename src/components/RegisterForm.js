@@ -230,11 +230,9 @@ const RegisterForm = memo(function () {
         </Row>
 
         <Row className="justify-content-center mt-3">
-          <Col>
-            <span onClick={handleToggleForms} className="toggle-forms-message">
-              {t("have-account")}
-            </span>
-          </Col>
+          <span onClick={handleToggleForms} className="toggle-forms-message">
+            {t("have-account")}
+          </span>
         </Row>
         <Row className="justify-content-center mt-3">
           <Col>

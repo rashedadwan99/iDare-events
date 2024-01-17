@@ -50,12 +50,12 @@ const ForgetPasswordForm = memo(function () {
           </Col>
         </Row>
         <Row className="justify-content-center align-items-center mt-3">
-          <Col xs={12} sm={6} md={6}>
+          <Col xs={6} sm={6}>
             <span className="back-btn" onClick={() => navigate(loginPageRoute)}>
               {t("back")}
             </span>
           </Col>
-          <Col xs={12} sm={6} md={6}>
+          <Col xs={6} sm={6}>
             <CommonButton label={t("check")} />
           </Col>
         </Row>
