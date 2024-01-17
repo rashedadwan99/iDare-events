@@ -62,7 +62,7 @@ const EventPage = memo(function () {
     }
   }, [event]);
 
-  if (event && event.id)
+  if (event && event.id && event.active)
     return (
       <>
         <Header />
