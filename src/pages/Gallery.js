@@ -33,7 +33,7 @@ const Gallery = memo(function () {
               </Nav>
             </Row>
           </Col>
-          <Outlet hi="dgdg" />
+          <Outlet />
         </Row>
       </Col>
     </>

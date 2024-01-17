@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { Col } from "react-bootstrap";
 import { sortData } from "./utils/sort";
 import DomParser from "./common/DomParser";
-import { Col } from "react-bootstrap";
 
 function GalleryVideos() {
   const { id } = useParams();

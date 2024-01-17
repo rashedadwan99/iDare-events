@@ -6,6 +6,7 @@ import {
   RESET_MY_EVENTS,
   TOGGLE_LOADING,
 } from "../actions/eventActions";
+import { sortData } from "../../components/utils/sort";
 
 const initialState = {
   upcomingEvents: [],
@@ -20,21 +21,29 @@ export const eventsReducer = (state = initialState, action) => {
     case GET_UPCOMING_EVENTS:
       return {
         ...state,
-        allEvents: [...action.payload],
-        upcomingEvents: [...action.payload],
+        allEvents: sortData(action.payload, "id", "desc"),
+        upcomingEvents: sortData(action.payload, "id", "desc"),
         isLoading: false,
       };
     case GET_MY_EVENTS:
       return {
         ...state,
-        allEvents: _.unionBy(state.allEvents, [...action.payload], "id"),
-        myEvents: [...action.payload],
+        allEvents: _.unionBy(
+          state.allEvents,
+          sortData(action.payload, "id", "desc"),
+          "id"
+        ),
+        myEvents: sortData(action.payload, "id", "desc"),
       };
     case GET_RECOMMENDED_EVENTS:
       return {
         ...state,
-        allEvents: _.unionBy(state.allEvents, [...action.payload], "id"),
-        recommendedEvents: [...action.payload],
+        allEvents: _.unionBy(
+          state.allEvents,
+          sortData(action.payload, "id", "desc"),
+          "id"
+        ),
+        recommendedEvents: sortData(action.payload, "id", "desc"),
       };
 
     case TOGGLE_LOADING:
