@@ -34,6 +34,12 @@ export const getToken = (data) => {
     params: { email, password },
   });
 };
+export const resetPassword = (data) => {
+  const { phone, national_number, new_password } = data;
+  return http.get("/user/resetPassword", {
+    params: { phone, national_number, new_password },
+  });
+};
 
 export const setToken = (token) => {
   localStorage.setItem("api_token", token);

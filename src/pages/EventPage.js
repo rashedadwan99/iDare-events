@@ -59,7 +59,7 @@ const EventPage = memo(function () {
         );
       };
     }
-  }, [event]);
+  }, [event, sortedImages, sortedVideos, dispatch]);
 
   if (event && event.id && event.active)
     return (

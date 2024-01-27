@@ -81,6 +81,8 @@ const RegisterForm = memo(function () {
       national_number,
       country_id,
       city_id,
+      allergies,
+      disability,
     } = data;
     if (
       !name ||
@@ -90,7 +92,9 @@ const RegisterForm = memo(function () {
       !national_number ||
       !country_id ||
       !email ||
-      !city_id
+      !city_id ||
+      !allergies ||
+      !disability
     )
       return Toast("info", t("fill_all"));
 
