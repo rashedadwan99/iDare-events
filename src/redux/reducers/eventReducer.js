@@ -28,8 +28,8 @@ export const eventsReducer = (state = initialState, action) => {
     case GET_UPCOMING_EVENTS:
       return {
         ...state,
-        allEvents: sortData(action.payload, "start_time", "desc"),
-        upcomingEvents: sortData(action.payload, "start_time", "desc"),
+        allEvents: sortData(action.payload, "start_time", "asc"),
+        upcomingEvents: sortData(action.payload, "start_time", "asc"),
         isLoading: false,
       };
     case GET_MY_EVENTS:
@@ -37,20 +37,20 @@ export const eventsReducer = (state = initialState, action) => {
         ...state,
         allEvents: _.unionBy(
           state.allEvents,
-          sortData(action.payload, "start_time", "desc"),
+          sortData(action.payload, "start_time", "asc"),
           "id"
         ),
-        myEvents: sortData(action.payload, "start_time", "desc"),
+        myEvents: sortData(action.payload, "start_time", "asc"),
       };
     case GET_RECOMMENDED_EVENTS:
       return {
         ...state,
         allEvents: _.unionBy(
           state.allEvents,
-          sortData(action.payload, "start_time", "desc"),
+          sortData(action.payload, "start_time", "asc"),
           "id"
         ),
-        recommendedEvents: sortData(action.payload, "start_time", "desc"),
+        recommendedEvents: sortData(action.payload, "start_time", "asc"),
       };
 
     case TOGGLE_LOADING:
