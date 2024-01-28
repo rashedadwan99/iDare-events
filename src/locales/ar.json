@@ -29,7 +29,7 @@
   "idare_location": "عمان، الأردن، الشميساني",
   "idare_street": "مبنى رقم 19 في شارع عبد الرحيم الواكد",
   "fill_required": "الرجاء تعبئة جميع الحقول المطلوبة",
-  "upcoming_events": "الفعالية القادمة",
+  "upcoming_events": "الفعاليات القادمة",
   "home": "الرئيسية",
   "logout": "تسجيل الخروج",
   "images": "الصور",
@@ -66,7 +66,7 @@
   "ticket-type": "نوع التذكرة",
   "login_first": "قم بانشاء حساب لتتمكن من التسجيل",
   "event-register": "تم التجسيل في الفعالية بنجاح",
-  "already_registered": "أنت مُسجل بهذا الفعالية",
+  "already_registered": "أنت مُسجل بهذه الفعالية",
   "start": "يبدأ",
   "end": "ينتهي",
   "not-found": "الصفحة غير موجودة - 404",
@@ -76,7 +76,7 @@
   "event-register-failed": "فشل عملية التسجيل في الفعالية",
   "City": "المحافظة الحالية",
   "error_occoured": "حدث خطأ",
-  "recommended-events": "الفعالية الموصى بها",
+  "recommended-events": "الفعاليات الموصى بها",
   "premium": "مدفوع",
   "more": "المزيد"
 }
