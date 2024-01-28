@@ -6,10 +6,15 @@ import {
   BsFillTelephoneFill,
 } from "react-icons/bs";
 import { HandleDate, HandleTimeZone } from "../utils/TimeZone";
+import { useSelector } from "react-redux";
 
-export const getEventInfo = (event) => {
+export const GetEventInfo = (event) => {
+  const isArabic = useSelector((state) => state.language.isArabic);
   let eventInfo = [
-    { icon: <IoLocationSharp />, data: event.location },
+    {
+      icon: <IoLocationSharp />,
+      data: isArabic ? event.location_ar : event.location,
+    },
     {
       icon: <BsFillCalendarFill />,
       data: `${HandleDate(event.start_time)} - ${HandleDate(event.end_time)}`,

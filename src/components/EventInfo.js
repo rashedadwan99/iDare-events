@@ -1,11 +1,11 @@
 import React from "react";
-import { getEventInfo } from "./data/eventInfo";
+import { GetEventInfo } from "./data/eventInfo";
 import { Col, Row } from "react-bootstrap";
 import { headerEventStyle } from "../styles/eventStyles";
 import { useSelector } from "react-redux";
 
 function EventInfo({ event, style }) {
-  const eventInfo = getEventInfo(event);
+  const eventInfo = GetEventInfo(event);
   const isArabic = useSelector((state) => state.language.isArabic);
   return eventInfo.map((e, i) => {
     return (
