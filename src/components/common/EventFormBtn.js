@@ -31,17 +31,15 @@ function EventFormBtn({ event }) {
     dispatch(toggleOpenModal(<EventForm event={event} />, t("register-event")));
   };
 
-  return (
-    event.id &&
-    myEvents.length &&
-    !isInMyEvents.current && (
-      <CommonButton
-        primaryStyle={handlePrimaryButtonStyle(event)}
-        primaryStyleHover={handlePrimaryButtonStyleWhenHover(event)}
-        label={t("register-event")}
-        onClick={() => handleOpenModal(event)}
-      />
-    )
+  return event.id && myEvents.length && !isInMyEvents.current ? (
+    <CommonButton
+      primaryStyle={handlePrimaryButtonStyle(event)}
+      primaryStyleHover={handlePrimaryButtonStyleWhenHover(event)}
+      label={t("register-event")}
+      onClick={() => handleOpenModal(event)}
+    />
+  ) : (
+    <></>
   );
 }
 
