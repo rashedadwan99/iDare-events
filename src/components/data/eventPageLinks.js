@@ -31,7 +31,7 @@ export const getEventPageLinks = (eventId, event, t) => {
         ],
       ];
     }
-    if (event.extra_pages.length) {
+    if (event.extra_pages && event.extra_pages.length) {
       const activeExtraPages = sortData(
         event.extra_pages.filter((eb) => eb.active),
         "sort",

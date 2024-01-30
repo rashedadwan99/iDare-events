@@ -35,12 +35,11 @@ export const eventsReducer = (state = initialState, action) => {
     case GET_MY_EVENTS:
       return {
         ...state,
-        allEvents: _.unionBy(
-          state.allEvents,
-          sortData(action.payload, "start_time", "asc"),
-          "id"
+        myEvents: sortData(
+          action.payload.map((id) => state.allEvents[id]),
+          "start_time",
+          "asc"
         ),
-        myEvents: sortData(action.payload, "start_time", "asc"),
       };
     case GET_RECOMMENDED_EVENTS:
       return {

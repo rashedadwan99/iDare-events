@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { Row, Col } from "react-bootstrap";
@@ -15,8 +15,7 @@ import LargeScreenNavbar from "./LargeScreenNavbar";
 import { logout } from "../services/userService";
 import { toggleIsAuth } from "../redux/actions/userActions";
 import { homePageRoute } from "../routes";
-import { useTranslation } from "react-i18next";
-import { getNavLinks } from "./data/NavLinks";
+import { GetNavLinks } from "./data/NavLinks";
 import { resetEvents } from "../redux/actions/eventActions";
 import { scrollToTop } from "./utils/scrollToTop";
 
@@ -24,12 +23,13 @@ function RightHeaderSide() {
   const { id } = useParams();
   const myEvents = useSelector((state) => state.events.myEvents);
   const allEvents = useSelector((state) => state.events.allEvents);
-  const event = allEvents.find((e) => e.id === parseInt(id));
+  const [event, setEvent] = useState({});
+  useEffect(() => {
+    if (id) setEvent(allEvents.find((e) => e.id === parseInt(id)));
+  }, [id, allEvents]);
   const recommendedEvents = useSelector(
     (state) => state.events.recommendedEvents
   );
-  const { t } = useTranslation();
-  const isInMyEvents = myEvents.find((e) => e.id === id);
   const isAuth = useSelector((state) => state.user.isAuth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -41,10 +41,8 @@ function RightHeaderSide() {
     navigate(homePageRoute, { replace: true });
     scrollToTop();
   };
-  const navLinks = getNavLinks(
+  const navLinks = GetNavLinks(
     handleLogout,
-    t,
-    isAuth,
     id,
     event,
     myEvents,
@@ -84,7 +82,7 @@ function RightHeaderSide() {
           handleClick={(data) => handleClick(data)}
           event={event}
         />
-        {event && id && !isInMyEvents && (
+        {event && event.id && (
           <div className="event-button">
             <EventFormBtn event={event} />
           </div>

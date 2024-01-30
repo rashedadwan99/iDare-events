@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import {
   homePageRoute,
   loginPageRoute,
@@ -5,16 +6,17 @@ import {
   recommendedEventPageRoute,
 } from "../../routes";
 import { getEventPageLinks } from "./eventPageLinks";
+import { useTranslation } from "react-i18next";
 
-export const getNavLinks = (
+export const GetNavLinks = (
   handleLogout,
-  t,
-  isAuth,
   eventId,
   event,
   myEvents,
   recommendedEvents
 ) => {
+  const isAuth = useSelector((state) => state.user.isAuth);
+  const { t } = useTranslation();
   let links = [
     {
       label: t("home"),

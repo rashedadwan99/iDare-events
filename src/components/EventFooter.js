@@ -31,11 +31,11 @@ const EventFooter = memo(function ({ event }) {
 
         <EventFooterSection title="event_info" lg={4}>
           <EventTimeLocation event={event} />
-          <Col className="mt-3" xs={5} sm={8}>
-            <Row>
-              <EventFormBtn event={event} />
-            </Row>
-          </Col>
+           {event.id&& <Col className="mt-3" xs={5} sm={8}>
+              <Row>
+                <EventFormBtn event={event} />
+              </Row>
+            </Col>}
         </EventFooterSection>
       </Row>
     </Col>

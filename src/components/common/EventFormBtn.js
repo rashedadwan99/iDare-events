@@ -32,6 +32,8 @@ function EventFormBtn({ event }) {
   };
 
   return (
+    event.id &&
+    myEvents.length &&
     !isInMyEvents.current && (
       <CommonButton
         primaryStyle={handlePrimaryButtonStyle(event)}

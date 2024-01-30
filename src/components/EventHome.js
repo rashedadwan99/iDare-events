@@ -23,12 +23,11 @@ const EventHome = memo(function () {
       <Col xs={12} sm={12}>
         <EventFirstSection event={event} />
       </Col>
-      <>
-        <EventIntro event={event} />
-        <EventOrganizers event={event} isInActiveSection={isInActiveSection} />
-        <EventRooms event={event} isInActiveSection={isInActiveSection} />
-        <EventSponsors event={event} />
-      </>
+
+      <EventIntro event={event} />
+      <EventOrganizers event={event} isInActiveSection={isInActiveSection} />
+      <EventRooms event={event} isInActiveSection={isInActiveSection} />
+      <EventSponsors event={event} />
     </>
   );
 });

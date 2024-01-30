@@ -48,6 +48,7 @@ const App = () => {
   const dispatch = useDispatch();
   const userToken = getUserToken();
   const isAuth = useSelector((state) => state.user.isAuth);
+  const allEvents = useSelector((state) => state.events.allEvents);
   useEffect(() => {
     document.documentElement.lang = language();
     if (userToken) {
@@ -57,12 +58,16 @@ const App = () => {
     }
   }, [dispatch, userToken]);
   useEffect(() => {
+    dispatch(getUpcomingEventsAction());
     if (userToken) {
-      dispatch(getMyEventsAction());
       dispatch(getRecommendedEventAction());
     }
-    dispatch(getUpcomingEventsAction());
   }, [userToken, dispatch]);
+  useEffect(() => {
+    if (userToken && allEvents.length >= 1) {
+      dispatch(getMyEventsAction());
+    }
+  }, [userToken, allEvents, dispatch]);
   const location = useLocation();
   return (
     <Container fluid id="App" className="App">

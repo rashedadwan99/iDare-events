@@ -8,7 +8,6 @@ import {
   handleSelectEventMenu,
   handleSelectHeaderMenu,
 } from "../../styles/eventStyles";
-// import "../../styles/selectmenu.css";
 import { memo } from "react";
 const SelectMenu = memo(function ({
   defaultOption: title,
@@ -22,9 +21,11 @@ const SelectMenu = memo(function ({
   const isArabic = useSelector((state) => state.language.isArabic);
   const [defaultOption, setDefaultOption] = useState(title);
   const { id } = useParams();
-
+  const [event, setEvent] = useState({});
   const allEvents = useSelector((state) => state.events.allEvents);
-  const event = allEvents.find((e) => e.id === parseInt(id));
+  useEffect(() => {
+    if (id) setEvent(allEvents.find((e) => e.id === parseInt(id)));
+  }, [id, allEvents]);
 
   const [isOpen, setIsOpen] = useState(false);
   const { pathname } = useResolvedPath();
