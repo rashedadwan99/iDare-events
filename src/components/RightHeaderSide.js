@@ -82,10 +82,12 @@ function RightHeaderSide() {
           handleClick={(data) => handleClick(data)}
           event={event}
         />
-        {event && event.id && (
+        {event && event.id ? (
           <div className="event-button">
             <EventFormBtn event={event} />
           </div>
+        ) : (
+          <></>
         )}
 
         <LanguageSwitcher />

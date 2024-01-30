@@ -24,13 +24,17 @@ const EventFirstSection = memo(function ({ event }) {
             <EventInfo event={event} />
           </Col>
         </Row>
-        {event.id&&<Row className="justify-content-start align-items-center mt-3">
-          <Col xs={7} sm={4} md={6} lg={4}>
-            <Row>
-              <EventFormBtn event={event} />
-            </Row>
-          </Col>
-        </Row>}
+        {event.id ? (
+          <Row className="justify-content-start align-items-center mt-3">
+            <Col xs={7} sm={4} md={6} lg={4}>
+              <Row>
+                <EventFormBtn event={event} />
+              </Row>
+            </Col>
+          </Row>
+        ) : (
+          <></>
+        )}
       </Col>
     </Row>
   );
