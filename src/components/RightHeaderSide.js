@@ -29,7 +29,7 @@ function RightHeaderSide() {
     (state) => state.events.recommendedEvents
   );
   const { t } = useTranslation();
-  const isInMyEvents = myEvents.find((e) => e.event_id === id);
+  const isInMyEvents = myEvents.find((e) => e.id === id);
   const isAuth = useSelector((state) => state.user.isAuth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
