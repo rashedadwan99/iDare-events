@@ -15,12 +15,14 @@ import { registerPageRoute } from "../../routes";
 
 function EventFormBtn({ event }) {
   const navigate = useNavigate();
+
   const { pathname } = useResolvedPath();
   const myEvents = useSelector((state) => state.events.myEvents);
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const isInMyEvents = useRef();
   isInMyEvents.current = myEvents.find((e) => e.id === event.id);
+
   const handleOpenModal = (event) => {
     if (!getUserToken()) {
       const handleNavigate = () =>
@@ -31,7 +33,7 @@ function EventFormBtn({ event }) {
     dispatch(toggleOpenModal(<EventForm event={event} />, t("register-event")));
   };
 
-  return event.id && myEvents.length && !isInMyEvents.current ? (
+  return myEvents.length && !isInMyEvents.current ? (
     <CommonButton
       primaryStyle={handlePrimaryButtonStyle(event)}
       primaryStyleHover={handlePrimaryButtonStyleWhenHover(event)}

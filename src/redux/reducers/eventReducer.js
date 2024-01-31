@@ -32,15 +32,18 @@ export const eventsReducer = (state = initialState, action) => {
         upcomingEvents: sortData(action.payload, "start_time", "asc"),
         isLoading: false,
       };
-    case GET_MY_EVENTS:
+    case GET_MY_EVENTS: {
+      const myEvents = sortData(
+        state.allEvents.filter((item) => action.payload.includes(item.id)),
+        "start_time",
+        "asc"
+      );
+
       return {
         ...state,
-        myEvents: sortData(
-          action.payload.map((id) => state.allEvents[id]),
-          "start_time",
-          "asc"
-        ),
+        myEvents: [...myEvents],
       };
+    }
     case GET_RECOMMENDED_EVENTS:
       return {
         ...state,
