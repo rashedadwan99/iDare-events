@@ -33,7 +33,7 @@ function EventFormBtn({ event }) {
     dispatch(toggleOpenModal(<EventForm event={event} />, t("register-event")));
   };
 
-  return myEvents.length && !isInMyEvents.current ? (
+  return !isInMyEvents.current ? (
     <CommonButton
       primaryStyle={handlePrimaryButtonStyle(event)}
       primaryStyleHover={handlePrimaryButtonStyleWhenHover(event)}
