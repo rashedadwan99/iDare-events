@@ -173,7 +173,7 @@
 }
 
 .event-hover {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 300 !important;
 }
 
@@ -206,7 +206,7 @@
 }
 
 .event-room__description-text {
-  font-size: 14px;
+  font-size: 12px;
   text-align: center;
   margin-top: 10px;
 
@@ -235,7 +235,7 @@
 
 
 .organizer-description {
-  font-size: 14px;
+  font-size: 12px;
   padding-bottom: 8px;
 }
 
@@ -286,6 +286,7 @@
 
 .event-page-link {
   font-weight: 400;
+  font-size: 12px;
   cursor: pointer;
 }
 
@@ -299,7 +300,7 @@
 
 .event-header button.btn {
   border-radius: 50px;
-  font-size: 14px;
+  font-size: 12px;
   padding: 8px 19px;
   width: initial;
   margin-right: 5px;

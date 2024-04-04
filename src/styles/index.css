@@ -28,9 +28,7 @@
 }
 
 
-*::-webkit-scrollbar {
-  display: none;
-}
+
 
 .event-spinner {
   background-color: var(--light-gray);
