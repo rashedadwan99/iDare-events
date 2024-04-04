@@ -4,12 +4,11 @@ import { useSelector } from "react-redux";
 export const HandleTimeZone = (date) => {
   const isArabic = useSelector((state) => state.language.isArabic);
   moment.locale(isArabic ? "ar" : "en");
-  const timeZone = "UTC";
-  const utcTime = moment.utc(date);
 
-  const zonedTime = moment.tz(utcTime, timeZone).format();
+  const timeZone = "Asia/Amman";
+  const zonedTime = moment.tz(date, timeZone).utcOffset(date);
 
-  return moment(zonedTime).format("hh:mm a");
+  return zonedTime.format("hh:mm A");
 };
 export const HandleDate = (date) => {
   const isArabic = useSelector((state) => state.language.isArabic);

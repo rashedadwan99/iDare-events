@@ -11,6 +11,7 @@ export const registerUser = async (data) => {
     is_disabled,
     allergies,
     disability,
+    city_id,
   } = data;
   return http.get("/user/register", {
     params: {
@@ -24,6 +25,7 @@ export const registerUser = async (data) => {
       is_disabled,
       allergies,
       disability,
+      city_id,
     },
   });
 };

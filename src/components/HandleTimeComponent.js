@@ -5,7 +5,6 @@ import { HandleDate, HandleTimeZone } from "./utils/TimeZone";
 
 function HandleTimeComponent({ data }) {
   const { t } = useTranslation();
-
   return (
     <>
       <Col xs={12} sm={12}>
