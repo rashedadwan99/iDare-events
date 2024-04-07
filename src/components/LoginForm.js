@@ -31,13 +31,14 @@ const LoginForm = memo(function () {
     const { email, password } = data;
     if (!password || !email) return Toast("info", t("fill_all"));
     if (!emailPattern.test(email)) return Toast("info", t("email validation"));
-    setIsLoading(!isLoading);
+    setIsLoading(true);
 
     const { data: responseData } = await getToken(data);
     if (responseData.AZSVR === SUCCESS) {
       setToken(responseData.api_token);
 
-      setIsLoading(true);
+      setIsLoading(false);
+
       dispatch(toggleIsAuth(!isAuth));
 
       scrollToTop();

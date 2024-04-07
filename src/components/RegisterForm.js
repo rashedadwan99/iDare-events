@@ -102,12 +102,13 @@ const RegisterForm = memo(function () {
     if (!emailPattern.test(email)) return Toast("info", t("email validation"));
     if (!isNumber.test(phone) || !isNumber.test(national_number))
       return Toast("info", t("number validation"));
-    setIsLoading(!isLoading);
+
+    setIsLoading(true);
 
     const { data: responseData } = await registerUser(data);
     if (responseData.AZSVR === SUCCESS) {
       setToken(responseData.api_token);
-      setIsLoading(true);
+      setIsLoading(false);
       Toast("success", t("account_created"));
       dispatch(toggleIsAuth(!isAuth));
       scrollToTop();
