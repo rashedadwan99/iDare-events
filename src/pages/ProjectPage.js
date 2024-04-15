@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom/dist";
 import Header from "../components/Header";
-import { Row } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import AllEvents from "../components/AllEvents";
 import NotFound from "./NotFound";
 import { useTranslation } from "react-i18next";
@@ -26,17 +26,15 @@ function ProjectPage() {
           <h5>
             <Writer sentence={project.name ? project.name : ""} />
           </h5>
-          <div className="project-desc">
-            <DomParser
-              htmlResponse={
-                isArabic
-                  ? project.long_description_ar
-                  : project.long_description
-              }
-            />
-          </div>
         </AosContainer>
       </Row>
+      <Col xs={11} sm={11}>
+        <DomParser
+          htmlResponse={
+            isArabic ? project.long_description_ar : project.long_description
+          }
+        />
+      </Col>
       <AllEvents title={t("events")} events={project.Events} />;
     </>
   );
