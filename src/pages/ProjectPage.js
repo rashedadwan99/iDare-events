@@ -10,6 +10,7 @@ import AnimatedIcons from "../components/common/AnimatedIcons";
 import AosContainer from "../components/common/Aos";
 import Writer from "../components/common/Writer";
 import DomParser from "../components/common/DomParser";
+import { sortData } from "../components/utils/sort";
 function ProjectPage() {
   const projects = useSelector((state) => state.projects.value);
   const { t } = useTranslation();
@@ -43,7 +44,11 @@ function ProjectPage() {
       ) : (
         <></>
       )}
-      <AllEvents title={t("events")} events={project.Events} />;
+      <AllEvents
+        title={t("events")}
+        events={sortData(project.Events, "start_time", "asc")}
+      />
+      ;
     </>
   );
 }
