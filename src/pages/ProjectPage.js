@@ -28,13 +28,21 @@ function ProjectPage() {
           </h5>
         </AosContainer>
       </Row>
-      <Col xs={11} sm={11}>
-        <DomParser
-          htmlResponse={
-            isArabic ? project.long_description_ar : project.long_description
-          }
-        />
-      </Col>
+      {project.long_description_ar || project.long_description ? (
+        <Row className="justify-content-center my-2">
+          <Col xs={11} sm={11}>
+            <DomParser
+              htmlResponse={
+                isArabic
+                  ? project.long_description_ar
+                  : project.long_description
+              }
+            />
+          </Col>
+        </Row>
+      ) : (
+        <></>
+      )}
       <AllEvents title={t("events")} events={project.Events} />;
     </>
   );
