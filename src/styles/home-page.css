@@ -69,6 +69,11 @@
   font-weight: bold;
 }
 
+.project-desc {
+  text-align: center;
+  font-size: 15px;
+}
+
 .event-card p {
   font-size: 12px;
 }

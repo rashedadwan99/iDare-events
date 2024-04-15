@@ -14,6 +14,7 @@ import {
   notfoundPageRoute,
   recommendedEventPageRoute,
   registerPageRoute,
+  singleProjectRoute,
 } from "./routes";
 import HomePage from "./pages/HomePage";
 import AuthPage from "./pages/AuthPage";
@@ -44,6 +45,8 @@ import EventPage from "./pages/EventPage";
 import ForgetPasswordForm from "./components/ForgetPasswordForm";
 import GalleryImages from "./components/GalleryImages";
 import GalleryVideos from "./components/GalleryVideos";
+import { getProjectAction } from "./redux/actions/projectAction";
+import ProjectPage from "./pages/ProjectPage";
 const App = () => {
   const dispatch = useDispatch();
   const userToken = getUserToken();
@@ -59,6 +62,7 @@ const App = () => {
   }, [dispatch, userToken]);
   useEffect(() => {
     dispatch(getUpcomingEventsAction());
+    dispatch(getProjectAction());
     if (userToken) {
       dispatch(getRecommendedEventAction());
     }
@@ -78,6 +82,7 @@ const App = () => {
       <Routes>
         <Route path={homePageRoute} element={<PagesContainer />}>
           <Route path={homePageRoute} element={<HomePage />} />
+          <Route path={singleProjectRoute} element={<ProjectPage />} />
           <Route path={eventPageRoute + "/:id"} element={<EventPage />}>
             <Route path={eventPageRoute + "/:id"} element={<EventHome />} />
             <Route

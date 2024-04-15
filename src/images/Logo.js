@@ -18,6 +18,7 @@ function Logo({ ...rest }) {
     navigate(event ? eventPageRoute + `/${event.id}` : homePageRoute);
     smoothScrolling();
   };
+
   return (
     <Image
       fluid

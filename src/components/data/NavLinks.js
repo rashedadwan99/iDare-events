@@ -3,6 +3,7 @@ import {
   homePageRoute,
   loginPageRoute,
   myEventPageRoute,
+  projectRoute,
   recommendedEventPageRoute,
 } from "../../routes";
 import { getEventPageLinks } from "./eventPageLinks";
@@ -16,11 +17,30 @@ export const GetNavLinks = (
   recommendedEvents
 ) => {
   const isAuth = useSelector((state) => state.user.isAuth);
+  const Projects = useSelector((state) => state.projects.value);
   const { t } = useTranslation();
+  const handleLabel = (label) => {
+    if (label.length >= 30) {
+      return `${label.slice(0, 30)} ..`;
+    }
+    return label;
+  };
+  const dropDownList = Projects.map((p) => {
+    return {
+      label: handleLabel(p.name),
+      label_ar: handleLabel(p.name),
+      path: projectRoute + `/${p.id}`,
+    };
+  });
   let links = [
     {
       label: t("home"),
       path: homePageRoute,
+    },
+    {
+      label: t("projects"),
+      isDropDown: true,
+      dropDownList: dropDownList,
     },
   ];
   if (eventId) {
