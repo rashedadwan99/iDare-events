@@ -1,0 +1,23 @@
+.details-container {
+  border: 2px solid var(--light-gray);
+  border-radius: 10px;
+}
+
+.data-title {
+  color: var(--primary-font-color);
+  font-weight: bold;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 10px;
+}
+
+@media (max-width:768px) {
+  .grid-container {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+  }
+}
