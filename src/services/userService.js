@@ -36,6 +36,7 @@ export const getToken = (data) => {
     params: { email, password },
   });
 };
+
 export const resetPassword = (data) => {
   const { phone, national_number, new_password } = data;
   return http.get("/user/resetPassword", {
@@ -53,4 +54,17 @@ export const getUserToken = () => {
 
 export const logout = () => {
   localStorage.removeItem("api_token");
+};
+export const getProfile = () => {
+  return http.get("/user/getProfile", {
+    params: {
+      api_token: getUserToken(),
+    },
+  });
+};
+export const updateProfile = (data) => {
+  return http.get("/user/updateProfile", {
+    api_token: getUserToken(),
+    ...data,
+  });
 };

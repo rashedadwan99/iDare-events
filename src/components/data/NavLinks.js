@@ -3,6 +3,7 @@ import {
   homePageRoute,
   loginPageRoute,
   myEventPageRoute,
+  profileRoute,
   projectRoute,
   recommendedEventPageRoute,
 } from "../../routes";
@@ -37,6 +38,7 @@ export const GetNavLinks = (
       label: t("home"),
       path: homePageRoute,
     },
+
     {
       label: t("projects"),
       isDropDown: true,
@@ -47,6 +49,13 @@ export const GetNavLinks = (
     links = [...links, ...getEventPageLinks(eventId, event, t)];
   }
   if (isAuth) {
+    links = [
+      ...links,
+      {
+        label: t("profile"),
+        path: profileRoute,
+      },
+    ];
     if (myEvents.length) {
       links = [
         ...links,

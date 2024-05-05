@@ -12,6 +12,7 @@ import {
   loginPageRoute,
   myEventPageRoute,
   notfoundPageRoute,
+  profileRoute,
   recommendedEventPageRoute,
   registerPageRoute,
   singleProjectRoute,
@@ -30,7 +31,7 @@ import {
 
 import { language } from "./locales/language";
 import { getUserToken } from "./services/userService";
-import { toggleIsAuth } from "./redux/actions/userActions";
+import { getProfileAction, toggleIsAuth } from "./redux/actions/userActions";
 import Speakers from "./pages/Speakers";
 import Gallery from "./pages/Gallery";
 import EventHome from "./components/EventHome";
@@ -47,11 +48,11 @@ import GalleryImages from "./components/GalleryImages";
 import GalleryVideos from "./components/GalleryVideos";
 import { getProjectAction } from "./redux/actions/projectAction";
 import ProjectPage from "./pages/ProjectPage";
+import ProfilePage from "./pages/ProfilePage";
 const App = () => {
   const dispatch = useDispatch();
   const userToken = getUserToken();
   const isAuth = useSelector((state) => state.user.isAuth);
-  const allEvents = useSelector((state) => state.events.allEvents);
   useEffect(() => {
     document.documentElement.lang = language();
     if (userToken) {
@@ -64,14 +65,12 @@ const App = () => {
     dispatch(getUpcomingEventsAction());
     dispatch(getProjectAction());
     if (userToken) {
+      dispatch(getProfileAction());
       dispatch(getRecommendedEventAction());
-    }
-  }, [userToken, dispatch]);
-  useEffect(() => {
-    if (userToken && allEvents.length >= 1) {
       dispatch(getMyEventsAction());
     }
-  }, [userToken, allEvents, dispatch]);
+  }, [userToken, dispatch]);
+
   const location = useLocation();
   return (
     <Container fluid id="App" className="App">
@@ -98,6 +97,12 @@ const App = () => {
               element={<EventExtraPage />}
             />
           </Route>
+          <Route
+            path={profileRoute}
+            element={
+              isAuth ? <ProfilePage /> : <Navigate to={homePageRoute} replace />
+            }
+          />
           <Route
             path={authPageRoute}
             element={

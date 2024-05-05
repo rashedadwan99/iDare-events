@@ -75,14 +75,20 @@
 
 }
 
-.dropdown-menu {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+.dropdown-menu::-webkit-scrollbar {
+  display: block !important;
+  width: 8px !important;
 }
 
-.dropdown-menu::-webkit-scrollbar {
-  width: 0;
-  height: 0;
+.dropdown-menu::-webkit-scrollbar-thumb {
+  background-color: var(--gray);
+
+  border-radius: 10px;
+}
+
+
+.dropdown-menu::-webkit-scrollbar-track {
+  overflow: hidden !important;
 }
 
 .dropdown-menu.show {

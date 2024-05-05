@@ -8,6 +8,7 @@ export const galleryImages = "/events/:id/gallery/images";
 export const galleryVideos = "/events/:id/gallery/videos";
 export const projectRoute = "/projects";
 export const singleProjectRoute = "/projects/:pid";
+export const profileRoute = "/profile";
 export const myEventPageRoute = "/my-events";
 export const recommendedEventPageRoute = "/recommended-events";
 export const loginPageRoute = "/auth/login";
