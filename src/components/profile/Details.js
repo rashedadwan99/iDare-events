@@ -9,7 +9,14 @@ function Details() {
   if (user.gender.name)
     return (
       <Row className="justify-content-center my-4">
-        <Col xs={11} sm={10} md={8} lg={6} className="details-container py-3">
+        <Col
+          xs={11}
+          sm={10}
+          md={8}
+          lg={6}
+          className={`details-container py-3${isArabic ? " ar" : ""}`}
+          style={isArabic ? { direction: "rtl" } : {}}
+        >
           <div className="grid-container">
             <div>
               <span className="data-title">{t("name")}</span>
