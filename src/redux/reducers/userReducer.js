@@ -1,5 +1,5 @@
 import { getUserToken } from "../../services/userService";
-import { GET_PROFILE, TOGGLE_AUTH } from "../actions/userActions";
+import { GET_PROFILE, RESET_USER, TOGGLE_AUTH } from "../actions/userActions";
 
 const initialState = {
   isAuth: getUserToken(),
@@ -13,6 +13,8 @@ export const userReducer = (state = initialState, action) => {
       return { ...state, isAuth: action.payload };
     case GET_PROFILE:
       return { ...state, value: action.payload };
+    case RESET_USER:
+      return { ...state, value: {} };
     default:
       return state;
   }

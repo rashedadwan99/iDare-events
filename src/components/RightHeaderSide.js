@@ -13,7 +13,7 @@ import {
 import EventFormBtn from "./common/EventFormBtn";
 import LargeScreenNavbar from "./LargeScreenNavbar";
 import { logout } from "../services/userService";
-import { toggleIsAuth } from "../redux/actions/userActions";
+import { resetUser, toggleIsAuth } from "../redux/actions/userActions";
 import { homePageRoute } from "../routes";
 import { GetNavLinks } from "./data/NavLinks";
 import { resetEvents } from "../redux/actions/eventActions";
@@ -36,6 +36,7 @@ function RightHeaderSide() {
   const handleLogout = () => {
     logout();
     dispatch(toggleIsAuth(!isAuth));
+    dispatch(resetUser());
     dispatch(resetEvents());
 
     navigate(homePageRoute, { replace: true });

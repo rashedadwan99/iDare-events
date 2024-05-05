@@ -3,6 +3,7 @@ import { getProfile } from "../../services/userService";
 
 export const TOGGLE_AUTH = "TOGGLE_AUTH";
 export const GET_PROFILE = "GET_PROFILE";
+export const RESET_USER = "RESET_USER";
 
 export const toggleIsAuth = (isAuth) => {
   return { type: TOGGLE_AUTH, payload: isAuth };
@@ -17,4 +18,8 @@ export const getProfileAction = () => {
       } else return;
     } catch (error) {}
   };
+};
+
+export const resetUser = () => {
+  return { type: RESET_USER };
 };

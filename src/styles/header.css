@@ -78,6 +78,8 @@
 .dropdown-menu::-webkit-scrollbar {
   display: block !important;
   width: 8px !important;
+  background-color: var(--white);
+  border-radius: 10px;
 }
 
 .dropdown-menu::-webkit-scrollbar-thumb {
