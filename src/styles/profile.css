@@ -54,6 +54,22 @@
 
 }
 
+.edit-form {
+  background-color: var(--white);
+  border: 1px solid var(--light-gray);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 10px;
+}
+
+.edit-form label {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.edit-form .select-menu__options.open {
+  max-height: 200%;
+}
+
 @media (max-width:768px) {
   .grid-container {
     grid-template-columns: repeat(1, 1fr);

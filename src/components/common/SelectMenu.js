@@ -9,6 +9,7 @@ import {
   handleSelectHeaderMenu,
 } from "../../styles/eventStyles";
 import { memo } from "react";
+import { Form } from "react-bootstrap";
 const SelectMenu = memo(function ({
   defaultOption: title,
   options,
@@ -17,6 +18,7 @@ const SelectMenu = memo(function ({
   name,
   path,
   path2,
+  label,
 }) {
   const isArabic = useSelector((state) => state.language.isArabic);
   const [defaultOption, setDefaultOption] = useState(title);
@@ -49,6 +51,13 @@ const SelectMenu = memo(function ({
         className="select-menu"
         style={isArabic ? { direction: "ltr" } : { direction: "rtl" }}
       >
+        {label && (
+          <Form.Label
+            style={isArabic ? { textAlign: "right", width: "100%" } : {}}
+          >
+            {label}
+          </Form.Label>
+        )}
         <div
           className="select-menu__header"
           onClick={toggleMenu}

@@ -10,7 +10,13 @@ const Input = memo(function ({ label, icon, ...rest }) {
   };
   return (
     <>
-      {label && <Form.Label>{label}</Form.Label>}
+      {label && (
+        <Form.Label
+          style={isArabic ? { textAlign: "right", width: "100%" } : {}}
+        >
+          {label}
+        </Form.Label>
+      )}
       <InputGroup size="sm" className={`${icon ? "input-with-icon" : ""}`}>
         {icon && (
           <InputGroup.Text id="inputGroup-sizing-sm">{icon}</InputGroup.Text>

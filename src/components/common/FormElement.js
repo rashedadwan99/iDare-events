@@ -49,6 +49,7 @@ const FormElement = memo(function ({
         name={name}
         path2={path2}
         path={path}
+        label={label}
       />
     );
 
