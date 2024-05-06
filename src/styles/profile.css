@@ -19,6 +19,22 @@
   text-align: start;
 }
 
+.sec-title {
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.sec-title::after {
+  display: block;
+  content: "";
+  background-color: var(--black);
+  height: 5px;
+  width: 50%;
+  border-radius: 5px;
+  margin: 10px auto;
+}
+
 @media (max-width:768px) {
   .grid-container {
     grid-template-columns: repeat(1, 1fr);
