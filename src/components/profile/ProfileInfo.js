@@ -1,12 +1,19 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import CommonButton from "../common/Button";
+import { profileEditRoute } from "../../routes";
 function ProfileInfo() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const { value: user } = useSelector((state) => state.user);
   const { isArabic } = useSelector((state) => state.language);
+  const handleGoToProfileEdit = () => {
+    navigate(profileEditRoute);
+    window.scrollTo(0, 0);
+  };
   return (
     <>
       <Row className="justify-content-center my-4">
@@ -59,7 +66,7 @@ function ProfileInfo() {
       </Row>
       <Row className="justify-content-center">
         <Col xs={3} sm={3} md={3} lg={2}>
-          <CommonButton label={t("edit")} />
+          <CommonButton label={t("edit")} onClick={handleGoToProfileEdit} />
         </Col>
       </Row>
     </>

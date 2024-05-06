@@ -12,6 +12,7 @@ import {
   loginPageRoute,
   myEventPageRoute,
   notfoundPageRoute,
+  profileEditRoute,
   profileRoute,
   recommendedEventPageRoute,
   registerPageRoute,
@@ -49,6 +50,7 @@ import GalleryVideos from "./components/GalleryVideos";
 import { getProjectAction } from "./redux/actions/projectAction";
 import ProjectPage from "./pages/ProjectPage";
 import ProfilePage from "./pages/ProfilePage";
+import ProfileEdit from "./pages/ProfileEdit";
 const App = () => {
   const dispatch = useDispatch();
   const userToken = getUserToken();
@@ -101,6 +103,12 @@ const App = () => {
             path={profileRoute}
             element={
               isAuth ? <ProfilePage /> : <Navigate to={homePageRoute} replace />
+            }
+          />
+          <Route
+            path={profileEditRoute}
+            element={
+              isAuth ? <ProfileEdit /> : <Navigate to={homePageRoute} replace />
             }
           />
           <Route
