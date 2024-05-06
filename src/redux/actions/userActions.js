@@ -14,7 +14,10 @@ export const getProfileAction = () => {
     try {
       const { data } = await getProfile();
       if (data.AZSVR === SUCCESS) {
-        dispatch({ type: GET_PROFILE, payload: data.User });
+        dispatch({
+          type: GET_PROFILE,
+          payload: { user: data.User, badges: data.Badges },
+        });
       } else return;
     } catch (error) {}
   };

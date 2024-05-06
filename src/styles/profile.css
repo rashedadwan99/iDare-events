@@ -35,6 +35,25 @@
   margin: 10px auto;
 }
 
+.badges-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.badges-container img {
+  height: 50px;
+  width: 50px;
+}
+
+.badges-container p {
+  font-size: 14px;
+  font-weight: bold;
+
+}
+
 @media (max-width:768px) {
   .grid-container {
     grid-template-columns: repeat(1, 1fr);

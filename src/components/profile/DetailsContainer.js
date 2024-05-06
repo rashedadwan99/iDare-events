@@ -7,7 +7,7 @@ function DetailsContainer({ children, title }) {
 
   return (
     <>
-      <Row className="justify-content-center my-4">
+      <Row className="justify-content-center mt-4">
         <h3 className="sec-title">{t(title)}</h3>
       </Row>
       {children}
