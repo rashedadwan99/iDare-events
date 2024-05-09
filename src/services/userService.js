@@ -64,7 +64,9 @@ export const getProfile = () => {
 };
 export const updateProfile = (data) => {
   return http.get("/user/updateProfile", {
-    api_token: getUserToken(),
-    ...data,
+    params: {
+      api_token: getUserToken(),
+      ...data,
+    },
   });
 };

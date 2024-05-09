@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Col, Form, Row } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import FormElement from "../common/FormElement";
 import { useTranslation } from "react-i18next";
 import { Toast } from "../common/Toast";
@@ -8,14 +8,17 @@ import { SUCCESS } from "../../services/httpService";
 import { getCountries } from "../../services/countriesService";
 import { getCities } from "../../services/citiesService";
 import { genderOptions } from "../data/genders";
+import CommonButton from "../common/Button";
+import { setToken, updateProfile } from "../../services/userService";
+import { getProfileAction } from "../../redux/actions/userActions";
 
 function EditForm() {
   const { isArabic } = useSelector((state) => state.language);
+  const [isSending, setIsSending] = useState(false);
   const { value } = useSelector((state) => state.user);
   const [Countries, setCountries] = useState([]);
   const [cities, setCities] = useState([]);
   const [data, setData] = useState({
-    email: value.email,
     name: value.name,
     phone: value.phone,
     national_number: value.national_number,
@@ -40,6 +43,55 @@ function EditForm() {
     getCountriesAndCitiesHandler();
   }, []);
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const handleSave = async () => {
+    let isValidPass = true;
+    const {
+      name,
+      phone,
+      password,
+      gender_id,
+      national_number,
+      country_id,
+      city_id,
+    } = data;
+    if (
+      !name ||
+      !phone ||
+      !gender_id ||
+      !national_number ||
+      !country_id ||
+      !city_id
+    )
+      return Toast("info", t("fill_all"));
+    else {
+      if (password.length <= 7 && password.length > 0) {
+        isValidPass = false;
+        return Toast("info", t("password length"));
+      } else isValidPass = true;
+      if (isValidPass) {
+        try {
+          const { password, ...otherData } = data;
+          setIsSending(true);
+          const { data: updatedData } = await updateProfile(
+            password.length ? data : otherData
+          );
+          if (updatedData.AZSVR === SUCCESS) {
+            setToken(updatedData.api_token);
+            dispatch(getProfileAction());
+            Toast("info", t("profile-updated"));
+            setIsSending(false);
+          } else {
+            Toast("error", t("error_occoured"));
+            setIsSending(false);
+          }
+        } catch (error) {
+          Toast("error", t("error_occoured"));
+          setIsSending(false);
+        }
+      }
+    }
+  };
   return (
     <Row className="justify-content-center my-4">
       <Col xs={11} sm={10} md={6} lg={4}>
@@ -106,7 +158,7 @@ function EditForm() {
               />
             </Col>
           </Row>
-          <Row className="justify-content-center mb-5">
+          <Row className="justify-content-center">
             <Col xs={11} sm={11} md={10}>
               <FormElement
                 defaultOption={
@@ -119,6 +171,29 @@ function EditForm() {
                 setData={setData}
                 path="name"
                 element="select"
+              />
+            </Col>
+          </Row>
+          <Row className="justify-content-center mb-3">
+            <Col xs={11} sm={11} md={10}>
+              <FormElement
+                data={data}
+                setData={setData}
+                value={data.password}
+                name="password"
+                type="password"
+                label={t("password-change")}
+                placeholder={t("password")}
+              />
+            </Col>
+          </Row>
+          <Row className="justify-content-center mb-3">
+            <Col xs={11} sm={10}>
+              <CommonButton
+                element="button"
+                label={t("save")}
+                onClick={handleSave}
+                disabled={isSending}
               />
             </Col>
           </Row>

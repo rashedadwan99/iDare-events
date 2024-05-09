@@ -68,6 +68,8 @@
   "profile": "Profile",
   "profile-info": "Profile Information",
   "badges": "earned badges",
+  "password-change": "If you do not want to change your password, leave it blank",
+  "profile-updated": "The profile information is updated successfully",
   "edit": "edit",
   "no-badges": "attend more events to get badges",
   "end": "End",
