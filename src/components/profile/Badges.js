@@ -13,7 +13,7 @@ function Badges() {
           {badges.length ? (
             badges.map((b) => {
               return (
-                <Image src={getImageSrc(b.image)} className="my-3" key={b.id} />
+                <Image src={getImageSrc(b.image)} className="m-3" key={b.id} />
               );
             })
           ) : (
