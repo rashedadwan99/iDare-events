@@ -55,7 +55,7 @@ function PImage() {
     <Row className="my-3">
       <Col>
         <div className="pimage-container">
-          <Image src={value.image ?? getImageSrc(value.image) ?? User} />
+          <Image src={value.image ? getImageSrc(value.image) : User} />
 
           <div className="pimage-picker">
             <FaCamera />
