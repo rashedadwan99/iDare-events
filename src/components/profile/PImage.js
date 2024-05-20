@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Col, Image, Row } from "react-bootstrap";
 import { FaCamera } from "react-icons/fa6";
-import Input from "../common/Input";
 import User from "../../images/user.png";
 import { useDispatch, useSelector } from "react-redux";
 import imageCompression from "browser-image-compression";

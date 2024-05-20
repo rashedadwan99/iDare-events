@@ -29,7 +29,7 @@ export const GetNavLinks = (
   const dropDownList = Projects.map((p) => {
     return {
       label: handleLabel(p.name),
-      label_ar: handleLabel(p.name),
+      label_ar: handleLabel(p.name_ar),
       path: projectRoute + `/${p.id}`,
     };
   });

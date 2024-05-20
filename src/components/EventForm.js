@@ -60,7 +60,6 @@ const EventForm = memo(function ({ event }) {
       dispatch(getMyEventsAction());
       dispatch(toggleOpenModal());
       setIsSendingRequest(false);
-
       return Toast("info", t("event-register"));
     } else {
       setIsSendingRequest(false);

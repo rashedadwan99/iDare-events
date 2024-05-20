@@ -9,11 +9,17 @@
 
 
 .event-form .select-menu__header,
-.event-form .common-input {
-  border: 0 !important;
+.event-form .common-input,
+.event-form textarea,
+.event-form .no-auto-bg:-webkit-autofill {
+  border: 1px solid var(--disabled-color) !important;
 
   color: var(--black);
   background-color: var(--disabled-color) !important;
+}
+
+.event-form .no-auto-bg:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 0 red !important
 }
 
 .event-form .common-input::placeholder {
