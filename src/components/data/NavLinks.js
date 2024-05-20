@@ -21,10 +21,12 @@ export const GetNavLinks = (
   const Projects = useSelector((state) => state.projects.value);
   const { t } = useTranslation();
   const handleLabel = (label) => {
-    if (label.length >= 30) {
-      return `${label.slice(0, 30)} ..`;
+    if (label) {
+      if (label.length >= 30) {
+        return `${label.slice(0, 30)} ..`;
+      }
+      return label;
     }
-    return label;
   };
   const dropDownList = Projects.map((p) => {
     return {
