@@ -1,7 +1,7 @@
-import React, { useRef } from "react";
+import React from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useResolvedPath } from "react-router-dom";
+import { useNavigate, useParams, useResolvedPath } from "react-router-dom";
 import CommonButton from "./Button";
 import { getUserToken } from "../../services/userService";
 import {
@@ -17,11 +17,11 @@ function EventFormBtn({ event }) {
   const navigate = useNavigate();
 
   const { pathname } = useResolvedPath();
+  const { id } = useParams();
   const myEvents = useSelector((state) => state.events.myEvents);
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const isInMyEvents = useRef();
-  isInMyEvents.current = myEvents.find((e) => e.id === event.id);
+  const isInMyEvents = myEvents.find((e) => e.id === parseInt(id));
 
   const handleOpenModal = (event) => {
     if (!getUserToken()) {
@@ -29,11 +29,11 @@ function EventFormBtn({ event }) {
         navigate(registerPageRoute, { state: pathname });
       return Toast("info", t("login_first"), 10000, handleNavigate);
     }
-    if (isInMyEvents.current) return;
+    if (isInMyEvents) return;
     dispatch(toggleOpenModal(<EventForm event={event} />, t("register-event")));
   };
 
-  return !isInMyEvents.current ? (
+  return !isInMyEvents ? (
     <CommonButton
       primaryStyle={handlePrimaryButtonStyle(event)}
       primaryStyleHover={handlePrimaryButtonStyleWhenHover(event)}

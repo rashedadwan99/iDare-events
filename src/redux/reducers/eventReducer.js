@@ -30,6 +30,10 @@ export const eventsReducer = (state = initialState, action) => {
         ...state,
         allEvents: sortData(action.payload, "start_time", "asc"),
         upcomingEvents: sortData(action.payload, "start_time", "asc"),
+      };
+    case TOGGLE_LOADING:
+      return {
+        ...state,
         isLoading: false,
       };
     case GET_MY_EVENTS: {
@@ -55,11 +59,6 @@ export const eventsReducer = (state = initialState, action) => {
         recommendedEvents: sortData(action.payload, "start_time", "asc"),
       };
 
-    case TOGGLE_LOADING:
-      return {
-        ...state,
-        isLoading: true,
-      };
     case RESET_MY_EVENTS:
       return { ...state, myEvents: [], recommendedEvents: [] };
     default:

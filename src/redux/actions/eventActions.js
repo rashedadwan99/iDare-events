@@ -4,6 +4,7 @@ import {
   getRecommendedEvents,
 } from "../../services/eventsService";
 import { FAILED, SUCCESS } from "../../services/httpService";
+import { getUserToken } from "../../services/userService";
 
 export const GET_UPCOMING_EVENTS = "GET_UPCOMING_EVENTS";
 export const GET_MY_EVENTS = "GET_MY_EVENTS";
@@ -18,9 +19,13 @@ export const GetEventMedia = (media) => {
 export const getUpcomingEventsAction = () => {
   return async (dispatch) => {
     const { data } = await getUpcomingEvents();
-    if (data.AZSVR === SUCCESS)
+    if (getUserToken()) {
+      dispatch(getMyEventsAction());
+    }
+    if (data.AZSVR === SUCCESS) {
       dispatch({ type: GET_UPCOMING_EVENTS, payload: data.Events });
-    else if (data.AZSVR === FAILED) return;
+      dispatch({ type: TOGGLE_LOADING });
+    } else if (data.AZSVR === FAILED) return;
   };
 };
 export const getMyEventsAction = () => {

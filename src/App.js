@@ -69,7 +69,6 @@ const App = () => {
     if (userToken) {
       dispatch(getProfileAction());
       dispatch(getRecommendedEventAction());
-      dispatch(getMyEventsAction());
     }
   }, [userToken, dispatch]);
 
