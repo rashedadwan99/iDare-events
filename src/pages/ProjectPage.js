@@ -25,7 +25,7 @@ function ProjectPage() {
         <AnimatedIcons />
         <AosContainer style={{ margin: "auto 0" }}>
           <h5>
-            <Writer sentence={project.name ? project.name : ""} />
+            <Writer sentence={isArabic ? project.name_ar : project.name} />
           </h5>
         </AosContainer>
       </Row>

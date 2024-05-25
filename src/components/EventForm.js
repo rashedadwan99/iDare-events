@@ -57,9 +57,9 @@ const EventForm = memo(function ({ event }) {
     setIsSendingRequest(true);
     const { data } = await registerEvent(allData);
     if (data.AZSVR === SUCCESS) {
+      setIsSendingRequest(false);
       dispatch(getMyEventsAction());
       dispatch(toggleOpenModal());
-      setIsSendingRequest(false);
       return Toast("info", t("event-register"));
     } else {
       setIsSendingRequest(false);
