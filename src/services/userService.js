@@ -1,32 +1,7 @@
 import { http } from "./httpService";
 export const registerUser = async (data) => {
-  const {
-    email,
-    name,
-    phone,
-    password,
-    gender_id,
-    national_number,
-    country_id,
-    is_disabled,
-    allergies,
-    disability,
-    city_id,
-  } = data;
   return http.get("/user/register", {
-    params: {
-      email,
-      name,
-      phone,
-      password,
-      gender_id,
-      country_id,
-      national_number,
-      is_disabled,
-      allergies,
-      disability,
-      city_id,
-    },
+    params: data,
   });
 };
 

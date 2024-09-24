@@ -36,6 +36,7 @@ const RegisterForm = memo(function () {
     allergies: "",
     disability: "",
     is_disabled: "",
+    birthdate: "",
   });
   const isArabic = useSelector((state) => state.language.isArabic);
   useEffect(() => {
@@ -67,6 +68,7 @@ const RegisterForm = memo(function () {
       city_id: "",
       allergies: "",
       disability: "",
+      birthdate: "",
     });
   }, [isSwitched]);
   const [isLoading, setIsLoading] = useState(false);
@@ -83,6 +85,7 @@ const RegisterForm = memo(function () {
       city_id,
       allergies,
       disability,
+      birthdate,
     } = data;
     if (
       !name ||
@@ -94,7 +97,8 @@ const RegisterForm = memo(function () {
       !email ||
       !city_id ||
       !allergies ||
-      !disability
+      !disability ||
+      !birthdate
     )
       return Toast("info", t("fill_all"));
 
@@ -122,7 +126,6 @@ const RegisterForm = memo(function () {
     navigate(loginPageRoute, { state: location.state });
     scrollToTop();
   };
-
   return (
     <Col>
       <Row className="justify-content-center mb-4">
@@ -145,6 +148,17 @@ const RegisterForm = memo(function () {
             value={data.email}
             name="email"
             placeholder={t("email")}
+          />
+        </Row>
+        <Row className="justify-content-center mb-2">
+          <FormElement
+            data={data}
+            type="date"
+            setData={setData}
+            value={data.birthdate}
+            name="birthdate"
+            placeholder={t("birthdate")}
+            max={new Date()}
           />
         </Row>
         <Row className="justify-content-center mb-2">
@@ -207,6 +221,17 @@ const RegisterForm = memo(function () {
               element="select"
             />
           </Col>
+          <Col>
+            <FormElement
+              name="gender_id"
+              defaultOption={t("gender")}
+              options={genderOptions(t)}
+              data={data}
+              setData={setData}
+              path="name"
+              element="select"
+            />
+          </Col>
         </Row>
 
         <Row className="justify-content-center mb-2">
@@ -218,17 +243,6 @@ const RegisterForm = memo(function () {
               data={data}
               setData={setData}
               path={isArabic ? "name_ar" : "name"}
-              element="select"
-            />
-          </Col>
-          <Col>
-            <FormElement
-              name="gender_id"
-              defaultOption={t("gender")}
-              options={genderOptions(t)}
-              data={data}
-              setData={setData}
-              path="name"
               element="select"
             />
           </Col>

@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { memo } from "react";
 import { Form, InputGroup } from "react-bootstrap";
 
-const Input = memo(function ({ label, icon, ...rest }) {
+const Input = memo(function ({ label, icon, placeholder, ...rest }) {
   const isArabic = useSelector((state) => state.language.isArabic);
   const style = {
     direction: !isArabic ? "ltr" : "rtl",
@@ -17,7 +17,12 @@ const Input = memo(function ({ label, icon, ...rest }) {
           {label}
         </Form.Label>
       )}
-      <InputGroup size="sm" className={`${icon ? "input-with-icon" : ""}`}>
+      <InputGroup
+        size="sm"
+        className={`${icon ? "input-with-icon" : ""} ${
+          isArabic ? "input-ar" : ""
+        }`}
+      >
         {icon && (
           <InputGroup.Text id="inputGroup-sizing-sm">{icon}</InputGroup.Text>
         )}
@@ -26,6 +31,7 @@ const Input = memo(function ({ label, icon, ...rest }) {
           className="common-input no-auto-bg"
           autoComplete="true"
           style={style}
+          placeholder={placeholder}
         />
       </InputGroup>
     </>

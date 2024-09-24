@@ -28,6 +28,7 @@ function EditForm() {
     gender_id: value.gender_id,
     country_id: value.country_id,
     city_id: value.city_id,
+    birthdate: value.birthdate,
   });
   useEffect(() => {
     const getCountriesAndCitiesHandler = async () => {
@@ -61,6 +62,7 @@ function EditForm() {
       national_number,
       country_id,
       city_id,
+      birthdate,
     } = data;
     if (
       !name ||
@@ -68,7 +70,8 @@ function EditForm() {
       !gender_id ||
       !national_number ||
       !country_id ||
-      !city_id
+      !city_id ||
+      !birthdate
     )
       return Toast("info", t("fill_all"));
     else {
@@ -120,6 +123,19 @@ function EditForm() {
                 />
               </Col>
             </Row>
+            <Row className="justify-content-center my-2">
+              <Col xs={11} sm={11}>
+                <FormElement
+                  data={data}
+                  type="date"
+                  setData={setData}
+                  value={data.birthdate}
+                  label={t("birthdate")}
+                  name="birthdate"
+                  max={new Date()}
+                />
+              </Col>
+            </Row>
 
             <Row className="justify-content-center my-2">
               <Col xs={11} sm={11}>
@@ -160,22 +176,6 @@ function EditForm() {
               </Col>
               <Col xs={11} sm={11} md={5}>
                 <FormElement
-                  name="city_id"
-                  defaultOption={
-                    isArabic ? value.city.name_ar : value.city.name
-                  }
-                  options={cities}
-                  data={data}
-                  setData={setData}
-                  path={isArabic ? "name_ar" : "name"}
-                  element="select"
-                  label={t("City")}
-                />
-              </Col>
-            </Row>
-            <Row className="justify-content-center">
-              <Col xs={11} sm={11} md={10}>
-                <FormElement
                   defaultOption={
                     isArabic ? value.gender.name_ar : value.gender.name
                   }
@@ -186,6 +186,22 @@ function EditForm() {
                   setData={setData}
                   path="name"
                   element="select"
+                />
+              </Col>
+            </Row>
+            <Row className="justify-content-center">
+              <Col xs={11} sm={11} md={10}>
+                <FormElement
+                  name="city_id"
+                  defaultOption={
+                    isArabic ? value.city.name_ar : value.city.name
+                  }
+                  options={cities}
+                  data={data}
+                  setData={setData}
+                  path={isArabic ? "name_ar" : "name"}
+                  element="select"
+                  label={t("City")}
                 />
               </Col>
             </Row>

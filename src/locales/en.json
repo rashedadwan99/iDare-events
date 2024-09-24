@@ -80,9 +80,10 @@
   "sepcial_needs": "Mention Any Special Needs",
   "new_password": "New Password",
   "event-register-failed": "The Registration In The Event is Failed",
-  "City": "Current City",
+  "City": "The City you live In",
   "error_occoured": "an error has occoured",
   "recommended-events": "Recommended Events",
+  "birthdate": "Birth Date",
   "premium": "Paid",
   "projects": "Projects",
   "more": "more"

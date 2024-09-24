@@ -37,6 +37,11 @@ function ProfileInfo() {
               <span>{user.email}</span>
             </div>
             <div>
+              <span className="data-title">{t("birthdate")}</span>
+              <br />
+              <span>{user.birthdate}</span>
+            </div>
+            <div>
               <span className="data-title">{t("phone")}</span>
               <br />
               <span>{user.phone}</span>
