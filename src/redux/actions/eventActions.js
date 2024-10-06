@@ -34,7 +34,7 @@ export const getMyEventsAction = () => {
     if (data.AZSVR === SUCCESS)
       dispatch({
         type: GET_MY_EVENTS,
-        payload: data.EventRegisters.map((e) => e.event_id),
+        payload: data.EventRegisters.map((e) => e.event),
       });
     else if (data.AZSVR === FAILED) return;
   };

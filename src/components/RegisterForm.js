@@ -67,6 +67,7 @@ const RegisterForm = memo(function () {
       country_id: "",
       city_id: "",
       allergies: "",
+      has_disability: "",
       disability: "",
       birthdate: "",
     });
@@ -84,6 +85,7 @@ const RegisterForm = memo(function () {
       country_id,
       city_id,
       allergies,
+      has_disability,
       disability,
       birthdate,
     } = data;
@@ -98,7 +100,8 @@ const RegisterForm = memo(function () {
       !city_id ||
       !allergies ||
       !disability ||
-      !birthdate
+      !birthdate ||
+      !has_disability
     )
       return Toast("info", t("fill_all"));
 
@@ -126,13 +129,17 @@ const RegisterForm = memo(function () {
     navigate(loginPageRoute, { state: location.state });
     scrollToTop();
   };
+  const hasDisabilityOptions = [
+    { value: 1, name: "yes", name_ar: "نعم" },
+    { value: 0, name: "no", name_ar: "لا" },
+  ];
   return (
     <Col>
       <Row className="justify-content-center mb-4">
         <h3>{t("register")}</h3>
       </Row>
       <Form>
-        <Row className="justify-content-center mb-2">
+        <Row className="justify-content-center mb-3">
           <FormElement
             data={data}
             setData={setData}
@@ -141,7 +148,7 @@ const RegisterForm = memo(function () {
             placeholder={t("name")}
           />
         </Row>
-        <Row className="justify-content-center mb-2">
+        <Row className="justify-content-center mb-3">
           <FormElement
             data={data}
             setData={setData}
@@ -150,7 +157,7 @@ const RegisterForm = memo(function () {
             placeholder={t("email")}
           />
         </Row>
-        <Row className="justify-content-center mb-2">
+        <Row className="justify-content-center mb-3">
           <FormElement
             data={data}
             type="date"
@@ -161,7 +168,7 @@ const RegisterForm = memo(function () {
             max={new Date()}
           />
         </Row>
-        <Row className="justify-content-center mb-2">
+        <Row className="justify-content-center mb-3">
           <FormElement
             data={data}
             setData={setData}
@@ -171,7 +178,7 @@ const RegisterForm = memo(function () {
             placeholder={t("password")}
           />
         </Row>
-        <Row className="justify-content-center mb-2">
+        <Row className="justify-content-center mb-3">
           <FormElement
             data={data}
             setData={setData}
@@ -181,7 +188,7 @@ const RegisterForm = memo(function () {
             placeholder={t("phone")}
           />
         </Row>
-        <Row className="justify-content-center mb-2">
+        <Row className="justify-content-center mb-3">
           <FormElement
             data={data}
             setData={setData}
@@ -191,7 +198,7 @@ const RegisterForm = memo(function () {
             placeholder={t("national_number")}
           />
         </Row>
-        <Row className="justify-content-center mb-2">
+        <Row className="justify-content-center mb-3">
           <FormElement
             name="allergies"
             value={data.allergies}
@@ -200,7 +207,18 @@ const RegisterForm = memo(function () {
             setData={setData}
           />
         </Row>
-        <Row className="justify-content-center mb-2">
+        <Row className="justify-content-center mb-3">
+          <FormElement
+            name="has_disability"
+            defaultOption={t("disability")}
+            options={hasDisabilityOptions}
+            data={data}
+            setData={setData}
+            path={isArabic ? "name_ar" : "name"}
+            element="select"
+          />
+        </Row>
+        <Row className="justify-content-center mb-3">
           <FormElement
             name="disability"
             value={data.disability}
@@ -209,7 +227,7 @@ const RegisterForm = memo(function () {
             setData={setData}
           />
         </Row>
-        <Row className="justify-content-center mb-2">
+        <Row className="justify-content-center mb-3">
           <Col>
             <FormElement
               name="country_id"
@@ -234,7 +252,7 @@ const RegisterForm = memo(function () {
           </Col>
         </Row>
 
-        <Row className="justify-content-center mb-2">
+        <Row className="justify-content-center mb-3">
           <Col>
             <FormElement
               name="city_id"

@@ -32,7 +32,7 @@ const EventForm = memo(function ({ event }) {
     });
     setDaynamicData(obj);
   }, [event.additional_fields]);
-
+  console.log(daynamicData);
   const handleSubmit = async () => {
     if (!staticData.ticket_type_id) {
       return Toast("info", t("fill_required"));

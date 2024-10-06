@@ -37,11 +37,7 @@ export const eventsReducer = (state = initialState, action) => {
         isLoading: false,
       };
     case GET_MY_EVENTS: {
-      const myEvents = sortData(
-        state.allEvents.filter((item) => action.payload.includes(item.id)),
-        "start_time",
-        "asc"
-      );
+      const myEvents = sortData(action.payload, "start_time", "asc");
 
       return {
         ...state,

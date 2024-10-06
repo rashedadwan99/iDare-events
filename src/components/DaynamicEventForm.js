@@ -28,7 +28,7 @@ const DaynamicEventForm = memo(function ({ event, data, setData }) {
               defaultOption={isArabic ? a.label_ar : a.label}
               options={a.options}
               path={isArabic ? "name_ar" : "name"}
-              name="name"
+              name={`${a.name}`}
               data={data}
               setData={setData}
             />

@@ -43,6 +43,7 @@
   "password_is_updated": "تم تغيير كلمة المرور بنجاح، الرجاء تسجيل الدخول",
   "password_isn't_updated": "تعذر تغيير كلمة المرور",
   "birthdate": "تاريخ الميلاد",
+  "disability": "هل أنت من ذوي الاحتياجات الخاصة ؟",
   "change_password_form": "تغيير كلمة المرور",
   "forget password ?": "نسيت كلمة المرور ؟",
   "my_events": "الرئيسية",

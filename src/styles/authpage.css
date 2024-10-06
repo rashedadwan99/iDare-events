@@ -12,6 +12,9 @@
 }
 
 
+.auth-forms .clickoutside-container {
+  width: 100%;
+}
 
 .auth-forms .select-menu .select-menu__header span {
   font-size: 10px !important;

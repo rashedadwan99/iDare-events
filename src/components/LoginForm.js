@@ -61,7 +61,7 @@ const LoginForm = memo(function () {
         <h3>{t("login")}</h3>
       </Row>
       <Form>
-        <Row className="justify-content-center mb-2">
+        <Row className="justify-content-center mb-3">
           <Col>
             <FormElement
               data={data}
@@ -72,7 +72,7 @@ const LoginForm = memo(function () {
             />
           </Col>
         </Row>
-        <Row className="justify-content-center mb-2">
+        <Row className="justify-content-center mb-3">
           <Col>
             <FormElement
               data={data}
