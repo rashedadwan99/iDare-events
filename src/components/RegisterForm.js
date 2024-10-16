@@ -29,13 +29,13 @@ const RegisterForm = memo(function () {
     name: "",
     phone: "",
     national_number: "",
+    has_disability: "",
     password: "",
     gender_id: "",
     country_id: "",
     city_id: "",
     allergies: "",
     disability: "",
-    is_disabled: "",
     birthdate: "",
   });
   const isArabic = useSelector((state) => state.language.isArabic);
@@ -130,8 +130,8 @@ const RegisterForm = memo(function () {
     scrollToTop();
   };
   const hasDisabilityOptions = [
-    { value: 1, name: "yes", name_ar: "نعم" },
-    { value: 0, name: "no", name_ar: "لا" },
+    { value: "1", name: "yes", name_ar: "نعم" },
+    { value: "0", name: "no", name_ar: "لا" },
   ];
   return (
     <Col>
