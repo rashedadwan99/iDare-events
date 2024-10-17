@@ -84,9 +84,7 @@ const RegisterForm = memo(function () {
       national_number,
       country_id,
       city_id,
-      allergies,
       has_disability,
-      disability,
       birthdate,
     } = data;
     if (
@@ -98,8 +96,6 @@ const RegisterForm = memo(function () {
       !country_id ||
       !email ||
       !city_id ||
-      !allergies ||
-      !disability ||
       !birthdate ||
       !has_disability
     )

@@ -18,9 +18,8 @@ axiosInstance.interceptors.response.use(
   },
   (error) => {
     if (error.response && error.response.status === 401) {
-      localStorage.removeItem("api_token");
-
       window.location.href = loginPageRoute;
+      localStorage.removeItem("api_token");
     }
 
     return Promise.reject(error);
