@@ -46,21 +46,29 @@ function ProfileInfo() {
               <br />
               <span>{user.phone}</span>
             </div>
-            <div>
-              <span className="data-title">{t("gender")}</span>
-              <br />
-              <span>{isArabic ? user.gender.name_ar : user.gender.name}</span>
-            </div>
-            <div>
-              <span className="data-title">{t("Country")}</span>
-              <br />
-              <span>{isArabic ? user.country.name_ar : user.country.name}</span>
-            </div>
-            <div>
-              <span className="data-title">{t("City")}</span>
-              <br />
-              <span>{isArabic ? user.city.name_ar : user.city.name}</span>
-            </div>
+            {user.gender && (
+              <div>
+                <span className="data-title">{t("gender")}</span>
+                <br />
+                <span>{isArabic ? user.gender.name_ar : user.gender.name}</span>
+              </div>
+            )}
+            {user.country && (
+              <div>
+                <span className="data-title">{t("Country")}</span>
+                <br />
+                <span>
+                  {isArabic ? user.country.name_ar : user.country.name}
+                </span>
+              </div>
+            )}
+            {user.city && (
+              <div>
+                <span className="data-title">{t("City")}</span>
+                <br />
+                <span>{isArabic ? user.city.name_ar : user.city.name}</span>
+              </div>
+            )}
             <div>
               <span className="data-title">{t("national_number")}</span>
               <br />

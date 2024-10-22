@@ -164,7 +164,9 @@ function EditForm() {
                 <FormElement
                   name="country_id"
                   defaultOption={
-                    isArabic ? value.country.name_ar : value.country.name
+                    isArabic
+                      ? value.country && value.country.name_ar
+                      : value.country && value.country.name
                   }
                   options={Countries}
                   data={data}
@@ -177,7 +179,9 @@ function EditForm() {
               <Col xs={11} sm={11} md={5}>
                 <FormElement
                   defaultOption={
-                    isArabic ? value.gender.name_ar : value.gender.name
+                    isArabic
+                      ? value.gender && value.gender.name_ar
+                      : value.gender && value.gender.name
                   }
                   label={t("gender")}
                   name="gender_id"
@@ -194,7 +198,9 @@ function EditForm() {
                 <FormElement
                   name="city_id"
                   defaultOption={
-                    isArabic ? value.city.name_ar : value.city.name
+                    isArabic
+                      ? value.city && value.city.name_ar
+                      : value.city && value.city.name
                   }
                   options={cities}
                   data={data}

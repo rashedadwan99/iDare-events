@@ -24,7 +24,7 @@ function EventsCards({ events }) {
         <Row
           className="justify-content-between event-card py-3 my-4"
           style={containerStyle}
-          key={i}
+          key={e.id}
           onClick={() => handleGoToEventPage(e.id)}
         >
           <Col md={6}>
@@ -64,7 +64,7 @@ function EventsCards({ events }) {
           </Col>
         </Row>
       );
-    return <></>;
+    return;
   });
 }
 

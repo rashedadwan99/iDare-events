@@ -9,7 +9,7 @@ function ProfileEdit() {
   return (
     <>
       <Header />
-      {value.gender ? <EditForm /> : <></>}
+      <EditForm />
       <Footer />
     </>
   );
