@@ -5,7 +5,7 @@ import {
   BsFillClockFill,
   BsFillTelephoneFill,
 } from "react-icons/bs";
-import { HandleDate, HandleTimeZone } from "../utils/TimeZone";
+import { HandleDate, useHandleTimeZone } from "../utils/TimeZone";
 import { useSelector } from "react-redux";
 
 export const GetEventInfo = (event) => {
@@ -21,7 +21,7 @@ export const GetEventInfo = (event) => {
     },
     {
       icon: <BsFillClockFill />,
-      data: `${HandleTimeZone(event.start_time)} - ${HandleTimeZone(
+      data: `${useHandleTimeZone(event.start_time)} - ${useHandleTimeZone(
         event.end_time
       )}`,
     },

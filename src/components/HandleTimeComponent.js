@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
-import { HandleDate, HandleTimeZone } from "./utils/TimeZone";
+import { HandleDate, useHandleTimeZone } from "./utils/TimeZone";
 
 function HandleTimeComponent({ data }) {
   const { t } = useTranslation();
@@ -13,10 +13,10 @@ function HandleTimeComponent({ data }) {
         </Row>
       </Col>
       <Col xs={12} sm={12} className="my-2">
-        <Row>{`${t("start")} : ${HandleTimeZone(data.start_time)}`}</Row>
+        <Row>{`${t("start")} : ${useHandleTimeZone(data.start_time)}`}</Row>
       </Col>
       <Col xs={12} sm={12}>
-        <Row> {`${t("end")} : ${HandleTimeZone(data.end_time)}`}</Row>
+        <Row> {`${t("end")} : ${useHandleTimeZone(data.end_time)}`}</Row>
       </Col>
     </>
   );

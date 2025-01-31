@@ -9,16 +9,16 @@ import { headerEventStyle } from "../styles/eventStyles";
 const Header = memo(function () {
   const allEvents = useSelector((state) => state.events.allEvents);
   const { id } = useParams();
-  const [event, setEvent] = useState(null);
+  const [event, setEvent] = useState({});
   useEffect(() => {
     if (id) setEvent(allEvents.find((e) => e.id === parseInt(id)));
-  }, [id,allEvents]);
+  }, [id, allEvents]);
   return (
     <Row
       className={`header py-2 ${event ? "event-header" : ""}`}
       style={event && headerEventStyle(event)}
     >
-      <LeftHeaderSide event={event} />
+      <LeftHeaderSide />
       <RightHeaderSide />
     </Row>
   );

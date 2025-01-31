@@ -1,0 +1,4 @@
+.dom-parser img,
+.dom-parser video {
+  max-width: 100% !important;
+}
