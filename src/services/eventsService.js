@@ -5,11 +5,19 @@ export const getUpcomingEvents = () => {
   return http.get("/events");
 };
 
+// export const registerEvent = (data) => {
+//   return http.get("/events/register", {
+//     params: { ...data, api_token: getUserToken() },
+//   });
+// };
+
 export const registerEvent = (data) => {
-  return http.get("/events/register", {
-    params: { ...data, api_token: getUserToken() },
+  return http.post("/events/register", {
+    ...data,
+    api_token: getUserToken(),
   });
 };
+
 
 export const getMyEvents = () => {
   return http.get("/events/getMyEvents", {
